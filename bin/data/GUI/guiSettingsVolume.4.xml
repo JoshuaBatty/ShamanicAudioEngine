@@ -1,0 +1,30 @@
+<Widget>
+    <Kind>4</Kind>
+    <Name>CarrierPitch</Name>
+    <Value>69.193542480</Value>
+</Widget>
+<Widget>
+    <Kind>4</Kind>
+    <Name>CarrierOffset</Name>
+    <Value>7.858064651</Value>
+</Widget>
+<Widget>
+    <Kind>5</Kind>
+    <Name>Binaural_B</Name>
+    <Value>0.790000021</Value>
+</Widget>
+<Widget>
+    <Kind>5</Kind>
+    <Name>Hand_Drum</Name>
+    <Value>0.649677396</Value>
+</Widget>
+<Widget>
+    <Kind>5</Kind>
+    <Name>Icaros</Name>
+    <Value>0.617419362</Value>
+</Widget>
+<Widget>
+    <Kind>5</Kind>
+    <Name>Sing_Bowl</Name>
+    <Value>0.601290345</Value>
+</Widget>

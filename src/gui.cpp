@@ -1,0 +1,995 @@
+//
+//  gui.cpp
+//  emptyExample
+//
+//  Created by Joshua Batty on 22/02/13.
+//
+//
+
+#include "gui.h"
+
+//-------------------------------------------------------------
+Gui::~Gui() {
+    
+}
+
+//--------------------------------------------------------------
+void Gui::setup(Tween *_tween1, Tween *_tween2, Tween *_tween3, Tween *_tween4, AudioBinaural *_audioBinaural, AudioSampler *_audioSample1, AudioSampler *_audioSample2, AudioSampler *_audioSample3, AudioSampler *_audioSample4)
+{
+    curPreset = 1;
+    
+    tween1 = _tween1;
+    tween2 = _tween2;
+    tween3 = _tween3;
+    tween4 = _tween4;
+    audioBinaural = _audioBinaural;
+    audioSample1 = _audioSample1;
+    audioSample2 = _audioSample2;
+    audioSample3 = _audioSample3;
+    audioSample4 = _audioSample4;
+
+    float dim = 16;
+    float xInit = OFX_UI_GLOBAL_WIDGET_SPACING;
+    float length = 320-xInit;
+    
+    //BINARUAL
+    guiBinaural = new ofxUICanvas(0,0,length+xInit*2.0,ofGetHeight());
+    guiBinaural->addWidgetDown(new ofxUILabel("SHAMANIC AUDIO ENGINE", OFX_UI_FONT_MEDIUM));
+    guiBinaural->addWidgetDown(new ofxUIFPS(OFX_UI_FONT_MEDIUM));
+    guiBinaural->addSpacer(length, dim/5);
+    
+    guiBinaural->addLabel("BINARUAL");
+    guiBinaural->addSlider("CarrierPitch", 30.0, 300.0, audioBinaural->osc1Pitch, 310, 40);
+    guiBinaural->addSlider("CarrierOffset", 0.0, 14.0, audioBinaural->osc2Pitch, 310, 40);
+    guiBinaural->addSlider("Binaural_B", 0.0, 1.0, audioBinaural->volume, 310, 40);
+    guiBinaural->addSpacer(length, dim/5);
+    
+    //VOLUME
+    gui1 = new ofxUICanvas(0,255,length+xInit*2.0,ofGetHeight());
+    gui1->addWidgetDown(new ofxUILabel("VOLUME", OFX_UI_FONT_MEDIUM));
+    gui1->addSlider("Hand_Drum", 0.0, 1.0, audioSample1->volume, 40, 310);
+    gui1->addWidgetRight(new ofxUISlider("Icaros", 0.0, 1.0, audioSample2->volume, 40, 310));
+    gui1->addWidgetRight(new ofxUISlider("Sing_Bowl", 0.0, 1.0, audioSample3->volume, 40, 310));
+    gui1->addWidgetRight(new ofxUISlider("Vocal", 0.0, 1.0, audioSample4->volume, 40, 310));
+    gui1->addSpacer(length, dim/5);
+    
+    // DRUM
+    gui2 = new ofxUICanvas(10+(length+xInit),0,length+xInit*2.0,ofGetHeight());
+    gui2->addWidgetDown(new ofxUILabel("DRUM", OFX_UI_FONT_MEDIUM));
+    gui2->addSpacer(length, dim/5);
+    
+    gui2->addLabel("GRANULAR");
+    gui2->addSlider("pitch1", 0.0, 8.0, audioSample1->pitch1, 310, 40);
+    gui2->addSlider("speed1", -2.0, 2.0, audioSample1->speed1, 310, 40);
+    gui2->addSlider("grainLength1", 0.025, 0.49, audioSample1->grainLength1, 310, 40);
+    gui2->addSlider("overlaps1", 1, 6, audioSample1->overlaps1, 310, 40);
+    gui2->addSlider("randomGrainPitch1", 0.0, 0.50, audioSample1->randomGrainPitch1, 310, 40);
+    gui2->addSlider("randomGrainSize1", 0.0, 0.05, audioSample1->randomGrainSize1, 310, 40);
+    gui2->addSpacer(length, dim/5);
+    
+    gui2->addLabel("FILTER");
+    gui2->addSlider("Cutoff1", 0.0, 10000.0, audioSample1->cutoff1, 310, 40);
+    gui2->addSlider("LfoSpeed1", 0.0, 200.0, audioSample1->lfoSpeed1, 310, 40);
+    gui2->addSlider("LfoAmp1", 0.0, 3000.0, audioSample1->lfoAmp1, 310, 40);
+    gui2->addSpacer(length, dim/5);
+    
+    gui2->addLabel("DELAY");
+    gui2->addSlider("DelayTime1", 10.0, 10000.0, audioSample1->delayTime1, 310, 40);
+    gui2->addSlider("DelayFeedback1", 0.0, 0.95, audioSample1->delayFeedback1, 310, 40);
+    gui2->addSpacer(length, dim/5);
+    
+    gui2->addLabel("CRUSH");
+    gui2->addSlider("Bits1", 32.0, 0.0, audioSample1->bits, 310, 40);
+    gui2->addSlider("Rate1", 1.0, 0.0, audioSample1->rate, 310, 40);
+    gui2->addSpacer(length, dim/5);
+    
+    gui2->addLabel("REVERB");
+    gui2->addSlider("ReverbSize1", 0.0, 1.0, audioSample1->reverbSize, 310, 40);
+    gui2->addSlider("ReverbDamp1", 0.0, 1.0, audioSample1->reverbDamp, 310, 40);
+    gui2->addSlider("ReverbWidth1", 0.0, 1.0, audioSample1->reverbWidth, 310, 40);
+    gui2->addSlider("ReverbDryWet1", 0.0, 1.0, audioSample1->reverbDryWet, 310, 40);
+    gui2->addSpacer(length, dim/5);
+    
+    // SINGING BOWLS
+    gui3 = new ofxUICanvas(10+(length+xInit)*2.0,0,length+xInit*2.0,ofGetHeight());
+    gui3->addWidgetDown(new ofxUILabel("ICAROS", OFX_UI_FONT_MEDIUM));
+    gui3->addSpacer(length, dim/5);
+    
+    gui3->addLabel("GRANULAR");
+    gui3->addSlider("pitch2", 0.0, 8.0, audioSample2->pitch1, 310, 40);
+    gui3->addSlider("speed2", -2.0, 2.0, audioSample2->speed1, 310, 40);
+    gui3->addSlider("grainLength2", 0.025, 0.49, audioSample2->grainLength1, 310, 40);
+    gui3->addSlider("overlaps2", 1, 6, audioSample2->overlaps1, 310, 40);
+    gui3->addSlider("randomGrainPitch2", 0.0, 0.50, audioSample2->randomGrainPitch1, 310, 40);
+    gui3->addSlider("randomGrainSize2", 0.0, 0.05, audioSample2->randomGrainSize1, 310, 40);
+    gui3->addSpacer(length, dim/5);
+    
+    gui3->addLabel("FILTER");
+    gui3->addSlider("Cutoff2", 0.0, 10000.0, audioSample2->cutoff1, 310, 40);
+    gui3->addSlider("LfoSpeed2", 0.0, 200.0, audioSample2->lfoSpeed1, 310, 40);
+    gui3->addSlider("LfoAmp2", 0.0, 3000.0, audioSample2->lfoAmp1, 310, 40);
+    gui3->addSpacer(length, dim/5);
+    
+    gui3->addLabel("DELAY");
+    gui3->addSlider("DelayTime2", 10.0, 3000.0, audioSample2->delayTime1, 310, 40);
+    gui3->addSlider("DelayFeedback2", 0.0, 0.95, audioSample2->delayFeedback1, 310, 40);
+    gui3->addSpacer(length, dim/5);
+    
+    gui3->addLabel("CRUSH");
+    gui3->addSlider("Bits2", 32.0, 0.0, audioSample2->bits, 310, 40);
+    gui3->addSlider("Rate2", 1.0, 0.0, audioSample2->rate, 310, 40);
+    gui3->addSpacer(length, dim/5);
+    
+    gui3->addLabel("REVERB");
+    gui3->addSlider("ReverbSize2", 0.0, 1.0, audioSample2->reverbSize, 310, 40);
+    gui3->addSlider("ReverbDamp2", 0.0, 1.0, audioSample2->reverbDamp, 310, 40);
+    gui3->addSlider("ReverbWidth2", 0.0, 1.0, audioSample2->reverbWidth, 310, 40);
+    gui3->addSlider("ReverbDryWet2", 0.0, 1.0, audioSample2->reverbDryWet, 310, 40);
+    gui3->addSpacer(length, dim/5);
+    
+    // THROAT SINGING
+    gui4 = new ofxUICanvas(10+(length+xInit)*3.0,0,length+xInit*2.0,ofGetHeight());
+    gui4->addWidgetDown(new ofxUILabel("SINGING BOWLS", OFX_UI_FONT_MEDIUM));
+    gui4->addSpacer(length, dim/5);
+    
+    gui4->addLabel("GRANULAR");
+    gui4->addSlider("pitch3", 0.0, 8.0, audioSample3->pitch1, 310, 40);
+    gui4->addSlider("speed3", -2.0, 2.0, audioSample3->speed1, 310, 40);
+    gui4->addSlider("grainLength3", 0.025, 0.49, audioSample3->grainLength1, 310, 40);
+    gui4->addSlider("overlaps3", 1, 6, audioSample3->overlaps1, 310, 40);
+    gui4->addSlider("randomGrainPitch3", 0.0, 0.50, audioSample3->randomGrainPitch1, 310, 40);
+    gui4->addSlider("randomGrainSize3", 0.0, 0.05, audioSample3->randomGrainSize1, 310, 40);
+    gui4->addSpacer(length, dim/5);
+    
+    gui4->addLabel("FILTER");
+    gui4->addSlider("Cutoff3", 0.0, 10000.0, audioSample3->cutoff1, 310, 40);
+    gui4->addSlider("LfoSpeed3", 0.0, 200.0, audioSample3->lfoSpeed1, 310, 40);
+    gui4->addSlider("LfoAmp3", 0.0, 3000.0, audioSample3->lfoAmp1, 310, 40);
+    gui4->addSpacer(length, dim/5);
+    
+    gui4->addLabel("DELAY");
+    gui4->addSlider("DelayTime3", 10.0, 3000.0, audioSample3->delayTime1, 310, 40);
+    gui4->addSlider("DelayFeedback3", 0.0, 0.95, audioSample3->delayFeedback1, 310, 40);
+    gui4->addSpacer(length, dim/5);
+    
+    gui4->addLabel("CRUSH");
+    gui4->addSlider("Bits3", 32.0, 0.0, audioSample3->bits, 310, 40);
+    gui4->addSlider("Rate3", 1.0, 0.0, audioSample3->rate, 310, 40);
+    gui4->addSpacer(length, dim/5);
+    
+    gui4->addLabel("REVERB");
+    gui4->addSlider("ReverbSize3", 0.0, 1.0, audioSample3->reverbSize, 310, 40);
+    gui4->addSlider("ReverbDamp3", 0.0, 1.0, audioSample3->reverbDamp, 310, 40);
+    gui4->addSlider("ReverbWidth3", 0.0, 1.0, audioSample3->reverbWidth, 310, 40);
+    gui4->addSlider("ReverbDryWet3", 0.0, 1.0, audioSample3->reverbDryWet, 310, 40);
+    gui4->addSpacer(length, dim/5);
+    
+    // ICAROS
+    gui5 = new ofxUICanvas(10+(length+xInit)*4.0,0,length+xInit*2.0,ofGetHeight());
+    gui5->addWidgetDown(new ofxUILabel("SAXAPHONE", OFX_UI_FONT_MEDIUM));
+    gui5->addSpacer(length, dim/5);
+    
+    gui5->addLabel("GRANULAR");
+    gui5->addSlider("pitch4", 0.0, 8.0, audioSample4->pitch1, 310, 40);
+    gui5->addSlider("speed4", -2.0, 2.0, audioSample4->speed1, 310, 40);
+    gui5->addSlider("grainLength4", 0.025, 0.49, audioSample4->grainLength1, 310, 40);
+    gui5->addSlider("overlaps4", 1, 6, audioSample4->overlaps1, 310, 40);
+    gui5->addSlider("randomGrainPitch4", 0.0, 0.50, audioSample4->randomGrainPitch1, 310, 40);
+    gui5->addSlider("randomGrainSize4", 0.0, 0.05, audioSample4->randomGrainSize1, 310, 40);
+    gui5->addSpacer(length, dim/5);
+    
+    gui5->addLabel("FILTER");
+    gui5->addSlider("Cutoff4", 0.0, 10000.0, audioSample4->cutoff1, 310, 40);
+    gui5->addSlider("LfoSpeed4", 0.0, 200.0, audioSample4->lfoSpeed1, 310, 40);
+    gui5->addSlider("LfoAmp4", 0.0, 3000.0, audioSample4->lfoAmp1, 310, 40);
+    gui5->addSpacer(length, dim/5);
+    
+    gui5->addLabel("DELAY");
+    gui5->addSlider("DelayTime4", 10.0, 3000.0, audioSample4->delayTime1, 310, 40);
+    gui5->addSlider("DelayFeedback4", 0.0, 0.95, audioSample4->delayFeedback1, 310, 40);
+    gui5->addSpacer(length, dim/5);
+    
+    gui5->addLabel("CRUSH");
+    gui5->addSlider("Bits4", 32.0, 0.0, audioSample4->bits, 310, 40);
+    gui5->addSlider("Rate4", 1.0, 0.0, audioSample4->rate, 310, 40);
+    gui5->addSpacer(length, dim/5);
+    
+    gui5->addLabel("REVERB");
+    gui5->addSlider("ReverbSize4", 0.0, 1.0, audioSample4->reverbSize, 310, 40);
+    gui5->addSlider("ReverbDamp4", 0.0, 1.0, audioSample4->reverbDamp, 310, 40);
+    gui5->addSlider("ReverbWidth4", 0.0, 1.0, audioSample4->reverbWidth, 310, 40);
+    gui5->addSlider("ReverbDryWet4", 0.0, 1.0, audioSample4->reverbDryWet, 310, 40);
+    gui5->addSpacer(length, dim/5);
+    
+    ////
+    gui6 = new ofxUICanvas(10+(length+xInit)*5.0,0,length+xInit*2.0,ofGetHeight());
+    gui6->addWidgetDown(new ofxUILabel("THROAT SINGING", OFX_UI_FONT_MEDIUM));
+    gui6->addSpacer(length, dim/5);
+    
+    //PRESETS
+    gui7 = new ofxUICanvas(0,610,length+xInit*2.0,ofGetHeight());
+    gui7->addWidgetDown(new ofxUILabel("PRESETS", OFX_UI_FONT_LARGE));
+    gui7->addWidgetDown(new ofxUISpacer(length, 2));
+    gui7->addLabelButton("SAVE PRESET", true, length-xInit);
+
+    vector<string> hnames; hnames.push_back("1"); hnames.push_back("2"); hnames.push_back("3"); hnames.push_back("4"); hnames.push_back("5"); hnames.push_back("6"); hnames.push_back("7"); hnames.push_back("8");
+    ofxUIRadio *radio = (ofxUIRadio *) gui7->addWidgetDown(new ofxUIRadio(dim, dim, "PRESET SELECT", hnames, OFX_UI_ORIENTATION_HORIZONTAL));
+    radio->activateToggle("PRESETS");
+    
+    gui7->addWidgetDown(new ofxUILabel("DELAY", OFX_UI_FONT_MEDIUM));
+    gui7->addWidgetRight(new ofxUINumberDialer(0, 10000, 1000, 1, "TWEEN_DURATION", OFX_UI_FONT_MEDIUM));
+    
+  	gui7->addWidgetDown(new ofxUISpacer(length, 2));
+    
+    //Listener
+    ofAddListener(guiBinaural->newGUIEvent, this, &Gui::guiEvent);
+    ofAddListener(gui1->newGUIEvent, this, &Gui::guiEvent);
+    ofAddListener(gui2->newGUIEvent, this, &Gui::guiEvent);
+    ofAddListener(gui3->newGUIEvent, this, &Gui::guiEvent);
+    ofAddListener(gui4->newGUIEvent, this, &Gui::guiEvent);
+    ofAddListener(gui5->newGUIEvent, this, &Gui::guiEvent);
+    ofAddListener(gui6->newGUIEvent, this, &Gui::guiEvent);
+    ofAddListener(gui7->newGUIEvent, this, &Gui::guiEvent);
+
+    //Padding
+    guiBinaural->setDrawPadding(true);
+    gui1->setDrawPadding(true);
+    gui2->setDrawPadding(true);
+    gui3->setDrawPadding(true);
+    gui4->setDrawPadding(true);
+    gui1->setDrawWidgetPadding(true);
+    gui2->setDrawWidgetPadding(true);
+    gui3->setDrawWidgetPadding(true);
+    gui4->setDrawWidgetPadding(true);
+    
+    //XML preset loading
+    gui1->loadSettings("GUI/guiSettingsVolume.xml");
+    gui2->loadSettings("GUI/guiSettingsAudio1.xml");
+    gui3->loadSettings("GUI/guiSettingsAudio2.xml");
+    gui4->loadSettings("GUI/guiSettingsAudio3.xml");
+    
+}
+
+
+//--------------------------------------------------------------
+void Gui::guiEvent(ofxUIEventArgs &e)
+{
+	string name = e.widget->getName();
+	int kind = e.widget->getKind();
+	
+    //PRESET SAVING
+    if(name == "SAVE PRESET" && curPreset == 1){
+        gui1->saveSettings("GUI/guiSettingsVolume.1.xml");
+        gui2->saveSettings("GUI/guiSettingsAudio1.1.xml");
+        gui3->saveSettings("GUI/guiSettingsAudio2.1.xml");
+        gui4->saveSettings("GUI/guiSettingsAudio3.1.xml");
+        gui5->saveSettings("GUI/guiSettingsAudio4.1.xml");
+    }
+    else if(name == "SAVE PRESET" && curPreset == 2){
+        gui1->saveSettings("GUI/guiSettingsVolume.2.xml");
+        gui2->saveSettings("GUI/guiSettingsAudio1.2.xml");
+        gui3->saveSettings("GUI/guiSettingsAudio2.2.xml");
+        gui4->saveSettings("GUI/guiSettingsAudio3.2.xml");
+        gui5->saveSettings("GUI/guiSettingsAudio4.2.xml");
+    }
+    else if(name == "SAVE PRESET" && curPreset == 3){
+        gui1->saveSettings("GUI/guiSettingsVolume.3.xml");
+        gui2->saveSettings("GUI/guiSettingsAudio1.3.xml");
+        gui3->saveSettings("GUI/guiSettingsAudio2.3.xml");
+        gui4->saveSettings("GUI/guiSettingsAudio3.3.xml");
+        gui5->saveSettings("GUI/guiSettingsAudio4.3.xml");
+    }
+    else if(name == "SAVE PRESET" && curPreset == 4){
+        gui1->saveSettings("GUI/guiSettingsVolume.4.xml");
+        gui2->saveSettings("GUI/guiSettingsAudio1.4.xml");
+        gui3->saveSettings("GUI/guiSettingsAudio2.4.xml");
+        gui4->saveSettings("GUI/guiSettingsAudio3.4.xml");
+        gui5->saveSettings("GUI/guiSettingsAudio4.4.xml");
+    }
+    else if(name == "SAVE PRESET" && curPreset == 5){
+        gui1->saveSettings("GUI/guiSettingsVolume.5.xml");
+        gui2->saveSettings("GUI/guiSettingsAudio1.5.xml");
+        gui3->saveSettings("GUI/guiSettingsAudio2.5.xml");
+        gui4->saveSettings("GUI/guiSettingsAudio3.5.xml");
+        gui5->saveSettings("GUI/guiSettingsAudio4.5.xml");
+    }
+    else if(name == "SAVE PRESET" && curPreset == 6){
+        gui1->saveSettings("GUI/guiSettingsVolume.6.xml");
+        gui2->saveSettings("GUI/guiSettingsAudio1.6.xml");
+        gui3->saveSettings("GUI/guiSettingsAudio2.6.xml");
+        gui4->saveSettings("GUI/guiSettingsAudio3.6.xml");
+        gui5->saveSettings("GUI/guiSettingsAudio4.6.xml");
+    }
+    else if(name == "SAVE PRESET" && curPreset == 7){
+        gui1->saveSettings("GUI/guiSettingsVolume.7.xml");
+        gui2->saveSettings("GUI/guiSettingsAudio1.7.xml");
+        gui3->saveSettings("GUI/guiSettingsAudio2.7.xml");
+        gui4->saveSettings("GUI/guiSettingsAudio3.7.xml");
+        gui5->saveSettings("GUI/guiSettingsAudio4.7.xml");
+    }
+    else if(name == "SAVE PRESET" && curPreset == 8){
+        gui1->saveSettings("GUI/guiSettingsVolume.8.xml");
+        gui2->saveSettings("GUI/guiSettingsAudio1.8.xml");
+        gui3->saveSettings("GUI/guiSettingsAudio2.8.xml");
+        gui4->saveSettings("GUI/guiSettingsAudio3.8.xml");
+        gui5->saveSettings("GUI/guiSettingsAudio4.8.xml");
+    }
+
+
+    else if(name == "1"){
+        ofxUILabelButton *button = (ofxUILabelButton *) e.widget;
+        curPreset = 1;
+        tween1->trigger2();
+        tween2->trigger2();
+        tween3->trigger2();
+        tween4->trigger2();
+        gui1->loadSettings("GUI/guiSettingsVolume.1.xml");
+        gui2->loadSettings("GUI/guiSettingsAudio1.1.xml");
+        gui3->loadSettings("GUI/guiSettingsAudio2.1.xml");
+        gui4->loadSettings("GUI/guiSettingsAudio3.1.xml");
+        gui5->loadSettings("GUI/guiSettingsAudio4.1.xml");
+        tween1->catchTempVariables();
+        tween2->catchTempVariables();
+        tween3->catchTempVariables();
+        tween4->catchTempVariables();
+        cout << " curPreset = " << curPreset << endl;
+	}
+    else if(name == "2"){
+        ofxUILabelButton *button = (ofxUILabelButton *) e.widget;
+        curPreset = 2;
+        tween1->trigger2();
+        tween2->trigger2();
+        tween3->trigger2();
+        tween4->trigger2();
+        gui1->loadSettings("GUI/guiSettingsVolume.2.xml");
+        gui2->loadSettings("GUI/guiSettingsAudio1.2.xml");
+        gui3->loadSettings("GUI/guiSettingsAudio2.2.xml");
+        gui4->loadSettings("GUI/guiSettingsAudio3.2.xml");
+        gui5->loadSettings("GUI/guiSettingsAudio4.2.xml");
+        tween1->catchTempVariables();
+        tween2->catchTempVariables();
+        tween3->catchTempVariables();
+        tween4->catchTempVariables();
+        cout << " curPreset = " << curPreset << endl;
+	}
+    else if(name == "3"){
+        ofxUILabelButton *button = (ofxUILabelButton *) e.widget;
+        curPreset = 3;
+        tween1->trigger2();
+        tween2->trigger2();
+        tween3->trigger2();
+        tween4->trigger2();
+        gui1->loadSettings("GUI/guiSettingsVolume.3.xml");
+        gui2->loadSettings("GUI/guiSettingsAudio1.3.xml");
+        gui3->loadSettings("GUI/guiSettingsAudio2.3.xml");
+        gui4->loadSettings("GUI/guiSettingsAudio3.3.xml");
+        gui5->loadSettings("GUI/guiSettingsAudio4.3.xml");
+        tween1->catchTempVariables();
+        tween2->catchTempVariables();
+        tween3->catchTempVariables();
+        tween4->catchTempVariables();
+        cout << " curPreset = " << curPreset << endl;
+	}
+    else if(name == "4"){
+        ofxUILabelButton *button = (ofxUILabelButton *) e.widget;
+        curPreset = 4;
+        tween1->trigger2();
+        tween2->trigger2();
+        tween3->trigger2();
+        tween4->trigger2();
+        gui1->loadSettings("GUI/guiSettingsVolume.4.xml");
+        gui2->loadSettings("GUI/guiSettingsAudio1.4.xml");
+        gui3->loadSettings("GUI/guiSettingsAudio2.4.xml");
+        gui4->loadSettings("GUI/guiSettingsAudio3.4.xml");
+        gui5->loadSettings("GUI/guiSettingsAudio4.4.xml");
+        tween1->catchTempVariables();
+        tween2->catchTempVariables();
+        tween3->catchTempVariables();
+        tween4->catchTempVariables();
+        cout << " curPreset = " << curPreset << endl;
+	}
+    else if(name == "5"){
+        ofxUILabelButton *button = (ofxUILabelButton *) e.widget;
+        curPreset = 5;
+        tween1->trigger2();
+        tween2->trigger2();
+        tween3->trigger2();
+        tween4->trigger2();
+        gui1->loadSettings("GUI/guiSettingsVolume.5.xml");
+        gui2->loadSettings("GUI/guiSettingsAudio1.5.xml");
+        gui3->loadSettings("GUI/guiSettingsAudio2.5.xml");
+        gui4->loadSettings("GUI/guiSettingsAudio3.5.xml");
+        gui5->loadSettings("GUI/guiSettingsAudio4.5.xml");
+        tween1->catchTempVariables();
+        tween2->catchTempVariables();
+        tween3->catchTempVariables();
+        tween4->catchTempVariables();
+        cout << " curPreset = " << curPreset << endl;
+	}
+    else if(name == "6"){
+        ofxUILabelButton *button = (ofxUILabelButton *) e.widget;
+        curPreset = 6;
+        tween1->trigger2();
+        tween2->trigger2();
+        tween3->trigger2();
+        tween4->trigger2();
+        gui1->loadSettings("GUI/guiSettingsVolume.6.xml");
+        gui2->loadSettings("GUI/guiSettingsAudio1.6.xml");
+        gui3->loadSettings("GUI/guiSettingsAudio2.6.xml");
+        gui4->loadSettings("GUI/guiSettingsAudio3.6.xml");
+        gui5->loadSettings("GUI/guiSettingsAudio4.6.xml");
+        tween1->catchTempVariables();
+        tween2->catchTempVariables();
+        tween3->catchTempVariables();
+        tween4->catchTempVariables();
+        cout << " curPreset = " << curPreset << endl;
+	}
+    else if(name == "7"){
+        ofxUILabelButton *button = (ofxUILabelButton *) e.widget;
+        curPreset = 7;
+        tween1->trigger2();
+        tween2->trigger2();
+        tween3->trigger2();
+        tween4->trigger2();
+        gui1->loadSettings("GUI/guiSettingsVolume.7.xml");
+        gui2->loadSettings("GUI/guiSettingsAudio1.7.xml");
+        gui3->loadSettings("GUI/guiSettingsAudio2.7.xml");
+        gui4->loadSettings("GUI/guiSettingsAudio3.7.xml");
+        gui5->loadSettings("GUI/guiSettingsAudio4.7.xml");
+        tween1->catchTempVariables();
+        tween2->catchTempVariables();
+        tween3->catchTempVariables();
+        tween4->catchTempVariables();
+        cout << " curPreset = " << curPreset << endl;
+	}
+    else if(name == "8"){
+        ofxUILabelButton *button = (ofxUILabelButton *) e.widget;
+        curPreset = 8;
+        tween1->trigger2();
+        tween2->trigger2();
+        tween3->trigger2();
+        tween4->trigger2();
+        gui1->loadSettings("GUI/guiSettingsVolume.8.xml");
+        gui2->loadSettings("GUI/guiSettingsAudio1.8.xml");
+        gui3->loadSettings("GUI/guiSettingsAudio2.8.xml");
+        gui4->loadSettings("GUI/guiSettingsAudio3.8.xml");
+        gui5->loadSettings("GUI/guiSettingsAudio4.8.xml");
+        tween1->catchTempVariables();
+        tween2->catchTempVariables();
+        tween3->catchTempVariables();
+        tween4->catchTempVariables();
+        cout << " curPreset = " << curPreset << endl;
+	}
+    
+    else if(name == "TWEEN_DURATION"){
+        ofxUINumberDialer *number = (ofxUINumberDialer *) e.widget;
+        tween1->duration = number->getValue();
+        tween2->duration = number->getValue();
+        tween3->duration = number->getValue();
+        tween4->duration = number->getValue();
+    }
+    
+    else if(name == "CarrierPitch")
+	{
+		ofxUISlider *slider = (ofxUISlider *) e.widget;
+		audioBinaural->osc1Pitch = slider->getScaledValue();
+	}
+    else if(name == "CarrierOffset")
+	{
+		ofxUISlider *slider = (ofxUISlider *) e.widget;
+		audioBinaural->osc2Pitch = slider->getScaledValue();
+	}
+    else if(name == "Binaural_B")
+	{
+		ofxUISlider *slider = (ofxUISlider *) e.widget;
+		audioBinaural->volume = slider->getScaledValue();
+	}
+    else if(name == "Hand_Drum")
+	{
+		ofxUISlider *slider = (ofxUISlider *) e.widget;
+		audioSample1->volume = slider->getScaledValue();
+	}
+    else if(name == "Icaros")
+	{
+		ofxUISlider *slider = (ofxUISlider *) e.widget;
+		audioSample2->volume = slider->getScaledValue();
+	}
+    else if(name == "Sing_Bowl")
+	{
+		ofxUISlider *slider = (ofxUISlider *) e.widget;
+		audioSample3->volume = slider->getScaledValue();
+	}
+    else if(name == "Vocal")
+	{
+		ofxUISlider *slider = (ofxUISlider *) e.widget;
+		audioSample4->volume = slider->getScaledValue();
+	}
+    
+    //DRUM
+    //GRANULAR
+    else if(name == "speed1")
+	{
+		ofxUISlider *slider = (ofxUISlider *) e.widget;
+		audioSample1->speed1 = slider->getScaledValue();
+	}
+	else if(name == "pitch1")
+	{
+		ofxUISlider *slider = (ofxUISlider *) e.widget;
+		audioSample1->pitch1 = slider->getScaledValue();
+	}
+    else if(name == "grainLength1")
+	{
+		ofxUISlider *slider = (ofxUISlider *) e.widget;
+		audioSample1->grainLength1 = slider->getScaledValue();
+	}
+    else if(name == "overlaps1")
+	{
+		ofxUISlider *slider = (ofxUISlider *) e.widget;
+		audioSample1->overlaps1 = slider->getScaledValue();
+	}
+    else if(name == "randomGrainPitch1")
+	{
+		ofxUISlider *slider = (ofxUISlider *) e.widget;
+		audioSample1->randomGrainPitch1 = slider->getScaledValue();
+	}
+    else if(name == "randomGrainSize1")
+	{
+		ofxUISlider *slider = (ofxUISlider *) e.widget;
+		audioSample1->randomGrainSize1 = slider->getScaledValue();
+	}
+    //DSP
+    else if(name == "Cutoff1")
+	{
+		ofxUISlider *slider = (ofxUISlider *) e.widget;
+		audioSample1->cutoff1 = slider->getScaledValue();
+	}
+    else if(name == "LfoSpeed1")
+	{
+		ofxUISlider *slider = (ofxUISlider *) e.widget;
+		audioSample1->lfoSpeed1 = slider->getScaledValue();
+	}
+    else if(name == "LfoAmp1")
+	{
+		ofxUISlider *slider = (ofxUISlider *) e.widget;
+		audioSample1->lfoAmp1 = slider->getScaledValue();
+	}
+    else if(name == "ReverbDryWet1")
+	{
+		ofxUISlider *slider = (ofxUISlider *) e.widget;
+		audioSample1->reverbDryWet = slider->getScaledValue();
+	}
+    else if(name == "ReverbSize1")
+	{
+		ofxUISlider *slider = (ofxUISlider *) e.widget;
+		audioSample1->reverbSize = slider->getScaledValue();
+	}
+    else if(name == "ReverbDamp1")
+	{
+		ofxUISlider *slider = (ofxUISlider *) e.widget;
+		audioSample1->reverbDamp = slider->getScaledValue();
+	}
+    else if(name == "ReverbWidth1")
+	{
+		ofxUISlider *slider = (ofxUISlider *) e.widget;
+		audioSample1->reverbWidth = slider->getScaledValue();
+	}
+    else if(name == "Bits1")
+	{
+		ofxUISlider *slider = (ofxUISlider *) e.widget;
+		audioSample1->bits = slider->getScaledValue();
+	}
+    else if(name == "Rate1")
+	{
+		ofxUISlider *slider = (ofxUISlider *) e.widget;
+		audioSample1->rate = slider->getScaledValue();
+	}
+    else if(name == "DelayTime1")
+	{
+		ofxUISlider *slider = (ofxUISlider *) e.widget;
+		audioSample1->delayTime1 = slider->getScaledValue();
+	}
+    else if(name == "DelayFeedback1")
+	{
+		ofxUISlider *slider = (ofxUISlider *) e.widget;
+		audioSample1->delayFeedback1 = slider->getScaledValue();
+	}
+    
+    //SINGING BOWLS
+    //GRANULAR
+    else if(name == "speed2")
+	{
+		ofxUISlider *slider = (ofxUISlider *) e.widget;
+		audioSample2->speed1 = slider->getScaledValue();
+	}
+	else if(name == "pitch2")
+	{
+		ofxUISlider *slider = (ofxUISlider *) e.widget;
+		audioSample2->pitch1 = slider->getScaledValue();
+	}
+    else if(name == "grainLength2")
+	{
+		ofxUISlider *slider = (ofxUISlider *) e.widget;
+		audioSample2->grainLength1 = slider->getScaledValue();
+	}
+    else if(name == "overlaps2")
+	{
+		ofxUISlider *slider = (ofxUISlider *) e.widget;
+		audioSample2->overlaps1 = slider->getScaledValue();
+	}
+    else if(name == "randomGrainPitch2")
+	{
+		ofxUISlider *slider = (ofxUISlider *) e.widget;
+		audioSample2->randomGrainPitch1 = slider->getScaledValue();
+	}
+    else if(name == "randomGrainSize2")
+	{
+		ofxUISlider *slider = (ofxUISlider *) e.widget;
+		audioSample2->randomGrainSize1 = slider->getScaledValue();
+	}
+    //DSP
+    else if(name == "Cutoff2")
+	{
+		ofxUISlider *slider = (ofxUISlider *) e.widget;
+		audioSample2->cutoff1 = slider->getScaledValue();
+	}
+    else if(name == "LfoSpeed2")
+	{
+		ofxUISlider *slider = (ofxUISlider *) e.widget;
+		audioSample2->lfoSpeed1 = slider->getScaledValue();
+	}
+    else if(name == "LfoAmp2")
+	{
+		ofxUISlider *slider = (ofxUISlider *) e.widget;
+		audioSample2->lfoAmp1 = slider->getScaledValue();
+	}
+    else if(name == "ReverbDryWet2")
+	{
+		ofxUISlider *slider = (ofxUISlider *) e.widget;
+		audioSample2->reverbDryWet = slider->getScaledValue();
+	}
+    else if(name == "ReverbSize2")
+	{
+		ofxUISlider *slider = (ofxUISlider *) e.widget;
+		audioSample2->reverbSize = slider->getScaledValue();
+	}
+    else if(name == "ReverbDamp2")
+	{
+		ofxUISlider *slider = (ofxUISlider *) e.widget;
+		audioSample2->reverbDamp = slider->getScaledValue();
+	}
+    else if(name == "ReverbWidth2")
+	{
+		ofxUISlider *slider = (ofxUISlider *) e.widget;
+		audioSample2->reverbWidth = slider->getScaledValue();
+	}
+    else if(name == "Bits2")
+	{
+		ofxUISlider *slider = (ofxUISlider *) e.widget;
+		audioSample2->bits = slider->getScaledValue();
+	}
+    else if(name == "Rate2")
+	{
+		ofxUISlider *slider = (ofxUISlider *) e.widget;
+		audioSample2->rate = slider->getScaledValue();
+	}
+    else if(name == "DelayTime2")
+	{
+		ofxUISlider *slider = (ofxUISlider *) e.widget;
+		audioSample2->delayTime1 = slider->getScaledValue();
+	}
+    else if(name == "DelayFeedback2")
+	{
+		ofxUISlider *slider = (ofxUISlider *) e.widget;
+		audioSample2->delayFeedback1 = slider->getScaledValue();
+	}
+    
+    //THROAT SINGING
+    //GRANULAR
+    else if(name == "speed3")
+	{
+		ofxUISlider *slider = (ofxUISlider *) e.widget;
+		audioSample3->speed1 = slider->getScaledValue();
+	}
+	else if(name == "pitch3")
+	{
+		ofxUISlider *slider = (ofxUISlider *) e.widget;
+		audioSample3->pitch1 = slider->getScaledValue();
+	}
+    else if(name == "grainLength3")
+	{
+		ofxUISlider *slider = (ofxUISlider *) e.widget;
+		audioSample3->grainLength1 = slider->getScaledValue();
+	}
+    else if(name == "overlaps3")
+	{
+		ofxUISlider *slider = (ofxUISlider *) e.widget;
+		audioSample3->overlaps1 = slider->getScaledValue();
+	}
+    else if(name == "randomGrainPitch3")
+	{
+		ofxUISlider *slider = (ofxUISlider *) e.widget;
+		audioSample3->randomGrainPitch1 = slider->getScaledValue();
+	}
+    else if(name == "randomGrainSize3")
+	{
+		ofxUISlider *slider = (ofxUISlider *) e.widget;
+		audioSample3->randomGrainSize1 = slider->getScaledValue();
+	}
+    //DSP
+    else if(name == "Cutoff3")
+	{
+		ofxUISlider *slider = (ofxUISlider *) e.widget;
+		audioSample3->cutoff1 = slider->getScaledValue();
+	}
+    else if(name == "LfoSpeed3")
+	{
+		ofxUISlider *slider = (ofxUISlider *) e.widget;
+		audioSample3->lfoSpeed1 = slider->getScaledValue();
+	}
+    else if(name == "LfoAmp3")
+	{
+		ofxUISlider *slider = (ofxUISlider *) e.widget;
+		audioSample3->lfoAmp1 = slider->getScaledValue();
+	}
+    else if(name == "ReverbDryWet3")
+	{
+		ofxUISlider *slider = (ofxUISlider *) e.widget;
+		audioSample3->reverbDryWet = slider->getScaledValue();
+	}
+    else if(name == "ReverbSize3")
+	{
+		ofxUISlider *slider = (ofxUISlider *) e.widget;
+		audioSample3->reverbSize = slider->getScaledValue();
+	}
+    else if(name == "ReverbDamp3")
+	{
+		ofxUISlider *slider = (ofxUISlider *) e.widget;
+		audioSample3->reverbDamp = slider->getScaledValue();
+	}
+    else if(name == "ReverbWidth3")
+	{
+		ofxUISlider *slider = (ofxUISlider *) e.widget;
+		audioSample3->reverbWidth = slider->getScaledValue();
+	}
+    else if(name == "Bits3")
+	{
+		ofxUISlider *slider = (ofxUISlider *) e.widget;
+		audioSample3->bits = slider->getScaledValue();
+	}
+    else if(name == "Rate3")
+	{
+		ofxUISlider *slider = (ofxUISlider *) e.widget;
+		audioSample3->rate = slider->getScaledValue();
+	}
+    else if(name == "DelayTime3")
+	{
+		ofxUISlider *slider = (ofxUISlider *) e.widget;
+		audioSample3->delayTime1 = slider->getScaledValue();
+	}
+    else if(name == "DelayFeedback3")
+	{
+		ofxUISlider *slider = (ofxUISlider *) e.widget;
+		audioSample3->delayFeedback1 = slider->getScaledValue();
+	}
+    
+    //ICAROS
+    //GRANULAR
+    else if(name == "speed4")
+	{
+		ofxUISlider *slider = (ofxUISlider *) e.widget;
+		audioSample4->speed1 = slider->getScaledValue();
+	}
+	else if(name == "pitch4")
+	{
+		ofxUISlider *slider = (ofxUISlider *) e.widget;
+		audioSample4->pitch1 = slider->getScaledValue();
+	}
+    else if(name == "grainLength4")
+	{
+		ofxUISlider *slider = (ofxUISlider *) e.widget;
+		audioSample4->grainLength1 = slider->getScaledValue();
+	}
+    else if(name == "overlaps4")
+	{
+		ofxUISlider *slider = (ofxUISlider *) e.widget;
+		audioSample4->overlaps1 = slider->getScaledValue();
+	}
+    else if(name == "randomGrainPitch4")
+	{
+		ofxUISlider *slider = (ofxUISlider *) e.widget;
+		audioSample4->randomGrainPitch1 = slider->getScaledValue();
+	}
+    else if(name == "randomGrainSize4")
+	{
+		ofxUISlider *slider = (ofxUISlider *) e.widget;
+		audioSample4->randomGrainSize1 = slider->getScaledValue();
+	}
+    //DSP
+    else if(name == "Cutoff4")
+	{
+		ofxUISlider *slider = (ofxUISlider *) e.widget;
+		audioSample4->cutoff1 = slider->getScaledValue();
+	}
+    else if(name == "LfoSpeed4")
+	{
+		ofxUISlider *slider = (ofxUISlider *) e.widget;
+		audioSample4->lfoSpeed1 = slider->getScaledValue();
+	}
+    else if(name == "LfoAmp4")
+	{
+		ofxUISlider *slider = (ofxUISlider *) e.widget;
+		audioSample4->lfoAmp1 = slider->getScaledValue();
+	}
+    else if(name == "ReverbDryWet4")
+	{
+		ofxUISlider *slider = (ofxUISlider *) e.widget;
+		audioSample4->reverbDryWet = slider->getScaledValue();
+	}
+    else if(name == "ReverbSize4")
+	{
+		ofxUISlider *slider = (ofxUISlider *) e.widget;
+		audioSample4->reverbSize = slider->getScaledValue();
+	}
+    else if(name == "ReverbDamp4")
+	{
+		ofxUISlider *slider = (ofxUISlider *) e.widget;
+		audioSample4->reverbDamp = slider->getScaledValue();
+	}
+    else if(name == "ReverbWidth4")
+	{
+		ofxUISlider *slider = (ofxUISlider *) e.widget;
+		audioSample4->reverbWidth = slider->getScaledValue();
+	}
+    else if(name == "Bits4")
+	{
+		ofxUISlider *slider = (ofxUISlider *) e.widget;
+		audioSample4->bits = slider->getScaledValue();
+	}
+    else if(name == "Rate4")
+	{
+		ofxUISlider *slider = (ofxUISlider *) e.widget;
+		audioSample4->rate = slider->getScaledValue();
+	}
+    else if(name == "DelayTime4")
+	{
+		ofxUISlider *slider = (ofxUISlider *) e.widget;
+		audioSample4->delayTime1 = slider->getScaledValue();
+	}
+    else if(name == "DelayFeedback4")
+	{
+		ofxUISlider *slider = (ofxUISlider *) e.widget;
+		audioSample4->delayFeedback1 = slider->getScaledValue();
+	}
+    
+}
+
+//--------------------------------------------------------------
+void Gui::drawData(){
+    
+    //Data vis
+    //Page 1
+    
+     string buf[4];     
+     buf[1] = "Speed 1: " + ofToString(audioSample1->speed1, 4);
+     ofDrawBitmapString(buf[1], 1630, 140);
+     buf[1] = "Speed 2: " + ofToString(audioSample2->speed1, 4);
+     ofDrawBitmapString(buf[1], 1630, 170);
+     buf[1] = "Speed 3: " + ofToString(audioSample3->speed1, 4);
+     ofDrawBitmapString(buf[1], 1630, 200);
+     buf[1] = "Speed 4: " + ofToString(audioSample4->speed1, 4);
+     ofDrawBitmapString(buf[1], 1630, 230);
+    
+     buf[1] = "Pitch 1: " + ofToString(audioSample1->pitch1, 4);
+     ofDrawBitmapString(buf[1], 1630, 270);
+     buf[1] = "Pitch 2: " + ofToString(audioSample2->pitch1, 4);
+     ofDrawBitmapString(buf[1], 1630, 300);
+     buf[1] = "Pitch 3: " + ofToString(audioSample3->pitch1, 4);
+     ofDrawBitmapString(buf[1], 1630, 330);
+     buf[1] = "Pitch 4: " + ofToString(audioSample4->pitch1, 4);
+     ofDrawBitmapString(buf[1], 1630, 360);
+    
+     buf[1] = "GrainSize 1: " + ofToString(audioSample1->grainLength1, 4);
+     ofDrawBitmapString(buf[1], 1630, 440);
+     buf[1] = "GrainSize 2: " + ofToString(audioSample2->grainLength1, 4);
+     ofDrawBitmapString(buf[1], 1630, 470);
+     buf[1] = "GrainSize 3: " + ofToString(audioSample3->grainLength1, 4);
+     ofDrawBitmapString(buf[1], 1630, 500);
+     buf[1] = "GrainSize 4: " + ofToString(audioSample4->grainLength1, 4);
+     ofDrawBitmapString(buf[1], 1630, 530);
+    
+     buf[1] = "GrainOverlaps 1: " + ofToString(audioSample1->overlaps1, 4);
+     ofDrawBitmapString(buf[1], 1630, 570);
+     buf[1] = "GrainOverlaps 2: " + ofToString(audioSample2->overlaps1, 4);
+     ofDrawBitmapString(buf[1], 1630, 600);
+     buf[1] = "GrainOverlaps 3: " + ofToString(audioSample3->overlaps1, 4);
+     ofDrawBitmapString(buf[1], 1630, 630);
+     buf[1] = "GrainOverlaps 4: " + ofToString(audioSample4->overlaps1, 4);
+     ofDrawBitmapString(buf[1], 1630, 660);
+    
+     buf[1] = "Ran Grain Size 1: " + ofToString(audioSample1->randomGrainSize1, 4);
+     ofDrawBitmapString(buf[1], 1630, 700);
+     buf[1] = "Ran Grain Size 2: " + ofToString(audioSample2->randomGrainSize1, 4);
+     ofDrawBitmapString(buf[1], 1630, 730);
+     buf[1] = "Ran Grain Size 3: " + ofToString(audioSample3->randomGrainSize1, 4);
+     ofDrawBitmapString(buf[1], 1630, 760);
+     buf[1] = "Ran Grain Size 4: " + ofToString(audioSample4->randomGrainSize1, 4);
+     ofDrawBitmapString(buf[1], 1630, 790);
+    
+     buf[1] = "Ran Grain Pitch 1: " + ofToString(audioSample1->randomGrainPitch1, 4);
+     ofDrawBitmapString(buf[1], 1630, 830);
+     buf[1] = "Ran Grain Pitch 2: " + ofToString(audioSample2->randomGrainPitch1, 4);
+     ofDrawBitmapString(buf[1], 1630, 860);
+     buf[1] = "Ran Grain Pitch 3: " + ofToString(audioSample3->randomGrainPitch1, 4);
+     ofDrawBitmapString(buf[1], 1630, 890);
+     buf[1] = "Ran Grain Pitch 4: " + ofToString(audioSample4->randomGrainPitch1, 4);
+     ofDrawBitmapString(buf[1], 1630, 920);
+ 
+	//DSP PAGE 2
+/*
+    buf[0] = "GUI vs Timeline = ";
+    ofDrawBitmapString(buf[0], 1430, 20);
+    buf[1] = "Cutoff 1: " + ofToString(audioSample1->cutoff1, 4);
+    ofDrawBitmapString(buf[1], 1430, 40);
+    buf[1] = "Cutoff 2: " + ofToString(audioSample2->cutoff1, 4);
+    ofDrawBitmapString(buf[1], 1430, 70);
+    buf[1] = "Cutoff 3: " + ofToString(audioSample3->cutoff1, 4);
+    ofDrawBitmapString(buf[1], 1430, 100);
+    
+    buf[1] = "LFO Rate 1: " + ofToString(audioSample1->lfoSpeed1, 4);
+    ofDrawBitmapString(buf[1], 1430, 140);
+    buf[1] = "LFO Rate 2: " + ofToString(audioSample2->lfoSpeed1, 4);
+    ofDrawBitmapString(buf[1], 1430, 170);
+    buf[1] = "LFO Rate 3: " + ofToString(audioSample3->lfoSpeed1, 4);
+    ofDrawBitmapString(buf[1], 1430, 200);
+    
+    buf[1] = "LFO Amp 1: " + ofToString(audioSample1->lfoAmp1, 4);
+    ofDrawBitmapString(buf[1], 1630, 140);
+    buf[1] = "LFO Amp 2: " + ofToString(audioSample2->lfoAmp1, 4);
+    ofDrawBitmapString(buf[1], 1630, 170);
+    buf[1] = "LFO Amp 3: " + ofToString(audioSample3->lfoAmp1, 4);
+    ofDrawBitmapString(buf[1], 1630, 200);
+    
+    buf[1] = "Crush 1: " + ofToString(audioSample1->rate, 4);
+    ofDrawBitmapString(buf[1], 1430, 240);
+    buf[1] = "Crush 2: " + ofToString(audioSample2->rate, 4);
+    ofDrawBitmapString(buf[1], 1430, 270);
+    buf[1] = "Crush 3: " + ofToString(audioSample3->rate, 4);
+    ofDrawBitmapString(buf[1], 1430, 300);
+    
+    buf[1] = "Bits 1: " + ofToString(audioSample1->bits, 4);
+    ofDrawBitmapString(buf[1], 1630, 240);
+    buf[1] = "Bits 2: " + ofToString(audioSample2->bits, 4);
+    ofDrawBitmapString(buf[1], 1630, 270);
+    buf[1] = "Bits 3: " + ofToString(audioSample3->bits, 4);
+    ofDrawBitmapString(buf[1], 1630, 300);
+    
+    buf[1] = "DelayTime 1: " + ofToString(audioSample1->delayTime1, 4);
+    ofDrawBitmapString(buf[1], 1430, 340);
+    buf[1] = "DelayTime 2: " + ofToString(audioSample2->delayTime1, 4);
+    ofDrawBitmapString(buf[1], 1430, 370);
+    buf[1] = "DelayTime 3: " + ofToString(audioSample3->delayTime1, 4);
+    ofDrawBitmapString(buf[1], 1430, 400);
+    
+    buf[1] = "DelayFeedback 1: " + ofToString(audioSample1->delayFeedback1, 4);
+    ofDrawBitmapString(buf[1], 1630, 340);
+    buf[1] = "DelayFeedback 2: " + ofToString(audioSample2->delayFeedback1, 4);
+    ofDrawBitmapString(buf[1], 1630, 370);
+    buf[1] = "DelayFeedback 3: " + ofToString(audioSample3->delayFeedback1, 4);
+    ofDrawBitmapString(buf[1], 1630, 400);
+    
+    buf[1] = "ReverbDecay 1: " + ofToString(audioSample1->reverbSize, 4);
+    ofDrawBitmapString(buf[1], 1430, 440);
+    buf[1] = "ReverbDecay 2: " + ofToString(audioSample2->reverbSize, 4);
+    ofDrawBitmapString(buf[1], 1430, 470);
+    buf[1] = "ReverbDecay 3: " + ofToString(audioSample3->reverbSize, 4);
+    ofDrawBitmapString(buf[1], 1430, 500);
+    
+    buf[1] = "ReverbDryWet 1: " + ofToString(audioSample1->reverbDryWet, 4);
+    ofDrawBitmapString(buf[1], 1630, 440);
+    buf[1] = "ReverbDryWet 2: " + ofToString(audioSample2->reverbDryWet, 4);
+    ofDrawBitmapString(buf[1], 1630, 470);
+    buf[1] = "ReverbDryWet 3: " + ofToString(audioSample3->reverbDryWet, 4);
+    ofDrawBitmapString(buf[1], 1630, 500);
+  */   
+
+}

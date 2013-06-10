@@ -1,0 +1,85 @@
+<Widget>
+    <Kind>4</Kind>
+    <Name>pitch4</Name>
+    <Value>2.993548393</Value>
+</Widget>
+<Widget>
+    <Kind>4</Kind>
+    <Name>speed4</Name>
+    <Value>0.180645227</Value>
+</Widget>
+<Widget>
+    <Kind>4</Kind>
+    <Name>grainLength4</Name>
+    <Value>0.072999999</Value>
+</Widget>
+<Widget>
+    <Kind>4</Kind>
+    <Name>overlaps4</Name>
+    <Value>2.241935492</Value>
+</Widget>
+<Widget>
+    <Kind>4</Kind>
+    <Name>randomGrainPitch4</Name>
+    <Value>0.000000000</Value>
+</Widget>
+<Widget>
+    <Kind>4</Kind>
+    <Name>randomGrainSize4</Name>
+    <Value>0.000000000</Value>
+</Widget>
+<Widget>
+    <Kind>4</Kind>
+    <Name>Cutoff4</Name>
+    <Value>10000.000000000</Value>
+</Widget>
+<Widget>
+    <Kind>4</Kind>
+    <Name>LfoSpeed4</Name>
+    <Value>0.000000000</Value>
+</Widget>
+<Widget>
+    <Kind>4</Kind>
+    <Name>LfoAmp4</Name>
+    <Value>0.000000000</Value>
+</Widget>
+<Widget>
+    <Kind>4</Kind>
+    <Name>DelayTime4</Name>
+    <Value>10.000000000</Value>
+</Widget>
+<Widget>
+    <Kind>4</Kind>
+    <Name>DelayFeedback4</Name>
+    <Value>0.100000001</Value>
+</Widget>
+<Widget>
+    <Kind>4</Kind>
+    <Name>Bits4</Name>
+    <Value>32.000000000</Value>
+</Widget>
+<Widget>
+    <Kind>4</Kind>
+    <Name>Rate4</Name>
+    <Value>1.000000000</Value>
+</Widget>
+<Widget>
+    <Kind>4</Kind>
+    <Name>ReverbSize4</Name>
+    <Value>0.000000000</Value>
+</Widget>
+<Widget>
+    <Kind>4</Kind>
+    <Name>ReverbDamp4</Name>
+    <Value>0.100000001</Value>
+</Widget>
+<Widget>
+    <Kind>4</Kind>
+    <Name>ReverbWidth4</Name>
+    <Value>0.990000010</Value>
+</Widget>
+<Widget>
+    <Kind>4</Kind>
+    <Name>ReverbDryWet4</Name>
+    <Value>0.000000000</Value>
+</Widget>
