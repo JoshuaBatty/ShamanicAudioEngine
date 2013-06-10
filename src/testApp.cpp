@@ -33,6 +33,8 @@ void testApp::setup(){
     
     gui.setup(&tween1, &tween2, &tween3, &tween4, &audioBinaural, &audioSample1, &audioSample2, &audioSample3, &audioSample4);
     
+    timeline.setup(&gui, &audioSample1, &audioSample2, &audioSample3, &audioSample4, &audioBinaural);
+    
     //Shaders
 	shader.load("shaders/strobe");
 
@@ -235,6 +237,7 @@ void testApp::draw(){
     osc.draw();
     
     gui.drawData();
+    timeline.draw();
     
 //    ofNoFill();
     if(mouseY>=560 && mouseY<=590 && mouseX>=10 && mouseX<=310){

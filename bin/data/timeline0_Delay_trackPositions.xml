@@ -1,0 +1,56 @@
+<positions>
+    <element name="Track">
+        <x>0.000000000</x>
+        <y>830.000000000</y>
+        <width>1620.000000000</width>
+        <height>40.000000000</height>
+    </element>
+    <element name="delayFeedback1">
+        <x>0.000000000</x>
+        <y>1150.000000000</y>
+        <width>1620.000000000</width>
+        <height>40.000000000</height>
+    </element>
+    <element name="delayFeedback2">
+        <x>0.000000000</x>
+        <y>1214.000000000</y>
+        <width>1620.000000000</width>
+        <height>40.000000000</height>
+    </element>
+    <element name="delayFeedback3">
+        <x>0.000000000</x>
+        <y>1278.000000000</y>
+        <width>1620.000000000</width>
+        <height>40.000000000</height>
+    </element>
+    <element name="delayFeedback4">
+        <x>0.000000000</x>
+        <y>1342.000000000</y>
+        <width>1620.000000000</width>
+        <height>40.000000000</height>
+    </element>
+    <element name="delayTime1">
+        <x>0.000000000</x>
+        <y>894.000000000</y>
+        <width>1620.000000000</width>
+        <height>40.000000000</height>
+    </element>
+    <element name="delayTime2">
+        <x>0.000000000</x>
+        <y>958.000000000</y>
+        <width>1620.000000000</width>
+        <height>40.000000000</height>
+    </element>
+    <element name="delayTime3">
+        <x>0.000000000</x>
+        <y>1022.000000000</y>
+        <width>1620.000000000</width>
+        <height>40.000000000</height>
+    </element>
+    <element name="delayTime4">
+        <x>0.000000000</x>
+        <y>1086.000000000</y>
+        <width>1620.000000000</width>
+        <height>40.000000000</height>
+    </element>
+</positions>

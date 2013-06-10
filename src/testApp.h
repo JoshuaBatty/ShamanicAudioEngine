@@ -7,6 +7,7 @@
 #include "livid.h"			// Livid Controler
 #include "oscReciever.h"
 #include "tween.h"
+#include "mainTimeline.h"
 
 //#define _USE_MIDI // uncomment to use GUI
 
@@ -22,6 +23,9 @@ class testApp : public ofBaseApp{
 #ifdef _USE_MIDI
     livid mLivid;
 #endif
+    
+    //Timeline
+    MainTimeline timeline;
     
     //Audio out
     ofSoundStream soundStream;

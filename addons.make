@@ -1,7 +1,13 @@
+ofxOpenCv
 ofxOsc
 ofxXmlSettings
 ofxDspChain
 ofxMaxim2
 ofxMidi
+ofxMSATimer
+ofxRange
+ofxTextInputField
+ofxTimecode
+ofxTimeline-YCAM
 ofxTween
 ofxUI
