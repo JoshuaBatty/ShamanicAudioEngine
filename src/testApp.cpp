@@ -237,36 +237,36 @@ void testApp::draw(){
     gui.drawData();
     
 //    ofNoFill();
-    if(mouseY>=800 && mouseY<=830 && mouseX>=10 && mouseX<=310){
+    if(mouseY>=560 && mouseY<=590 && mouseX>=10 && mouseX<=310){
         ofSetColor(255,0,0);
-        ofRect(10,800,300,30);
+        ofRect(10,560,300,30);
     } else {
         ofSetColor(255,255,0);
-        ofRect(10,800,300,30);
+        ofRect(10,560,300,30);
     }
     
-    if(mouseY>=840 && mouseY<=870 && mouseX>=10 && mouseX<=310){
+    if(mouseY>=600 && mouseY<=630 && mouseX>=10 && mouseX<=310){
         ofSetColor(255,0,0);
-        ofRect(10,840,300,30);
+        ofRect(10,600,300,30);
     } else {
         ofSetColor(255,255,0);
-        ofRect(10,840,300,30);
+        ofRect(10,600,300,30);
     }
     
-    if(mouseY>=880 && mouseY<=910 && mouseX>=10 && mouseX<=310){
+    if(mouseY>=640 && mouseY<=670 && mouseX>=10 && mouseX<=310){
         ofSetColor(255,0,0);
-        ofRect(10,880,300,30);
+        ofRect(10,640,300,30);
     } else {
         ofSetColor(255,255,0);
-        ofRect(10,880,300,30);
+        ofRect(10,640,300,30);
     }
     
-    if(mouseY>=920 && mouseY<=950 && mouseX>=10 && mouseX<=310){
+    if(mouseY>=680 && mouseY<=910 && mouseX>=10 && mouseX<=310){
         ofSetColor(255,0,0);
-        ofRect(10,920,300,30);
+        ofRect(10,680,300,30);
     } else {
         ofSetColor(255,255,0);
-        ofRect(10,920,300,30);
+        ofRect(10,680,300,30);
     }
     
     cout << " mouseY = " << mouseY << endl;
