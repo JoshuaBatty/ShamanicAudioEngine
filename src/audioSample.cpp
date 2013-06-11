@@ -88,6 +88,7 @@ void AudioSampler::load1(string _file)
 //--------------------------------------------------------------
 void AudioSampler::clear1()
 {
+    samp1.reset();
     samp1.clear();
 }
 

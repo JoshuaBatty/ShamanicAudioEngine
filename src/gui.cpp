@@ -62,7 +62,8 @@ void Gui::setup(Tween *_tween1, Tween *_tween2, Tween *_tween3, Tween *_tween4, 
     
     gui2->addLabel("GRANULAR");
     gui2->addSlider("pitch1", 0.0, 8.0, audioSample1->pitch1, 310, guiWidth);
-    gui2->addSlider("speed1", -2.0, 2.0, audioSample1->speed1, 310, guiWidth);
+    gui2->addWidgetDown(new ofxUIImageToggle(dim*2, dim*2, true, "GUI/play.png", "USESPEED1"));
+    gui2->addWidgetRight(new ofxUISlider("speed1", -2.0, 2.0, audioSample1->speed1, 310, guiWidth));
     gui2->addSlider("grainLength1", 0.025, 0.49, audioSample1->grainLength1, 310, guiWidth);
     gui2->addSlider("overlaps1", 1, 6, audioSample1->overlaps1, 310, guiWidth);
     gui2->addSlider("randomGrainPitch1", 0.0, 0.50, audioSample1->randomGrainPitch1, 310, guiWidth);
@@ -99,7 +100,8 @@ void Gui::setup(Tween *_tween1, Tween *_tween2, Tween *_tween3, Tween *_tween4, 
     
     gui3->addLabel("GRANULAR");
     gui3->addSlider("pitch2", 0.0, 8.0, audioSample2->pitch1, 310, guiWidth);
-    gui3->addSlider("speed2", -2.0, 2.0, audioSample2->speed1, 310, guiWidth);
+    gui3->addWidgetDown(new ofxUIImageToggle(dim*2, dim*2, true, "GUI/play.png", "USESPEED2"));
+    gui3->addWidgetRight(new ofxUISlider("speed2", -2.0, 2.0, audioSample2->speed1, 310, guiWidth));
     gui3->addSlider("grainLength2", 0.025, 0.49, audioSample2->grainLength1, 310, guiWidth);
     gui3->addSlider("overlaps2", 1, 6, audioSample2->overlaps1, 310, guiWidth);
     gui3->addSlider("randomGrainPitch2", 0.0, 0.50, audioSample2->randomGrainPitch1, 310, guiWidth);
@@ -136,7 +138,8 @@ void Gui::setup(Tween *_tween1, Tween *_tween2, Tween *_tween3, Tween *_tween4, 
     
     gui4->addLabel("GRANULAR");
     gui4->addSlider("pitch3", 0.0, 8.0, audioSample3->pitch1, 310, guiWidth);
-    gui4->addSlider("speed3", -2.0, 2.0, audioSample3->speed1, 310, guiWidth);
+    gui4->addWidgetDown(new ofxUIImageToggle(dim*2, dim*2, true, "GUI/play.png", "USESPEED3"));
+    gui4->addWidgetRight(new ofxUISlider("speed3", -2.0, 2.0, audioSample3->speed1, 310, guiWidth));
     gui4->addSlider("grainLength3", 0.025, 0.49, audioSample3->grainLength1, 310, guiWidth);
     gui4->addSlider("overlaps3", 1, 6, audioSample3->overlaps1, 310, guiWidth);
     gui4->addSlider("randomGrainPitch3", 0.0, 0.50, audioSample3->randomGrainPitch1, 310, guiWidth);
@@ -173,7 +176,8 @@ void Gui::setup(Tween *_tween1, Tween *_tween2, Tween *_tween3, Tween *_tween4, 
     
     gui5->addLabel("GRANULAR");
     gui5->addSlider("pitch4", 0.0, 8.0, audioSample4->pitch1, 310, guiWidth);
-    gui5->addSlider("speed4", -2.0, 2.0, audioSample4->speed1, 310, guiWidth);
+    gui3->addWidgetDown(new ofxUIImageToggle(dim*2, dim*2, true, "GUI/play.png", "USESPEED4"));
+    gui5->addWidgetRight(new ofxUISlider("speed4", -2.0, 2.0, audioSample4->speed1, 310, guiWidth));
     gui5->addSlider("grainLength4", 0.025, 0.49, audioSample4->grainLength1, 310, guiWidth);
     gui5->addSlider("overlaps4", 1, 6, audioSample4->overlaps1, 310, guiWidth);
     gui5->addSlider("randomGrainPitch4", 0.0, 0.50, audioSample4->randomGrainPitch1, 310, guiWidth);
@@ -249,6 +253,81 @@ void Gui::setup(Tween *_tween1, Tween *_tween2, Tween *_tween3, Tween *_tween4, 
     gui2->loadSettings("GUI/guiSettingsAudio1.xml");
     gui3->loadSettings("GUI/guiSettingsAudio2.xml");
     gui4->loadSettings("GUI/guiSettingsAudio3.xml");
+    
+
+    bUseSpeedMaster = true;
+    bUseSpeed1 = true;
+    bUseSpeed2 = true;
+    bUseSpeed3 = true;
+    bUseSpeed4 = true;
+    bUsePitchMaster = true;
+    bUsePitch1 = true;
+    bUsePitch2 = true;
+    bUsePitch3 = true;
+    bUsePitch4 = true;
+    bUseGrainSizeMaster = true;
+    bUseGrainSize1 = true;
+    bUseGrainSize2 = true;
+    bUseGrainSize3 = true;
+    bUseGrainSize4 = true;
+    bUseOverlapsMaster = true;
+    bUseOverlaps1 = true;
+    bUseOverlaps2 = true;
+    bUseOverlaps3 = true;
+    bUseOverlaps4 = true;
+    bUseRandomGrainSizeMaster = true;
+    bUseRandomGrainSize1 = true;
+    bUseRandomGrainSize2 = true;
+    bUseRandomGrainSize3 = true;
+    bUseRandomGrainSize4 = true;
+    bUseRandomGrainPitchMaster = true;
+    bUseRandomGrainPitch1 = true;
+    bUseRandomGrainPitch2 = true;
+    bUseRandomGrainPitch3 = true;
+    bUseRandomGrainPitch4 = true;
+    
+    
+    //DSP
+    bUseCutoffMaster = true;
+    bUseCutoff1 = true;
+    bUseCutoff2 = true;
+    bUseCutoff3 = true;
+    bUseCutoff4 = true;
+    bUseCutoffLFOMaster = true;
+    bUseCutoffLFO1 = true;
+    bUseCutoffLFO2 = true;
+    bUseCutoffLFO3 = true;
+    bUseCutoffLFO4 = true;
+    bUseCrushMaster = true;
+    bUseCrush1 = true;
+    bUseCrush2 = true;
+    bUseCrush3 = true;
+    bUseCrush4 = true;
+    bUseBitsMaster = true;
+    bUseBits1 = true;
+    bUseBits2 = true;
+    bUseBits3 = true;
+    bUseBits4 = true;
+    bUseDelayTimeMaster = true;
+    bUseDelayTime1 = true;
+    bUseDelayTime2 = true;
+    bUseDelayTime3 = true;
+    bUseDelayTime4 = true;
+    bUseDelayFeedbackMaster = true;
+    bUseDelayFeedback1 = true;
+    bUseDelayFeedback2 = true;
+    bUseDelayFeedback3 = true;
+    bUseDelayFeedback4 = true;
+    bUseReverbDecayMaster = true;
+    bUseReverbDecay1 = true;
+    bUseReverbDecay2 = true;
+    bUseReverbDecay3 = true;
+    bUseReverbDecay4 = true;
+    bUseReverbDryWetMaster = true;
+    bUseReverbDryWet1 = true;
+    bUseReverbDryWet2 = true;
+    bUseReverbDryWet3 = true;
+    bUseReverbDryWet4 = true;
     
 }
 

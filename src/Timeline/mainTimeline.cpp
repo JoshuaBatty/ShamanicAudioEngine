@@ -145,41 +145,95 @@ void MainTimeline::update(){
     ////////////////////////
     ////  Video Timline ////
     ////////////////////////
-/*
+
 	//Speed
     if(Mgui->bUseSpeed1==false || Mgui->bUseSpeedMaster==false){
-        myData->speed1 = (timeline.getValue("Speed1"));
+        audioSampler1->speed1 = (timeline.getValue("Speed1"));
+    }
+    if(Mgui->bUseSpeed2==false || Mgui->bUseSpeedMaster==false){
+        audioSampler2->speed1 = (timeline.getValue("Speed2"));
+    }
+    if(Mgui->bUseSpeed3==false || Mgui->bUseSpeedMaster==false){
+        audioSampler3->speed1 = (timeline.getValue("Speed3"));
+    }
+    if(Mgui->bUseSpeed4==false || Mgui->bUseSpeedMaster==false){
+        audioSampler4->speed1 = (timeline.getValue("Speed4"));
     }
 
     //GrainSize
     if(Mgui->bUseGrainSize1==false || Mgui->bUseGrainSizeMaster==false){
-        myData->grainLength1 = (timeline.getValue("grainSize1"));
+        audioSampler1->grainLength1 = (timeline.getValue("grainSize1"));
+    }
+    if(Mgui->bUseGrainSize2==false || Mgui->bUseGrainSizeMaster==false){
+        audioSampler2->grainLength1 = (timeline.getValue("grainSize2"));
+    }
+    if(Mgui->bUseGrainSize3==false || Mgui->bUseGrainSizeMaster==false){
+        audioSampler3->grainLength1 = (timeline.getValue("grainSize3"));
+    }
+    if(Mgui->bUseGrainSize4==false || Mgui->bUseGrainSizeMaster==false){
+        audioSampler4->grainLength1 = (timeline.getValue("grainSize4"));
     }
 
     //Grain Overlpas
     if(Mgui->bUseOverlaps1==false || Mgui->bUseOverlapsMaster==false){
-        myData->overlaps1 = (timeline.getValue("overlaps1"));
+        audioSampler1->overlaps1 = (timeline.getValue("overlaps1"));
+    }
+    if(Mgui->bUseOverlaps2==false || Mgui->bUseOverlapsMaster==false){
+        audioSampler2->overlaps1 = (timeline.getValue("overlaps2"));
+    }
+    if(Mgui->bUseOverlaps3==false || Mgui->bUseOverlapsMaster==false){
+        audioSampler3->overlaps1 = (timeline.getValue("overlaps3"));
+    }
+    if(Mgui->bUseOverlaps4==false || Mgui->bUseOverlapsMaster==false){
+        audioSampler4->overlaps1 = (timeline.getValue("overlaps4"));
     }
 
     //Pitch
     if(Mgui->bUsePitch1==false || Mgui->bUsePitchMaster==false){
-        myData->pitch1 = (timeline.getValue("pitch1"));
+        audioSampler1->pitch1 = (timeline.getValue("pitch1"));
+    }
+    if(Mgui->bUsePitch2==false || Mgui->bUsePitchMaster==false){
+        audioSampler2->pitch1 = (timeline.getValue("pitch2"));
+    }
+    if(Mgui->bUsePitch3==false || Mgui->bUsePitchMaster==false){
+        audioSampler3->pitch1 = (timeline.getValue("pitch3"));
+    }
+    if(Mgui->bUsePitch4==false || Mgui->bUsePitchMaster==false){
+        audioSampler4->pitch1 = (timeline.getValue("pitch4"));
     }
 
     //Random Grain Size
     if(Mgui->bUseRandomGrainSize1==false || Mgui->bUseRandomGrainSizeMaster==false){
-        myData->randomGrainSize1 = (timeline.getValue("ranGranSize1"));
+        audioSampler1->randomGrainSize1 = (timeline.getValue("ranGranSize1"));
+    }
+    if(Mgui->bUseRandomGrainSize2==false || Mgui->bUseRandomGrainSizeMaster==false){
+        audioSampler2->randomGrainSize1 = (timeline.getValue("ranGranSize2"));
+    }
+    if(Mgui->bUseRandomGrainSize3==false || Mgui->bUseRandomGrainSizeMaster==false){
+        audioSampler3->randomGrainSize1 = (timeline.getValue("ranGranSize3"));
+    }
+    if(Mgui->bUseRandomGrainSize4==false || Mgui->bUseRandomGrainSizeMaster==false){
+        audioSampler4->randomGrainSize1 = (timeline.getValue("ranGranSize4"));
     }
 
     //Random Grain Pitch
     if(Mgui->bUseRandomGrainPitch1==false || Mgui->bUseRandomGrainPitchMaster==false){
-        myData->randomGrainPitch1 = (timeline.getValue("ranGranPitch1"));
+        audioSampler1->randomGrainPitch1 = (timeline.getValue("ranGranPitch1"));
+    }
+    if(Mgui->bUseRandomGrainPitch2==false || Mgui->bUseRandomGrainPitchMaster==false){
+        audioSampler2->randomGrainPitch1 = (timeline.getValue("ranGranPitch2"));
+    }
+    if(Mgui->bUseRandomGrainPitch3==false || Mgui->bUseRandomGrainPitchMaster==false){
+        audioSampler3->randomGrainPitch1 = (timeline.getValue("ranGranPitch3"));
+    }
+    if(Mgui->bUseRandomGrainPitch4==false || Mgui->bUseRandomGrainPitchMaster==false){
+        audioSampler4->randomGrainPitch1 = (timeline.getValue("ranGranPitch4"));
     }
 
     ////////////////////////
     ////  Audio Timline ////
     ////////////////////////
-    
+/*    
     //Cutoff
 	//LFO Speed
     if(Mgui->bUseCutoffLFO1==false || Mgui->bUseCutoffLFOMaster==false){

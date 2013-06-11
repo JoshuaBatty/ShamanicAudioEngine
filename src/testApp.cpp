@@ -49,6 +49,8 @@ void testApp::setup(){
 //--------------------------------------------------------------
 void testApp::update(){
     
+    timeline.update();
+    
     ofSetWindowTitle(ofToString(ofGetFrameRate()));
     
     osc.update();
@@ -264,7 +266,7 @@ void testApp::draw(){
         ofRect(10,640,300,30);
     }
     
-    if(mouseY>=680 && mouseY<=910 && mouseX>=10 && mouseX<=310){
+    if(mouseY>=680 && mouseY<=710 && mouseX>=10 && mouseX<=310){
         ofSetColor(255,0,0);
         ofRect(10,680,300,30);
     } else {
@@ -279,10 +281,10 @@ void testApp::draw(){
 void testApp::keyPressed(int key)
 {
 
-    tween1.trigger();
-    tween2.trigger();
-    tween3.trigger();
-    tween4.trigger();
+ //   tween1.trigger();
+ //   tween2.trigger();
+ //   tween3.trigger();
+ //   tween4.trigger();
     
     gui.gui1->toggleVisible();
     gui.gui2->toggleVisible();
@@ -303,19 +305,22 @@ void testApp::dragEvent(ofDragInfo info){
     
     dragPt = info.position;
 
-    if(dragPt.y>=800 && dragPt.y<=830 && dragPt.x>=10 && dragPt.x<=310){
+  //  audioSample1.clear1();
+ //   audioSample1.load1(file);
+    
+    if(dragPt.y>=560 && dragPt.y<=590 && dragPt.x>=10 && dragPt.x<=310){
         audioSample1.clear1();
         audioSample1.load1(file);
     }
-    if(dragPt.y>=840 && dragPt.y<=870 && dragPt.x>=10 && dragPt.x<=310){
+    if(dragPt.y>=600 && dragPt.y<=630 && dragPt.x>=10 && dragPt.x<=310){
         audioSample2.clear1();
         audioSample2.load1(file);
     }
-    if(dragPt.y>=880 && dragPt.y<=910 && dragPt.x>=10 && dragPt.x<=310){
+    if(dragPt.y>=640 && dragPt.y<=670 && dragPt.x>=10 && dragPt.x<=310){
         audioSample3.clear1();
         audioSample3.load1(file);
     }
-    if(dragPt.y>=920 && dragPt.y<=950 && dragPt.x>=10 && dragPt.x<=310){
+    if(dragPt.y>=680 && dragPt.y<=710 && dragPt.x>=10 && dragPt.x<=310){
         audioSample4.clear1();
         audioSample4.load1(file);
     }
