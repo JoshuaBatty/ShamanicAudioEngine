@@ -34,7 +34,7 @@ void AudioBinaural::setup()
 
     //Binaural
     osc1Pitch = 54.0f;
-    osc2Pitch = 2.50f;
+    osc2Pitch = 0.10f;
     
 }
 

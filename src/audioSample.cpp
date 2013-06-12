@@ -25,7 +25,7 @@ void AudioSampler::setup(string _file)
 	/* This is stuff you always need.*/
 	sampleRate 			= 44100; /* Sampling Rate */
 	initialBufferSize	= 512;	/* Buffer Size. you have to fill this buffer with sound*/
-	volume				= 0.9f;
+	volume				= 0.009f;
 
    // ofSetDataPathRoot(_file);
     //samples

@@ -1,7 +1,17 @@
 <Widget>
+    <Kind>20</Kind>
+    <Name>USEPITCH1</Name>
+    <Value>1</Value>
+</Widget>
+<Widget>
     <Kind>4</Kind>
     <Name>pitch1</Name>
     <Value>1.000000000</Value>
+</Widget>
+<Widget>
+    <Kind>20</Kind>
+    <Name>USESPEED1</Name>
+    <Value>1</Value>
 </Widget>
 <Widget>
     <Kind>4</Kind>
@@ -9,9 +19,19 @@
     <Value>1.000000000</Value>
 </Widget>
 <Widget>
+    <Kind>20</Kind>
+    <Name>USEGRAINSIZE1</Name>
+    <Value>1</Value>
+</Widget>
+<Widget>
     <Kind>4</Kind>
     <Name>grainLength1</Name>
     <Value>0.025000000</Value>
+</Widget>
+<Widget>
+    <Kind>20</Kind>
+    <Name>USEOVERLAPS1</Name>
+    <Value>1</Value>
 </Widget>
 <Widget>
     <Kind>4</Kind>
@@ -19,9 +39,19 @@
     <Value>2.000000000</Value>
 </Widget>
 <Widget>
+    <Kind>20</Kind>
+    <Name>USERANDOMGRAINPITCH1</Name>
+    <Value>1</Value>
+</Widget>
+<Widget>
     <Kind>4</Kind>
     <Name>randomGrainPitch1</Name>
     <Value>0.000000000</Value>
+</Widget>
+<Widget>
+    <Kind>20</Kind>
+    <Name>USERANDOMGRAINSIZE1</Name>
+    <Value>1</Value>
 </Widget>
 <Widget>
     <Kind>4</Kind>
@@ -29,9 +59,19 @@
     <Value>0.000000000</Value>
 </Widget>
 <Widget>
+    <Kind>20</Kind>
+    <Name>USECUTOFF1</Name>
+    <Value>1</Value>
+</Widget>
+<Widget>
     <Kind>4</Kind>
     <Name>Cutoff1</Name>
     <Value>10000.000000000</Value>
+</Widget>
+<Widget>
+    <Kind>20</Kind>
+    <Name>USECUTOFFLFO1</Name>
+    <Value>1</Value>
 </Widget>
 <Widget>
     <Kind>4</Kind>
@@ -44,9 +84,19 @@
     <Value>0.000000000</Value>
 </Widget>
 <Widget>
+    <Kind>20</Kind>
+    <Name>USEDELAYTIME1</Name>
+    <Value>1</Value>
+</Widget>
+<Widget>
     <Kind>4</Kind>
     <Name>DelayTime1</Name>
     <Value>10.000000000</Value>
+</Widget>
+<Widget>
+    <Kind>20</Kind>
+    <Name>USEDELAYFEEDBACK1</Name>
+    <Value>1</Value>
 </Widget>
 <Widget>
     <Kind>4</Kind>
@@ -54,9 +104,19 @@
     <Value>0.100000001</Value>
 </Widget>
 <Widget>
+    <Kind>20</Kind>
+    <Name>USEBITS1</Name>
+    <Value>1</Value>
+</Widget>
+<Widget>
     <Kind>4</Kind>
     <Name>Bits1</Name>
     <Value>32.000000000</Value>
+</Widget>
+<Widget>
+    <Kind>20</Kind>
+    <Name>USECRUSHAMOUNT1</Name>
+    <Value>1</Value>
 </Widget>
 <Widget>
     <Kind>4</Kind>
@@ -64,19 +124,19 @@
     <Value>1.000000000</Value>
 </Widget>
 <Widget>
+    <Kind>20</Kind>
+    <Name>USEREVERBDECAY1</Name>
+    <Value>1</Value>
+</Widget>
+<Widget>
     <Kind>4</Kind>
     <Name>ReverbSize1</Name>
     <Value>0.000000000</Value>
 </Widget>
 <Widget>
-    <Kind>4</Kind>
-    <Name>ReverbDamp1</Name>
-    <Value>0.100000001</Value>
-</Widget>
-<Widget>
-    <Kind>4</Kind>
-    <Name>ReverbWidth1</Name>
-    <Value>0.990000010</Value>
+    <Kind>20</Kind>
+    <Name>USEREVERBDRYWET1</Name>
+    <Value>1</Value>
 </Widget>
 <Widget>
     <Kind>4</Kind>
