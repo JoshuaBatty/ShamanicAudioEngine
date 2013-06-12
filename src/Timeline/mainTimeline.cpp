@@ -32,7 +32,7 @@ void MainTimeline::setup(Gui *gui, AudioSampler *_audioSampler1, AudioSampler *_
     waveform.loadSoundfile("/Users/josh/Desktop/Media/Audio/silent.wav");
     timeline.setDurationInSeconds(waveform.getDuration());
 
-	timeline.addPage("Speed", true);
+    //SPEED
 	timeline.setPageName("Speed");
     timeline.addTrack("Track", &waveform);
 	timeline.addCurves("Speed1", "Speed1.xml", ofRange(0.0f, 5.0f));
@@ -40,6 +40,7 @@ void MainTimeline::setup(Gui *gui, AudioSampler *_audioSampler1, AudioSampler *_
 	timeline.addCurves("Speed3", "Speed3.xml", ofRange(0.0f, 5.0f));
 	timeline.addCurves("Speed4", "Speed4.xml", ofRange(0.0f, 5.0f));
 
+    //PITCH
     timeline.addPage("Pitch", true);
 	timeline.setPageName("Pitch");
     timeline.addTrack("Track", &waveform);
@@ -57,6 +58,7 @@ void MainTimeline::setup(Gui *gui, AudioSampler *_audioSampler1, AudioSampler *_
 	timeline.addCurves("grainSize3", "grainSize3.xml", ofRange(0.01f, 0.25f));
 	timeline.addCurves("grainSize4", "grainSize4.xml", ofRange(0.01f, 0.25f));
 
+    //OVERLAPS
     timeline.addPage("Overlaps", true);
 	timeline.setPageName("Overlaps");
     timeline.addTrack("Track", &waveform);
@@ -65,15 +67,24 @@ void MainTimeline::setup(Gui *gui, AudioSampler *_audioSampler1, AudioSampler *_
 	timeline.addCurves("overlaps3", "overlaps3.xml", ofRange(1, 10));
 	timeline.addCurves("overlaps4", "overlaps4.xml", ofRange(1, 10));
 
-    timeline.addPage("Random Grain", true);
-	timeline.setPageName("Random Grain");
+    //RANDOM GRAIN PITCH
+    timeline.addPage("Ran Grain Pitch", true);
+	timeline.setPageName("Ran Grain Pitch");
     timeline.addTrack("Track", &waveform);
-	timeline.addCurves("ranGranSize1", "ranGranSize1.xml", ofRange(0.0, 0.025f));
 	timeline.addCurves("ranGranPitch1", "ranGranPitch1.xml", ofRange(0.0, 4.0f));
 	timeline.addCurves("ranGranPitch2", "ranGranPitch2.xml", ofRange(0.0, 4.0f));
 	timeline.addCurves("ranGranPitch3", "ranGranPitch3.xml", ofRange(0.0, 4.0f));
 	timeline.addCurves("ranGranPitch4", "ranGranPitch4.xml", ofRange(0.0, 4.0f));
-
+    
+    //RANDOM GRAIN SIZE
+    timeline.addPage("Ran Grain Size", true);
+	timeline.setPageName("Ran Grain Size");
+    timeline.addTrack("Track", &waveform);
+	timeline.addCurves("ranGranSize1", "ranGranSize1.xml", ofRange(0.0, 0.025f));
+	timeline.addCurves("ranGranSize2", "ranGranSize2.xml", ofRange(0.0, 0.025f));
+	timeline.addCurves("ranGranSize3", "ranGranSize3.xml", ofRange(0.0, 0.025f));
+	timeline.addCurves("ranGranSize4", "ranGranSize4.xml", ofRange(0.0, 0.025f));
+    
     ////////////////////////
     ////  Audio Timline ////
     ////////////////////////
@@ -96,40 +107,55 @@ void MainTimeline::setup(Gui *gui, AudioSampler *_audioSampler1, AudioSampler *_
     timeline.addLFO("lfoFilter3");
     timeline.addLFO("lfoFilter4");
 
-	//CRUSH
-	timeline.addPage("Crush", true);
-	timeline.setPageName("Crush");
+	//CRUSH AMOUNT
+	timeline.addPage("Crush Amount", true);
+	timeline.setPageName("Crush Amount");
     timeline.addTrack("Track", &waveform);
 	timeline.addCurves("crushAmount1", "crushAmount1.xml", ofRange(0.0f, 1.0f));
 	timeline.addCurves("crushAmount2", "crushAmount2.xml", ofRange(0.0f, 1.0f));
 	timeline.addCurves("crushAmount3", "crushAmount3.xml", ofRange(0.0f, 1.0f));
 	timeline.addCurves("crushAmount4", "crushAmount4.xml", ofRange(0.0f, 1.0f));
+
+    //CRUSH BITS
+    timeline.addPage("Crush Bits", true);
+	timeline.setPageName("Crush Bits");
+    timeline.addTrack("Track", &waveform);
 	timeline.addCurves("bits1", "bits1.xml", ofRange(0, 32));
 	timeline.addCurves("bits2", "bits2.xml", ofRange(0, 32));
 	timeline.addCurves("bits3", "bits3.xml", ofRange(0, 32));
 	timeline.addCurves("bits4", "bits4.xml", ofRange(0, 32));
 
-	//DELAY
-	timeline.addPage("Delay", true);
-	timeline.setPageName("Delay");
+	//DELAY TIME
+	timeline.addPage("Delay Time", true);
+	timeline.setPageName("Delay Time");
     timeline.addTrack("Track", &waveform);
 	timeline.addCurves("delayTime1", "delayTime1.xml", ofRange(10, 3000));
 	timeline.addCurves("delayTime2", "delayTime2.xml", ofRange(10, 3000));
 	timeline.addCurves("delayTime3", "delayTime3.xml", ofRange(10, 3000));
 	timeline.addCurves("delayTime4", "delayTime4.xml", ofRange(10, 3000));
+    
+    //DELAY FEEDBACK
+	timeline.addPage("Delay Feedback", true);
+	timeline.setPageName("Delay Feedback");
+    timeline.addTrack("Track", &waveform);
 	timeline.addCurves("delayFeedback1", "delayFeedback1.xml", ofRange(0.0f, 0.98f));
 	timeline.addCurves("delayFeedback2", "delayFeedback2.xml", ofRange(0.0f, 0.98f));
 	timeline.addCurves("delayFeedback3", "delayFeedback3.xml", ofRange(0.0f, 0.98f));
 	timeline.addCurves("delayFeedback4", "delayFeedback4.xml", ofRange(0.0f, 0.98f));
 
-	//REVERB
-	timeline.addPage("Reverb", true);
-	timeline.setPageName("Reverb");
+	//REVERB DECAY
+	timeline.addPage("Reverb Decay", true);
+	timeline.setPageName("Reverb Decay");
     timeline.addTrack("Track", &waveform);
 	timeline.addCurves("reverbDecay1", "reverbDecay1.xml", ofRange(0.0f, 1.0f));
 	timeline.addCurves("reverbDecay2", "reverbDecay2.xml", ofRange(0.0f, 1.0f));
 	timeline.addCurves("reverbDecay3", "reverbDecay3.xml", ofRange(0.0f, 1.0f));
 	timeline.addCurves("reverbDecay4", "reverbDecay4.xml", ofRange(0.0f, 1.0f));
+    
+    //REVERB DRY/WET
+	timeline.addPage("Reverb Dry/Wet", true);
+	timeline.setPageName("Reverb Dry/Wet");
+    timeline.addTrack("Track", &waveform);
 	timeline.addCurves("reverbDryWet1", "reverbDryWet1.xml", ofRange(0.0f, 1.0f));
 	timeline.addCurves("reverbDryWet2", "reverbDryWet2.xml", ofRange(0.0f, 1.0f));
 	timeline.addCurves("reverbDryWet3", "reverbDryWet3.xml", ofRange(0.0f, 1.0f));

@@ -12,6 +12,16 @@ void testApp::setup(){
     int bufferSize		= 512;
 	int sampleRate 		= 44100;
     
+    loadBox1X = 340;
+    loadBox2X = 660;
+    loadBox3X = 980;
+    loadBox4X = 1300;
+    
+    loadBox1Y = 10;
+    loadBox2Y = 10;
+    loadBox3Y = 10;
+    loadBox4Y = 10;
+    
     audioBinaural.setup();
     audioSample1.setup("shamanic_drum_short.wav");
     audioSample2.setup("icaros2.wav");
@@ -231,7 +241,7 @@ void testApp::draw(){
     
     shader.end();
     
- //   audioSample1.draw(30,600);
+ //   audioSample1.draw(30,loadBox2X);
  //   audioSample2.draw(30,650);
  //   audioSample3.draw(30,700);
  //   audioSample4.draw(30,750);
@@ -242,36 +252,36 @@ void testApp::draw(){
     timeline.draw();
     
 //    ofNoFill();
-    if(mouseY>=560 && mouseY<=590 && mouseX>=10 && mouseX<=310){
+    if(mouseY>=loadBox1Y && mouseY<=loadBox1Y+30 && mouseX>=loadBox1X && mouseX<=loadBox1X+300){
         ofSetColor(255,0,0);
-        ofRect(10,560,300,30);
+        ofRect(loadBox1X,loadBox1Y,300,30);
     } else {
         ofSetColor(255,255,0);
-        ofRect(10,560,300,30);
+        ofRect(loadBox1X,loadBox1Y,300,30);
     }
     
-    if(mouseY>=600 && mouseY<=630 && mouseX>=10 && mouseX<=310){
+    if(mouseY>=loadBox2Y && mouseY<=loadBox2Y+30 && mouseX>=loadBox2X && mouseX<=loadBox2X+300){
         ofSetColor(255,0,0);
-        ofRect(10,600,300,30);
+        ofRect(loadBox2X,loadBox2Y,300,30);
     } else {
         ofSetColor(255,255,0);
-        ofRect(10,600,300,30);
+        ofRect(loadBox2X,loadBox2Y,300,30);
     }
     
-    if(mouseY>=640 && mouseY<=670 && mouseX>=10 && mouseX<=310){
+    if(mouseY>=loadBox3Y && mouseY<=loadBox3Y+30 && mouseX>=loadBox3X && mouseX<=loadBox3X+300){
         ofSetColor(255,0,0);
-        ofRect(10,640,300,30);
+        ofRect(loadBox3X,loadBox3Y,300,30);
     } else {
         ofSetColor(255,255,0);
-        ofRect(10,640,300,30);
+        ofRect(loadBox3X,loadBox3Y,300,30);
     }
     
-    if(mouseY>=680 && mouseY<=710 && mouseX>=10 && mouseX<=310){
+    if(mouseY>=loadBox4Y && mouseY<=loadBox4Y+30 && mouseX>=loadBox4X && mouseX<=loadBox4X+300){
         ofSetColor(255,0,0);
-        ofRect(10,680,300,30);
+        ofRect(loadBox4X,loadBox4Y,300,30);
     } else {
         ofSetColor(255,255,0);
-        ofRect(10,680,300,30);
+        ofRect(loadBox4X,loadBox4Y,300,30);
     }
     
     cout << " mouseY = " << mouseY << endl;
@@ -308,19 +318,19 @@ void testApp::dragEvent(ofDragInfo info){
   //  audioSample1.clear1();
  //   audioSample1.load1(file);
     
-    if(dragPt.y>=560 && dragPt.y<=590 && dragPt.x>=10 && dragPt.x<=310){
+    if(dragPt.y>=loadBox1Y && dragPt.y<=590 && dragPt.x>=loadBox1X && dragPt.x<=loadBox1X+300){
         audioSample1.clear1();
         audioSample1.load1(file);
     }
-    if(dragPt.y>=600 && dragPt.y<=630 && dragPt.x>=10 && dragPt.x<=310){
+    if(dragPt.y>=loadBox2Y && dragPt.y<=630 && dragPt.x>=loadBox2X && dragPt.x<=loadBox2X+300){
         audioSample2.clear1();
         audioSample2.load1(file);
     }
-    if(dragPt.y>=640 && dragPt.y<=670 && dragPt.x>=10 && dragPt.x<=310){
+    if(dragPt.y>=loadBox3Y && dragPt.y<=670 && dragPt.x>=loadBox3X && dragPt.x<=loadBox3X+300){
         audioSample3.clear1();
         audioSample3.load1(file);
     }
-    if(dragPt.y>=680 && dragPt.y<=710 && dragPt.x>=10 && dragPt.x<=310){
+    if(dragPt.y>=loadBox4Y && dragPt.y<=710 && dragPt.x>=loadBox4X && dragPt.x<=loadBox4X+300){
         audioSample4.clear1();
         audioSample4.load1(file);
     }

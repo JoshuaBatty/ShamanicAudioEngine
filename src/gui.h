@@ -29,6 +29,7 @@ class Gui {
     void drawData();
     
     int curPreset;
+    int guiOffset;
     
     //Master Page
     bool bUseSpeedMaster, bUseSpeed1, bUseSpeed2, bUseSpeed3, bUseSpeed4;

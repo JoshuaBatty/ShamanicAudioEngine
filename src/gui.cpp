@@ -17,8 +17,9 @@ Gui::~Gui() {
 void Gui::setup(Tween *_tween1, Tween *_tween2, Tween *_tween3, Tween *_tween4, AudioBinaural *_audioBinaural, AudioSampler *_audioSample1, AudioSampler *_audioSample2, AudioSampler *_audioSample3, AudioSampler *_audioSample4)
 {
     curPreset = 1;
+    guiOffset = 50;
     int guiWidth = 15;
-    int guiCanvasLength = 740;
+    int guiCanvasLength = 690;
     
     tween1 = _tween1;
     tween2 = _tween2;
@@ -56,7 +57,7 @@ void Gui::setup(Tween *_tween1, Tween *_tween2, Tween *_tween3, Tween *_tween4, 
     gui1->addSpacer(length, dim/5);
     
     // DRUM
-    gui2 = new ofxUICanvas(10+(length+xInit),0,length+xInit*2.0,guiCanvasLength);
+    gui2 = new ofxUICanvas(10+(length+xInit),guiOffset,length+xInit*2.0,guiCanvasLength);
     gui2->addWidgetDown(new ofxUILabel("SAMPLE 1", OFX_UI_FONT_MEDIUM));
     gui2->addSpacer(length, dim/5);
     
@@ -107,7 +108,7 @@ void Gui::setup(Tween *_tween1, Tween *_tween2, Tween *_tween3, Tween *_tween4, 
     gui2->addSpacer(length, dim/5);
     
     // SINGING BOWLS
-    gui3 = new ofxUICanvas(10+(length+xInit)*2.0,0,length+xInit*2.0,guiCanvasLength);
+    gui3 = new ofxUICanvas(10+(length+xInit)*2.0,guiOffset,length+xInit*2.0,guiCanvasLength);
     gui3->addWidgetDown(new ofxUILabel("SAMPLE 2", OFX_UI_FONT_MEDIUM));
     gui3->addSpacer(length, dim/5);
     
@@ -158,7 +159,7 @@ void Gui::setup(Tween *_tween1, Tween *_tween2, Tween *_tween3, Tween *_tween4, 
     gui3->addSpacer(length, dim/5);
     
     // THROAT SINGING
-    gui4 = new ofxUICanvas(10+(length+xInit)*3.0,0,length+xInit*2.0,guiCanvasLength);
+    gui4 = new ofxUICanvas(10+(length+xInit)*3.0,guiOffset,length+xInit*2.0,guiCanvasLength);
     gui4->addWidgetDown(new ofxUILabel("SAMPLE 3", OFX_UI_FONT_MEDIUM));
     gui4->addSpacer(length, dim/5);
     
@@ -209,7 +210,7 @@ void Gui::setup(Tween *_tween1, Tween *_tween2, Tween *_tween3, Tween *_tween4, 
     gui4->addSpacer(length, dim/5);
     
     // ICAROS
-    gui5 = new ofxUICanvas(10+(length+xInit)*4.0,0,length+xInit*2.0,guiCanvasLength);
+    gui5 = new ofxUICanvas(10+(length+xInit)*4.0,guiOffset,length+xInit*2.0,guiCanvasLength);
     gui5->addWidgetDown(new ofxUILabel("SAMPLE 4", OFX_UI_FONT_MEDIUM));
     gui5->addSpacer(length, dim/5);
     

@@ -50,5 +50,8 @@ class testApp : public ofBaseApp{
     Tween tween4;
     
     ofPoint dragPt;
+    
+    int loadBox1X,loadBox2X,loadBox3X,loadBox4X;
+    int loadBox1Y,loadBox2Y,loadBox3Y,loadBox4Y;
 
 };
