@@ -251,7 +251,7 @@ void testApp::draw(){
     gui.drawData();
     timeline.draw();
     
-//    ofNoFill();
+    ofNoFill();
     if(mouseY>=loadBox1Y && mouseY<=loadBox1Y+30 && mouseX>=loadBox1X && mouseX<=loadBox1X+300){
         ofSetColor(255,0,0);
         ofRect(loadBox1X,loadBox1Y,300,30);
@@ -283,6 +283,12 @@ void testApp::draw(){
         ofSetColor(255,255,0);
         ofRect(loadBox4X,loadBox4Y,300,30);
     }
+    
+    ofSetColor(255);
+    ofDrawBitmapString(ofToString("Drag n Drop Sample"), loadBox1X+80, loadBox1Y+20);
+    ofDrawBitmapString(ofToString("Drag n Drop Sample"), loadBox2X+80, loadBox2Y+20);
+    ofDrawBitmapString(ofToString("Drag n Drop Sample"), loadBox3X+80, loadBox3Y+20);
+    ofDrawBitmapString(ofToString("Drag n Drop Sample"), loadBox4X+80, loadBox4Y+20);
     
     cout << " mouseY = " << mouseY << endl;
 }
