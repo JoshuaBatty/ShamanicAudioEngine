@@ -44,7 +44,6 @@
 		03C46CFD17661CFA007EB818 /* allpass.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 03C46CE817661CFA007EB818 /* allpass.cpp */; };
 		03C46CFE17661CFA007EB818 /* comb.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 03C46CEA17661CFA007EB818 /* comb.cpp */; };
 		03C46CFF17661CFA007EB818 /* revmodel.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 03C46CED17661CFA007EB818 /* revmodel.cpp */; };
-		03C46D1517661D4C007EB818 /* audioBinaural.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 03C46D0417661D4C007EB818 /* audioBinaural.cpp */; };
 		03C46D1617661D4C007EB818 /* audioSample.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 03C46D0617661D4C007EB818 /* audioSample.cpp */; };
 		03C46D1717661D4C007EB818 /* gui.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 03C46D0817661D4C007EB818 /* gui.cpp */; };
 		03C46D1817661D4C007EB818 /* livid.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 03C46D0B17661D4C007EB818 /* livid.cpp */; };
@@ -260,8 +259,6 @@
 		03C46CEF17661CFA007EB818 /* tuning.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = tuning.h; sourceTree = "<group>"; };
 		03C46CF917661CFA007EB818 /* README.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = README.txt; sourceTree = "<group>"; };
 		03C46CFB17661CFA007EB818 /* ofxDSP.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ofxDSP.h; sourceTree = "<group>"; };
-		03C46D0417661D4C007EB818 /* audioBinaural.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = audioBinaural.cpp; sourceTree = "<group>"; };
-		03C46D0517661D4C007EB818 /* audioBinaural.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = audioBinaural.h; sourceTree = "<group>"; };
 		03C46D0617661D4C007EB818 /* audioSample.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = audioSample.cpp; sourceTree = "<group>"; };
 		03C46D0717661D4C007EB818 /* audioSample.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = audioSample.h; sourceTree = "<group>"; };
 		03C46D0817661D4C007EB818 /* gui.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = gui.cpp; sourceTree = "<group>"; };
@@ -297,6 +294,7 @@
 		03C46D3717661D7C007EB818 /* ofxMaxim.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ofxMaxim.h; sourceTree = "<group>"; };
 		03C46D3F17661DB0007EB818 /* OpenAL.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = OpenAL.framework; path = System/Library/Frameworks/OpenAL.framework; sourceTree = SDKROOT; };
 		03C46D4117661E16007EB818 /* CoreMIDI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreMIDI.framework; path = System/Library/Frameworks/CoreMIDI.framework; sourceTree = SDKROOT; };
+		03DD2A46176ED0C40084B2D6 /* WavFile.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WavFile.h; sourceTree = "<group>"; };
 		03dde55c47701116edeb18007fc4bf75 /* ofxMSATimer.h */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 30; name = ofxMSATimer.h; path = ../../../addons/ofxMSATimer/src/ofxMSATimer.h; sourceTree = SOURCE_ROOT; };
 		04f77e5c73a62e2e77c78ec64f2fa05c /* ofxMidiOut.cpp */ = {isa = PBXFileReference; explicitFileType = sourcecode.cpp.cpp; fileEncoding = 30; name = ofxMidiOut.cpp; path = ../../../addons/ofxMidi/src/ofxMidiOut.cpp; sourceTree = SOURCE_ROOT; };
 		057122a817d12571f8c0c7a4d522b879 /* ofxCvGrayscaleImage.cpp */ = {isa = PBXFileReference; explicitFileType = sourcecode.cpp.cpp; fileEncoding = 30; name = ofxCvGrayscaleImage.cpp; path = ../../../addons/ofxOpenCv/src/ofxCvGrayscaleImage.cpp; sourceTree = SOURCE_ROOT; };
@@ -1348,8 +1346,6 @@
 				E4B69E1D0A3A1BDC003C02F2 /* main.cpp */,
 				E4B69E1E0A3A1BDC003C02F2 /* testApp.cpp */,
 				E4B69E1F0A3A1BDC003C02F2 /* testApp.h */,
-				03C46D0417661D4C007EB818 /* audioBinaural.cpp */,
-				03C46D0517661D4C007EB818 /* audioBinaural.h */,
 				03C46D0617661D4C007EB818 /* audioSample.cpp */,
 				03C46D0717661D4C007EB818 /* audioSample.h */,
 				03C46D0817661D4C007EB818 /* gui.cpp */,
@@ -1359,6 +1355,7 @@
 				03C46D1017661D4C007EB818 /* Timeline */,
 				03C46D1317661D4C007EB818 /* tween.cpp */,
 				03C46D1417661D4C007EB818 /* tween.h */,
+				03DD2A46176ED0C40084B2D6 /* WavFile.h */,
 			);
 			path = src;
 			sourceTree = SOURCE_ROOT;
@@ -1798,7 +1795,6 @@
 				03C46CFD17661CFA007EB818 /* allpass.cpp in Sources */,
 				03C46CFE17661CFA007EB818 /* comb.cpp in Sources */,
 				03C46CFF17661CFA007EB818 /* revmodel.cpp in Sources */,
-				03C46D1517661D4C007EB818 /* audioBinaural.cpp in Sources */,
 				03C46D1617661D4C007EB818 /* audioSample.cpp in Sources */,
 				03C46D1717661D4C007EB818 /* gui.cpp in Sources */,
 				03C46D1817661D4C007EB818 /* livid.cpp in Sources */,
@@ -1951,6 +1947,7 @@
 					../../../addons/ofxUI/libs,
 					../../../addons/ofxUI/src,
 				);
+				MACOSX_DEPLOYMENT_TARGET = 10.8;
 				OTHER_CPLUSPLUSFLAGS = (
 					"-D__MACOSX_CORE__",
 					"-lpthread",
@@ -1961,7 +1958,7 @@
 					../../../addons/ofxOpenCv/libs/opencv/lib/osx/opencv.a,
 					"../../../addons/ofxTimeline-YCAM/libs/sndfile/lib/osx/libsndfile.a",
 				);
-				SDKROOT = macosx;
+				SDKROOT = macosx10.8;
 			};
 			name = Debug;
 		};
@@ -2057,6 +2054,7 @@
 					../../../addons/ofxUI/libs,
 					../../../addons/ofxUI/src,
 				);
+				MACOSX_DEPLOYMENT_TARGET = 10.8;
 				OTHER_CPLUSPLUSFLAGS = (
 					"-D__MACOSX_CORE__",
 					"-lpthread",
@@ -2067,7 +2065,7 @@
 					../../../addons/ofxOpenCv/libs/opencv/lib/osx/opencv.a,
 					"../../../addons/ofxTimeline-YCAM/libs/sndfile/lib/osx/libsndfile.a",
 				);
-				SDKROOT = macosx;
+				SDKROOT = macosx10.8;
 			};
 			name = Release;
 		};
@@ -2154,6 +2152,7 @@
 					"$(LIBRARY_SEARCH_PATHS_QUOTED_FOR_TARGET_1)",
 				);
 				LIBRARY_SEARCH_PATHS_QUOTED_FOR_TARGET_1 = "\"$(SRCROOT)/../../../addons/ofxTimeline/libs/sndfile/lib/osx\"";
+				MACOSX_DEPLOYMENT_TARGET = 10.8;
 				PREBINDING = NO;
 				PRODUCT_NAME = "$(TARGET_NAME)Debug";
 				WRAPPER_EXTENSION = app;
@@ -2242,6 +2241,7 @@
 					"$(LIBRARY_SEARCH_PATHS_QUOTED_FOR_TARGET_1)",
 				);
 				LIBRARY_SEARCH_PATHS_QUOTED_FOR_TARGET_1 = "\"$(SRCROOT)/../../../addons/ofxTimeline/libs/sndfile/lib/osx\"";
+				MACOSX_DEPLOYMENT_TARGET = 10.8;
 				PREBINDING = NO;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				WRAPPER_EXTENSION = app;
