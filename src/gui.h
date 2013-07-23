@@ -28,6 +28,30 @@ class Gui {
 	void guiEvent(ofxUIEventArgs &e);
     void drawData();
     
+
+    void setBinVolume(float _value1);
+    void setBinPitch(float _value1);
+    void setBinOffset(float _value1);
+    void setVolume1(float _value1); void setVolume2(float _value1); void setVolume3(float _value1); void setVolume4(float _value1);
+    void setSpeed1(float _value1); void setSpeed2(float _value1); void setSpeed3(float _value1); void setSpeed4(float _value1);
+    void setPitch1(float _value1); void setPitch2(float _value1); void setPitch3(float _value1); void setPitch4(float _value1);
+    void setRandomGrainPitch1(float _value1); void setRandomGrainPitch2(float _value1); void setRandomGrainPitch3(float _value1); void setRandomGrainPitch4(float _value1);
+    void setGrainSize1(float _value1); void setGrainSize2(float _value1); void setGrainSize3(float _value1); void setGrainSize4(float _value1);
+    void setRandomGrainSize1(float _value1); void setRandomGrainSize2(float _value1); void setRandomGrainSize3(float _value1); void setRandomGrainSize4(float _value1);
+    void setOverlaps1(float _value1); void setOverlaps2(float _value1); void setOverlaps3(float _value1); void setOverlaps4(float _value1);
+    void setCutoff1(float _value1); void setCutoff2(float _value1); void setCutoff3(float _value1); void setCutoff4(float _value1);
+    void setLfoSpeed1(float _value1); void setLfoSpeed2(float _value1); void setLfoSpeed3(float _value1); void setLfoSpeed4(float _value1);
+    void setLfoAmp1(float _value1); void setLfoAmp2(float _value1); void setLfoAmp3(float _value1); void setLfoAmp4(float _value1);
+    void setRate1(float _value1); void setRate2(float _value1); void setRate3(float _value1); void setRate4(float _value1);
+    void setDelayTime1(float _value1); void setDelayTime2(float _value1); void setDelayTime3(float _value1); void setDelayTime4(float _value1);
+    void setDelayFeedback1(float _value1); void setDelayFeedback2(float _value1); void setDelayFeedback3(float _value1); void setDelayFeedback4(float _value1);
+    void setReverbDecay1(float _value1); void setReverbDecay2(float _value1); void setReverbDecay3(float _value1); void setReverbDecay4(float _value1);
+    void setReverbDryWet1(float _value1); void setReverbDryWet2(float _value1); void setReverbDryWet3(float _value1); void setReverbDryWet4(float _value1);
+  
+//    void setPanPosition1(float _value1); void setPanPosition2(float _value1); void setPanPosition3(float _value1); void setPanPosition4(float _value1);
+//    void setPanLfoSpeed1(float _value1); void setPanLfoSpeed2(float _value1); void setPanLfoSpeed3(float _value1); void setPanLfoSpeed4(float _value1);
+//    void setPanLfoAmp1(float _value1); void setPanLfoAmp2(float _value1); void setPanLfoAmp3(float _value1); void setPanLfoAmp4(float _value1);
+    
     int curPreset;
     int guiOffset;
     

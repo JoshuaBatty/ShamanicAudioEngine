@@ -50,10 +50,10 @@ void Gui::setup(Tween *_tween1, Tween *_tween2, Tween *_tween3, Tween *_tween4, 
     //VOLUME
     gui1 = new ofxUICanvas(0,180,length+xInit*2.0,330);
     gui1->addWidgetDown(new ofxUILabel("VOLUME", OFX_UI_FONT_MEDIUM));
-    gui1->addSlider("Hand_Drum", 0.0, 1.0, audioSample1->volume, 40, 150);
-    gui1->addWidgetRight(new ofxUISlider("Icaros", 0.0, 1.0, audioSample2->volume, 40, 150));
-    gui1->addWidgetRight(new ofxUISlider("Sing_Bowl", 0.0, 1.0, audioSample3->volume, 40, 150));
-    gui1->addWidgetRight(new ofxUISlider("Vocal", 0.0, 1.0, audioSample4->volume, 40, 150));
+    gui1->addSlider("Volume1", 0.0, 1.0, audioSample1->volume, 40, 150);
+    gui1->addWidgetRight(new ofxUISlider("Volume2", 0.0, 1.0, audioSample2->volume, 40, 150));
+    gui1->addWidgetRight(new ofxUISlider("Volume3", 0.0, 1.0, audioSample3->volume, 40, 150));
+    gui1->addWidgetRight(new ofxUISlider("Volume4", 0.0, 1.0, audioSample4->volume, 40, 150));
     gui1->addSpacer(length, dim/5);
     
     // DRUM
@@ -915,22 +915,22 @@ void Gui::guiEvent(ofxUIEventArgs &e)
 		ofxUISlider *slider = (ofxUISlider *) e.widget;
 		audioBinaural->volume = slider->getScaledValue();
 	}
-    else if(name == "Hand_Drum")
+    else if(name == "Volume1")
 	{
 		ofxUISlider *slider = (ofxUISlider *) e.widget;
 		audioSample1->volume = slider->getScaledValue();
 	}
-    else if(name == "Icaros")
+    else if(name == "Volume2")
 	{
 		ofxUISlider *slider = (ofxUISlider *) e.widget;
 		audioSample2->volume = slider->getScaledValue();
 	}
-    else if(name == "Sing_Bowl")
+    else if(name == "Volume3")
 	{
 		ofxUISlider *slider = (ofxUISlider *) e.widget;
 		audioSample3->volume = slider->getScaledValue();
 	}
-    else if(name == "Vocal")
+    else if(name == "Volume4")
 	{
 		ofxUISlider *slider = (ofxUISlider *) e.widget;
 		audioSample4->volume = slider->getScaledValue();
@@ -1293,6 +1293,355 @@ void Gui::guiEvent(ofxUIEventArgs &e)
 	}
     
 }
+
+//--------------------------------------------------------------
+void Gui::setBinVolume(float _value1){
+    ofxUISlider *slider = (ofxUISlider *) guiBinaural->getWidget("Binaural_B");
+    slider->setValue(_value1);
+    audioBinaural->volume = slider->getScaledValue();
+}
+void Gui::setBinPitch(float _value1){
+    ofxUISlider *slider = (ofxUISlider *) guiBinaural->getWidget("CarrierPitch");
+    slider->setValue(_value1);
+    audioBinaural->osc1Pitch = slider->getScaledValue();
+}
+void Gui::setBinOffset(float _value1){
+    ofxUISlider *slider = (ofxUISlider *) guiBinaural->getWidget("CarrierOffset");
+    slider->setValue(_value1);
+    audioBinaural->osc2Pitch = slider->getScaledValue();
+}
+
+//--------------------------------------------------------------
+void Gui::setVolume1(float _value1){
+    ofxUISlider *slider = (ofxUISlider *) gui1->getWidget("Volume1");
+    slider->setValue(_value1);
+    audioSample1->volume = slider->getScaledValue();
+}
+void Gui::setVolume2(float _value1){
+    ofxUISlider *slider = (ofxUISlider *) gui1->getWidget("Volume2");
+    slider->setValue(_value1);
+    audioSample2->volume = slider->getScaledValue();
+}
+void Gui::setVolume3(float _value1){
+    ofxUISlider *slider = (ofxUISlider *) gui1->getWidget("Volume3");
+    slider->setValue(_value1);
+    audioSample3->volume = slider->getScaledValue();
+}
+void Gui::setVolume4(float _value1){
+    ofxUISlider *slider = (ofxUISlider *) gui1->getWidget("Volume4");
+    slider->setValue(_value1);
+    audioSample4->volume = slider->getScaledValue();
+}
+
+//--------------------------------------------------------------
+void Gui::setSpeed1(float _value1){
+    ofxUISlider *slider = (ofxUISlider *) gui2->getWidget("speed1");
+    slider->setValue(_value1);
+    audioSample1->speed1 = slider->getScaledValue();
+}
+void Gui::setSpeed2(float _value1){
+    ofxUISlider *slider = (ofxUISlider *) gui3->getWidget("speed2");
+    slider->setValue(_value1);
+    audioSample2->speed1 = slider->getScaledValue();
+}
+void Gui::setSpeed3(float _value1){
+    ofxUISlider *slider = (ofxUISlider *) gui4->getWidget("speed3");
+    slider->setValue(_value1);
+    audioSample3->speed1 = slider->getScaledValue();
+}
+void Gui::setSpeed4(float _value1){
+    ofxUISlider *slider = (ofxUISlider *) gui5->getWidget("speed4");
+    slider->setValue(_value1);
+    audioSample4->speed1 = slider->getScaledValue();
+}
+
+//--------------------------------------------------------------
+void Gui::setPitch1(float _value1){
+    ofxUISlider *slider = (ofxUISlider *) gui2->getWidget("pitch1");
+    slider->setValue(_value1);
+    audioSample1->pitch1 = slider->getScaledValue();
+}
+void Gui::setPitch2(float _value1){
+    ofxUISlider *slider = (ofxUISlider *) gui3->getWidget("pitch2");
+    slider->setValue(_value1);
+    audioSample2->pitch1 = slider->getScaledValue();
+}
+void Gui::setPitch3(float _value1){
+    ofxUISlider *slider = (ofxUISlider *) gui4->getWidget("pitch3");
+    slider->setValue(_value1);
+    audioSample3->pitch1 = slider->getScaledValue();
+}
+void Gui::setPitch4(float _value1){
+    ofxUISlider *slider = (ofxUISlider *) gui5->getWidget("pitch4");
+    slider->setValue(_value1);
+    audioSample4->pitch1 = slider->getScaledValue();
+}
+
+
+//--------------------------------------------------------------
+void Gui::setRandomGrainPitch1(float _value1){
+    ofxUISlider *slider = (ofxUISlider *) gui2->getWidget("randomGrainPitch1");
+    slider->setValue(_value1);
+    audioSample1->randomGrainPitch1 = slider->getScaledValue();
+}
+void Gui::setRandomGrainPitch2(float _value1){
+    ofxUISlider *slider = (ofxUISlider *) gui3->getWidget("randomGrainPitch2");
+    slider->setValue(_value1);
+    audioSample2->randomGrainPitch1 = slider->getScaledValue();
+}
+void Gui::setRandomGrainPitch3(float _value1){
+    ofxUISlider *slider = (ofxUISlider *) gui4->getWidget("randomGrainPitch3");
+    slider->setValue(_value1);
+    audioSample3->randomGrainPitch1 = slider->getScaledValue();
+}
+void Gui::setRandomGrainPitch4(float _value1){
+    ofxUISlider *slider = (ofxUISlider *) gui5->getWidget("randomGrainPitch4");
+    slider->setValue(_value1);
+    audioSample4->randomGrainPitch1 = slider->getScaledValue();
+}
+
+//--------------------------------------------------------------
+void Gui::setGrainSize1(float _value1){
+    ofxUISlider *slider = (ofxUISlider *) gui2->getWidget("grainLength1");
+    slider->setValue(_value1);
+    audioSample1->grainLength1 = slider->getScaledValue();
+}
+void Gui::setGrainSize2(float _value1){
+    ofxUISlider *slider = (ofxUISlider *) gui3->getWidget("grainLength2");
+    slider->setValue(_value1);
+    audioSample2->grainLength1 = slider->getScaledValue();
+}
+void Gui::setGrainSize3(float _value1){
+    ofxUISlider *slider = (ofxUISlider *) gui4->getWidget("grainLength3");
+    slider->setValue(_value1);
+    audioSample3->grainLength1 = slider->getScaledValue();
+}
+void Gui::setGrainSize4(float _value1){
+    ofxUISlider *slider = (ofxUISlider *) gui5->getWidget("grainLength4");
+    slider->setValue(_value1);
+    audioSample4->grainLength1 = slider->getScaledValue();
+}
+
+//--------------------------------------------------------------
+void Gui::setRandomGrainSize1(float _value1){
+    ofxUISlider *slider = (ofxUISlider *) gui2->getWidget("randomGrainSize1");
+    slider->setValue(_value1);
+    audioSample1->randomGrainSize1 = slider->getScaledValue();
+}
+void Gui::setRandomGrainSize2(float _value1){
+    ofxUISlider *slider = (ofxUISlider *) gui3->getWidget("randomGrainSize2");
+    slider->setValue(_value1);
+    audioSample2->randomGrainSize1 = slider->getScaledValue();
+}
+void Gui::setRandomGrainSize3(float _value1){
+    ofxUISlider *slider = (ofxUISlider *) gui4->getWidget("randomGrainSize3");
+    slider->setValue(_value1);
+    audioSample3->randomGrainSize1 = slider->getScaledValue();
+}
+void Gui::setRandomGrainSize4(float _value1){
+    ofxUISlider *slider = (ofxUISlider *) gui5->getWidget("randomGrainSize4");
+    slider->setValue(_value1);
+    audioSample4->randomGrainSize1 = slider->getScaledValue();
+}
+
+//--------------------------------------------------------------
+void Gui::setOverlaps1(float _value1){
+    ofxUISlider *slider = (ofxUISlider *) gui2->getWidget("overlaps1");
+    slider->setValue(_value1);
+    audioSample1->overlaps1 = slider->getScaledValue();
+}
+void Gui::setOverlaps2(float _value1){
+    ofxUISlider *slider = (ofxUISlider *) gui3->getWidget("overlaps2");
+    slider->setValue(_value1);
+    audioSample2->overlaps1 = slider->getScaledValue();
+}
+void Gui::setOverlaps3(float _value1){
+    ofxUISlider *slider = (ofxUISlider *) gui4->getWidget("overlaps3");
+    slider->setValue(_value1);
+    audioSample3->overlaps1 = slider->getScaledValue();
+}
+void Gui::setOverlaps4(float _value1){
+    ofxUISlider *slider = (ofxUISlider *) gui5->getWidget("overlaps4");
+    slider->setValue(_value1);
+    audioSample4->overlaps1 = slider->getScaledValue();
+}
+
+//--------------------------------------------------------------
+void Gui::setCutoff1(float _value1){
+    ofxUISlider *slider = (ofxUISlider *) gui2->getWidget("Cutoff1");
+    slider->setValue(_value1);
+    audioSample1->cutoff1 = slider->getScaledValue();
+}
+void Gui::setCutoff2(float _value1){
+    ofxUISlider *slider = (ofxUISlider *) gui3->getWidget("Cutoff2");
+    slider->setValue(_value1);
+    audioSample2->cutoff1 = slider->getScaledValue();
+}
+void Gui::setCutoff3(float _value1){
+    ofxUISlider *slider = (ofxUISlider *) gui4->getWidget("Cutoff3");
+    slider->setValue(_value1);
+    audioSample3->cutoff1 = slider->getScaledValue();
+}
+void Gui::setCutoff4(float _value1){
+    ofxUISlider *slider = (ofxUISlider *) gui5->getWidget("Cutoff4");
+    slider->setValue(_value1);
+    audioSample4->cutoff1 = slider->getScaledValue();
+}
+
+//--------------------------------------------------------------
+void Gui::setLfoSpeed1(float _value1){
+    ofxUISlider *slider = (ofxUISlider *) gui2->getWidget("LfoSpeed1");
+    slider->setValue(_value1);
+    audioSample1->lfoSpeed1 = slider->getScaledValue();
+}
+void Gui::setLfoSpeed2(float _value1){
+    ofxUISlider *slider = (ofxUISlider *) gui3->getWidget("LfoSpeed2");
+    slider->setValue(_value1);
+    audioSample2->lfoSpeed1 = slider->getScaledValue();
+}
+void Gui::setLfoSpeed3(float _value1){
+    ofxUISlider *slider = (ofxUISlider *) gui4->getWidget("LfoSpeed3");
+    slider->setValue(_value1);
+    audioSample3->lfoSpeed1 = slider->getScaledValue();
+}
+void Gui::setLfoSpeed4(float _value1){
+    ofxUISlider *slider = (ofxUISlider *) gui5->getWidget("LfoSpeed4");
+    slider->setValue(_value1);
+    audioSample4->lfoSpeed1 = slider->getScaledValue();
+}
+
+//--------------------------------------------------------------
+void Gui::setLfoAmp1(float _value1){
+    ofxUISlider *slider = (ofxUISlider *) gui2->getWidget("LfoAmp1");
+    slider->setValue(_value1);
+    audioSample1->lfoAmp1 = slider->getScaledValue();
+}
+void Gui::setLfoAmp2(float _value1){
+    ofxUISlider *slider = (ofxUISlider *) gui3->getWidget("LfoAmp2");
+    slider->setValue(_value1);
+    audioSample2->lfoAmp1 = slider->getScaledValue();
+}
+void Gui::setLfoAmp3(float _value1){
+    ofxUISlider *slider = (ofxUISlider *) gui4->getWidget("LfoAmp3");
+    slider->setValue(_value1);
+    audioSample3->lfoAmp1 = slider->getScaledValue();
+}
+void Gui::setLfoAmp4(float _value1){
+    ofxUISlider *slider = (ofxUISlider *) gui5->getWidget("LfoAmp4");
+    slider->setValue(_value1);
+    audioSample4->lfoAmp1 = slider->getScaledValue();
+}
+
+//--------------------------------------------------------------
+void Gui::setRate1(float _value1){
+    ofxUISlider *slider = (ofxUISlider *) gui2->getWidget("Rate1");
+    slider->setValue(_value1);
+    audioSample1->rate = slider->getScaledValue();
+}
+void Gui::setRate2(float _value1){
+    ofxUISlider *slider = (ofxUISlider *) gui3->getWidget("Rate2");
+    slider->setValue(_value1);
+    audioSample2->rate = slider->getScaledValue();
+}
+void Gui::setRate3(float _value1){
+    ofxUISlider *slider = (ofxUISlider *) gui4->getWidget("Rate3");
+    slider->setValue(_value1);
+    audioSample3->rate = slider->getScaledValue();
+}
+void Gui::setRate4(float _value1){
+    ofxUISlider *slider = (ofxUISlider *) gui5->getWidget("Rate4");
+    slider->setValue(_value1);
+    audioSample4->rate = slider->getScaledValue();
+}
+
+//--------------------------------------------------------------
+void Gui::setDelayTime1(float _value1){
+    ofxUISlider *slider = (ofxUISlider *) gui2->getWidget("DelayTime1");
+    slider->setValue(_value1);
+    audioSample1->delayTime1 = slider->getScaledValue();
+}
+void Gui::setDelayTime2(float _value1){
+    ofxUISlider *slider = (ofxUISlider *) gui3->getWidget("DelayTime2");
+    slider->setValue(_value1);
+    audioSample2->delayTime1 = slider->getScaledValue();
+}
+void Gui::setDelayTime3(float _value1){
+    ofxUISlider *slider = (ofxUISlider *) gui4->getWidget("DelayTime3");
+    slider->setValue(_value1);
+    audioSample3->delayTime1 = slider->getScaledValue();
+}
+void Gui::setDelayTime4(float _value1){
+    ofxUISlider *slider = (ofxUISlider *) gui5->getWidget("DelayTime4");
+    slider->setValue(_value1);
+    audioSample4->delayTime1 = slider->getScaledValue();
+}
+
+//--------------------------------------------------------------
+void Gui::setDelayFeedback1(float _value1){
+    ofxUISlider *slider = (ofxUISlider *) gui2->getWidget("DelayFeedback1");
+    slider->setValue(_value1);
+    audioSample1->delayFeedback1 = slider->getScaledValue();
+}
+void Gui::setDelayFeedback2(float _value1){
+    ofxUISlider *slider = (ofxUISlider *) gui3->getWidget("DelayFeedback2");
+    slider->setValue(_value1);
+    audioSample2->delayFeedback1 = slider->getScaledValue();
+}
+void Gui::setDelayFeedback3(float _value1){
+    ofxUISlider *slider = (ofxUISlider *) gui4->getWidget("DelayFeedback3");
+    slider->setValue(_value1);
+    audioSample3->delayFeedback1 = slider->getScaledValue();
+}
+void Gui::setDelayFeedback4(float _value1){
+    ofxUISlider *slider = (ofxUISlider *) gui5->getWidget("DelayFeedback4");
+    slider->setValue(_value1);
+    audioSample4->delayFeedback1 = slider->getScaledValue();
+}
+
+//--------------------------------------------------------------
+void Gui::setReverbDecay1(float _value1){
+    ofxUISlider *slider = (ofxUISlider *) gui2->getWidget("ReverbSize1");
+    slider->setValue(_value1);
+    audioSample1->reverbSize = slider->getScaledValue();
+}
+void Gui::setReverbDecay2(float _value1){
+    ofxUISlider *slider = (ofxUISlider *) gui3->getWidget("ReverbSize2");
+    slider->setValue(_value1);
+    audioSample2->reverbSize = slider->getScaledValue();
+}
+void Gui::setReverbDecay3(float _value1){
+    ofxUISlider *slider = (ofxUISlider *) gui4->getWidget("ReverbSize3");
+    slider->setValue(_value1);
+    audioSample3->reverbSize = slider->getScaledValue();
+}
+void Gui::setReverbDecay4(float _value1){
+    ofxUISlider *slider = (ofxUISlider *) gui5->getWidget("ReverbSize4");
+    slider->setValue(_value1);
+    audioSample4->reverbSize = slider->getScaledValue();
+}
+
+//--------------------------------------------------------------
+void Gui::setReverbDryWet1(float _value1){
+    ofxUISlider *slider = (ofxUISlider *) gui2->getWidget("ReverbDryWet1");
+    slider->setValue(_value1);
+    audioSample1->reverbDryWet = slider->getScaledValue();
+}
+void Gui::setReverbDryWet2(float _value1){
+    ofxUISlider *slider = (ofxUISlider *) gui3->getWidget("ReverbDryWet2");
+    slider->setValue(_value1);
+    audioSample2->reverbDryWet = slider->getScaledValue();
+}
+void Gui::setReverbDryWet3(float _value1){
+    ofxUISlider *slider = (ofxUISlider *) gui4->getWidget("ReverbDryWet3");
+    slider->setValue(_value1);
+    audioSample3->reverbDryWet = slider->getScaledValue();
+}
+void Gui::setReverbDryWet4(float _value1){
+    ofxUISlider *slider = (ofxUISlider *) gui5->getWidget("ReverbDryWet4");
+    slider->setValue(_value1);
+    audioSample4->reverbDryWet = slider->getScaledValue();
+}
+
 
 //--------------------------------------------------------------
 void Gui::drawData(){

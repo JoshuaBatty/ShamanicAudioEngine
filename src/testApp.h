@@ -9,7 +9,7 @@
 #include "tween.h"
 #include "mainTimeline.h"
 
-//#define _USE_MIDI // uncomment to use GUI
+#define _USE_MIDI // uncomment to use GUI
 
 class testApp : public ofBaseApp{
 	public:

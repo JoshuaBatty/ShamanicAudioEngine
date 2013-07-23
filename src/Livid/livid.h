@@ -11,13 +11,13 @@
 
 #include "ofMain.h"
 #include "ofxMidi.h"
+#include "gui.h"
 
 class livid : public ofxMidiListener {
 	
 public:
 	
-	void setup();
-	void update();
+	void setup(Gui *gui, AudioSampler *_audioSample1, AudioSampler *_audioSample2, AudioSampler *_audioSample3, AudioSampler *_audioSample4);
 	void draw();
 	void exit();
 	void newMidiMessage(ofxMidiMessage& eventArgs);
@@ -31,6 +31,9 @@ public:
 	ofxMidiOut midiOut;
 	int channel, note, velocity;
 	
+    Gui *Mgui;
+    AudioSampler  *audioSample1, *audioSample2, *audioSample3, *audioSample4;
+
 	//Midi Fighter Variables
 	int mfSlider1,mfSlider2;
 	int mfKnob1,mfKnob2;
