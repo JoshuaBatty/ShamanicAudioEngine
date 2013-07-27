@@ -200,7 +200,6 @@ void testApp::draw(){
     ofDrawBitmapString(ofToString("Drag n Drop Sample"), loadBox3X+80, loadBox3Y+20);
     ofDrawBitmapString(ofToString("Drag n Drop Sample"), loadBox4X+80, loadBox4Y+20);
     
-    cout << " mouseY = " << mouseY << endl;
 }
 
 //--------------------------------------------------------------
@@ -213,12 +212,39 @@ void testApp::keyPressed(int key)
  //   tween4.trigger();
   
     if(key == 'h'){
-    gui.gui1->toggleVisible();
-    gui.gui2->toggleVisible();
-    gui.gui3->toggleVisible();
-    gui.gui4->toggleVisible();
-    gui.gui5->toggleVisible();
-    gui.gui6->toggleVisible();
+        gui.gui1->toggleVisible();
+        gui.gui2->toggleVisible();
+        gui.gui3->toggleVisible();
+        gui.gui4->toggleVisible();
+        gui.gui5->toggleVisible();
+        gui.gui6->toggleVisible();
+    }
+    
+    if(key == '1'){
+        audioSample1.current = 0;
+        audioSample2.current = 0;
+        audioSample3.current = 0;
+        audioSample4.current = 0;
+    } else if(key == '2'){
+        audioSample1.current = 1;
+        audioSample2.current = 1;
+        audioSample3.current = 1;
+        audioSample4.current = 1;
+    } else if(key == '3'){
+        audioSample1.current = 2;
+        audioSample2.current = 2;
+        audioSample3.current = 2;
+        audioSample4.current = 2;
+    } else if(key == '4'){
+        audioSample1.current = 3;
+        audioSample2.current = 3;
+        audioSample3.current = 3;
+        audioSample4.current = 3;
+    } else if(key == '5'){
+        audioSample1.current = 4;
+        audioSample2.current = 4;
+        audioSample3.current = 4;
+        audioSample4.current = 4;
     }
 
 }

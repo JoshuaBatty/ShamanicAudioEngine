@@ -57,7 +57,10 @@ public:
 	
 	//Middle Buttons
 	bool buttons[16];
-	
+    bool bIsTurningOn[16];
+    bool bIsTurningOff[16];
+    int buttonState[16];
+
 	//Buttons Row 1
 	bool buttonsR1[16];
     

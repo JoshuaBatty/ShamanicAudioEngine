@@ -1295,6 +1295,151 @@ void Gui::guiEvent(ofxUIEventArgs &e)
 }
 
 //--------------------------------------------------------------
+void Gui::triggerPreset1(int _value1){
+    ofxUILabelButton *button = (ofxUILabelButton *) gui7->getWidget("1");
+    button->setValue(_value1);
+    curPreset = 1;
+    tween1->trigger2();
+    tween2->trigger2();
+    tween3->trigger2();
+    tween4->trigger2();
+    gui1->loadSettings("GUI/guiSettingsVolume.1.xml");
+    gui2->loadSettings("GUI/guiSettingsAudio1.1.xml");
+    gui3->loadSettings("GUI/guiSettingsAudio2.1.xml");
+    gui4->loadSettings("GUI/guiSettingsAudio3.1.xml");
+    gui5->loadSettings("GUI/guiSettingsAudio4.1.xml");
+    tween1->catchTempVariables();
+    tween2->catchTempVariables();
+    tween3->catchTempVariables();
+    tween4->catchTempVariables();
+}
+void Gui::triggerPreset2(int _value1){
+    ofxUILabelButton *button = (ofxUILabelButton *) gui7->getWidget("2");
+    button->setValue(_value1);
+    curPreset = 2;
+    tween1->trigger2();
+    tween2->trigger2();
+    tween3->trigger2();
+    tween4->trigger2();
+    gui1->loadSettings("GUI/guiSettingsVolume.2.xml");
+    gui2->loadSettings("GUI/guiSettingsAudio1.2.xml");
+    gui3->loadSettings("GUI/guiSettingsAudio2.2.xml");
+    gui4->loadSettings("GUI/guiSettingsAudio3.2.xml");
+    gui5->loadSettings("GUI/guiSettingsAudio4.2.xml");
+    tween1->catchTempVariables();
+    tween2->catchTempVariables();
+    tween3->catchTempVariables();
+    tween4->catchTempVariables();
+}
+void Gui::triggerPreset3(int _value1){
+    ofxUILabelButton *button = (ofxUILabelButton *) gui7->getWidget("3");
+    button->setValue(_value1);
+    curPreset = 3;
+    tween1->trigger2();
+    tween2->trigger2();
+    tween3->trigger2();
+    tween4->trigger2();
+    gui1->loadSettings("GUI/guiSettingsVolume.3.xml");
+    gui2->loadSettings("GUI/guiSettingsAudio1.3.xml");
+    gui3->loadSettings("GUI/guiSettingsAudio2.3.xml");
+    gui4->loadSettings("GUI/guiSettingsAudio3.3.xml");
+    gui5->loadSettings("GUI/guiSettingsAudio4.3.xml");
+    tween1->catchTempVariables();
+    tween2->catchTempVariables();
+    tween3->catchTempVariables();
+    tween4->catchTempVariables();
+}
+void Gui::triggerPreset4(int _value1){
+    ofxUILabelButton *button = (ofxUILabelButton *) gui7->getWidget("4");
+    button->setValue(_value1);
+    curPreset = 4;
+    tween1->trigger2();
+    tween2->trigger2();
+    tween3->trigger2();
+    tween4->trigger2();
+    gui1->loadSettings("GUI/guiSettingsVolume.4.xml");
+    gui2->loadSettings("GUI/guiSettingsAudio1.4.xml");
+    gui3->loadSettings("GUI/guiSettingsAudio2.4.xml");
+    gui4->loadSettings("GUI/guiSettingsAudio3.4.xml");
+    gui5->loadSettings("GUI/guiSettingsAudio4.4.xml");
+    tween1->catchTempVariables();
+    tween2->catchTempVariables();
+    tween3->catchTempVariables();
+    tween4->catchTempVariables();
+}
+void Gui::triggerPreset5(int _value1){
+    ofxUILabelButton *button = (ofxUILabelButton *) gui7->getWidget("5");
+    button->setValue(_value1);
+    curPreset = 5;
+    tween1->trigger2();
+    tween2->trigger2();
+    tween3->trigger2();
+    tween4->trigger2();
+    gui1->loadSettings("GUI/guiSettingsVolume.5.xml");
+    gui2->loadSettings("GUI/guiSettingsAudio1.5.xml");
+    gui3->loadSettings("GUI/guiSettingsAudio2.5.xml");
+    gui4->loadSettings("GUI/guiSettingsAudio3.5.xml");
+    gui5->loadSettings("GUI/guiSettingsAudio4.5.xml");
+    tween1->catchTempVariables();
+    tween2->catchTempVariables();
+    tween3->catchTempVariables();
+    tween4->catchTempVariables();
+}
+void Gui::triggerPreset6(int _value1){
+    ofxUILabelButton *button = (ofxUILabelButton *) gui7->getWidget("6");
+    button->setValue(_value1);
+    curPreset = 6;
+    tween1->trigger2();
+    tween2->trigger2();
+    tween3->trigger2();
+    tween4->trigger2();
+    gui1->loadSettings("GUI/guiSettingsVolume.6.xml");
+    gui2->loadSettings("GUI/guiSettingsAudio1.6.xml");
+    gui3->loadSettings("GUI/guiSettingsAudio2.6.xml");
+    gui4->loadSettings("GUI/guiSettingsAudio3.6.xml");
+    gui5->loadSettings("GUI/guiSettingsAudio4.6.xml");
+    tween1->catchTempVariables();
+    tween2->catchTempVariables();
+    tween3->catchTempVariables();
+    tween4->catchTempVariables();
+}
+void Gui::triggerPreset7(int _value1){
+    ofxUILabelButton *button = (ofxUILabelButton *) gui7->getWidget("7");
+    button->setValue(_value1);
+    curPreset = 7;
+    tween1->trigger2();
+    tween2->trigger2();
+    tween3->trigger2();
+    tween4->trigger2();
+    gui1->loadSettings("GUI/guiSettingsVolume.7.xml");
+    gui2->loadSettings("GUI/guiSettingsAudio1.7.xml");
+    gui3->loadSettings("GUI/guiSettingsAudio2.7.xml");
+    gui4->loadSettings("GUI/guiSettingsAudio3.7.xml");
+    gui5->loadSettings("GUI/guiSettingsAudio4.7.xml");
+    tween1->catchTempVariables();
+    tween2->catchTempVariables();
+    tween3->catchTempVariables();
+    tween4->catchTempVariables();
+}
+void Gui::triggerPreset8(int _value1){
+    ofxUILabelButton *button = (ofxUILabelButton *) gui7->getWidget("8");
+    button->setValue(_value1);
+    curPreset = 8;
+    tween1->trigger2();
+    tween2->trigger2();
+    tween3->trigger2();
+    tween4->trigger2();
+    gui1->loadSettings("GUI/guiSettingsVolume.8.xml");
+    gui2->loadSettings("GUI/guiSettingsAudio1.8.xml");
+    gui3->loadSettings("GUI/guiSettingsAudio2.8.xml");
+    gui4->loadSettings("GUI/guiSettingsAudio3.8.xml");
+    gui5->loadSettings("GUI/guiSettingsAudio4.8.xml");
+    tween1->catchTempVariables();
+    tween2->catchTempVariables();
+    tween3->catchTempVariables();
+    tween4->catchTempVariables();
+}
+//--------------------------------------------------------------
 void Gui::setBinVolume(float _value1){
     ofxUISlider *slider = (ofxUISlider *) guiBinaural->getWidget("Binaural_B");
     slider->setValue(_value1);

@@ -51,6 +51,8 @@ class Gui {
 //    void setPanPosition1(float _value1); void setPanPosition2(float _value1); void setPanPosition3(float _value1); void setPanPosition4(float _value1);
 //    void setPanLfoSpeed1(float _value1); void setPanLfoSpeed2(float _value1); void setPanLfoSpeed3(float _value1); void setPanLfoSpeed4(float _value1);
 //    void setPanLfoAmp1(float _value1); void setPanLfoAmp2(float _value1); void setPanLfoAmp3(float _value1); void setPanLfoAmp4(float _value1);
+    void triggerPreset1(int _value1); void triggerPreset2(int _value1); void triggerPreset3(int _value1); void triggerPreset4(int _value1);
+    void triggerPreset5(int _value1); void triggerPreset6(int _value1); void triggerPreset7(int _value1); void triggerPreset8(int _value1);
     
     int curPreset;
     int guiOffset;

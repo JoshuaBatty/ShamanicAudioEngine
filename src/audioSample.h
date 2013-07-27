@@ -17,7 +17,11 @@
 #include "time.h"			// Need by maxi to do granular stuff.....not sure if i need it in my testApp though
 #include "ofxDSP.h"         //Custom DSP librray that contains reverb and decimate functions
 
-typedef hannWinFunctor grainPlayerWin;
+typedef gaussianWinFunctor grainPlayerWin1;
+typedef cosineWinFunctor grainPlayerWin2;
+typedef triangleWinFunctor grainPlayerWin3;
+typedef rectWinFunctor grainPlayerWin4;
+typedef blackmanHarrisWinFunctor grainPlayerWin5;
 
 class AudioSampler : public ofSoundSource{
 	
@@ -44,7 +48,8 @@ class AudioSampler : public ofSoundSource{
 	void clear1();
 
     double windowAmp1;
-    
+    double windowAmpDummy;
+
 //	private :
 	int		initialBufferSize; /* buffer size */
 	int		sampleRate;
@@ -68,9 +73,12 @@ class AudioSampler : public ofSoundSource{
     //GRANULAR
 	maxiSample samp1; //Variables to play the samples
 	
-    vector<maxiPitchStretch<grainPlayerWin>*> stretches1;
+    maxiPitchStretch<grainPlayerWin1> *stretches1;
+    maxiPitchStretch<grainPlayerWin2> *stretches2;
+    maxiPitchStretch<grainPlayerWin3> *stretches3;
+    maxiPitchStretch<grainPlayerWin4> *stretches4;
+    maxiPitchStretch<grainPlayerWin5> *stretches5;
 	maxiMix mymix;
-	maxiPitchStretch<grainPlayerWin> *ts1;
 	
 	ofxMaxiFFT fft;
 	ofxMaxiFFTOctaveAnalyzer oct;

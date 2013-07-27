@@ -10,7 +10,11 @@
 
 //-------------------------------------------------------------
 AudioSampler::~AudioSampler() {
-	delete ts1;
+	delete stretches1;
+	delete stretches2;
+	delete stretches3;
+	delete stretches4;
+	delete stretches5;
 }
 
 //--------------------------------------------------------------
@@ -31,8 +35,11 @@ void AudioSampler::setup(string _file)
     //samples
     samp1.load(ofToDataPath(_file));
 //	samp1.load(_file);
-	ts1 = new maxiPitchStretch<grainPlayerWin>(&samp1);
-	stretches1.push_back(ts1);
+    stretches1 = new maxiPitchStretch<grainPlayerWin1>(&samp1);
+    stretches2 = new maxiPitchStretch<grainPlayerWin2>(&samp1);
+    stretches3 = new maxiPitchStretch<grainPlayerWin3>(&samp1);
+    stretches4 = new maxiPitchStretch<grainPlayerWin4>(&samp1);	
+    stretches5 = new maxiPitchStretch<grainPlayerWin5>(&samp1);
 
 	ofxMaxiSettings::setup(sampleRate, 2, initialBufferSize);
 
@@ -184,8 +191,51 @@ void AudioSampler::audioRequested (float * output, int numFrames, int nChannels)
 
 		for (int i = 0; i < numFrames; i++){
           //  stretches1[current]->setPosition(playPosition);
-            wave1 = stretches1[current]->play(&windowAmp1,(pitch1*(ofRandom(randomGrainPitch1)+1)), speed1, ofClamp(grainLength1+randomGrainSize1,0.025,0.49), overlaps1);
-			
+            switch (current) {
+                case 0:
+                    wave1 = stretches1->play(&windowAmp1,(pitch1*(ofRandom(randomGrainPitch1)+1)), speed1, ofClamp(grainLength1+randomGrainSize1,0.025,0.49), overlaps1);
+                    stretches2->play(&windowAmpDummy,(pitch1*(ofRandom(randomGrainPitch1)+1)), speed1, ofClamp(grainLength1+randomGrainSize1,0.025,0.49), overlaps1);
+                    stretches3->play(&windowAmpDummy,(pitch1*(ofRandom(randomGrainPitch1)+1)), speed1, ofClamp(grainLength1+randomGrainSize1,0.025,0.49), overlaps1);
+                    stretches4->play(&windowAmpDummy,(pitch1*(ofRandom(randomGrainPitch1)+1)), speed1, ofClamp(grainLength1+randomGrainSize1,0.025,0.49), overlaps1);
+                    stretches5->play(&windowAmpDummy,(pitch1*(ofRandom(randomGrainPitch1)+1)), speed1, ofClamp(grainLength1+randomGrainSize1,0.025,0.49), overlaps1);
+                    break;
+                    
+                case 1:
+                    wave1 = stretches2->play(&windowAmp1,(pitch1*(ofRandom(randomGrainPitch1)+1)), speed1, ofClamp(grainLength1+randomGrainSize1,0.025,0.49), overlaps1);
+                    stretches1->play(&windowAmpDummy,(pitch1*(ofRandom(randomGrainPitch1)+1)), speed1, ofClamp(grainLength1+randomGrainSize1,0.025,0.49), overlaps1);
+                    stretches3->play(&windowAmpDummy,(pitch1*(ofRandom(randomGrainPitch1)+1)), speed1, ofClamp(grainLength1+randomGrainSize1,0.025,0.49), overlaps1);
+                    stretches4->play(&windowAmpDummy,(pitch1*(ofRandom(randomGrainPitch1)+1)), speed1, ofClamp(grainLength1+randomGrainSize1,0.025,0.49), overlaps1);
+                    stretches5->play(&windowAmpDummy,(pitch1*(ofRandom(randomGrainPitch1)+1)), speed1, ofClamp(grainLength1+randomGrainSize1,0.025,0.49), overlaps1);
+                    break;
+                    
+                case 2:
+                    wave1 = stretches3->play(&windowAmp1,(pitch1*(ofRandom(randomGrainPitch1)+1)), speed1, ofClamp(grainLength1+randomGrainSize1,0.025,0.49), overlaps1);
+                    stretches1->play(&windowAmpDummy,(pitch1*(ofRandom(randomGrainPitch1)+1)), speed1, ofClamp(grainLength1+randomGrainSize1,0.025,0.49), overlaps1);
+                    stretches2->play(&windowAmpDummy,(pitch1*(ofRandom(randomGrainPitch1)+1)), speed1, ofClamp(grainLength1+randomGrainSize1,0.025,0.49), overlaps1);
+                    stretches4->play(&windowAmpDummy,(pitch1*(ofRandom(randomGrainPitch1)+1)), speed1, ofClamp(grainLength1+randomGrainSize1,0.025,0.49), overlaps1);
+                    stretches5->play(&windowAmpDummy,(pitch1*(ofRandom(randomGrainPitch1)+1)), speed1, ofClamp(grainLength1+randomGrainSize1,0.025,0.49), overlaps1);
+                    break;
+                    
+                case 3:
+                    wave1 = stretches4->play(&windowAmp1,(pitch1*(ofRandom(randomGrainPitch1)+1)), speed1, ofClamp(grainLength1+randomGrainSize1,0.025,0.49), overlaps1);
+                    stretches1->play(&windowAmpDummy,(pitch1*(ofRandom(randomGrainPitch1)+1)), speed1, ofClamp(grainLength1+randomGrainSize1,0.025,0.49), overlaps1);
+                    stretches2->play(&windowAmpDummy,(pitch1*(ofRandom(randomGrainPitch1)+1)), speed1, ofClamp(grainLength1+randomGrainSize1,0.025,0.49), overlaps1);
+                    stretches3->play(&windowAmpDummy,(pitch1*(ofRandom(randomGrainPitch1)+1)), speed1, ofClamp(grainLength1+randomGrainSize1,0.025,0.49), overlaps1);
+                    stretches5->play(&windowAmpDummy,(pitch1*(ofRandom(randomGrainPitch1)+1)), speed1, ofClamp(grainLength1+randomGrainSize1,0.025,0.49), overlaps1);
+                    break;
+                    
+                case 4:
+                    wave1 = stretches5->play(&windowAmp1,(pitch1*(ofRandom(randomGrainPitch1)+1)), speed1, ofClamp(grainLength1+randomGrainSize1,0.025,0.49), overlaps1);
+                    stretches1->play(&windowAmpDummy,(pitch1*(ofRandom(randomGrainPitch1)+1)), speed1, ofClamp(grainLength1+randomGrainSize1,0.025,0.49), overlaps1);
+                    stretches2->play(&windowAmpDummy,(pitch1*(ofRandom(randomGrainPitch1)+1)), speed1, ofClamp(grainLength1+randomGrainSize1,0.025,0.49), overlaps1);
+                    stretches3->play(&windowAmpDummy,(pitch1*(ofRandom(randomGrainPitch1)+1)), speed1, ofClamp(grainLength1+randomGrainSize1,0.025,0.49), overlaps1);
+                    stretches4->play(&windowAmpDummy,(pitch1*(ofRandom(randomGrainPitch1)+1)), speed1, ofClamp(grainLength1+randomGrainSize1,0.025,0.49), overlaps1);
+                    break;
+                    
+                default:
+                    break;
+            }
+            
             //Add some juicy DSP
 			DELAY1out = DELAY1.dl(wave1,delayTime1,delayFeedback1);
             

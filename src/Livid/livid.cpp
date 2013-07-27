@@ -41,15 +41,17 @@ void livid::setup(Gui *gui, AudioSampler *_audioSample1, AudioSampler *_audioSam
 	
 	channel = 1;
 	note = 0;
-	velocity = 0;
+	velocity = 20;
 	
 	i = 0;
 	
 	//Init toggles
-	for(int i = 0; i < 15; i++){
+	for(int i = 0; i < 16; i++){
 		buttons[i]=false;
 		buttonsR1[i]=false;
 		buttonsR2[i]=false;
+        bIsTurningOff[i] = false;
+        bIsTurningOn[i] = false;
 	}
 	for(int i = 0; i < 12; i++){
 		bKnobsB2[i]=false;
@@ -178,6 +180,7 @@ void livid::exit() {
 	
 	// clean up
 	midiIn.closePort();
+    midiOut.closePort();
 	midiIn.removeListener(this);
 }
 
@@ -577,117 +580,282 @@ void livid::newMidiMessage(ofxMidiMessage& msg) {
 	////////////////////////////////////
 	//		    MIDDLE BUTTONS		  //
 	////////////////////////////////////
-	
+/*
+    //Button 1
+	if(midiMessage.pitch == 0 && midiMessage.velocity == 64){
+        if(bIsTurningOn[0]==false){
+            buttonState[0]++;
+            buttons[0] = true;
+            cout << "mfButtonState = " << buttonState[0] << endl;
+            bIsTurningOn[0] = true;
+            bIsTurningOff[0] = false;
+        }
+	} else if(midiMessage.pitch == 0 && midiMessage.velocity == 0){
+        if(bIsTurningOff[0]==false){
+            buttonState[0]--;
+            buttons[0] = false;
+            cout << "mfButtonState = " << buttonState[0] << endl;
+            bIsTurningOff[0]=true;
+            bIsTurningOn[0] = false;
+        }
+	}
+  */  
 	//Button 1
 	if(midiMessage.pitch == 0 && midiMessage.velocity == 64){
-		buttons[0] = true;
+        if(bIsTurningOn[0]==false){
+            if(buttonState[0]==0){
+                midiOut.sendNoteOn(channel, 0,  0);
+                buttonState[0]++;
+            } else {
+                midiOut.sendNoteOn(channel, 0,  velocity);
+                buttonState[0]--;
+            }
+            buttons[0] = true;
+            Mgui->triggerPreset1(buttons[0]);
+            bIsTurningOn[0] = true;
+            bIsTurningOff[0] = false;
+        }
 	} else if(midiMessage.pitch == 0 && midiMessage.velocity == 0){
-		buttons[0] = false;
+        if(bIsTurningOff[0]==false){
+            buttons[0] = false;
+            bIsTurningOff[0]=true;
+            bIsTurningOn[0] = false;
+        }
 	}
 	
 	//Button 2
 	if(midiMessage.pitch == 4 && midiMessage.velocity == 64){
-		buttons[1] = true;
+        if(bIsTurningOn[1]==false){
+            if(buttonState[1]==0){
+                buttonState[1]++;
+            } else {
+                buttonState[1]--;
+            }
+            buttons[1] = true;
+            Mgui->triggerPreset2(buttons[1]);
+            bIsTurningOn[1] = true;
+            bIsTurningOff[1] = false;
+        }
 	} else if((midiMessage.pitch == 4) && midiMessage.velocity == 0){
-		buttons[1] = false;
+        if(bIsTurningOff[1]==false){
+            buttons[1] = false;
+            bIsTurningOff[1]=true;
+            bIsTurningOn[1] = false;
+        }
 	}
 	
 	//Button 3
 	if(midiMessage.pitch == 8 && midiMessage.velocity == 64){
-		buttons[2] = true;
+        if(bIsTurningOn[2]==false){
+            if(buttonState[2]==0){
+                buttonState[2]++;
+            } else {
+                buttonState[2]--;
+            }
+            buttons[2] = true;
+            Mgui->triggerPreset3(buttons[2]);
+            bIsTurningOn[2] = true;
+            bIsTurningOff[2] = false;
+        }
 	} else if((midiMessage.pitch == 8) && midiMessage.velocity == 0){
-		buttons[2] = false;
+        if(bIsTurningOff[2]==false){
+            buttons[2] = false;
+            bIsTurningOff[2]=true;
+            bIsTurningOn[2] = false;
+        }
 	}
 	
 	//Button 4
 	if(midiMessage.pitch == 12 && midiMessage.velocity == 64){
-		buttons[3] = true;
+        if(bIsTurningOn[3]==false){
+            if(buttonState[3]==0){
+                buttonState[3]++;
+            } else {
+                buttonState[3]--;
+            }
+            buttons[3] = true;
+            Mgui->triggerPreset4(buttons[3]);
+            bIsTurningOn[3] = true;
+            bIsTurningOff[3] = false;
+        }
 	} else if((midiMessage.pitch == 12) && midiMessage.velocity == 0){
-		buttons[3] = false;
+        if(bIsTurningOff[3]==false){
+            buttons[3] = false;
+            bIsTurningOff[3]=true;
+            bIsTurningOn[3] = false;
+        }
 	}
 	
 	//Button 5
 	if(midiMessage.pitch == 1 && midiMessage.velocity == 64){
-		buttons[4] = true;
+        if(bIsTurningOn[4]==false){
+            if(buttonState[4]==0){
+                buttonState[4]++;
+            } else {
+                buttonState[4]--;
+            }
+            buttons[4] = true;
+            Mgui->triggerPreset5(buttons[4]);
+            bIsTurningOn[4] = true;
+            bIsTurningOff[4] = false;
+        }
 	} else if((midiMessage.pitch == 1) && midiMessage.velocity == 0){
-		buttons[4] = false;
+        if(bIsTurningOff[4]==false){
+            buttons[4] = false;
+            bIsTurningOff[4]=true;
+            bIsTurningOn[4] = false;
+        }
 	}
 	
 	//Button 6
 	if(midiMessage.pitch == 5 && midiMessage.velocity == 64){
-		buttons[5] = true;
+        if(bIsTurningOn[5]==false){
+            if(buttonState[5]==0){
+                buttonState[5]++;
+            } else {
+                buttonState[5]--;
+            }
+            buttons[5] = true;
+            Mgui->triggerPreset6(buttons[5]);
+            bIsTurningOn[5] = true;
+            bIsTurningOff[5] = false;
+        }
 	} else if((midiMessage.pitch == 5) && midiMessage.velocity == 0){
-		buttons[5] = false;
+        if(bIsTurningOff[5]==false){
+            buttons[5] = false;
+            bIsTurningOff[5]=true;
+            bIsTurningOn[5] = false;
+        }
 	}
 	
 	//Button 7
 	if(midiMessage.pitch == 9 && midiMessage.velocity == 64){
-		buttons[6] = true;
+        if(bIsTurningOn[6]==false){
+            if(buttonState[6]==0){
+                buttonState[6]++;
+            } else {
+                buttonState[6]--;
+            }
+            buttons[6] = true;
+            Mgui->triggerPreset7(buttons[6]);
+            bIsTurningOn[6] = true;
+            bIsTurningOff[6] = false;
+        }
 	} else if((midiMessage.pitch == 9) && midiMessage.velocity == 0){
-		buttons[6] = false;
+        if(bIsTurningOff[6]==false){
+            buttons[6] = false;
+            bIsTurningOff[6]=true;
+            bIsTurningOn[6] = false;
+        }
 	}
 	
 	//Button 8
 	if(midiMessage.pitch == 13 && midiMessage.velocity == 64){
-		buttons[7] = true;
+        if(bIsTurningOn[7]==false){
+            if(buttonState[7]==0){
+                buttonState[7]++;
+            } else {
+                buttonState[7]--;
+            }
+            buttons[7] = true;
+            Mgui->triggerPreset8(buttons[7]);
+            bIsTurningOn[7] = true;
+            bIsTurningOff[7] = false;
+        }
 	} else if((midiMessage.pitch == 13) && midiMessage.velocity == 0){
-		buttons[7] = false;
+        if(bIsTurningOff[7]==false){
+            buttons[7] = false;
+            bIsTurningOff[7]=true;
+            bIsTurningOn[7] = false;
+        }
 	}
 	
 	//Button 9
 	if(midiMessage.pitch == 2 && midiMessage.velocity == 64){
 		buttons[8] = true;
 	} else if((midiMessage.pitch == 2) && midiMessage.velocity == 0){
-		buttons[8] = false;
+        if(bIsTurningOff[8]==false){
+            buttons[8] = false;
+            bIsTurningOff[8]=true;
+            bIsTurningOn[8] = false;
+        }
 	}
 	
 	//Button 10
 	if(midiMessage.pitch == 6 && midiMessage.velocity == 64){
 		buttons[9] = true;
 	} else if((midiMessage.pitch == 6) && midiMessage.velocity == 0){
-		buttons[9] = false;
+        if(bIsTurningOff[9]==false){
+            buttons[9] = false;
+            bIsTurningOff[9]=true;
+            bIsTurningOn[9] = false;
+        }
 	}
 	
 	//Button 11
 	if(midiMessage.pitch == 10 && midiMessage.velocity == 64){
 		buttons[10] = true;
 	} else if((midiMessage.pitch == 10) && midiMessage.velocity == 0){
-		buttons[10] = false;
+        if(bIsTurningOff[10]==false){
+            buttons[10] = false;
+            bIsTurningOff[10]=true;
+            bIsTurningOn[10] = false;
+        }
 	}
 	
 	//Button 12
 	if(midiMessage.pitch == 14 && midiMessage.velocity == 64){
 		buttons[11] = true;
 	} else if((midiMessage.pitch == 14) && midiMessage.velocity == 0){
-		buttons[11] = false;
+        if(bIsTurningOff[11]==false){
+            buttons[11] = false;
+            bIsTurningOff[11]=true;
+            bIsTurningOn[11] = false;
+        }
 	}
 	
 	//Button 13
 	if(midiMessage.pitch == 3 && midiMessage.velocity == 64){
 		buttons[12] = true;
 	} else if((midiMessage.pitch == 3) && midiMessage.velocity == 0){
-		buttons[12] = false;
+        if(bIsTurningOff[12]==false){
+            buttons[12] = false;
+            bIsTurningOff[12]=true;
+            bIsTurningOn[12] = false;
+        }
 	}
 	
 	//Button 14
 	if(midiMessage.pitch == 7 && midiMessage.velocity == 64){
 		buttons[13] = true;
 	} else if((midiMessage.pitch == 7) && midiMessage.velocity == 0){
-		buttons[13] = false;
+        if(bIsTurningOff[13]==false){
+            buttons[13] = false;
+            bIsTurningOff[13]=true;
+            bIsTurningOn[13] = false;
+        }
 	}
 	
 	//Button 15
 	if(midiMessage.pitch == 11 && midiMessage.velocity == 64){
 		buttons[14] = true;
 	} else if((midiMessage.pitch == 11) && midiMessage.velocity == 0){
-		buttons[14] = false;
+        if(bIsTurningOff[14]==false){
+            buttons[14] = false;
+            bIsTurningOff[14]=true;
+            bIsTurningOn[14] = false;
+        }
 	}
 	
 	//Button 16
 	if(midiMessage.pitch == 15 && midiMessage.velocity == 64){
 		buttons[15] = true;
 	} else if((midiMessage.pitch == 15) && midiMessage.velocity == 0){
-		buttons[15] = false;
+        if(bIsTurningOff[15]==false){
+            buttons[15] = false;
+            bIsTurningOff[15]=true;
+            bIsTurningOn[15] = false;
+        }
 	}
 	
     
