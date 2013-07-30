@@ -1,37 +1,77 @@
 <Widget>
+    <Kind>20</Kind>
+    <Name>USEPITCH4</Name>
+    <Value>1</Value>
+</Widget>
+<Widget>
     <Kind>4</Kind>
     <Name>pitch4</Name>
-    <Value>1.729032278</Value>
+    <Value>1.007407427</Value>
+</Widget>
+<Widget>
+    <Kind>20</Kind>
+    <Name>USESPEED4</Name>
+    <Value>1</Value>
 </Widget>
 <Widget>
     <Kind>4</Kind>
     <Name>speed4</Name>
-    <Value>0.193548441</Value>
+    <Value>0.370370388</Value>
+</Widget>
+<Widget>
+    <Kind>20</Kind>
+    <Name>USEGRAINSIZE4</Name>
+    <Value>1</Value>
 </Widget>
 <Widget>
     <Kind>4</Kind>
     <Name>grainLength4</Name>
-    <Value>0.092499994</Value>
+    <Value>0.166222230</Value>
+</Widget>
+<Widget>
+    <Kind>20</Kind>
+    <Name>USEOVERLAPS4</Name>
+    <Value>1</Value>
 </Widget>
 <Widget>
     <Kind>4</Kind>
     <Name>overlaps4</Name>
-    <Value>2.000000000</Value>
+    <Value>1.000000000</Value>
+</Widget>
+<Widget>
+    <Kind>20</Kind>
+    <Name>USERANDOMGRAINPITCH4</Name>
+    <Value>1</Value>
 </Widget>
 <Widget>
     <Kind>4</Kind>
     <Name>randomGrainPitch4</Name>
-    <Value>0.000000000</Value>
+    <Value>0.375925928</Value>
+</Widget>
+<Widget>
+    <Kind>20</Kind>
+    <Name>USERANDOMGRAINSIZE4</Name>
+    <Value>1</Value>
 </Widget>
 <Widget>
     <Kind>4</Kind>
     <Name>randomGrainSize4</Name>
-    <Value>0.000000000</Value>
+    <Value>0.050000001</Value>
+</Widget>
+<Widget>
+    <Kind>20</Kind>
+    <Name>USECUTOFF4</Name>
+    <Value>1</Value>
 </Widget>
 <Widget>
     <Kind>4</Kind>
     <Name>Cutoff4</Name>
     <Value>10000.000000000</Value>
+</Widget>
+<Widget>
+    <Kind>20</Kind>
+    <Name>USECUTOFFLFO4</Name>
+    <Value>1</Value>
 </Widget>
 <Widget>
     <Kind>4</Kind>
@@ -44,9 +84,19 @@
     <Value>0.000000000</Value>
 </Widget>
 <Widget>
+    <Kind>20</Kind>
+    <Name>USEDELAYTIME4</Name>
+    <Value>1</Value>
+</Widget>
+<Widget>
     <Kind>4</Kind>
     <Name>DelayTime4</Name>
     <Value>10.000000000</Value>
+</Widget>
+<Widget>
+    <Kind>20</Kind>
+    <Name>USEDELAYFEEDBACK4</Name>
+    <Value>1</Value>
 </Widget>
 <Widget>
     <Kind>4</Kind>
@@ -54,9 +104,19 @@
     <Value>0.100000001</Value>
 </Widget>
 <Widget>
+    <Kind>20</Kind>
+    <Name>USEBITS4</Name>
+    <Value>1</Value>
+</Widget>
+<Widget>
     <Kind>4</Kind>
     <Name>Bits4</Name>
     <Value>32.000000000</Value>
+</Widget>
+<Widget>
+    <Kind>20</Kind>
+    <Name>USECRUSHAMOUNT4</Name>
+    <Value>1</Value>
 </Widget>
 <Widget>
     <Kind>4</Kind>
@@ -64,19 +124,19 @@
     <Value>0.987096786</Value>
 </Widget>
 <Widget>
+    <Kind>20</Kind>
+    <Name>USEREVERBDECAY4</Name>
+    <Value>1</Value>
+</Widget>
+<Widget>
     <Kind>4</Kind>
     <Name>ReverbSize4</Name>
     <Value>0.000000000</Value>
 </Widget>
 <Widget>
-    <Kind>4</Kind>
-    <Name>ReverbDamp4</Name>
-    <Value>0.100000001</Value>
-</Widget>
-<Widget>
-    <Kind>4</Kind>
-    <Name>ReverbWidth4</Name>
-    <Value>0.990000010</Value>
+    <Kind>20</Kind>
+    <Name>USEREVERBDRYWET4</Name>
+    <Value>1</Value>
 </Widget>
 <Widget>
     <Kind>4</Kind>

@@ -22,6 +22,7 @@ void testApp::setup(){
     loadBox3Y = 10;
     loadBox4Y = 10;
     
+    audioTonic.setup();
     audioBinaural.setup();
     audioSample1.setup("shamanic_drum_short.wav");
     audioSample2.setup("icaros2.wav");
@@ -30,6 +31,7 @@ void testApp::setup(){
     soundStream.setup(2, 0, sampleRate, bufferSize, 4);
 	soundStream.setOutput(this);
     
+    mixer.addInputFrom(&audioTonic);
     mixer.addInputFrom(&audioBinaural);
     mixer.addInputFrom(&audioSample1);
     mixer.addInputFrom(&audioSample2);
@@ -41,7 +43,7 @@ void testApp::setup(){
     tween3.setup(&audioSample3);
     tween4.setup(&audioSample4);
     
-    gui.setup(&tween1, &tween2, &tween3, &tween4, &audioBinaural, &audioSample1, &audioSample2, &audioSample3, &audioSample4);
+    gui.setup(&tween1, &tween2, &tween3, &tween4, &audioTonic, &audioBinaural, &audioSample1, &audioSample2, &audioSample3, &audioSample4);
     
     timeline.setup(&gui, &audioSample1, &audioSample2, &audioSample3, &audioSample4, &audioBinaural);
     
@@ -124,6 +126,11 @@ void testApp::update(){
         audioSample3.decimate(audioSample3.bits, audioSample3.rate);
         audioSample4.delay(audioSample4.delayTime1,audioSample4.delayFeedback1);
         audioSample4.decimate(audioSample4.bits, audioSample4.rate);
+
+    tween1.setEasingType(1);
+    tween2.setEasingType(1);
+    tween3.setEasingType(1);
+    tween4.setEasingType(1);
     
     tween1.update();
     tween2.update();

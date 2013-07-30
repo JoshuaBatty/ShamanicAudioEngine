@@ -21,6 +21,8 @@ class Tween {
     void trigger();
     void trigger2();
     void trigger3();
+    void setEasingType(int _easingType);
+
     void catchTempVariables();
     
     AudioSampler  *audioSample;
@@ -60,7 +62,13 @@ class Tween {
     float tempRate;
     int   tempBits;
     
-    ofxEasingElastic	easingsine;
+//    ofxEasingElastic	easingsine;
+    int easingType;
+    ofxEasingLinear  easingLinear;
+    ofxEasingExpo	 easingExpo;
+    ofxEasingCirc    easingCirc;
+    ofxEasingElastic easingElastic;
+    ofxEasingBounce  easingBounce;
     
     unsigned delay, duration;
     

@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		03581BC217A6767B00E149AE /* AudioTonic.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 03581BC017A6767B00E149AE /* AudioTonic.cpp */; };
 		03AB379117687F0100275AEC /* kiss_fft.c in Sources */ = {isa = PBXBuildFile; fileRef = 03AB373E17687F0100275AEC /* kiss_fft.c */; };
 		03AB379217687F0100275AEC /* kiss_fftr.c in Sources */ = {isa = PBXBuildFile; fileRef = 03AB373F17687F0100275AEC /* kiss_fftr.c */; };
 		03AB379317687F0100275AEC /* ofOpenALSoundPlayer_TimelineAdditions.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 03AB374217687F0100275AEC /* ofOpenALSoundPlayer_TimelineAdditions.cpp */; };
@@ -62,6 +63,57 @@
 		03C46D3E17661D7C007EB818 /* stb_vorbis.c in Sources */ = {isa = PBXBuildFile; fileRef = 03C46D3417661D7C007EB818 /* stb_vorbis.c */; };
 		03C46D4017661DB0007EB818 /* OpenAL.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 03C46D3F17661DB0007EB818 /* OpenAL.framework */; };
 		03C46D4217661E16007EB818 /* CoreMIDI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 03C46D4117661E16007EB818 /* CoreMIDI.framework */; };
+		03F0C2CB17A3AA73007C9DDB /* ofxTonicSynth.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 03F0C26017A3AA73007C9DDB /* ofxTonicSynth.cpp */; };
+		03F0C2CC17A3AA73007C9DDB /* ADSR.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 03F0C26317A3AA73007C9DDB /* ADSR.cpp */; };
+		03F0C2CD17A3AA73007C9DDB /* Arithmetic.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 03F0C26517A3AA73007C9DDB /* Arithmetic.cpp */; };
+		03F0C2CE17A3AA73007C9DDB /* BasicDelay.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 03F0C26717A3AA73007C9DDB /* BasicDelay.cpp */; };
+		03F0C2CF17A3AA73007C9DDB /* BufferFiller.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 03F0C26917A3AA73007C9DDB /* BufferFiller.cpp */; };
+		03F0C2D017A3AA73007C9DDB /* CombFilter.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 03F0C26B17A3AA73007C9DDB /* CombFilter.cpp */; };
+		03F0C2D117A3AA73007C9DDB /* CompressorLimiter.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 03F0C26D17A3AA73007C9DDB /* CompressorLimiter.cpp */; };
+		03F0C2D217A3AA73007C9DDB /* ControlArithmetic.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 03F0C26F17A3AA73007C9DDB /* ControlArithmetic.cpp */; };
+		03F0C2D317A3AA73007C9DDB /* ControlChangeNotifier.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 03F0C27117A3AA73007C9DDB /* ControlChangeNotifier.cpp */; };
+		03F0C2D417A3AA73007C9DDB /* ControlComparison.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 03F0C27317A3AA73007C9DDB /* ControlComparison.cpp */; };
+		03F0C2D517A3AA73007C9DDB /* ControlConditioner.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 03F0C27517A3AA73007C9DDB /* ControlConditioner.cpp */; };
+		03F0C2D617A3AA73007C9DDB /* ControlCounter.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 03F0C27717A3AA73007C9DDB /* ControlCounter.cpp */; };
+		03F0C2D717A3AA73007C9DDB /* ControlDbToLinear.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 03F0C27917A3AA73007C9DDB /* ControlDbToLinear.cpp */; };
+		03F0C2D817A3AA73007C9DDB /* ControlDelay.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 03F0C27B17A3AA73007C9DDB /* ControlDelay.cpp */; };
+		03F0C2D917A3AA73007C9DDB /* ControlFloor.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 03F0C27D17A3AA73007C9DDB /* ControlFloor.cpp */; };
+		03F0C2DA17A3AA73007C9DDB /* ControlGenerator.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 03F0C27F17A3AA73007C9DDB /* ControlGenerator.cpp */; };
+		03F0C2DB17A3AA73007C9DDB /* ControlMetro.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 03F0C28117A3AA73007C9DDB /* ControlMetro.cpp */; };
+		03F0C2DC17A3AA73007C9DDB /* ControlMetroDivider.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 03F0C28317A3AA73007C9DDB /* ControlMetroDivider.cpp */; };
+		03F0C2DD17A3AA73007C9DDB /* ControlMidiToFreq.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 03F0C28517A3AA73007C9DDB /* ControlMidiToFreq.cpp */; };
+		03F0C2DE17A3AA73007C9DDB /* ControlParameter.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 03F0C28717A3AA73007C9DDB /* ControlParameter.cpp */; };
+		03F0C2DF17A3AA73007C9DDB /* ControlPrinter.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 03F0C28917A3AA73007C9DDB /* ControlPrinter.cpp */; };
+		03F0C2E017A3AA73007C9DDB /* ControlPulse.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 03F0C28B17A3AA73007C9DDB /* ControlPulse.cpp */; };
+		03F0C2E117A3AA73007C9DDB /* ControlRandom.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 03F0C28D17A3AA73007C9DDB /* ControlRandom.cpp */; };
+		03F0C2E217A3AA73007C9DDB /* ControlRecorder.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 03F0C28F17A3AA73007C9DDB /* ControlRecorder.cpp */; };
+		03F0C2E317A3AA73007C9DDB /* ControlSnapToScale.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 03F0C29117A3AA73007C9DDB /* ControlSnapToScale.cpp */; };
+		03F0C2E417A3AA73007C9DDB /* ControlStepper.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 03F0C29317A3AA73007C9DDB /* ControlStepper.cpp */; };
+		03F0C2E517A3AA73007C9DDB /* ControlSwitcher.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 03F0C29517A3AA73007C9DDB /* ControlSwitcher.cpp */; };
+		03F0C2E617A3AA73007C9DDB /* ControlTrigger.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 03F0C29717A3AA73007C9DDB /* ControlTrigger.cpp */; };
+		03F0C2E717A3AA73007C9DDB /* ControlValue.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 03F0C29917A3AA73007C9DDB /* ControlValue.cpp */; };
+		03F0C2E817A3AA73007C9DDB /* ControlXYSpeed.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 03F0C29B17A3AA73007C9DDB /* ControlXYSpeed.cpp */; };
+		03F0C2E917A3AA73007C9DDB /* DelayUtils.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 03F0C29D17A3AA73007C9DDB /* DelayUtils.cpp */; };
+		03F0C2EA17A3AA73007C9DDB /* Effect.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 03F0C29F17A3AA73007C9DDB /* Effect.cpp */; };
+		03F0C2EB17A3AA73007C9DDB /* Filters.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 03F0C2A117A3AA73007C9DDB /* Filters.cpp */; };
+		03F0C2EC17A3AA73007C9DDB /* FilterUtils.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 03F0C2A317A3AA73007C9DDB /* FilterUtils.cpp */; };
+		03F0C2ED17A3AA73007C9DDB /* FixedValue.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 03F0C2A517A3AA73007C9DDB /* FixedValue.cpp */; };
+		03F0C2EE17A3AA73007C9DDB /* Generator.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 03F0C2A717A3AA73007C9DDB /* Generator.cpp */; };
+		03F0C2EF17A3AA73007C9DDB /* LFNoise.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 03F0C2A917A3AA73007C9DDB /* LFNoise.cpp */; };
+		03F0C2F017A3AA73007C9DDB /* Mixer.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 03F0C2AB17A3AA73007C9DDB /* Mixer.cpp */; };
+		03F0C2F117A3AA73007C9DDB /* MonoToStereoPanner.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 03F0C2AD17A3AA73007C9DDB /* MonoToStereoPanner.cpp */; };
+		03F0C2F217A3AA73007C9DDB /* Noise.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 03F0C2AF17A3AA73007C9DDB /* Noise.cpp */; };
+		03F0C2F317A3AA73007C9DDB /* RampedValue.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 03F0C2B117A3AA73007C9DDB /* RampedValue.cpp */; };
+		03F0C2F417A3AA73007C9DDB /* RectWave.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 03F0C2B317A3AA73007C9DDB /* RectWave.cpp */; };
+		03F0C2F517A3AA73007C9DDB /* Reverb.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 03F0C2B517A3AA73007C9DDB /* Reverb.cpp */; };
+		03F0C2F617A3AA73007C9DDB /* RingBuffer.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 03F0C2B717A3AA73007C9DDB /* RingBuffer.cpp */; };
+		03F0C2F717A3AA73007C9DDB /* SampleTable.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 03F0C2B917A3AA73007C9DDB /* SampleTable.cpp */; };
+		03F0C2F817A3AA73007C9DDB /* SawtoothWave.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 03F0C2BB17A3AA73007C9DDB /* SawtoothWave.cpp */; };
+		03F0C2F917A3AA73007C9DDB /* SineWave.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 03F0C2BD17A3AA73007C9DDB /* SineWave.cpp */; };
+		03F0C2FA17A3AA73007C9DDB /* StereoDelay.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 03F0C2C017A3AA73007C9DDB /* StereoDelay.cpp */; };
+		03F0C2FB17A3AA73007C9DDB /* Synth.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 03F0C2C217A3AA73007C9DDB /* Synth.cpp */; };
+		03F0C2FC17A3AA73007C9DDB /* TableLookupOsc.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 03F0C2C417A3AA73007C9DDB /* TableLookupOsc.cpp */; };
+		03F0C2FD17A3AA73007C9DDB /* TonicFrames.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 03F0C2C717A3AA73007C9DDB /* TonicFrames.cpp */; };
 		0546d1a38e13bd319cc9755b5ca7e1a0 /* OscReceivedElements.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 9bf3aa0d4faa89d0f8a0e545403162be /* OscReceivedElements.cpp */; };
 		0bfc9c20fd7e3c8d5873aa97edae7333 /* ofxMidiIn.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 3dd359247f3ed1550d8bb5c9d4d84f9c /* ofxMidiIn.cpp */; };
 		152eaecabd008d84af7f27f83f4389c4 /* ofxEasingLinear.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 9a4cfdcea412e8bcdaca9b26fb47846e /* ofxEasingLinear.cpp */; };
@@ -173,6 +225,8 @@
 		01dcc0911400f9acf5b65578af4ec8f9 /* ofxXmlSettings.h */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 30; name = ofxXmlSettings.h; path = ../../../addons/ofxXmlSettings/src/ofxXmlSettings.h; sourceTree = SOURCE_ROOT; };
 		02677fa320d6c63b228a7562514b9d55 /* ofxUIWidgetWithLabel.h */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 30; name = ofxUIWidgetWithLabel.h; path = ../../../addons/ofxUI/src/ofxUIWidgetWithLabel.h; sourceTree = SOURCE_ROOT; };
 		029684cf678f70f6d3537a29773654a6 /* OscOutboundPacketStream.h */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 30; name = OscOutboundPacketStream.h; path = ../../../addons/ofxOsc/libs/oscpack/src/osc/OscOutboundPacketStream.h; sourceTree = SOURCE_ROOT; };
+		03581BC017A6767B00E149AE /* AudioTonic.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = AudioTonic.cpp; sourceTree = "<group>"; };
+		03581BC117A6767B00E149AE /* AudioTonic.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AudioTonic.h; sourceTree = "<group>"; };
 		03AB373A17687F0100275AEC /* kiss_fft.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = kiss_fft.h; sourceTree = "<group>"; };
 		03AB373B17687F0100275AEC /* kiss_fftr.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = kiss_fftr.h; sourceTree = "<group>"; };
 		03AB373D17687F0100275AEC /* _kiss_fft_guts.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = _kiss_fft_guts.h; sourceTree = "<group>"; };
@@ -297,6 +351,116 @@
 		03C46D3717661D7C007EB818 /* ofxMaxim.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ofxMaxim.h; sourceTree = "<group>"; };
 		03C46D3F17661DB0007EB818 /* OpenAL.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = OpenAL.framework; path = System/Library/Frameworks/OpenAL.framework; sourceTree = SDKROOT; };
 		03C46D4117661E16007EB818 /* CoreMIDI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreMIDI.framework; path = System/Library/Frameworks/CoreMIDI.framework; sourceTree = SDKROOT; };
+		03F0C25B17A3AA73007C9DDB /* .gitignore */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = .gitignore; sourceTree = "<group>"; };
+		03F0C25C17A3AA73007C9DDB /* LICENSE.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = LICENSE.txt; sourceTree = "<group>"; };
+		03F0C25D17A3AA73007C9DDB /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = README.md; sourceTree = "<group>"; };
+		03F0C25F17A3AA73007C9DDB /* ofxTonic.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ofxTonic.h; sourceTree = "<group>"; };
+		03F0C26017A3AA73007C9DDB /* ofxTonicSynth.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = ofxTonicSynth.cpp; sourceTree = "<group>"; };
+		03F0C26117A3AA73007C9DDB /* ofxTonicSynth.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ofxTonicSynth.h; sourceTree = "<group>"; };
+		03F0C26317A3AA73007C9DDB /* ADSR.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = ADSR.cpp; sourceTree = "<group>"; };
+		03F0C26417A3AA73007C9DDB /* ADSR.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ADSR.h; sourceTree = "<group>"; };
+		03F0C26517A3AA73007C9DDB /* Arithmetic.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Arithmetic.cpp; sourceTree = "<group>"; };
+		03F0C26617A3AA73007C9DDB /* Arithmetic.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Arithmetic.h; sourceTree = "<group>"; };
+		03F0C26717A3AA73007C9DDB /* BasicDelay.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = BasicDelay.cpp; sourceTree = "<group>"; };
+		03F0C26817A3AA73007C9DDB /* BasicDelay.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BasicDelay.h; sourceTree = "<group>"; };
+		03F0C26917A3AA73007C9DDB /* BufferFiller.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = BufferFiller.cpp; sourceTree = "<group>"; };
+		03F0C26A17A3AA73007C9DDB /* BufferFiller.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BufferFiller.h; sourceTree = "<group>"; };
+		03F0C26B17A3AA73007C9DDB /* CombFilter.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = CombFilter.cpp; sourceTree = "<group>"; };
+		03F0C26C17A3AA73007C9DDB /* CombFilter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CombFilter.h; sourceTree = "<group>"; };
+		03F0C26D17A3AA73007C9DDB /* CompressorLimiter.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = CompressorLimiter.cpp; sourceTree = "<group>"; };
+		03F0C26E17A3AA73007C9DDB /* CompressorLimiter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CompressorLimiter.h; sourceTree = "<group>"; };
+		03F0C26F17A3AA73007C9DDB /* ControlArithmetic.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = ControlArithmetic.cpp; sourceTree = "<group>"; };
+		03F0C27017A3AA73007C9DDB /* ControlArithmetic.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ControlArithmetic.h; sourceTree = "<group>"; };
+		03F0C27117A3AA73007C9DDB /* ControlChangeNotifier.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = ControlChangeNotifier.cpp; sourceTree = "<group>"; };
+		03F0C27217A3AA73007C9DDB /* ControlChangeNotifier.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ControlChangeNotifier.h; sourceTree = "<group>"; };
+		03F0C27317A3AA73007C9DDB /* ControlComparison.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = ControlComparison.cpp; sourceTree = "<group>"; };
+		03F0C27417A3AA73007C9DDB /* ControlComparison.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ControlComparison.h; sourceTree = "<group>"; };
+		03F0C27517A3AA73007C9DDB /* ControlConditioner.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = ControlConditioner.cpp; sourceTree = "<group>"; };
+		03F0C27617A3AA73007C9DDB /* ControlConditioner.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ControlConditioner.h; sourceTree = "<group>"; };
+		03F0C27717A3AA73007C9DDB /* ControlCounter.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = ControlCounter.cpp; sourceTree = "<group>"; };
+		03F0C27817A3AA73007C9DDB /* ControlCounter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ControlCounter.h; sourceTree = "<group>"; };
+		03F0C27917A3AA73007C9DDB /* ControlDbToLinear.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = ControlDbToLinear.cpp; sourceTree = "<group>"; };
+		03F0C27A17A3AA73007C9DDB /* ControlDbToLinear.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ControlDbToLinear.h; sourceTree = "<group>"; };
+		03F0C27B17A3AA73007C9DDB /* ControlDelay.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = ControlDelay.cpp; sourceTree = "<group>"; };
+		03F0C27C17A3AA73007C9DDB /* ControlDelay.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ControlDelay.h; sourceTree = "<group>"; };
+		03F0C27D17A3AA73007C9DDB /* ControlFloor.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = ControlFloor.cpp; sourceTree = "<group>"; };
+		03F0C27E17A3AA73007C9DDB /* ControlFloor.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ControlFloor.h; sourceTree = "<group>"; };
+		03F0C27F17A3AA73007C9DDB /* ControlGenerator.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = ControlGenerator.cpp; sourceTree = "<group>"; };
+		03F0C28017A3AA73007C9DDB /* ControlGenerator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ControlGenerator.h; sourceTree = "<group>"; };
+		03F0C28117A3AA73007C9DDB /* ControlMetro.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = ControlMetro.cpp; sourceTree = "<group>"; };
+		03F0C28217A3AA73007C9DDB /* ControlMetro.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ControlMetro.h; sourceTree = "<group>"; };
+		03F0C28317A3AA73007C9DDB /* ControlMetroDivider.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = ControlMetroDivider.cpp; sourceTree = "<group>"; };
+		03F0C28417A3AA73007C9DDB /* ControlMetroDivider.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ControlMetroDivider.h; sourceTree = "<group>"; };
+		03F0C28517A3AA73007C9DDB /* ControlMidiToFreq.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = ControlMidiToFreq.cpp; sourceTree = "<group>"; };
+		03F0C28617A3AA73007C9DDB /* ControlMidiToFreq.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ControlMidiToFreq.h; sourceTree = "<group>"; };
+		03F0C28717A3AA73007C9DDB /* ControlParameter.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = ControlParameter.cpp; sourceTree = "<group>"; };
+		03F0C28817A3AA73007C9DDB /* ControlParameter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ControlParameter.h; sourceTree = "<group>"; };
+		03F0C28917A3AA73007C9DDB /* ControlPrinter.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = ControlPrinter.cpp; sourceTree = "<group>"; };
+		03F0C28A17A3AA73007C9DDB /* ControlPrinter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ControlPrinter.h; sourceTree = "<group>"; };
+		03F0C28B17A3AA73007C9DDB /* ControlPulse.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = ControlPulse.cpp; sourceTree = "<group>"; };
+		03F0C28C17A3AA73007C9DDB /* ControlPulse.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ControlPulse.h; sourceTree = "<group>"; };
+		03F0C28D17A3AA73007C9DDB /* ControlRandom.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = ControlRandom.cpp; sourceTree = "<group>"; };
+		03F0C28E17A3AA73007C9DDB /* ControlRandom.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ControlRandom.h; sourceTree = "<group>"; };
+		03F0C28F17A3AA73007C9DDB /* ControlRecorder.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = ControlRecorder.cpp; sourceTree = "<group>"; };
+		03F0C29017A3AA73007C9DDB /* ControlRecorder.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ControlRecorder.h; sourceTree = "<group>"; };
+		03F0C29117A3AA73007C9DDB /* ControlSnapToScale.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = ControlSnapToScale.cpp; sourceTree = "<group>"; };
+		03F0C29217A3AA73007C9DDB /* ControlSnapToScale.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ControlSnapToScale.h; sourceTree = "<group>"; };
+		03F0C29317A3AA73007C9DDB /* ControlStepper.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = ControlStepper.cpp; sourceTree = "<group>"; };
+		03F0C29417A3AA73007C9DDB /* ControlStepper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ControlStepper.h; sourceTree = "<group>"; };
+		03F0C29517A3AA73007C9DDB /* ControlSwitcher.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = ControlSwitcher.cpp; sourceTree = "<group>"; };
+		03F0C29617A3AA73007C9DDB /* ControlSwitcher.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ControlSwitcher.h; sourceTree = "<group>"; };
+		03F0C29717A3AA73007C9DDB /* ControlTrigger.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = ControlTrigger.cpp; sourceTree = "<group>"; };
+		03F0C29817A3AA73007C9DDB /* ControlTrigger.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ControlTrigger.h; sourceTree = "<group>"; };
+		03F0C29917A3AA73007C9DDB /* ControlValue.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = ControlValue.cpp; sourceTree = "<group>"; };
+		03F0C29A17A3AA73007C9DDB /* ControlValue.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ControlValue.h; sourceTree = "<group>"; };
+		03F0C29B17A3AA73007C9DDB /* ControlXYSpeed.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = ControlXYSpeed.cpp; sourceTree = "<group>"; };
+		03F0C29C17A3AA73007C9DDB /* ControlXYSpeed.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ControlXYSpeed.h; sourceTree = "<group>"; };
+		03F0C29D17A3AA73007C9DDB /* DelayUtils.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = DelayUtils.cpp; sourceTree = "<group>"; };
+		03F0C29E17A3AA73007C9DDB /* DelayUtils.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DelayUtils.h; sourceTree = "<group>"; };
+		03F0C29F17A3AA73007C9DDB /* Effect.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Effect.cpp; sourceTree = "<group>"; };
+		03F0C2A017A3AA73007C9DDB /* Effect.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Effect.h; sourceTree = "<group>"; };
+		03F0C2A117A3AA73007C9DDB /* Filters.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Filters.cpp; sourceTree = "<group>"; };
+		03F0C2A217A3AA73007C9DDB /* Filters.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Filters.h; sourceTree = "<group>"; };
+		03F0C2A317A3AA73007C9DDB /* FilterUtils.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = FilterUtils.cpp; sourceTree = "<group>"; };
+		03F0C2A417A3AA73007C9DDB /* FilterUtils.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FilterUtils.h; sourceTree = "<group>"; };
+		03F0C2A517A3AA73007C9DDB /* FixedValue.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = FixedValue.cpp; sourceTree = "<group>"; };
+		03F0C2A617A3AA73007C9DDB /* FixedValue.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FixedValue.h; sourceTree = "<group>"; };
+		03F0C2A717A3AA73007C9DDB /* Generator.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Generator.cpp; sourceTree = "<group>"; };
+		03F0C2A817A3AA73007C9DDB /* Generator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Generator.h; sourceTree = "<group>"; };
+		03F0C2A917A3AA73007C9DDB /* LFNoise.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = LFNoise.cpp; sourceTree = "<group>"; };
+		03F0C2AA17A3AA73007C9DDB /* LFNoise.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LFNoise.h; sourceTree = "<group>"; };
+		03F0C2AB17A3AA73007C9DDB /* Mixer.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Mixer.cpp; sourceTree = "<group>"; };
+		03F0C2AC17A3AA73007C9DDB /* Mixer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Mixer.h; sourceTree = "<group>"; };
+		03F0C2AD17A3AA73007C9DDB /* MonoToStereoPanner.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = MonoToStereoPanner.cpp; sourceTree = "<group>"; };
+		03F0C2AE17A3AA73007C9DDB /* MonoToStereoPanner.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MonoToStereoPanner.h; sourceTree = "<group>"; };
+		03F0C2AF17A3AA73007C9DDB /* Noise.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Noise.cpp; sourceTree = "<group>"; };
+		03F0C2B017A3AA73007C9DDB /* Noise.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Noise.h; sourceTree = "<group>"; };
+		03F0C2B117A3AA73007C9DDB /* RampedValue.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = RampedValue.cpp; sourceTree = "<group>"; };
+		03F0C2B217A3AA73007C9DDB /* RampedValue.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RampedValue.h; sourceTree = "<group>"; };
+		03F0C2B317A3AA73007C9DDB /* RectWave.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = RectWave.cpp; sourceTree = "<group>"; };
+		03F0C2B417A3AA73007C9DDB /* RectWave.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RectWave.h; sourceTree = "<group>"; };
+		03F0C2B517A3AA73007C9DDB /* Reverb.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Reverb.cpp; sourceTree = "<group>"; };
+		03F0C2B617A3AA73007C9DDB /* Reverb.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Reverb.h; sourceTree = "<group>"; };
+		03F0C2B717A3AA73007C9DDB /* RingBuffer.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = RingBuffer.cpp; sourceTree = "<group>"; };
+		03F0C2B817A3AA73007C9DDB /* RingBuffer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RingBuffer.h; sourceTree = "<group>"; };
+		03F0C2B917A3AA73007C9DDB /* SampleTable.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = SampleTable.cpp; sourceTree = "<group>"; };
+		03F0C2BA17A3AA73007C9DDB /* SampleTable.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SampleTable.h; sourceTree = "<group>"; };
+		03F0C2BB17A3AA73007C9DDB /* SawtoothWave.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = SawtoothWave.cpp; sourceTree = "<group>"; };
+		03F0C2BC17A3AA73007C9DDB /* SawtoothWave.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SawtoothWave.h; sourceTree = "<group>"; };
+		03F0C2BD17A3AA73007C9DDB /* SineWave.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = SineWave.cpp; sourceTree = "<group>"; };
+		03F0C2BE17A3AA73007C9DDB /* SineWave.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SineWave.h; sourceTree = "<group>"; };
+		03F0C2BF17A3AA73007C9DDB /* SquareWave.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SquareWave.h; sourceTree = "<group>"; };
+		03F0C2C017A3AA73007C9DDB /* StereoDelay.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = StereoDelay.cpp; sourceTree = "<group>"; };
+		03F0C2C117A3AA73007C9DDB /* StereoDelay.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = StereoDelay.h; sourceTree = "<group>"; };
+		03F0C2C217A3AA73007C9DDB /* Synth.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Synth.cpp; sourceTree = "<group>"; };
+		03F0C2C317A3AA73007C9DDB /* Synth.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Synth.h; sourceTree = "<group>"; };
+		03F0C2C417A3AA73007C9DDB /* TableLookupOsc.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = TableLookupOsc.cpp; sourceTree = "<group>"; };
+		03F0C2C517A3AA73007C9DDB /* TableLookupOsc.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TableLookupOsc.h; sourceTree = "<group>"; };
+		03F0C2C617A3AA73007C9DDB /* TonicCore.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TonicCore.h; sourceTree = "<group>"; };
+		03F0C2C717A3AA73007C9DDB /* TonicFrames.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = TonicFrames.cpp; sourceTree = "<group>"; };
+		03F0C2C817A3AA73007C9DDB /* TonicFrames.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TonicFrames.h; sourceTree = "<group>"; };
+		03F0C2C917A3AA73007C9DDB /* TriangleWave.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TriangleWave.h; sourceTree = "<group>"; };
+		03F0C2CA17A3AA73007C9DDB /* Tonic.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Tonic.h; sourceTree = "<group>"; };
 		03dde55c47701116edeb18007fc4bf75 /* ofxMSATimer.h */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 30; name = ofxMSATimer.h; path = ../../../addons/ofxMSATimer/src/ofxMSATimer.h; sourceTree = SOURCE_ROOT; };
 		04f77e5c73a62e2e77c78ec64f2fa05c /* ofxMidiOut.cpp */ = {isa = PBXFileReference; explicitFileType = sourcecode.cpp.cpp; fileEncoding = 30; name = ofxMidiOut.cpp; path = ../../../addons/ofxMidi/src/ofxMidiOut.cpp; sourceTree = SOURCE_ROOT; };
 		057122a817d12571f8c0c7a4d522b879 /* ofxCvGrayscaleImage.cpp */ = {isa = PBXFileReference; explicitFileType = sourcecode.cpp.cpp; fileEncoding = 30; name = ofxCvGrayscaleImage.cpp; path = ../../../addons/ofxOpenCv/src/ofxCvGrayscaleImage.cpp; sourceTree = SOURCE_ROOT; };
@@ -930,6 +1094,140 @@
 			path = src;
 			sourceTree = "<group>";
 		};
+		03F0C25A17A3AA73007C9DDB /* ofxTonic */ = {
+			isa = PBXGroup;
+			children = (
+				03F0C25B17A3AA73007C9DDB /* .gitignore */,
+				03F0C25C17A3AA73007C9DDB /* LICENSE.txt */,
+				03F0C25D17A3AA73007C9DDB /* README.md */,
+				03F0C25E17A3AA73007C9DDB /* src */,
+			);
+			name = ofxTonic;
+			path = ../../../addons/ofxTonic;
+			sourceTree = "<group>";
+		};
+		03F0C25E17A3AA73007C9DDB /* src */ = {
+			isa = PBXGroup;
+			children = (
+				03F0C25F17A3AA73007C9DDB /* ofxTonic.h */,
+				03F0C26017A3AA73007C9DDB /* ofxTonicSynth.cpp */,
+				03F0C26117A3AA73007C9DDB /* ofxTonicSynth.h */,
+				03F0C26217A3AA73007C9DDB /* Tonic */,
+				03F0C2CA17A3AA73007C9DDB /* Tonic.h */,
+			);
+			path = src;
+			sourceTree = "<group>";
+		};
+		03F0C26217A3AA73007C9DDB /* Tonic */ = {
+			isa = PBXGroup;
+			children = (
+				03F0C26317A3AA73007C9DDB /* ADSR.cpp */,
+				03F0C26417A3AA73007C9DDB /* ADSR.h */,
+				03F0C26517A3AA73007C9DDB /* Arithmetic.cpp */,
+				03F0C26617A3AA73007C9DDB /* Arithmetic.h */,
+				03F0C26717A3AA73007C9DDB /* BasicDelay.cpp */,
+				03F0C26817A3AA73007C9DDB /* BasicDelay.h */,
+				03F0C26917A3AA73007C9DDB /* BufferFiller.cpp */,
+				03F0C26A17A3AA73007C9DDB /* BufferFiller.h */,
+				03F0C26B17A3AA73007C9DDB /* CombFilter.cpp */,
+				03F0C26C17A3AA73007C9DDB /* CombFilter.h */,
+				03F0C26D17A3AA73007C9DDB /* CompressorLimiter.cpp */,
+				03F0C26E17A3AA73007C9DDB /* CompressorLimiter.h */,
+				03F0C26F17A3AA73007C9DDB /* ControlArithmetic.cpp */,
+				03F0C27017A3AA73007C9DDB /* ControlArithmetic.h */,
+				03F0C27117A3AA73007C9DDB /* ControlChangeNotifier.cpp */,
+				03F0C27217A3AA73007C9DDB /* ControlChangeNotifier.h */,
+				03F0C27317A3AA73007C9DDB /* ControlComparison.cpp */,
+				03F0C27417A3AA73007C9DDB /* ControlComparison.h */,
+				03F0C27517A3AA73007C9DDB /* ControlConditioner.cpp */,
+				03F0C27617A3AA73007C9DDB /* ControlConditioner.h */,
+				03F0C27717A3AA73007C9DDB /* ControlCounter.cpp */,
+				03F0C27817A3AA73007C9DDB /* ControlCounter.h */,
+				03F0C27917A3AA73007C9DDB /* ControlDbToLinear.cpp */,
+				03F0C27A17A3AA73007C9DDB /* ControlDbToLinear.h */,
+				03F0C27B17A3AA73007C9DDB /* ControlDelay.cpp */,
+				03F0C27C17A3AA73007C9DDB /* ControlDelay.h */,
+				03F0C27D17A3AA73007C9DDB /* ControlFloor.cpp */,
+				03F0C27E17A3AA73007C9DDB /* ControlFloor.h */,
+				03F0C27F17A3AA73007C9DDB /* ControlGenerator.cpp */,
+				03F0C28017A3AA73007C9DDB /* ControlGenerator.h */,
+				03F0C28117A3AA73007C9DDB /* ControlMetro.cpp */,
+				03F0C28217A3AA73007C9DDB /* ControlMetro.h */,
+				03F0C28317A3AA73007C9DDB /* ControlMetroDivider.cpp */,
+				03F0C28417A3AA73007C9DDB /* ControlMetroDivider.h */,
+				03F0C28517A3AA73007C9DDB /* ControlMidiToFreq.cpp */,
+				03F0C28617A3AA73007C9DDB /* ControlMidiToFreq.h */,
+				03F0C28717A3AA73007C9DDB /* ControlParameter.cpp */,
+				03F0C28817A3AA73007C9DDB /* ControlParameter.h */,
+				03F0C28917A3AA73007C9DDB /* ControlPrinter.cpp */,
+				03F0C28A17A3AA73007C9DDB /* ControlPrinter.h */,
+				03F0C28B17A3AA73007C9DDB /* ControlPulse.cpp */,
+				03F0C28C17A3AA73007C9DDB /* ControlPulse.h */,
+				03F0C28D17A3AA73007C9DDB /* ControlRandom.cpp */,
+				03F0C28E17A3AA73007C9DDB /* ControlRandom.h */,
+				03F0C28F17A3AA73007C9DDB /* ControlRecorder.cpp */,
+				03F0C29017A3AA73007C9DDB /* ControlRecorder.h */,
+				03F0C29117A3AA73007C9DDB /* ControlSnapToScale.cpp */,
+				03F0C29217A3AA73007C9DDB /* ControlSnapToScale.h */,
+				03F0C29317A3AA73007C9DDB /* ControlStepper.cpp */,
+				03F0C29417A3AA73007C9DDB /* ControlStepper.h */,
+				03F0C29517A3AA73007C9DDB /* ControlSwitcher.cpp */,
+				03F0C29617A3AA73007C9DDB /* ControlSwitcher.h */,
+				03F0C29717A3AA73007C9DDB /* ControlTrigger.cpp */,
+				03F0C29817A3AA73007C9DDB /* ControlTrigger.h */,
+				03F0C29917A3AA73007C9DDB /* ControlValue.cpp */,
+				03F0C29A17A3AA73007C9DDB /* ControlValue.h */,
+				03F0C29B17A3AA73007C9DDB /* ControlXYSpeed.cpp */,
+				03F0C29C17A3AA73007C9DDB /* ControlXYSpeed.h */,
+				03F0C29D17A3AA73007C9DDB /* DelayUtils.cpp */,
+				03F0C29E17A3AA73007C9DDB /* DelayUtils.h */,
+				03F0C29F17A3AA73007C9DDB /* Effect.cpp */,
+				03F0C2A017A3AA73007C9DDB /* Effect.h */,
+				03F0C2A117A3AA73007C9DDB /* Filters.cpp */,
+				03F0C2A217A3AA73007C9DDB /* Filters.h */,
+				03F0C2A317A3AA73007C9DDB /* FilterUtils.cpp */,
+				03F0C2A417A3AA73007C9DDB /* FilterUtils.h */,
+				03F0C2A517A3AA73007C9DDB /* FixedValue.cpp */,
+				03F0C2A617A3AA73007C9DDB /* FixedValue.h */,
+				03F0C2A717A3AA73007C9DDB /* Generator.cpp */,
+				03F0C2A817A3AA73007C9DDB /* Generator.h */,
+				03F0C2A917A3AA73007C9DDB /* LFNoise.cpp */,
+				03F0C2AA17A3AA73007C9DDB /* LFNoise.h */,
+				03F0C2AB17A3AA73007C9DDB /* Mixer.cpp */,
+				03F0C2AC17A3AA73007C9DDB /* Mixer.h */,
+				03F0C2AD17A3AA73007C9DDB /* MonoToStereoPanner.cpp */,
+				03F0C2AE17A3AA73007C9DDB /* MonoToStereoPanner.h */,
+				03F0C2AF17A3AA73007C9DDB /* Noise.cpp */,
+				03F0C2B017A3AA73007C9DDB /* Noise.h */,
+				03F0C2B117A3AA73007C9DDB /* RampedValue.cpp */,
+				03F0C2B217A3AA73007C9DDB /* RampedValue.h */,
+				03F0C2B317A3AA73007C9DDB /* RectWave.cpp */,
+				03F0C2B417A3AA73007C9DDB /* RectWave.h */,
+				03F0C2B517A3AA73007C9DDB /* Reverb.cpp */,
+				03F0C2B617A3AA73007C9DDB /* Reverb.h */,
+				03F0C2B717A3AA73007C9DDB /* RingBuffer.cpp */,
+				03F0C2B817A3AA73007C9DDB /* RingBuffer.h */,
+				03F0C2B917A3AA73007C9DDB /* SampleTable.cpp */,
+				03F0C2BA17A3AA73007C9DDB /* SampleTable.h */,
+				03F0C2BB17A3AA73007C9DDB /* SawtoothWave.cpp */,
+				03F0C2BC17A3AA73007C9DDB /* SawtoothWave.h */,
+				03F0C2BD17A3AA73007C9DDB /* SineWave.cpp */,
+				03F0C2BE17A3AA73007C9DDB /* SineWave.h */,
+				03F0C2BF17A3AA73007C9DDB /* SquareWave.h */,
+				03F0C2C017A3AA73007C9DDB /* StereoDelay.cpp */,
+				03F0C2C117A3AA73007C9DDB /* StereoDelay.h */,
+				03F0C2C217A3AA73007C9DDB /* Synth.cpp */,
+				03F0C2C317A3AA73007C9DDB /* Synth.h */,
+				03F0C2C417A3AA73007C9DDB /* TableLookupOsc.cpp */,
+				03F0C2C517A3AA73007C9DDB /* TableLookupOsc.h */,
+				03F0C2C617A3AA73007C9DDB /* TonicCore.h */,
+				03F0C2C717A3AA73007C9DDB /* TonicFrames.cpp */,
+				03F0C2C817A3AA73007C9DDB /* TonicFrames.h */,
+				03F0C2C917A3AA73007C9DDB /* TriangleWave.h */,
+			);
+			path = Tonic;
+			sourceTree = "<group>";
+		};
 		0478e60892bf4c0731ae0763e72eb53d /* ts */ = {
 			isa = PBXGroup;
 			children = (
@@ -1262,6 +1560,7 @@
 		BB4B014C10F69532006C3DED /* addons */ = {
 			isa = PBXGroup;
 			children = (
+				03F0C25A17A3AA73007C9DDB /* ofxTonic */,
 				03AB373517687F0100275AEC /* ofxTimeline */,
 				03C46D2317661D7C007EB818 /* ofxMaxim2 */,
 				03C46D1C17661D6F007EB818 /* ofxDspChain */,
@@ -1348,6 +1647,8 @@
 				E4B69E1D0A3A1BDC003C02F2 /* main.cpp */,
 				E4B69E1E0A3A1BDC003C02F2 /* testApp.cpp */,
 				E4B69E1F0A3A1BDC003C02F2 /* testApp.h */,
+				03581BC017A6767B00E149AE /* AudioTonic.cpp */,
+				03581BC117A6767B00E149AE /* AudioTonic.h */,
 				03C46D0417661D4C007EB818 /* audioBinaural.cpp */,
 				03C46D0517661D4C007EB818 /* audioBinaural.h */,
 				03C46D0617661D4C007EB818 /* audioSample.cpp */,
@@ -1846,6 +2147,58 @@
 				03AB37AF17687F0100275AEC /* ofxTLVideoThumb.cpp in Sources */,
 				03AB37B017687F0100275AEC /* ofxTLVideoTrack.cpp in Sources */,
 				03AB37B117687F0100275AEC /* ofxTLZoomer.cpp in Sources */,
+				03F0C2CB17A3AA73007C9DDB /* ofxTonicSynth.cpp in Sources */,
+				03F0C2CC17A3AA73007C9DDB /* ADSR.cpp in Sources */,
+				03F0C2CD17A3AA73007C9DDB /* Arithmetic.cpp in Sources */,
+				03F0C2CE17A3AA73007C9DDB /* BasicDelay.cpp in Sources */,
+				03F0C2CF17A3AA73007C9DDB /* BufferFiller.cpp in Sources */,
+				03F0C2D017A3AA73007C9DDB /* CombFilter.cpp in Sources */,
+				03F0C2D117A3AA73007C9DDB /* CompressorLimiter.cpp in Sources */,
+				03F0C2D217A3AA73007C9DDB /* ControlArithmetic.cpp in Sources */,
+				03F0C2D317A3AA73007C9DDB /* ControlChangeNotifier.cpp in Sources */,
+				03F0C2D417A3AA73007C9DDB /* ControlComparison.cpp in Sources */,
+				03F0C2D517A3AA73007C9DDB /* ControlConditioner.cpp in Sources */,
+				03F0C2D617A3AA73007C9DDB /* ControlCounter.cpp in Sources */,
+				03F0C2D717A3AA73007C9DDB /* ControlDbToLinear.cpp in Sources */,
+				03F0C2D817A3AA73007C9DDB /* ControlDelay.cpp in Sources */,
+				03F0C2D917A3AA73007C9DDB /* ControlFloor.cpp in Sources */,
+				03F0C2DA17A3AA73007C9DDB /* ControlGenerator.cpp in Sources */,
+				03F0C2DB17A3AA73007C9DDB /* ControlMetro.cpp in Sources */,
+				03F0C2DC17A3AA73007C9DDB /* ControlMetroDivider.cpp in Sources */,
+				03F0C2DD17A3AA73007C9DDB /* ControlMidiToFreq.cpp in Sources */,
+				03F0C2DE17A3AA73007C9DDB /* ControlParameter.cpp in Sources */,
+				03F0C2DF17A3AA73007C9DDB /* ControlPrinter.cpp in Sources */,
+				03F0C2E017A3AA73007C9DDB /* ControlPulse.cpp in Sources */,
+				03F0C2E117A3AA73007C9DDB /* ControlRandom.cpp in Sources */,
+				03F0C2E217A3AA73007C9DDB /* ControlRecorder.cpp in Sources */,
+				03F0C2E317A3AA73007C9DDB /* ControlSnapToScale.cpp in Sources */,
+				03F0C2E417A3AA73007C9DDB /* ControlStepper.cpp in Sources */,
+				03F0C2E517A3AA73007C9DDB /* ControlSwitcher.cpp in Sources */,
+				03F0C2E617A3AA73007C9DDB /* ControlTrigger.cpp in Sources */,
+				03F0C2E717A3AA73007C9DDB /* ControlValue.cpp in Sources */,
+				03F0C2E817A3AA73007C9DDB /* ControlXYSpeed.cpp in Sources */,
+				03F0C2E917A3AA73007C9DDB /* DelayUtils.cpp in Sources */,
+				03F0C2EA17A3AA73007C9DDB /* Effect.cpp in Sources */,
+				03F0C2EB17A3AA73007C9DDB /* Filters.cpp in Sources */,
+				03F0C2EC17A3AA73007C9DDB /* FilterUtils.cpp in Sources */,
+				03F0C2ED17A3AA73007C9DDB /* FixedValue.cpp in Sources */,
+				03F0C2EE17A3AA73007C9DDB /* Generator.cpp in Sources */,
+				03F0C2EF17A3AA73007C9DDB /* LFNoise.cpp in Sources */,
+				03F0C2F017A3AA73007C9DDB /* Mixer.cpp in Sources */,
+				03F0C2F117A3AA73007C9DDB /* MonoToStereoPanner.cpp in Sources */,
+				03F0C2F217A3AA73007C9DDB /* Noise.cpp in Sources */,
+				03F0C2F317A3AA73007C9DDB /* RampedValue.cpp in Sources */,
+				03F0C2F417A3AA73007C9DDB /* RectWave.cpp in Sources */,
+				03F0C2F517A3AA73007C9DDB /* Reverb.cpp in Sources */,
+				03F0C2F617A3AA73007C9DDB /* RingBuffer.cpp in Sources */,
+				03F0C2F717A3AA73007C9DDB /* SampleTable.cpp in Sources */,
+				03F0C2F817A3AA73007C9DDB /* SawtoothWave.cpp in Sources */,
+				03F0C2F917A3AA73007C9DDB /* SineWave.cpp in Sources */,
+				03F0C2FA17A3AA73007C9DDB /* StereoDelay.cpp in Sources */,
+				03F0C2FB17A3AA73007C9DDB /* Synth.cpp in Sources */,
+				03F0C2FC17A3AA73007C9DDB /* TableLookupOsc.cpp in Sources */,
+				03F0C2FD17A3AA73007C9DDB /* TonicFrames.cpp in Sources */,
+				03581BC217A6767B00E149AE /* AudioTonic.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

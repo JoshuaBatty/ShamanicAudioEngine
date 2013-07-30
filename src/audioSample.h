@@ -79,9 +79,7 @@ class AudioSampler : public ofSoundSource{
     maxiPitchStretch<grainPlayerWin4> *stretches4;
     maxiPitchStretch<grainPlayerWin5> *stretches5;
 	maxiMix mymix;
-	
-	ofxMaxiFFT fft;
-	ofxMaxiFFTOctaveAnalyzer oct;
+
 	int counter;
 	bool startAudio;
     bool bScrub;

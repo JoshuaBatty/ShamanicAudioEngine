@@ -63,8 +63,8 @@ void AudioSampler::setup(string _file)
     //grains
     pitch1 = 1.0;
     speed1 = 1.0;
-    grainLength1 = 0.025;
-    overlaps1 = 2.0;
+    grainLength1 = 0.25;
+    overlaps1 = 3.0;
     randomGrainPitch1 = 0.0;
     randomGrainSize1 = 0.0;
     

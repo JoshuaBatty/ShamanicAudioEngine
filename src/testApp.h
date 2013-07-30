@@ -3,6 +3,7 @@
 #include "ofMain.h"
 #include "audioSample.h"
 #include "audioBinaural.h"
+#include "AudioTonic.h"
 #include "gui.h"
 #include "livid.h"			// Livid Controler
 #include "oscReciever.h"
@@ -30,7 +31,8 @@ class testApp : public ofBaseApp{
     //Audio out
     ofSoundStream soundStream;
 	AudioBinaural audioBinaural;
-    
+    AudioTonic audioTonic;
+
 	AudioSampler audioSample1; //Drums
 	AudioSampler audioSample2; //Bells
 	AudioSampler audioSample3; //Throat

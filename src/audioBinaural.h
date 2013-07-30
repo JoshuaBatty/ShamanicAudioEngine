@@ -11,6 +11,9 @@
 #include "ofSoundUnit.h"
 #include "ofMain.h"
 #include "ofxMaxim.h"
+#include "ofxTonic.h"
+
+using namespace Tonic;
 
 class AudioBinaural : public ofSoundSource{
 	
@@ -27,8 +30,6 @@ class AudioBinaural : public ofSoundSource{
 //	private :
 	int		initialBufferSize; /* buffer size */
 	int		sampleRate;
-	vector <float> lAudioOut;
-	vector <float> rAudioOut;
 	
 	float volume;
 	
@@ -41,5 +42,7 @@ class AudioBinaural : public ofSoundSource{
 	ofxMaxiOsc sine1, sine2;
 	double OSCout;
     float osc1Pitch, osc2Pitch;
+    
+    //TONIC AUDIO
 
 };
