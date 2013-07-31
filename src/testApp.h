@@ -8,6 +8,8 @@
 #include "livid.h"			// Livid Controler
 #include "oscReciever.h"
 #include "tween.h"
+#include "tweenSynth.h"
+
 #include "mainTimeline.h"
 
 #define _USE_MIDI // uncomment to use GUI
@@ -46,6 +48,7 @@ class testApp : public ofBaseApp{
     
     oscReciever osc;
 
+    TweenSynth tweenSynth;
     Tween tween1;
     Tween tween2;
     Tween tween3;

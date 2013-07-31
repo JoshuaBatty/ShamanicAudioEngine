@@ -75,9 +75,10 @@ void Gui::setup(Tween *_tween1, Tween *_tween2, Tween *_tween3, Tween *_tween4, 
     gui2 = new ofxUICanvas(10+(length+xInit),guiOffset,length+xInit*2.0,guiCanvasLength);
     gui2->addWidgetDown(new ofxUILabel("SAMPLE 1", OFX_UI_FONT_MEDIUM));
     gui2->addSpacer(length, dim/5);
-    vector<string> easingNames1; easingNames1.push_back("LINEAR1"); easingNames1.push_back("EXPONENTIAL1"); easingNames1.push_back("CIRCULAR1"); easingNames1.push_back("ELASTIC1"); easingNames1.push_back("BOUNCE1");
-    ofxUIRadio *radioEasing1 = (ofxUIRadio *) gui2->addWidgetDown(new ofxUIRadio(dim, dim, "MENU SELECT", easingNames1, OFX_UI_ORIENTATION_HORIZONTAL));
-    radioEasing1->activateToggle("GUI PLAYER 1");
+
+    gui2->addWidgetDown(new ofxUILabel("Grain Window -", OFX_UI_FONT_SMALL));
+    matrix1 = (ofxUIToggleMatrix*) gui2->addWidgetRight(new ofxUIToggleMatrix(dim*1.5, dim*1.5, 1, 5, "GrainWindow1"));// "GRAIN WINDOW 1"));
+    matrix1->setToggle(0, 0, true);
   	gui2->addWidgetDown(new ofxUISpacer(length, 2));
     
     gui2->addLabel("GRANULAR");
@@ -131,6 +132,11 @@ void Gui::setup(Tween *_tween1, Tween *_tween2, Tween *_tween3, Tween *_tween4, 
     gui3->addWidgetDown(new ofxUILabel("SAMPLE 2", OFX_UI_FONT_MEDIUM));
     gui3->addSpacer(length, dim/5);
     
+    gui3->addWidgetDown(new ofxUILabel("Grain Window -", OFX_UI_FONT_SMALL));
+    matrix2 = (ofxUIToggleMatrix*) gui3->addWidgetRight(new ofxUIToggleMatrix(dim*1.5, dim*1.5, 1, 5, "GrainWindow2"));// "GRAIN WINDOW 2"));
+    matrix2->setToggle(0, 0, true);
+  	gui3->addWidgetDown(new ofxUISpacer(length, 2));
+    
     gui3->addLabel("GRANULAR");
     gui3->addWidgetDown(new ofxUIImageToggle(dim*2, dim*2, true, "GUI/play.png", "USEPITCH2"));
     gui3->addWidgetRight(new ofxUISlider("pitch2", 0.0, 8.0, audioSample2->pitch1, 270, guiWidth));
@@ -182,6 +188,11 @@ void Gui::setup(Tween *_tween1, Tween *_tween2, Tween *_tween3, Tween *_tween4, 
     gui4->addWidgetDown(new ofxUILabel("SAMPLE 3", OFX_UI_FONT_MEDIUM));
     gui4->addSpacer(length, dim/5);
     
+    gui4->addWidgetDown(new ofxUILabel("Grain Window -", OFX_UI_FONT_SMALL));
+    matrix3 = (ofxUIToggleMatrix*) gui4->addWidgetRight(new ofxUIToggleMatrix(dim*1.5, dim*1.5, 1, 5, "GrainWindow3"));// "GRAIN WINDOW 3"));
+    matrix3->setToggle(0, 0, true);
+  	gui4->addWidgetDown(new ofxUISpacer(length, 2));
+    
     gui4->addLabel("GRANULAR");
     gui4->addWidgetDown(new ofxUIImageToggle(dim*2, dim*2, true, "GUI/play.png", "USEPITCH3"));
     gui4->addWidgetRight(new ofxUISlider("pitch3", 0.0, 8.0, audioSample3->pitch1, 270, guiWidth));
@@ -232,6 +243,11 @@ void Gui::setup(Tween *_tween1, Tween *_tween2, Tween *_tween3, Tween *_tween4, 
     gui5 = new ofxUICanvas(10+(length+xInit)*4.0,guiOffset,length+xInit*2.0,guiCanvasLength);
     gui5->addWidgetDown(new ofxUILabel("SAMPLE 4", OFX_UI_FONT_MEDIUM));
     gui5->addSpacer(length, dim/5);
+    
+    gui5->addWidgetDown(new ofxUILabel("Grain Window -", OFX_UI_FONT_SMALL));
+    matrix4 = (ofxUIToggleMatrix*) gui5->addWidgetRight(new ofxUIToggleMatrix(dim*1.5, dim*1.5, 1, 5, "GrainWindow4"));// "GRAIN WINDOW 4"));
+    matrix4->setToggle(0, 0, true);
+  	gui5->addWidgetDown(new ofxUISpacer(length, 2));
     
     gui5->addLabel("GRANULAR");
     gui5->addWidgetDown(new ofxUIImageToggle(dim*2, dim*2, true, "GUI/play.png", "USEPITCH4"));
@@ -297,8 +313,14 @@ void Gui::setup(Tween *_tween1, Tween *_tween2, Tween *_tween3, Tween *_tween4, 
     gui7->addWidgetDown(new ofxUILabel("DELAY", OFX_UI_FONT_MEDIUM));
     gui7->addWidgetRight(new ofxUINumberDialer(0, 10000, 1000, 1, "TWEEN_DURATION", OFX_UI_FONT_MEDIUM));
     
-  	gui7->addWidgetDown(new ofxUISpacer(length, 2));
+    gui7->addWidgetDown(new ofxUILabel("Tween Shape -", OFX_UI_FONT_MEDIUM));
+    //  gui2->addWidgetRight(new ofxUILabel("circ", OFX_UI_FONT_SMALL));
     
+    matrixTween = (ofxUIToggleMatrix*) gui7->addWidgetRight(new ofxUIToggleMatrix(dim*2, dim*2, 1, 5, "linr1 expo circ  bnce xtic"));// "AV MATRIX"));
+    
+    matrixTween->setToggle(0, 0, true);
+  	gui7->addWidgetDown(new ofxUISpacer(length, 2));
+        
     //Listener
     ofAddListener(guiBinaural->newGUIEvent, this, &Gui::guiEvent);
     ofAddListener(gui1->newGUIEvent, this, &Gui::guiEvent);
@@ -410,6 +432,231 @@ void Gui::guiEvent(ofxUIEventArgs &e)
 	string name = e.widget->getName();
 	int kind = e.widget->getKind();
 	
+    /***********
+	 * AV MATRIX
+	 *////////////
+    
+     //Get the Value for each toggle
+     if(ofIsStringInString(e.widget->getName(), "linr1 expo circ  bnce xtic"))  /// this is the name of the matrix you want to grab events...
+     {
+     vector<int> res =  getToggleMatrixValues(e.widget->getName(), e);
+     row[0] = res[0];
+     col[0] = res[1];
+     val[0] = (bool) res[2];
+     
+     cout << e.widget->getName() << " <<<<<< " << row << " " << col << " " << val << endl;
+     }
+     else if(ofIsStringInString(e.widget->getName(), "GrainWindow1"))
+     {
+         vector<int> res =  getToggleMatrixValues(e.widget->getName(), e);
+         row[1] = res[0];
+         col[1] = res[1];
+         val[1] = (bool) res[2];
+     }
+     else if(ofIsStringInString(e.widget->getName(), "GrainWindow2"))
+     {
+         vector<int> res =  getToggleMatrixValues(e.widget->getName(), e);
+         row[2] = res[0];
+         col[2] = res[1];
+         val[2] = (bool) res[2];
+     }
+     else if(ofIsStringInString(e.widget->getName(), "GrainWindow3"))
+     {
+         vector<int> res =  getToggleMatrixValues(e.widget->getName(), e);
+         row[3] = res[0];
+         col[3] = res[1];
+         val[3] = (bool) res[2];
+     }
+     else if(ofIsStringInString(e.widget->getName(), "GrainWindow4"))
+     {
+         vector<int> res =  getToggleMatrixValues(e.widget->getName(), e);
+         row[4] = res[0];
+         col[4] = res[1];
+         val[4] = (bool) res[2];
+     }
+    
+     
+     //TWEEN SHAPE
+     if(row[0]==0 && col[0]==0 && val[0]==1){
+         tween1->setEasingType(1);
+         tween2->setEasingType(1);
+         tween3->setEasingType(1);
+         tween4->setEasingType(1);
+         matrixTween->setToggle(1, 0, false);
+         matrixTween->setToggle(2, 0, false);
+         matrixTween->setToggle(3, 0, false);
+         matrixTween->setToggle(4, 0, false);
+     } else if(row[0]==0 && col[0]==1 && val[0]==1){
+         tween1->setEasingType(2);
+         tween2->setEasingType(2);
+         tween3->setEasingType(2);
+         tween4->setEasingType(2);
+         matrixTween->setToggle(0, 0, false);
+         matrixTween->setToggle(2, 0, false);
+         matrixTween->setToggle(3, 0, false);
+         matrixTween->setToggle(4, 0, false);
+     } else if(row[0]==0 && col[0]==2 && val[0]==1){
+         tween1->setEasingType(3);
+         tween2->setEasingType(3);
+         tween3->setEasingType(3);
+         tween4->setEasingType(3);
+         matrixTween->setToggle(0, 0, false);
+         matrixTween->setToggle(1, 0, false);
+         matrixTween->setToggle(3, 0, false);
+         matrixTween->setToggle(4, 0, false);
+     } else if(row[0]==0 && col[0]==3 && val[0]==1){
+         tween1->setEasingType(4);
+         tween2->setEasingType(4);
+         tween3->setEasingType(4);
+         tween4->setEasingType(4);
+         matrixTween->setToggle(0, 0, false);
+         matrixTween->setToggle(1, 0, false);
+         matrixTween->setToggle(2, 0, false);
+         matrixTween->setToggle(4, 0, false);
+     } else if(row[0]==0 && col[0]==4 && val[0]==1){
+         tween1->setEasingType(5);
+         tween2->setEasingType(5);
+         tween3->setEasingType(5);
+         tween4->setEasingType(5);
+         matrixTween->setToggle(0, 0, false);
+         matrixTween->setToggle(1, 0, false);
+         matrixTween->setToggle(2, 0, false);
+         matrixTween->setToggle(3, 0, false);
+     }
+    
+    //GRAIN WINDOW PLAYER 1
+    if(row[1]==0 && col[1]==0 && val[1]==1){
+        audioSample1->setGrainWindow(0);
+        matrix1->setToggle(1, 0, false);
+        matrix1->setToggle(2, 0, false);
+        matrix1->setToggle(3, 0, false);
+        matrix1->setToggle(4, 0, false);
+    } else if(row[1]==0 && col[1]==1 && val[1]==1){
+        audioSample1->setGrainWindow(1);
+        matrix1->setToggle(0, 0, false);
+        matrix1->setToggle(2, 0, false);
+        matrix1->setToggle(3, 0, false);
+        matrix1->setToggle(4, 0, false);
+    } else if(row[1]==0 && col[1]==2 && val[1]==1){
+        audioSample1->setGrainWindow(2);
+        matrix1->setToggle(0, 0, false);
+        matrix1->setToggle(1, 0, false);
+        matrix1->setToggle(3, 0, false);
+        matrix1->setToggle(4, 0, false);
+    } else if(row[1]==0 && col[1]==3 && val[1]==1){
+        audioSample1->setGrainWindow(3);
+        matrix1->setToggle(0, 0, false);
+        matrix1->setToggle(1, 0, false);
+        matrix1->setToggle(2, 0, false);
+        matrix1->setToggle(4, 0, false);
+    } else if(row[1]==0 && col[1]==4 && val[1]==1){
+        audioSample1->setGrainWindow(4);
+        matrix1->setToggle(0, 0, false);
+        matrix1->setToggle(1, 0, false);
+        matrix1->setToggle(2, 0, false);
+        matrix1->setToggle(3, 0, false);
+    }
+    
+    //GRAIN WINDOW PLAYER 2
+    if(row[2]==0 && col[2]==0 && val[2]==1){
+        audioSample2->setGrainWindow(0);
+        matrix2->setToggle(1, 0, false);
+        matrix2->setToggle(2, 0, false);
+        matrix2->setToggle(3, 0, false);
+        matrix2->setToggle(4, 0, false);
+    } else if(row[2]==0 && col[2]==1 && val[2]==1){
+        audioSample2->setGrainWindow(1);
+        matrix2->setToggle(0, 0, false);
+        matrix2->setToggle(2, 0, false);
+        matrix2->setToggle(3, 0, false);
+        matrix2->setToggle(4, 0, false);
+    } else if(row[2]==0 && col[2]==2 && val[2]==1){
+        audioSample2->setGrainWindow(2);
+        matrix2->setToggle(0, 0, false);
+        matrix2->setToggle(1, 0, false);
+        matrix2->setToggle(3, 0, false);
+        matrix2->setToggle(4, 0, false);
+    } else if(row[2]==0 && col[2]==3 && val[2]==1){
+        audioSample2->setGrainWindow(3);
+        matrix2->setToggle(0, 0, false);
+        matrix2->setToggle(1, 0, false);
+        matrix2->setToggle(2, 0, false);
+        matrix2->setToggle(4, 0, false);
+    } else if(row[2]==0 && col[2]==4 && val[2]==1){
+        audioSample2->setGrainWindow(4);
+        matrix2->setToggle(0, 0, false);
+        matrix2->setToggle(1, 0, false);
+        matrix2->setToggle(2, 0, false);
+        matrix2->setToggle(3, 0, false);
+    }
+    
+    //GRAIN WINDOW PLAYER 3
+    if(row[3]==0 && col[3]==0 && val[3]==1){
+        audioSample3->setGrainWindow(0);
+        matrix3->setToggle(1, 0, false);
+        matrix3->setToggle(2, 0, false);
+        matrix3->setToggle(3, 0, false);
+        matrix3->setToggle(4, 0, false);
+    } else if(row[3]==0 && col[3]==1 && val[3]==1){
+        audioSample3->setGrainWindow(1);
+        matrix3->setToggle(0, 0, false);
+        matrix3->setToggle(2, 0, false);
+        matrix3->setToggle(3, 0, false);
+        matrix3->setToggle(4, 0, false);
+    } else if(row[3]==0 && col[3]==2 && val[3]==1){
+        audioSample3->setGrainWindow(2);
+        matrix3->setToggle(0, 0, false);
+        matrix3->setToggle(1, 0, false);
+        matrix3->setToggle(3, 0, false);
+        matrix3->setToggle(4, 0, false);
+    } else if(row[3]==0 && col[3]==3 && val[3]==1){
+        audioSample3->setGrainWindow(3);
+        matrix3->setToggle(0, 0, false);
+        matrix3->setToggle(1, 0, false);
+        matrix3->setToggle(2, 0, false);
+        matrix3->setToggle(4, 0, false);
+    } else if(row[3]==0 && col[3]==4 && val[3]==1){
+        audioSample3->setGrainWindow(4);
+        matrix3->setToggle(0, 0, false);
+        matrix3->setToggle(1, 0, false);
+        matrix3->setToggle(2, 0, false);
+        matrix3->setToggle(3, 0, false);
+    }
+    
+    //GRAIN WINDOW PLAYER 4
+    if(row[4]==0 && col[4]==0 && val[4]==1){
+        audioSample4->setGrainWindow(0);
+        matrix4->setToggle(1, 0, false);
+        matrix4->setToggle(2, 0, false);
+        matrix4->setToggle(3, 0, false);
+        matrix4->setToggle(4, 0, false);
+    } else if(row[4]==0 && col[4]==1 && val[4]==1){
+        audioSample4->setGrainWindow(1);
+        matrix4->setToggle(0, 0, false);
+        matrix4->setToggle(2, 0, false);
+        matrix4->setToggle(3, 0, false);
+        matrix4->setToggle(4, 0, false);
+    } else if(row[4]==0 && col[4]==2 && val[4]==1){
+        audioSample4->setGrainWindow(2);
+        matrix4->setToggle(0, 0, false);
+        matrix4->setToggle(1, 0, false);
+        matrix4->setToggle(3, 0, false);
+        matrix4->setToggle(4, 0, false);
+    } else if(row[4]==0 && col[4]==3 && val[4]==1){
+        audioSample4->setGrainWindow(3);
+        matrix4->setToggle(0, 0, false);
+        matrix4->setToggle(1, 0, false);
+        matrix4->setToggle(2, 0, false);
+        matrix4->setToggle(4, 0, false);
+    } else if(row[4]==0 && col[4]==4 && val[4]==1){
+        audioSample4->setGrainWindow(4);
+        matrix4->setToggle(0, 0, false);
+        matrix4->setToggle(1, 0, false);
+        matrix4->setToggle(2, 0, false);
+        matrix4->setToggle(3, 0, false);
+    }
+    
+    
     //PRESET SAVING
     if(name == "SAVE PRESET" && curPreset == 1){
         gui1->saveSettings("GUI/guiSettingsVolume.1.xml");
@@ -1856,10 +2103,37 @@ void Gui::setReverbDryWet4(float _value1){
     audioSample4->reverbDryWet = slider->getScaledValue();
 }
 
+//--------------------------------------------------------------
+vector<int> Gui::getToggleMatrixValues(string received_name , ofxUIEventArgs &e){
+    
+    ofxUIToggle *toggle = (ofxUIToggle *) e.widget;
+    bool val = toggle->getValue();
+    
+    vector<string> result1 = ofSplitString(received_name, ",");
+    vector<string> result2 = ofSplitString(result1[1], ")");
+    vector<string> result3 = ofSplitString(result1[0], "(");
+    
+    string srow = result3[1];
+    string scol = result2[0];
+    
+    int row = ofToInt(srow);
+    int col = ofToInt(scol);
+    
+    //cout << srow << scol << val << endl;
+    vector<int> vresult;
+    vresult.push_back(row);
+    vresult.push_back(col);
+    vresult.push_back((int)val);
+    
+    cout << vresult[0] << " " <<vresult[1] <<" " << vresult[2] << endl;
+    
+    return vresult;
+    
+}
 
 //--------------------------------------------------------------
 void Gui::drawData(){
-    
+
     //Data vis
     //Page 1
     

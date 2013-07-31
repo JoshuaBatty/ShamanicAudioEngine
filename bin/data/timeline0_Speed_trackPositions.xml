@@ -1,31 +1,37 @@
 <positions>
     <element name="Speed1">
         <x>0.000000000</x>
-        <y>180.000000000</y>
+        <y>116.000000000</y>
         <width>1620.000000000</width>
         <height>40.000000000</height>
     </element>
     <element name="Speed2">
         <x>0.000000000</x>
-        <y>244.000000000</y>
+        <y>180.000000000</y>
         <width>1620.000000000</width>
         <height>40.000000000</height>
     </element>
     <element name="Speed3">
         <x>0.000000000</x>
-        <y>308.000000000</y>
+        <y>244.000000000</y>
         <width>1620.000000000</width>
         <height>40.000000000</height>
     </element>
     <element name="Speed4">
         <x>0.000000000</x>
-        <y>372.000000000</y>
+        <y>308.000000000</y>
         <width>1620.000000000</width>
         <height>40.000000000</height>
     </element>
     <element name="Track">
         <x>0.000000000</x>
-        <y>116.000000000</y>
+        <y>52.000000000</y>
+        <width>1620.000000000</width>
+        <height>40.000000000</height>
+    </element>
+    <element name="presetBangs">
+        <x>0.000000000</x>
+        <y>954.000000000</y>
         <width>1620.000000000</width>
         <height>40.000000000</height>
     </element>

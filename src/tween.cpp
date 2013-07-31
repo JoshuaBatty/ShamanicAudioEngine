@@ -35,6 +35,7 @@ void Tween::setup(AudioSampler *_audioSample)
     //tween
     delay = 0;
 	duration = 10000;
+    easingType = 1;
 }
 
 //--------------------------------------------------------------

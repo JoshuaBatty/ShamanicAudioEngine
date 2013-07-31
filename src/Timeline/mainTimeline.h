@@ -25,6 +25,7 @@ class MainTimeline {
 	void update();
     float getCurrentTimeMillis();
     void saveAutomation();
+    void bangFired(ofxTLBangEventArgs& bang);
 	void draw();
 	void play();
 	void show();

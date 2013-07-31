@@ -29,7 +29,22 @@ class Gui {
     ofxUICanvas *guiBinaural, *gui1, *gui2, *gui3, *gui4, *gui5, *gui6, *gui7;
 	void guiEvent(ofxUIEventArgs &e);
     void drawData();
-    
+
+ //   vector<ofxUIToggle *> toggles1;
+ //   vector<ofxUIToggle *> toggles2;
+ //   vector<ofxUIToggle *> toggles3;
+ //   vector<ofxUIToggle *> toggles4;
+ //   vector<ofxUIToggle *> togglesTween;
+    ofxUIToggleMatrix *matrix1;
+    ofxUIToggleMatrix *matrix2;
+    ofxUIToggleMatrix *matrix3;
+    ofxUIToggleMatrix *matrix4;
+    ofxUIToggleMatrix *matrixTween;
+    vector<int> getToggleMatrixValues(string received_name , ofxUIEventArgs &e);
+    int row[5];
+    int col[5];
+    bool val[5];
+
 
     void setBinVolume(float _value1);
     void setBinPitch(float _value1);

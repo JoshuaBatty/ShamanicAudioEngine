@@ -41,6 +41,7 @@
 		03AB37AF17687F0100275AEC /* ofxTLVideoThumb.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 03AB378B17687F0100275AEC /* ofxTLVideoThumb.cpp */; };
 		03AB37B017687F0100275AEC /* ofxTLVideoTrack.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 03AB378D17687F0100275AEC /* ofxTLVideoTrack.cpp */; };
 		03AB37B117687F0100275AEC /* ofxTLZoomer.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 03AB378F17687F0100275AEC /* ofxTLZoomer.cpp */; };
+		03B8A4AF17A94C78005D5638 /* tweenSynth.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 03B8A4AD17A94C78005D5638 /* tweenSynth.cpp */; };
 		03C46CFC17661CFA007EB818 /* crush.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 03C46CE517661CFA007EB818 /* crush.cpp */; };
 		03C46CFD17661CFA007EB818 /* allpass.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 03C46CE817661CFA007EB818 /* allpass.cpp */; };
 		03C46CFE17661CFA007EB818 /* comb.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 03C46CEA17661CFA007EB818 /* comb.cpp */; };
@@ -301,6 +302,8 @@
 		03AB378E17687F0100275AEC /* ofxTLVideoTrack.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ofxTLVideoTrack.h; sourceTree = "<group>"; };
 		03AB378F17687F0100275AEC /* ofxTLZoomer.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = ofxTLZoomer.cpp; sourceTree = "<group>"; };
 		03AB379017687F0100275AEC /* ofxTLZoomer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ofxTLZoomer.h; sourceTree = "<group>"; };
+		03B8A4AD17A94C78005D5638 /* tweenSynth.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = tweenSynth.cpp; sourceTree = "<group>"; };
+		03B8A4AE17A94C78005D5638 /* tweenSynth.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = tweenSynth.h; sourceTree = "<group>"; };
 		03C46CE217661CFA007EB818 /* .gitignore */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = .gitignore; sourceTree = "<group>"; };
 		03C46CE517661CFA007EB818 /* crush.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = crush.cpp; sourceTree = "<group>"; };
 		03C46CE617661CFA007EB818 /* crush.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = crush.h; sourceTree = "<group>"; };
@@ -1660,6 +1663,8 @@
 				03C46D1017661D4C007EB818 /* Timeline */,
 				03C46D1317661D4C007EB818 /* tween.cpp */,
 				03C46D1417661D4C007EB818 /* tween.h */,
+				03B8A4AD17A94C78005D5638 /* tweenSynth.cpp */,
+				03B8A4AE17A94C78005D5638 /* tweenSynth.h */,
 			);
 			path = src;
 			sourceTree = SOURCE_ROOT;
@@ -2199,6 +2204,7 @@
 				03F0C2FC17A3AA73007C9DDB /* TableLookupOsc.cpp in Sources */,
 				03F0C2FD17A3AA73007C9DDB /* TonicFrames.cpp in Sources */,
 				03581BC217A6767B00E149AE /* AudioTonic.cpp in Sources */,
+				03B8A4AF17A94C78005D5638 /* tweenSynth.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

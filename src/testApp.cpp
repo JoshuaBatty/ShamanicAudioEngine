@@ -38,6 +38,7 @@ void testApp::setup(){
     mixer.addInputFrom(&audioSample3);
     mixer.addInputFrom(&audioSample4);
     
+    tweenSynth.setup(&audioBinaural, &audioTonic);
     tween1.setup(&audioSample1);
     tween2.setup(&audioSample2);
     tween3.setup(&audioSample3);
@@ -127,11 +128,7 @@ void testApp::update(){
         audioSample4.delay(audioSample4.delayTime1,audioSample4.delayFeedback1);
         audioSample4.decimate(audioSample4.bits, audioSample4.rate);
 
-    tween1.setEasingType(1);
-    tween2.setEasingType(1);
-    tween3.setEasingType(1);
-    tween4.setEasingType(1);
-    
+    tweenSynth.update();
     tween1.update();
     tween2.update();
     tween3.update();

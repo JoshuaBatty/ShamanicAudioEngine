@@ -35,6 +35,7 @@ class AudioSampler : public ofSoundSource{
 	void reverb(float _wetness1, float _roomSize1);
 	void setPanning(float _panPos, float _lfoSpeed, float _lfoAmp);
     void updateParams(float _pitch1, float _speed1, float _grainLength1, float _overlaps1, float _randomGrainPitch1, float _randomGrainSize1);
+    void setGrainWindow(int _windowType);
     
     void draw(int _x, int _y);
     

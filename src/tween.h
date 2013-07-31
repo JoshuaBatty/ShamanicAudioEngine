@@ -11,7 +11,6 @@
 #include "ofMain.h"
 #include "ofxTween.h"
 #include "audioSample.h"
-#include "audioBinaural.h"
 
 class Tween {
 	

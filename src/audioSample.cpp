@@ -93,6 +93,11 @@ void AudioSampler::load1(string _file)
 }
 
 //--------------------------------------------------------------
+void AudioSampler::setGrainWindow(int _windowType)
+{
+    current = _windowType;
+}
+//--------------------------------------------------------------
 void AudioSampler::clear1()
 {
     samp1.reset();
