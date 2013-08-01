@@ -10,9 +10,10 @@
 #include "livid.h"
 
 //--------------------------------------------------------------
-void livid::setup(Gui *gui, AudioSampler *_audioSample1, AudioSampler *_audioSample2, AudioSampler *_audioSample3, AudioSampler *_audioSample4) {
+void livid::setup(Gui *gui, GuiBinaural *_guiBinaural, AudioSampler *_audioSample1, AudioSampler *_audioSample2, AudioSampler *_audioSample3, AudioSampler *_audioSample4) {
     
     Mgui = gui;
+    MguiBinaural = _guiBinaural;
     audioSample1 = _audioSample1;
     audioSample2 = _audioSample2;
     audioSample3 = _audioSample3;
@@ -382,7 +383,7 @@ void livid::newMidiMessage(ofxMidiMessage& msg) {
 	}
 	if(midiMessage.control == 19){
 		knobsB3[2] = midiMessage.value;
-        Mgui->setBinVolume(ofMap(knobsB3[2],0,127,0.0,0.99));
+        MguiBinaural->setBinVolume(ofMap(knobsB3[2],0,127,0.0,0.99));
 	}
 	
 	if(midiMessage.control == 21){
@@ -395,7 +396,7 @@ void livid::newMidiMessage(ofxMidiMessage& msg) {
 	}
 	if(midiMessage.control == 23){
 		knobsB3[5] = midiMessage.value;
-        Mgui->setBinPitch(ofMap(knobsB3[5],0,127,30.0,150.0));
+        MguiBinaural->setBinPitch(ofMap(knobsB3[5],0,127,30.0,150.0));
 	}
 	
 	if(midiMessage.control == 25){
@@ -408,7 +409,7 @@ void livid::newMidiMessage(ofxMidiMessage& msg) {
 	}
 	if(midiMessage.control == 27){
 		knobsB3[8] = midiMessage.value;
-        Mgui->setBinOffset(ofMap(knobsB3[8],0,127,0.0,14.0));
+        MguiBinaural->setBinOffset(ofMap(knobsB3[8],0,127,0.0,14.0));
 	}
 	
 	if(midiMessage.control == 29){

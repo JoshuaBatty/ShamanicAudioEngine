@@ -10,9 +10,10 @@
 
 
 //--------------------------------------------------------------
-void MainTimeline::setup(Gui *gui, AudioSampler *_audioSampler1, AudioSampler *_audioSampler2, AudioSampler *_audioSampler3, AudioSampler *_audioSampler4, AudioBinaural *_audioBinaural){
+void MainTimeline::setup(Gui *gui, GuiBinaural *_guiBinaural, AudioSampler *_audioSampler1, AudioSampler *_audioSampler2, AudioSampler *_audioSampler3, AudioSampler *_audioSampler4, AudioBinaural *_audioBinaural){
     
     Mgui = gui;
+    MguiBinaural = _guiBinaural;
     audioBinaural = _audioBinaural;
     audioSampler1 = _audioSampler1;
     audioSampler2 = _audioSampler2;
@@ -24,6 +25,9 @@ void MainTimeline::setup(Gui *gui, AudioSampler *_audioSampler1, AudioSampler *_
     timeline.setBPM(120.f);
 	timeline.enableSnapToBPM(true);
 	timeline.setShowBPMGrid(true);
+    
+    synthTimeline.setup();
+	synthTimeline.setLoopType(OF_LOOP_NORMAL);
 	
     //Audio Sample for waveform
 	timeline.addTrack("Track", &waveform);
@@ -31,6 +35,7 @@ void MainTimeline::setup(Gui *gui, AudioSampler *_audioSampler1, AudioSampler *_
 //    waveform.loadSoundfile("digi_anemoneX2.wav");
     waveform.loadSoundfile("/Users/josh/Desktop/Media/Audio/silent.wav");
     timeline.setDurationInSeconds(waveform.getDuration());
+    synthTimeline.setDurationInSeconds(waveform.getDuration());
 
     //SPEED
 	timeline.setPageName("Speed");
@@ -154,10 +159,15 @@ void MainTimeline::setup(Gui *gui, AudioSampler *_audioSampler1, AudioSampler *_
     timeline.setPageName("Presets");
     timeline.addFlags("presetBangs");
     
+    synthTimeline.setPageName("Presets");
+    synthTimeline.addFlags("synthPresetBangs");
+    synthTimeline.setSpacebarTogglePlay(false);
+
     timeline.getColor("defaultColors.xml");
   //  timeline.play();
     
     ofAddListener(timeline.events().bangFired, this, &MainTimeline::bangFired);
+    ofAddListener(synthTimeline.events().bangFired, this, &MainTimeline::bangFired);
 
 }
 
@@ -182,6 +192,24 @@ void MainTimeline::bangFired(ofxTLBangEventArgs& bang){
         Mgui->triggerPreset7(1);
     } else if(bang.flag == "8"){
         Mgui->triggerPreset8(1);
+    }
+    
+    if(bang.flag == "s1"){
+        MguiBinaural->triggerSynthPreset1(1);
+    } else if(bang.flag == "s2"){
+        MguiBinaural->triggerSynthPreset2(1);
+    } else if(bang.flag == "s3"){
+        MguiBinaural->triggerSynthPreset3(1);
+    } else if(bang.flag == "s4"){
+        MguiBinaural->triggerSynthPreset4(1);
+    } else if(bang.flag == "s5"){
+        MguiBinaural->triggerSynthPreset5(1);
+    } else if(bang.flag == "s6"){
+        MguiBinaural->triggerSynthPreset6(1);
+    } else if(bang.flag == "s7"){
+        MguiBinaural->triggerSynthPreset7(1);
+    } else if(bang.flag == "s8"){
+        MguiBinaural->triggerSynthPreset8(1);
     }
 }
 
@@ -336,6 +364,9 @@ void MainTimeline::draw(){
         timeline.draw();
  //   }
     
+    synthTimeline.setOffset(timeline.getBottomLeft());
+    synthTimeline.draw();
+
     
 }
 

@@ -10,11 +10,18 @@
 
 //-------------------------------------------------------------
 Gui::~Gui() {
+    delete gui1;
+    delete gui2;
+    delete gui3;
+    delete gui4;
+    delete gui5;
+    delete gui6;
+    delete gui7;
     
 }
 
 //--------------------------------------------------------------
-void Gui::setup(Tween *_tween1, Tween *_tween2, Tween *_tween3, Tween *_tween4, AudioTonic *_audioTonic, AudioBinaural *_audioBinaural, AudioSampler *_audioSample1, AudioSampler *_audioSample2, AudioSampler *_audioSample3, AudioSampler *_audioSample4)
+void Gui::setup(Tween *_tween1, Tween *_tween2, Tween *_tween3, Tween *_tween4, AudioSampler *_audioSample1, AudioSampler *_audioSample2, AudioSampler *_audioSample3, AudioSampler *_audioSample4)
 {
     curPreset = 1;
     guiOffset = 50;
@@ -25,8 +32,6 @@ void Gui::setup(Tween *_tween1, Tween *_tween2, Tween *_tween3, Tween *_tween4, 
     tween2 = _tween2;
     tween3 = _tween3;
     tween4 = _tween4;
-    audioTonic = _audioTonic;
-    audioBinaural = _audioBinaural;
     audioSample1 = _audioSample1;
     audioSample2 = _audioSample2;
     audioSample3 = _audioSample3;
@@ -37,33 +42,8 @@ void Gui::setup(Tween *_tween1, Tween *_tween2, Tween *_tween3, Tween *_tween4, 
     float length = 320-xInit;
     float tempGUIoffset = 180;
     
-    //BINARUAL
-    guiBinaural = new ofxUICanvas(0,0,length+xInit*2.0,180+tempGUIoffset);
-    guiBinaural->addWidgetDown(new ofxUILabel("SHAMANIC AUDIO ENGINE", OFX_UI_FONT_MEDIUM));
-    guiBinaural->addWidgetDown(new ofxUIFPS(OFX_UI_FONT_MEDIUM));
-    guiBinaural->addSpacer(length, dim/5);
-    
-    guiBinaural->addLabel("BINARUAL");
-    guiBinaural->addWidgetDown(new ofxUIRotarySlider(guiWidth*3, 30.0, 300.0, audioBinaural->osc1Pitch,"CarrierPitch"));
-    guiBinaural->addWidgetRight(new ofxUIRotarySlider(guiWidth*3, 0.0, 14.0, audioBinaural->osc2Pitch,"CarrierOffset"));
-    guiBinaural->addWidgetRight(new ofxUIRotarySlider(guiWidth*3, 0.0, 1.0, audioBinaural->volume,"Binaural_B"));
-    //guiBinaural->addSlider("Binaural_B", 0.0, 1.0, audioBinaural->volume, 270, guiWidth);
-    guiBinaural->addSpacer(length, dim/5);
-    
-    guiBinaural->addLabel("FM SUB");
-    guiBinaural->addWidgetDown(new ofxUIRotarySlider(guiWidth*3, 0.0, 10.0, audioTonic->CarrierPitch,"carrierPitch"));
-    guiBinaural->addWidgetRight(new ofxUIRotarySlider(guiWidth*3, 0.0, 10.0, audioTonic->CarrierOffset,"carrierOffset"));
-    guiBinaural->addWidgetRight(new ofxUIRotarySlider(guiWidth*3, -60.0, 0.0, audioTonic->Volume,"volume"));
-
-    guiBinaural->addWidgetDown(new ofxUIRotarySlider(guiWidth*3, 0.001, 10.0, audioTonic->ModIndex,"modIndex"));
-    guiBinaural->addWidgetRight(new ofxUIRotarySlider(guiWidth*3, 0.0, 4.0, audioTonic->ModLfoAmt,"modLfoAmt"));
-    guiBinaural->addWidgetRight(new ofxUIRotarySlider(guiWidth*3, 0.0, 20.0, audioTonic->ModLfoSpeed,"modLfoSpeed"));
-
-    guiBinaural->addWidgetDown(new ofxUIRotarySlider(guiWidth*3, 0.0, 1.0, audioTonic->AmpLfoAmt,"ampLfoAmt"));
-    guiBinaural->addWidgetRight(new ofxUIRotarySlider(guiWidth*3, 0.0, 20.0, audioTonic->AmpLfoSpeed,"ampLfoSpeed"));
-
     //VOLUME
-    gui1 = new ofxUICanvas(0,180+tempGUIoffset,length+xInit*2.0,330);
+    gui1 = new ofxUICanvas(0,187+tempGUIoffset,length+xInit*2.0,330);
     gui1->addWidgetDown(new ofxUILabel("VOLUME", OFX_UI_FONT_MEDIUM));
     gui1->addSlider("Volume1", 0.0, 1.0, audioSample1->volume, 40, 150);
     gui1->addWidgetRight(new ofxUISlider("Volume2", 0.0, 1.0, audioSample2->volume, 40, 150));
@@ -83,7 +63,11 @@ void Gui::setup(Tween *_tween1, Tween *_tween2, Tween *_tween3, Tween *_tween4, 
     
     gui2->addLabel("GRANULAR");
     gui2->addWidgetDown(new ofxUIImageToggle(dim*2, dim*2, true, "GUI/play.png", "USEPITCH1"));
-    gui2->addWidgetRight(new ofxUISlider("pitch1", 0.0, 8.0, audioSample1->pitch1, 270, guiWidth));
+
+    gui2->addWidgetRight(new ofxUIImageSlider(270, guiWidth, 0.0, 8.0, audioSample1->pitch1, "slider.png", "pitch1"));
+    //gui2->setColorBack(ofColor(255,100));
+
+//    gui2->addWidgetRight(new ofxUISlider("pitch1", 0.0, 8.0, audioSample1->pitch1, 270, guiWidth));
     gui2->addWidgetDown(new ofxUIImageToggle(dim*2, dim*2, true, "GUI/play.png", "USESPEED1"));
     gui2->addWidgetRight(new ofxUISlider("speed1", -2.0, 2.0, audioSample1->speed1, 270, guiWidth));
     gui2->addWidgetDown(new ofxUIImageToggle(dim*2, dim*2, true, "GUI/play.png", "USEGRAINSIZE1"));
@@ -302,7 +286,7 @@ void Gui::setup(Tween *_tween1, Tween *_tween2, Tween *_tween3, Tween *_tween4, 
     
     //PRESETS
     gui7 = new ofxUICanvas(0,380+tempGUIoffset,length+xInit*2.0,guiCanvasLength-380);
-    gui7->addWidgetDown(new ofxUILabel("PRESETS", OFX_UI_FONT_MEDIUM));
+    gui7->addWidgetDown(new ofxUILabel("GRAIN PRESETS", OFX_UI_FONT_MEDIUM));
     gui7->addWidgetDown(new ofxUISpacer(length, 2));
     gui7->addLabelButton("SAVE PRESET", true, length-xInit);
 
@@ -322,7 +306,6 @@ void Gui::setup(Tween *_tween1, Tween *_tween2, Tween *_tween3, Tween *_tween4, 
   	gui7->addWidgetDown(new ofxUISpacer(length, 2));
         
     //Listener
-    ofAddListener(guiBinaural->newGUIEvent, this, &Gui::guiEvent);
     ofAddListener(gui1->newGUIEvent, this, &Gui::guiEvent);
     ofAddListener(gui2->newGUIEvent, this, &Gui::guiEvent);
     ofAddListener(gui3->newGUIEvent, this, &Gui::guiEvent);
@@ -332,7 +315,6 @@ void Gui::setup(Tween *_tween1, Tween *_tween2, Tween *_tween3, Tween *_tween4, 
     ofAddListener(gui7->newGUIEvent, this, &Gui::guiEvent);
 
     //Padding
-    guiBinaural->setDrawPadding(true);
     gui1->setDrawPadding(true);
     gui2->setDrawPadding(true);
     gui3->setDrawPadding(true);
@@ -1166,21 +1148,6 @@ void Gui::guiEvent(ofxUIEventArgs &e)
 
     
     //SLIDERS
-    else if(name == "CarrierPitch")
-	{
-		ofxUISlider *slider = (ofxUISlider *) e.widget;
-		audioBinaural->osc1Pitch = slider->getScaledValue();
-	}
-    else if(name == "CarrierOffset")
-	{
-		ofxUISlider *slider = (ofxUISlider *) e.widget;
-		audioBinaural->osc2Pitch = slider->getScaledValue();
-	}
-    else if(name == "Binaural_B")
-	{
-		ofxUISlider *slider = (ofxUISlider *) e.widget;
-		audioBinaural->volume = slider->getScaledValue();
-	}
     else if(name == "Volume1")
 	{
 		ofxUISlider *slider = (ofxUISlider *) e.widget;
@@ -1558,56 +1525,6 @@ void Gui::guiEvent(ofxUIEventArgs &e)
 		audioSample4->delayFeedback1 = slider->getScaledValue();
 	}
     
-    //FM SUB MACHINE
-    if(name == "carrierPitch")
-	{
-		ofxUISlider *slider = (ofxUISlider *) e.widget;
-		audioTonic->CarrierPitch = slider->getScaledValue();
-        audioTonic->triggerFMparams();
-	}
-    else if(name== "carrierOffset")
-    {
-        ofxUISlider *slider = (ofxUISlider *) e.widget;
-		audioTonic->CarrierOffset = slider->getScaledValue();
-        audioTonic->triggerFMparams();
-    }
-    else if(name == "modIndex")
-	{
-		ofxUISlider *slider = (ofxUISlider *) e.widget;
-		audioTonic->ModIndex = slider->getScaledValue();
-        audioTonic->triggerFMparams();
-	}
-    else if(name == "modLfoAmt")
-	{
-		ofxUISlider *slider = (ofxUISlider *) e.widget;
-		audioTonic->ModLfoAmt = slider->getScaledValue();
-        audioTonic->triggerFMparams();
-	}
-    else if(name == "modLfoSpeed")
-	{
-		ofxUISlider *slider = (ofxUISlider *) e.widget;
-		audioTonic->ModLfoSpeed = slider->getScaledValue();
-        audioTonic->triggerFMparams();
-	}
-    else if(name == "ampLfoAmt")
-	{
-		ofxUISlider *slider = (ofxUISlider *) e.widget;
-		audioTonic->AmpLfoAmt = slider->getScaledValue();
-        audioTonic->triggerFMparams();
-	}
-    else if(name == "ampLfoSpeed")
-	{
-		ofxUISlider *slider = (ofxUISlider *) e.widget;
-		audioTonic->AmpLfoSpeed = slider->getScaledValue();
-        audioTonic->triggerFMparams();
-	}
-    else if(name == "volume")
-	{
-		ofxUISlider *slider = (ofxUISlider *) e.widget;
-		audioTonic->Volume = slider->getScaledValue();
-        audioTonic->triggerFMparams();
-	}
-    
 }
 
 //--------------------------------------------------------------
@@ -1754,22 +1671,6 @@ void Gui::triggerPreset8(int _value1){
     tween2->catchTempVariables();
     tween3->catchTempVariables();
     tween4->catchTempVariables();
-}
-//--------------------------------------------------------------
-void Gui::setBinVolume(float _value1){
-    ofxUISlider *slider = (ofxUISlider *) guiBinaural->getWidget("Binaural_B");
-    slider->setValue(_value1);
-    audioBinaural->volume = slider->getScaledValue();
-}
-void Gui::setBinPitch(float _value1){
-    ofxUISlider *slider = (ofxUISlider *) guiBinaural->getWidget("CarrierPitch");
-    slider->setValue(_value1);
-    audioBinaural->osc1Pitch = slider->getScaledValue();
-}
-void Gui::setBinOffset(float _value1){
-    ofxUISlider *slider = (ofxUISlider *) guiBinaural->getWidget("CarrierOffset");
-    slider->setValue(_value1);
-    audioBinaural->osc2Pitch = slider->getScaledValue();
 }
 
 //--------------------------------------------------------------

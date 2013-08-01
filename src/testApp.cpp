@@ -44,15 +44,15 @@ void testApp::setup(){
     tween3.setup(&audioSample3);
     tween4.setup(&audioSample4);
     
-    gui.setup(&tween1, &tween2, &tween3, &tween4, &audioTonic, &audioBinaural, &audioSample1, &audioSample2, &audioSample3, &audioSample4);
-    
-    timeline.setup(&gui, &audioSample1, &audioSample2, &audioSample3, &audioSample4, &audioBinaural);
+    gui.setup(&tween1, &tween2, &tween3, &tween4, &audioSample1, &audioSample2, &audioSample3, &audioSample4);
+    guiBinaural.setup(&tweenSynth, &audioBinaural, &audioTonic);
+    timeline.setup(&gui, &guiBinaural, &audioSample1, &audioSample2, &audioSample3, &audioSample4, &audioBinaural);
     
     //Shaders
 	shader.load("shaders/strobe");
 
 #ifdef _USE_MIDI
-    mLivid.setup(&gui, &audioSample1, &audioSample2, &audioSample3, &audioSample4);
+    mLivid.setup(&gui, &guiBinaural, &audioSample1, &audioSample2, &audioSample3, &audioSample4);
 #endif
     
     osc.setup(&audioSample1, &audioSample2, &audioSample3, &audioSample4);
@@ -61,7 +61,7 @@ void testApp::setup(){
 
 //--------------------------------------------------------------
 void testApp::update(){
-    
+        
     timeline.update();
     
     ofSetWindowTitle(ofToString(ofGetFrameRate()));
@@ -222,6 +222,13 @@ void testApp::keyPressed(int key)
         gui.gui4->toggleVisible();
         gui.gui5->toggleVisible();
         gui.gui6->toggleVisible();
+    }if (key == 'p') {
+        gui.gui7->toggleVisible();
+        guiBinaural.guiPresets->toggleVisible();
+    }
+    
+    if(key == ','){
+        timeline.synthTimeline.togglePlay();
     }
     
     if(key == '1'){

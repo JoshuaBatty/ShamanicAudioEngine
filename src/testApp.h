@@ -5,6 +5,8 @@
 #include "audioBinaural.h"
 #include "AudioTonic.h"
 #include "gui.h"
+#include "guiBinaural.h"
+
 #include "livid.h"			// Livid Controler
 #include "oscReciever.h"
 #include "tween.h"
@@ -45,6 +47,7 @@ class testApp : public ofBaseApp{
     ofShader shader;
     
     Gui gui;
+    GuiBinaural guiBinaural;
     
     oscReciever osc;
 

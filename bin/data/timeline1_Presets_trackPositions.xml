@@ -1,14 +1,14 @@
 <positions>
-    <element name="Track">
+    <element name="presetBangs">
         <x>0.000000000</x>
-        <y>52.000000000</y>
+        <y>1029.000000000</y>
         <width>1620.000000000</width>
         <height>40.000000000</height>
     </element>
-    <element name="presetBangs">
+    <element name="synthPresetBangs">
         <x>0.000000000</x>
-        <y>890.000000000</y>
+        <y>1029.000000000</y>
         <width>1620.000000000</width>
-        <height>67.000000000</height>
+        <height>40.000000000</height>
     </element>
 </positions>
