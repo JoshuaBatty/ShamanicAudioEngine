@@ -1,0 +1,40 @@
+<Widget>
+    <Kind>21</Kind>
+    <Name>carrierPitch</Name>
+    <Value>5.926843166</Value>
+</Widget>
+<Widget>
+    <Kind>21</Kind>
+    <Name>carrierOffset</Name>
+    <Value>0.747117758</Value>
+</Widget>
+<Widget>
+    <Kind>21</Kind>
+    <Name>volume</Name>
+    <Value>0.000000000</Value>
+</Widget>
+<Widget>
+    <Kind>21</Kind>
+    <Name>modIndex</Name>
+    <Value>2.147330761</Value>
+</Widget>
+<Widget>
+    <Kind>21</Kind>
+    <Name>modLfoAmt</Name>
+    <Value>0.891306639</Value>
+</Widget>
+<Widget>
+    <Kind>21</Kind>
+    <Name>modLfoSpeed</Name>
+    <Value>18.025686264</Value>
+</Widget>
+<Widget>
+    <Kind>21</Kind>
+    <Name>ampLfoAmt</Name>
+    <Value>0.611195147</Value>
+</Widget>
+<Widget>
+    <Kind>21</Kind>
+    <Name>ampLfoSpeed</Name>
+    <Value>18.279792786</Value>
+</Widget>

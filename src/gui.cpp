@@ -26,7 +26,7 @@ void Gui::setup(Tween *_tween1, Tween *_tween2, Tween *_tween3, Tween *_tween4, 
     curPreset = 1;
     guiOffset = 50;
     int guiWidth = 15;
-    int guiCanvasLength = 690;
+    int guiCanvasLength = 710;
     
     tween1 = _tween1;
     tween2 = _tween2;
@@ -63,52 +63,47 @@ void Gui::setup(Tween *_tween1, Tween *_tween2, Tween *_tween3, Tween *_tween4, 
     
     gui2->addLabel("GRANULAR");
     gui2->addWidgetDown(new ofxUIImageToggle(dim*2, dim*2, true, "GUI/play.png", "USEPITCH1"));
-
     gui2->addWidgetRight(new ofxUIImageSlider(270, guiWidth, 0.0, 8.0, audioSample1->pitch1, "slider.png", "pitch1"));
-    //gui2->setColorBack(ofColor(255,100));
-
-//    gui2->addWidgetRight(new ofxUISlider("pitch1", 0.0, 8.0, audioSample1->pitch1, 270, guiWidth));
     gui2->addWidgetDown(new ofxUIImageToggle(dim*2, dim*2, true, "GUI/play.png", "USESPEED1"));
-    gui2->addWidgetRight(new ofxUISlider("speed1", -2.0, 2.0, audioSample1->speed1, 270, guiWidth));
+    gui2->addWidgetRight(new ofxUIImageSlider(270, guiWidth, -2.0, 2.0, audioSample1->speed1, "slider.png", "speed1"));
     gui2->addWidgetDown(new ofxUIImageToggle(dim*2, dim*2, true, "GUI/play.png", "USEGRAINSIZE1"));
-    gui2->addWidgetRight(new ofxUISlider("grainLength1", 0.025, 0.49, audioSample1->grainLength1, 270, guiWidth));
+    gui2->addWidgetRight(new ofxUIImageSlider(270, guiWidth, 0.025, 0.49, audioSample1->grainLength1, "slider.png", "grainLength1"));
     gui2->addWidgetDown(new ofxUIImageToggle(dim*2, dim*2, true, "GUI/play.png", "USEOVERLAPS1"));
-    gui2->addWidgetRight(new ofxUISlider("overlaps1", 1, 6, audioSample1->overlaps1, 270, guiWidth));
+    gui2->addWidgetRight(new ofxUIImageSlider(270, guiWidth, 1, 6, audioSample1->overlaps1, "slider.png", "overlaps1"));
     gui2->addWidgetDown(new ofxUIImageToggle(dim*2, dim*2, true, "GUI/play.png", "USERANDOMGRAINPITCH1"));
-    gui2->addWidgetRight(new ofxUISlider("randomGrainPitch1", 0.0, 0.50, audioSample1->randomGrainPitch1, 270, guiWidth));
+    gui2->addWidgetRight(new ofxUIImageSlider(270, guiWidth, 0.0, 0.50, audioSample1->randomGrainPitch1, "slider.png", "randomGrainPitch1"));
     gui2->addWidgetDown(new ofxUIImageToggle(dim*2, dim*2, true, "GUI/play.png", "USERANDOMGRAINSIZE1"));
-    gui2->addWidgetRight(new ofxUISlider("randomGrainSize1", 0.0, 0.05, audioSample1->randomGrainSize1, 270, guiWidth));
+    gui2->addWidgetRight(new ofxUIImageSlider(270, guiWidth, 0.0, 0.05, audioSample1->randomGrainSize1, "slider.png", "randomGrainSize1"));
     gui2->addSpacer(length, dim/5);
     
     gui2->addLabel("FILTER");
     gui2->addWidgetDown(new ofxUIImageToggle(dim*2, dim*2, true, "GUI/play.png", "USECUTOFF1"));
-    gui2->addWidgetRight(new ofxUISlider("Cutoff1", 0.0, 10000.0, audioSample1->cutoff1, 270, guiWidth));
+    gui2->addWidgetRight(new ofxUIImageSlider(270, guiWidth, 0.0, 10000.0, audioSample1->cutoff1, "slider.png", "Cutoff1"));
+
     gui2->addWidgetDown(new ofxUIImageToggle(dim*2, dim*2, true, "GUI/play.png", "USECUTOFFLFO1"));
-    gui2->addWidgetRight(new ofxUISlider("LfoSpeed1", 0.0, 200.0, audioSample1->lfoSpeed1, 270, guiWidth));
-    gui2->addWidgetDown(new ofxUISlider("LfoAmp1", 0.0, 3000.0, audioSample1->lfoAmp1, 270, guiWidth));
+    gui2->addWidgetRight(new ofxUIImageSlider(270, guiWidth, 0.0, 200.0, audioSample1->lfoSpeed1, "slider.png", "LfoSpeed1"));
+    gui2->addWidgetDown(new ofxUIImageSlider(length-xInit, guiWidth, 0.0, 3000.0, audioSample1->lfoAmp1, "slider.png", "LfoAmp1"));
     gui2->addSpacer(length, dim/5);
     
     gui2->addLabel("DELAY");
     gui2->addWidgetDown(new ofxUIImageToggle(dim*2, dim*2, true, "GUI/play.png", "USEDELAYTIME1"));
-    gui2->addWidgetRight(new ofxUISlider("DelayTime1", 10.0, 10000.0, audioSample1->delayTime1, 270, guiWidth));
+    gui2->addWidgetRight(new ofxUIImageSlider(270, guiWidth, 0.0, 10000.0, audioSample1->delayTime1, "slider.png", "DelayTime1"));
     gui2->addWidgetDown(new ofxUIImageToggle(dim*2, dim*2, true, "GUI/play.png", "USEDELAYFEEDBACK1"));
-    gui2->addWidgetRight(new ofxUISlider("DelayFeedback1", 0.0, 0.95, audioSample1->delayFeedback1, 270, guiWidth));
+    gui2->addWidgetRight(new ofxUIImageSlider(270, guiWidth, 0.0, 0.95, audioSample1->delayFeedback1, "slider.png", "DelayFeedback1"));
     gui2->addSpacer(length, dim/5);
     
     gui2->addLabel("CRUSH");
     gui2->addWidgetDown(new ofxUIImageToggle(dim*2, dim*2, true, "GUI/play.png", "USEBITS1"));
-    gui2->addWidgetRight(new ofxUISlider("Bits1", 32.0, 0.0, audioSample1->bits, 270, guiWidth));
+    gui2->addWidgetRight(new ofxUIImageSlider(270, guiWidth, 32.0, 0.0, audioSample1->bits, "slider.png", "Bits1"));
     gui2->addWidgetDown(new ofxUIImageToggle(dim*2, dim*2, true, "GUI/play.png", "USECRUSHAMOUNT1"));
-    gui2->addWidgetRight(new ofxUISlider("Rate1", 1.0, 0.0, audioSample1->rate, 270, guiWidth));
+    gui2->addWidgetRight(new ofxUIImageSlider(270, guiWidth, 1.0, 0.0, audioSample1->rate, "slider.png", "Rate1"));
     gui2->addSpacer(length, dim/5);
     
     gui2->addLabel("REVERB");
     gui2->addWidgetDown(new ofxUIImageToggle(dim*2, dim*2, true, "GUI/play.png", "USEREVERBDECAY1"));
-    gui2->addWidgetRight(new ofxUISlider("ReverbSize1", 0.0, 1.0, audioSample1->reverbSize, 270, guiWidth));
-//    gui2->addWidgetRight(new ofxUISlider("ReverbDamp1", 0.0, 1.0, audioSample1->reverbDamp, 270, guiWidth));
-//    gui2->addWidgetRight(new ofxUISlider("ReverbWidth1", 0.0, 1.0, audioSample1->reverbWidth, 270, guiWidth));
+    gui2->addWidgetRight(new ofxUIImageSlider(270, guiWidth, 0.0, 1.0, audioSample1->reverbSize, "slider.png", "ReverbSize1"));
     gui2->addWidgetDown(new ofxUIImageToggle(dim*2, dim*2, true, "GUI/play.png", "USEREVERBDRYWET1"));
-    gui2->addWidgetRight(new ofxUISlider("ReverbDryWet1", 0.0, 1.0, audioSample1->reverbDryWet, 270, guiWidth));
+    gui2->addWidgetRight(new ofxUIImageSlider(270, guiWidth, 0.0, 1.0, audioSample1->reverbDryWet, "slider.png", "ReverbDryWet1"));
     gui2->addSpacer(length, dim/5);
     
     // SINGING BOWLS
@@ -123,48 +118,47 @@ void Gui::setup(Tween *_tween1, Tween *_tween2, Tween *_tween3, Tween *_tween4, 
     
     gui3->addLabel("GRANULAR");
     gui3->addWidgetDown(new ofxUIImageToggle(dim*2, dim*2, true, "GUI/play.png", "USEPITCH2"));
-    gui3->addWidgetRight(new ofxUISlider("pitch2", 0.0, 8.0, audioSample2->pitch1, 270, guiWidth));
+    gui3->addWidgetRight(new ofxUIImageSlider(270, guiWidth, 0.0, 8.0, audioSample2->pitch1, "slider.png", "pitch2"));
     gui3->addWidgetDown(new ofxUIImageToggle(dim*2, dim*2, true, "GUI/play.png", "USESPEED2"));
-    gui3->addWidgetRight(new ofxUISlider("speed2", -2.0, 2.0, audioSample2->speed1, 270, guiWidth));
+    gui3->addWidgetRight(new ofxUIImageSlider(270, guiWidth, -2.0, 2.0, audioSample2->speed1, "slider.png", "speed2"));
     gui3->addWidgetDown(new ofxUIImageToggle(dim*2, dim*2, true, "GUI/play.png", "USEGRAINSIZE2"));
-    gui3->addWidgetRight(new ofxUISlider("grainLength2", 0.025, 0.49, audioSample2->grainLength1, 270, guiWidth));
+    gui3->addWidgetRight(new ofxUIImageSlider(270, guiWidth, 0.025, 0.49, audioSample2->grainLength1, "slider.png", "grainLength2"));
     gui3->addWidgetDown(new ofxUIImageToggle(dim*2, dim*2, true, "GUI/play.png", "USEOVERLAPS2"));
-    gui3->addWidgetRight(new ofxUISlider("overlaps2", 1, 6, audioSample2->overlaps1, 270, guiWidth));
+    gui3->addWidgetRight(new ofxUIImageSlider(270, guiWidth, 1, 6, audioSample2->overlaps1, "slider.png", "overlaps2"));
     gui3->addWidgetDown(new ofxUIImageToggle(dim*2, dim*2, true, "GUI/play.png", "USERANDOMGRAINPITCH2"));
-    gui3->addWidgetRight(new ofxUISlider("randomGrainPitch2", 0.0, 0.50, audioSample2->randomGrainPitch1, 270, guiWidth));
+    gui3->addWidgetRight(new ofxUIImageSlider(270, guiWidth, 0.0, 0.50, audioSample2->randomGrainPitch1, "slider.png", "randomGrainPitch2"));
     gui3->addWidgetDown(new ofxUIImageToggle(dim*2, dim*2, true, "GUI/play.png", "USERANDOMGRAINSIZE2"));
-    gui3->addWidgetRight(new ofxUISlider("randomGrainSize2", 0.0, 0.05, audioSample2->randomGrainSize1, 270, guiWidth));
+    gui3->addWidgetRight(new ofxUIImageSlider(270, guiWidth, 0.0, 0.05, audioSample2->randomGrainSize1, "slider.png", "randomGrainSize2"));
     gui3->addSpacer(length, dim/5);
     
     gui3->addLabel("FILTER");
     gui3->addWidgetDown(new ofxUIImageToggle(dim*2, dim*2, true, "GUI/play.png", "USECUTOFF2"));
-    gui3->addWidgetRight(new ofxUISlider("Cutoff2", 0.0, 10000.0, audioSample2->cutoff1, 270, guiWidth));
+    gui3->addWidgetRight(new ofxUIImageSlider(270, guiWidth, 0.0, 10000.0, audioSample2->cutoff1, "slider.png", "Cutoff2"));
+    
     gui3->addWidgetDown(new ofxUIImageToggle(dim*2, dim*2, true, "GUI/play.png", "USECUTOFFLFO2"));
-    gui3->addWidgetRight(new ofxUISlider("LfoSpeed2", 0.0, 200.0, audioSample2->lfoSpeed1, 270, guiWidth));
-    gui3->addWidgetDown(new ofxUISlider("LfoAmp2", 0.0, 3000.0, audioSample2->lfoAmp1, 270, guiWidth));
+    gui3->addWidgetRight(new ofxUIImageSlider(270, guiWidth, 0.0, 200.0, audioSample2->lfoSpeed1, "slider.png", "LfoSpeed2"));
+    gui3->addWidgetDown(new ofxUIImageSlider(length-xInit, guiWidth, 0.0, 3000.0, audioSample2->lfoAmp1, "slider.png", "LfoAmp2"));
     gui3->addSpacer(length, dim/5);
     
     gui3->addLabel("DELAY");
     gui3->addWidgetDown(new ofxUIImageToggle(dim*2, dim*2, true, "GUI/play.png", "USEDELAYTIME2"));
-    gui3->addWidgetRight(new ofxUISlider("DelayTime2", 10.0, 3000.0, audioSample2->delayTime1, 270, guiWidth));
+    gui3->addWidgetRight(new ofxUIImageSlider(270, guiWidth, 0.0, 10000.0, audioSample2->delayTime1, "slider.png", "DelayTime2"));
     gui3->addWidgetDown(new ofxUIImageToggle(dim*2, dim*2, true, "GUI/play.png", "USEDELAYFEEDBACK2"));
-    gui3->addWidgetRight(new ofxUISlider("DelayFeedback2", 0.0, 0.95, audioSample2->delayFeedback1, 270, guiWidth));
+    gui3->addWidgetRight(new ofxUIImageSlider(270, guiWidth, 0.0, 0.95, audioSample2->delayFeedback1, "slider.png", "DelayFeedback2"));
     gui3->addSpacer(length, dim/5);
     
     gui3->addLabel("CRUSH");
     gui3->addWidgetDown(new ofxUIImageToggle(dim*2, dim*2, true, "GUI/play.png", "USEBITS2"));
-    gui3->addWidgetRight(new ofxUISlider("Bits2", 32.0, 0.0, audioSample2->bits, 270, guiWidth));
+    gui3->addWidgetRight(new ofxUIImageSlider(270, guiWidth, 32.0, 0.0, audioSample2->bits, "slider.png", "Bits2"));
     gui3->addWidgetDown(new ofxUIImageToggle(dim*2, dim*2, true, "GUI/play.png", "USECRUSHAMOUNT2"));
-    gui3->addWidgetRight(new ofxUISlider("Rate2", 1.0, 0.0, audioSample2->rate, 270, guiWidth));
+    gui3->addWidgetRight(new ofxUIImageSlider(270, guiWidth, 1.0, 0.0, audioSample2->rate, "slider.png", "Rate2"));
     gui3->addSpacer(length, dim/5);
     
     gui3->addLabel("REVERB");
     gui3->addWidgetDown(new ofxUIImageToggle(dim*2, dim*2, true, "GUI/play.png", "USEREVERBDECAY2"));
-    gui3->addWidgetRight(new ofxUISlider("ReverbSize2", 0.0, 1.0, audioSample2->reverbSize, 270, guiWidth));
-//    gui3->addWidgetRight(new ofxUISlider("ReverbDamp2", 0.0, 1.0, audioSample2->reverbDamp, 270, guiWidth));
-//    gui3->addWidgetRight(new ofxUISlider("ReverbWidth2", 0.0, 1.0, audioSample2->reverbWidth, 270, guiWidth));
+    gui3->addWidgetRight(new ofxUIImageSlider(270, guiWidth, 0.0, 1.0, audioSample2->reverbSize, "slider.png", "ReverbSize2"));
     gui3->addWidgetDown(new ofxUIImageToggle(dim*2, dim*2, true, "GUI/play.png", "USEREVERBDRYWET2"));
-    gui3->addWidgetRight(new ofxUISlider("ReverbDryWet2", 0.0, 1.0, audioSample2->reverbDryWet, 270, guiWidth));
+    gui3->addWidgetRight(new ofxUIImageSlider(270, guiWidth, 0.0, 1.0, audioSample2->reverbDryWet, "slider.png", "ReverbDryWet2"));
     gui3->addSpacer(length, dim/5);
     
     // THROAT SINGING
@@ -179,48 +173,47 @@ void Gui::setup(Tween *_tween1, Tween *_tween2, Tween *_tween3, Tween *_tween4, 
     
     gui4->addLabel("GRANULAR");
     gui4->addWidgetDown(new ofxUIImageToggle(dim*2, dim*2, true, "GUI/play.png", "USEPITCH3"));
-    gui4->addWidgetRight(new ofxUISlider("pitch3", 0.0, 8.0, audioSample3->pitch1, 270, guiWidth));
+    gui4->addWidgetRight(new ofxUIImageSlider(270, guiWidth, 0.0, 8.0, audioSample3->pitch1, "slider.png", "pitch3"));
     gui4->addWidgetDown(new ofxUIImageToggle(dim*2, dim*2, true, "GUI/play.png", "USESPEED3"));
-    gui4->addWidgetRight(new ofxUISlider("speed3", -2.0, 2.0, audioSample3->speed1, 270, guiWidth));
+    gui4->addWidgetRight(new ofxUIImageSlider(270, guiWidth, -2.0, 2.0, audioSample3->speed1, "slider.png", "speed3"));
     gui4->addWidgetDown(new ofxUIImageToggle(dim*2, dim*2, true, "GUI/play.png", "USEGRAINSIZE3"));
-    gui4->addWidgetRight(new ofxUISlider("grainLength3", 0.025, 0.49, audioSample3->grainLength1, 270, guiWidth));
+    gui4->addWidgetRight(new ofxUIImageSlider(270, guiWidth, 0.025, 0.49, audioSample3->grainLength1, "slider.png", "grainLength3"));
     gui4->addWidgetDown(new ofxUIImageToggle(dim*2, dim*2, true, "GUI/play.png", "USEOVERLAPS3"));
-    gui4->addWidgetRight(new ofxUISlider("overlaps3", 1, 6, audioSample3->overlaps1, 270, guiWidth));
+    gui4->addWidgetRight(new ofxUIImageSlider(270, guiWidth, 1, 6, audioSample3->overlaps1, "slider.png", "overlaps3"));
     gui4->addWidgetDown(new ofxUIImageToggle(dim*2, dim*2, true, "GUI/play.png", "USERANDOMGRAINPITCH3"));
-    gui4->addWidgetRight(new ofxUISlider("randomGrainPitch3", 0.0, 0.50, audioSample3->randomGrainPitch1, 270, guiWidth));
+    gui4->addWidgetRight(new ofxUIImageSlider(270, guiWidth, 0.0, 0.50, audioSample3->randomGrainPitch1, "slider.png", "randomGrainPitch3"));
     gui4->addWidgetDown(new ofxUIImageToggle(dim*2, dim*2, true, "GUI/play.png", "USERANDOMGRAINSIZE3"));
-    gui4->addWidgetRight(new ofxUISlider("randomGrainSize3", 0.0, 0.05, audioSample3->randomGrainSize1, 270, guiWidth));
+    gui4->addWidgetRight(new ofxUIImageSlider(270, guiWidth, 0.0, 0.05, audioSample3->randomGrainSize1, "slider.png", "randomGrainSize3"));
     gui4->addSpacer(length, dim/5);
     
     gui4->addLabel("FILTER");
     gui4->addWidgetDown(new ofxUIImageToggle(dim*2, dim*2, true, "GUI/play.png", "USECUTOFF3"));
-    gui4->addWidgetRight(new ofxUISlider("Cutoff3", 0.0, 10000.0, audioSample3->cutoff1, 270, guiWidth));
+    gui4->addWidgetRight(new ofxUIImageSlider(270, guiWidth, 0.0, 10000.0, audioSample3->cutoff1, "slider.png", "Cutoff3"));
+    
     gui4->addWidgetDown(new ofxUIImageToggle(dim*2, dim*2, true, "GUI/play.png", "USECUTOFFLFO3"));
-    gui4->addWidgetRight(new ofxUISlider("LfoSpeed3", 0.0, 200.0, audioSample3->lfoSpeed1, 270, guiWidth));
-    gui4->addWidgetDown(new ofxUISlider("LfoAmp3", 0.0, 3000.0, audioSample3->lfoAmp1, 270, guiWidth));
+    gui4->addWidgetRight(new ofxUIImageSlider(270, guiWidth, 0.0, 200.0, audioSample3->lfoSpeed1, "slider.png", "LfoSpeed3"));
+    gui4->addWidgetDown(new ofxUIImageSlider(length-xInit, guiWidth, 0.0, 3000.0, audioSample3->lfoAmp1, "slider.png", "LfoAmp3"));
     gui4->addSpacer(length, dim/5);
     
     gui4->addLabel("DELAY");
     gui4->addWidgetDown(new ofxUIImageToggle(dim*2, dim*2, true, "GUI/play.png", "USEDELAYTIME3"));
-    gui4->addWidgetRight(new ofxUISlider("DelayTime3", 10.0, 3000.0, audioSample3->delayTime1, 270, guiWidth));
+    gui4->addWidgetRight(new ofxUIImageSlider(270, guiWidth, 0.0, 10000.0, audioSample3->delayTime1, "slider.png", "DelayTime3"));
     gui4->addWidgetDown(new ofxUIImageToggle(dim*2, dim*2, true, "GUI/play.png", "USEDELAYFEEDBACK3"));
-    gui4->addWidgetRight(new ofxUISlider("DelayFeedback3", 0.0, 0.95, audioSample3->delayFeedback1, 270, guiWidth));
+    gui4->addWidgetRight(new ofxUIImageSlider(270, guiWidth, 0.0, 0.95, audioSample3->delayFeedback1, "slider.png", "DelayFeedback3"));
     gui4->addSpacer(length, dim/5);
     
     gui4->addLabel("CRUSH");
     gui4->addWidgetDown(new ofxUIImageToggle(dim*2, dim*2, true, "GUI/play.png", "USEBITS3"));
-    gui4->addWidgetRight(new ofxUISlider("Bits3", 32.0, 0.0, audioSample3->bits, 270, guiWidth));
+    gui4->addWidgetRight(new ofxUIImageSlider(270, guiWidth, 32.0, 0.0, audioSample3->bits, "slider.png", "Bits3"));
     gui4->addWidgetDown(new ofxUIImageToggle(dim*2, dim*2, true, "GUI/play.png", "USECRUSHAMOUNT3"));
-    gui4->addWidgetRight(new ofxUISlider("Rate3", 1.0, 0.0, audioSample3->rate, 270, guiWidth));
+    gui4->addWidgetRight(new ofxUIImageSlider(270, guiWidth, 1.0, 0.0, audioSample3->rate, "slider.png", "Rate3"));
     gui4->addSpacer(length, dim/5);
     
     gui4->addLabel("REVERB");
     gui4->addWidgetDown(new ofxUIImageToggle(dim*2, dim*2, true, "GUI/play.png", "USEREVERBDECAY3"));
-    gui4->addWidgetRight(new ofxUISlider("ReverbSize3", 0.0, 1.0, audioSample3->reverbSize, 270, guiWidth));
-//    gui4->addWidgetRight(new ofxUISlider("ReverbDamp3", 0.0, 1.0, audioSample3->reverbDamp, 270, guiWidth));
-//    gui4->addWidgetRight(new ofxUISlider("ReverbWidth3", 0.0, 1.0, audioSample3->reverbWidth, 270, guiWidth));
+    gui4->addWidgetRight(new ofxUIImageSlider(270, guiWidth, 0.0, 1.0, audioSample3->reverbSize, "slider.png", "ReverbSize3"));
     gui4->addWidgetDown(new ofxUIImageToggle(dim*2, dim*2, true, "GUI/play.png", "USEREVERBDRYWET3"));
-    gui4->addWidgetRight(new ofxUISlider("ReverbDryWet3", 0.0, 1.0, audioSample3->reverbDryWet, 270, guiWidth));
+    gui4->addWidgetRight(new ofxUIImageSlider(270, guiWidth, 0.0, 1.0, audioSample3->reverbDryWet, "slider.png", "ReverbDryWet3"));
     gui4->addSpacer(length, dim/5);
     
     // ICAROS
@@ -235,48 +228,47 @@ void Gui::setup(Tween *_tween1, Tween *_tween2, Tween *_tween3, Tween *_tween4, 
     
     gui5->addLabel("GRANULAR");
     gui5->addWidgetDown(new ofxUIImageToggle(dim*2, dim*2, true, "GUI/play.png", "USEPITCH4"));
-    gui5->addWidgetRight(new ofxUISlider("pitch4", 0.0, 8.0, audioSample4->pitch1, 270, guiWidth));
+    gui5->addWidgetRight(new ofxUIImageSlider(270, guiWidth, 0.0, 8.0, audioSample4->pitch1, "slider.png", "pitch4"));
     gui5->addWidgetDown(new ofxUIImageToggle(dim*2, dim*2, true, "GUI/play.png", "USESPEED4"));
-    gui5->addWidgetRight(new ofxUISlider("speed4", -2.0, 2.0, audioSample4->speed1, 270, guiWidth));
+    gui5->addWidgetRight(new ofxUIImageSlider(270, guiWidth, -2.0, 2.0, audioSample4->speed1, "slider.png", "speed4"));
     gui5->addWidgetDown(new ofxUIImageToggle(dim*2, dim*2, true, "GUI/play.png", "USEGRAINSIZE4"));
-    gui5->addWidgetRight(new ofxUISlider("grainLength4", 0.025, 0.49, audioSample4->grainLength1, 270, guiWidth));
+    gui5->addWidgetRight(new ofxUIImageSlider(270, guiWidth, 0.025, 0.49, audioSample4->grainLength1, "slider.png", "grainLength4"));
     gui5->addWidgetDown(new ofxUIImageToggle(dim*2, dim*2, true, "GUI/play.png", "USEOVERLAPS4"));
-    gui5->addWidgetRight(new ofxUISlider("overlaps4", 1, 6, audioSample4->overlaps1, 270, guiWidth));
+    gui5->addWidgetRight(new ofxUIImageSlider(270, guiWidth, 1, 6, audioSample4->overlaps1, "slider.png", "overlaps4"));
     gui5->addWidgetDown(new ofxUIImageToggle(dim*2, dim*2, true, "GUI/play.png", "USERANDOMGRAINPITCH4"));
-    gui5->addWidgetRight(new ofxUISlider("randomGrainPitch4", 0.0, 0.50, audioSample4->randomGrainPitch1, 270, guiWidth));
+    gui5->addWidgetRight(new ofxUIImageSlider(270, guiWidth, 0.0, 0.50, audioSample4->randomGrainPitch1, "slider.png", "randomGrainPitch4"));
     gui5->addWidgetDown(new ofxUIImageToggle(dim*2, dim*2, true, "GUI/play.png", "USERANDOMGRAINSIZE4"));
-    gui5->addWidgetRight(new ofxUISlider("randomGrainSize4", 0.0, 0.05, audioSample4->randomGrainSize1, 270, guiWidth));
+    gui5->addWidgetRight(new ofxUIImageSlider(270, guiWidth, 0.0, 0.05, audioSample4->randomGrainSize1, "slider.png", "randomGrainSize4"));
     gui5->addSpacer(length, dim/5);
     
     gui5->addLabel("FILTER");
     gui5->addWidgetDown(new ofxUIImageToggle(dim*2, dim*2, true, "GUI/play.png", "USECUTOFF4"));
-    gui5->addWidgetRight(new ofxUISlider("Cutoff4", 0.0, 10000.0, audioSample4->cutoff1, 270, guiWidth));
+    gui5->addWidgetRight(new ofxUIImageSlider(270, guiWidth, 0.0, 10000.0, audioSample4->cutoff1, "slider.png", "Cutoff4"));
+    
     gui5->addWidgetDown(new ofxUIImageToggle(dim*2, dim*2, true, "GUI/play.png", "USECUTOFFLFO4"));
-    gui5->addWidgetRight(new ofxUISlider("LfoSpeed4", 0.0, 200.0, audioSample4->lfoSpeed1, 270, guiWidth));
-    gui5->addWidgetDown(new ofxUISlider("LfoAmp4", 0.0, 3000.0, audioSample4->lfoAmp1, 270, guiWidth));
+    gui5->addWidgetRight(new ofxUIImageSlider(270, guiWidth, 0.0, 200.0, audioSample4->lfoSpeed1, "slider.png", "LfoSpeed4"));
+    gui5->addWidgetDown(new ofxUIImageSlider(length-xInit, guiWidth, 0.0, 3000.0, audioSample4->lfoAmp1, "slider.png", "LfoAmp4"));
     gui5->addSpacer(length, dim/5);
     
     gui5->addLabel("DELAY");
     gui5->addWidgetDown(new ofxUIImageToggle(dim*2, dim*2, true, "GUI/play.png", "USEDELAYTIME4"));
-    gui5->addWidgetRight(new ofxUISlider("DelayTime4", 10.0, 3000.0, audioSample4->delayTime1, 270, guiWidth));
+    gui5->addWidgetRight(new ofxUIImageSlider(270, guiWidth, 0.0, 10000.0, audioSample4->delayTime1, "slider.png", "DelayTime4"));
     gui5->addWidgetDown(new ofxUIImageToggle(dim*2, dim*2, true, "GUI/play.png", "USEDELAYFEEDBACK4"));
-    gui5->addWidgetRight(new ofxUISlider("DelayFeedback4", 0.0, 0.95, audioSample4->delayFeedback1, 270, guiWidth));
+    gui5->addWidgetRight(new ofxUIImageSlider(270, guiWidth, 0.0, 0.95, audioSample4->delayFeedback1, "slider.png", "DelayFeedback4"));
     gui5->addSpacer(length, dim/5);
     
     gui5->addLabel("CRUSH");
     gui5->addWidgetDown(new ofxUIImageToggle(dim*2, dim*2, true, "GUI/play.png", "USEBITS4"));
-    gui5->addWidgetRight(new ofxUISlider("Bits4", 32.0, 0.0, audioSample4->bits, 270, guiWidth));
+    gui5->addWidgetRight(new ofxUIImageSlider(270, guiWidth, 32.0, 0.0, audioSample4->bits, "slider.png", "Bits4"));
     gui5->addWidgetDown(new ofxUIImageToggle(dim*2, dim*2, true, "GUI/play.png", "USECRUSHAMOUNT4"));
-    gui5->addWidgetRight(new ofxUISlider("Rate4", 1.0, 0.0, audioSample4->rate, 270, guiWidth));
+    gui5->addWidgetRight(new ofxUIImageSlider(270, guiWidth, 1.0, 0.0, audioSample4->rate, "slider.png", "Rate4"));
     gui5->addSpacer(length, dim/5);
     
     gui5->addLabel("REVERB");
     gui5->addWidgetDown(new ofxUIImageToggle(dim*2, dim*2, true, "GUI/play.png", "USEREVERBDECAY4"));
-    gui5->addWidgetRight(new ofxUISlider("ReverbSize4", 0.0, 1.0, audioSample4->reverbSize, 270, guiWidth));
- //   gui5->addWidgetRight(new ofxUISlider("ReverbDamp4", 0.0, 1.0, audioSample4->reverbDamp, 270, guiWidth));
- //   gui5->addWidgetRight(new ofxUISlider("ReverbWidth4", 0.0, 1.0, audioSample4->reverbWidth, 270, guiWidth));
+    gui5->addWidgetRight(new ofxUIImageSlider(270, guiWidth, 0.0, 1.0, audioSample4->reverbSize, "slider.png", "ReverbSize4"));
     gui5->addWidgetDown(new ofxUIImageToggle(dim*2, dim*2, true, "GUI/play.png", "USEREVERBDRYWET4"));
-    gui5->addWidgetRight(new ofxUISlider("ReverbDryWet4", 0.0, 1.0, audioSample4->reverbDryWet, 270, guiWidth));
+    gui5->addWidgetRight(new ofxUIImageSlider(270, guiWidth, 0.0, 1.0, audioSample4->reverbDryWet, "slider.png", "ReverbDryWet4"));
     gui5->addSpacer(length, dim/5);
     
     ////
