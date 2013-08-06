@@ -178,6 +178,11 @@ void AudioSampler::setPanning(float _panPos, float _lfoSpeed, float _lfoAmp)
 }
 
 //--------------------------------------------------------------
+void AudioSampler::setGrainSize(float _grainSize){
+    grainLength1 = _grainSize;
+}
+
+//--------------------------------------------------------------
 void AudioSampler::draw(int _x, int _y)
 {
     int width = 200;

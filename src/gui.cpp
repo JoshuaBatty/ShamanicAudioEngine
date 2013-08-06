@@ -1758,22 +1758,29 @@ void Gui::setRandomGrainPitch4(float _value1){
 void Gui::setGrainSize1(float _value1){
     ofxUISlider *slider = (ofxUISlider *) gui2->getWidget("grainLength1");
     slider->setValue(_value1);
-    audioSample1->grainLength1 = slider->getScaledValue();
+    //audioSample1->grainLength1 = slider->getScaledValue();
+    audioSample1->setGrainSize(slider->getScaledValue());
 }
 void Gui::setGrainSize2(float _value1){
     ofxUISlider *slider = (ofxUISlider *) gui3->getWidget("grainLength2");
     slider->setValue(_value1);
-    audioSample2->grainLength1 = slider->getScaledValue();
+//    audioSample2->grainLength1 = slider->getScaledValue();
+    audioSample2->setGrainSize(slider->getScaledValue());
+
 }
 void Gui::setGrainSize3(float _value1){
     ofxUISlider *slider = (ofxUISlider *) gui4->getWidget("grainLength3");
     slider->setValue(_value1);
-    audioSample3->grainLength1 = slider->getScaledValue();
+  //  audioSample3->grainLength1 = slider->getScaledValue();
+    audioSample3->setGrainSize(slider->getScaledValue());
+
 }
 void Gui::setGrainSize4(float _value1){
     ofxUISlider *slider = (ofxUISlider *) gui5->getWidget("grainLength4");
     slider->setValue(_value1);
-    audioSample4->grainLength1 = slider->getScaledValue();
+  //  audioSample4->grainLength1 = slider->getScaledValue();
+    audioSample4->setGrainSize(slider->getScaledValue());
+
 }
 
 //--------------------------------------------------------------

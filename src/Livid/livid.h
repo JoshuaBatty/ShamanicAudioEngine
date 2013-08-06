@@ -35,12 +35,6 @@ public:
     Gui *Mgui;
     GuiBinaural *MguiBinaural;
     AudioSampler  *audioSample1, *audioSample2, *audioSample3, *audioSample4;
-
-	//Midi Fighter Variables
-	int mfSlider1,mfSlider2;
-	int mfKnob1,mfKnob2;
-	bool mfButton[16];
-	bool mfToggle[4];
 	
 	/*Livid Variables*/
 	
@@ -62,13 +56,18 @@ public:
     bool bIsTurningOn[16];
     bool bIsTurningOff[16];
     int buttonState[16];
+    int buttonsState[4];
 
-	//Buttons Row 1
-	bool buttonsR1[16];
+    //Bottom row 1
+    bool bButtonsR1IsTurningOn[16];
+    bool bButtonsR1IsTurningOff[16];
+    bool buttonsR1[16];
     
-	//Buttons Row 2
-	bool buttonsR2[16];
+    //Bottom row 2
+    bool bButtonsR2IsTurningOn[16];
+    bool bButtonsR2IsTurningOff[16];
+    bool buttonsR2[16];
 	
 	int i;
-    
+    bool bSwitchMidi;
 };

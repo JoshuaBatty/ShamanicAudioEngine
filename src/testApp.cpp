@@ -29,6 +29,7 @@ void testApp::setup(){
     audioSample3.setup("singing_bells.wav");
     audioSample4.setup("psychedelics.wav");
     soundStream.setup(2, 0, sampleRate, bufferSize, 4);
+
 	soundStream.setOutput(this);
     
     mixer.addInputFrom(&audioTonic);
@@ -48,20 +49,26 @@ void testApp::setup(){
     guiBinaural.setup(&tweenSynth, &audioBinaural, &audioTonic);
     timeline.setup(&gui, &guiBinaural, &audioSample1, &audioSample2, &audioSample3, &audioSample4, &audioBinaural);
     
+
     //Shaders
 	shader.load("shaders/strobe");
-
+	shaderOptical.load("shaders/optical");
+    
 #ifdef _USE_MIDI
     mLivid.setup(&gui, &guiBinaural, &audioSample1, &audioSample2, &audioSample3, &audioSample4);
 #endif
     
     osc.setup(&audioSample1, &audioSample2, &audioSample3, &audioSample4);
     
+    motion.setup(&gui, &mLivid);
+    
 }
 
 //--------------------------------------------------------------
 void testApp::update(){
-        
+    
+    motion.update();
+    
     timeline.update();
     
     ofSetWindowTitle(ofToString(ofGetFrameRate()));
@@ -99,6 +106,9 @@ void testApp::update(){
 
 
  */
+
+
+
     // ELSE USE GUI
     //Panning
         audioSample1.setPanning(audioSample1.pan, audioSample1.panLfoSpeed, audioSample1.panLfoAmp);
@@ -139,6 +149,7 @@ void testApp::update(){
 //--------------------------------------------------------------
 void testApp::draw(){
 	
+    ofEnableAlphaBlending();
 	ofSetColor( 122 , 200 , 255 ) ;
 	ofFill();
     
@@ -147,7 +158,7 @@ void testApp::draw(){
     shader.setUniform2f("resolution", ofGetWidth() , ofGetHeight() ) ;
     shader.setUniform2f("mouse", 0.5, mouseY/ofGetHeight());
     shader.setUniform1f("direction", ofMap(mouseY,0,ofGetHeight(),0.0,3.0) );
-
+    
     ofPushMatrix();
     ofFill();
     ofRect(0, 0, ofGetWidth(), ofGetHeight());
@@ -155,6 +166,20 @@ void testApp::draw(){
     
     shader.end();
     
+    shaderOptical.begin();
+    shaderOptical.setUniform1f("iGlobalTime", ofGetElapsedTimef() );
+    shaderOptical.setUniform1f("speed", audioBinaural.osc2Pitch * 6.0 );
+    shaderOptical.setUniform2f("iResolution", ofGetWidth() , ofGetHeight() ) ;
+    shaderOptical.setUniform1f("direction", ofMap(mouseY,0,ofGetHeight(),0.0,3.0) );
+
+    ofPushMatrix();
+    ofFill();
+    ofRect(0, 0, ofGetWidth(), ofGetHeight());
+    ofPopMatrix();
+    
+    shaderOptical.end();
+
+    ofDisableAlphaBlending();
  //   audioSample1.draw(30,loadBox2X);
  //   audioSample2.draw(30,650);
  //   audioSample3.draw(30,700);
@@ -197,7 +222,7 @@ void testApp::draw(){
         ofSetColor(255,255,0);
         ofRect(loadBox4X,loadBox4Y,300,30);
     }
-    
+        
     ofSetColor(255);
     ofDrawBitmapString(ofToString("Drag n Drop Sample"), loadBox1X+80, loadBox1Y+20);
     ofDrawBitmapString(ofToString("Drag n Drop Sample"), loadBox2X+80, loadBox2Y+20);

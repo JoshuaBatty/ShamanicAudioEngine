@@ -7,7 +7,13 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		03218BC617AD06F40070E115 /* Wave.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 03218BC417AD06F40070E115 /* Wave.cpp */; };
+		03218BCA17ADEAED0070E115 /* HarmonicMotion.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 03218BC817ADEAED0070E115 /* HarmonicMotion.cpp */; };
 		03581BC217A6767B00E149AE /* AudioTonic.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 03581BC017A6767B00E149AE /* AudioTonic.cpp */; };
+		0377758617B09C2B00982A5C /* optical.frag in Sources */ = {isa = PBXBuildFile; fileRef = 0377758217B09C2B00982A5C /* optical.frag */; };
+		0377758717B09C2B00982A5C /* optical.vert in Sources */ = {isa = PBXBuildFile; fileRef = 0377758317B09C2B00982A5C /* optical.vert */; };
+		0377758817B09C2B00982A5C /* strobe.frag in Sources */ = {isa = PBXBuildFile; fileRef = 0377758417B09C2B00982A5C /* strobe.frag */; };
+		0377758917B09C2B00982A5C /* strobe.vert in Sources */ = {isa = PBXBuildFile; fileRef = 0377758517B09C2B00982A5C /* strobe.vert */; };
 		03AB379117687F0100275AEC /* kiss_fft.c in Sources */ = {isa = PBXBuildFile; fileRef = 03AB373E17687F0100275AEC /* kiss_fft.c */; };
 		03AB379217687F0100275AEC /* kiss_fftr.c in Sources */ = {isa = PBXBuildFile; fileRef = 03AB373F17687F0100275AEC /* kiss_fftr.c */; };
 		03AB379317687F0100275AEC /* ofOpenALSoundPlayer_TimelineAdditions.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 03AB374217687F0100275AEC /* ofOpenALSoundPlayer_TimelineAdditions.cpp */; };
@@ -226,8 +232,16 @@
 		01dae5c2e3e0a74207b2be49c250f085 /* saving.h */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 30; name = saving.h; path = ../../../addons/ofxOpenCv/libs/opencv/include/opencv2/flann/saving.h; sourceTree = SOURCE_ROOT; };
 		01dcc0911400f9acf5b65578af4ec8f9 /* ofxXmlSettings.h */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 30; name = ofxXmlSettings.h; path = ../../../addons/ofxXmlSettings/src/ofxXmlSettings.h; sourceTree = SOURCE_ROOT; };
 		029684cf678f70f6d3537a29773654a6 /* OscOutboundPacketStream.h */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 30; name = OscOutboundPacketStream.h; path = ../../../addons/ofxOsc/libs/oscpack/src/osc/OscOutboundPacketStream.h; sourceTree = SOURCE_ROOT; };
+		03218BC417AD06F40070E115 /* Wave.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Wave.cpp; sourceTree = "<group>"; };
+		03218BC517AD06F40070E115 /* Wave.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Wave.h; sourceTree = "<group>"; };
+		03218BC817ADEAED0070E115 /* HarmonicMotion.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = HarmonicMotion.cpp; sourceTree = "<group>"; };
+		03218BC917ADEAED0070E115 /* HarmonicMotion.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HarmonicMotion.h; sourceTree = "<group>"; };
 		03581BC017A6767B00E149AE /* AudioTonic.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = AudioTonic.cpp; sourceTree = "<group>"; };
 		03581BC117A6767B00E149AE /* AudioTonic.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AudioTonic.h; sourceTree = "<group>"; };
+		0377758217B09C2B00982A5C /* optical.frag */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.glsl; path = optical.frag; sourceTree = "<group>"; };
+		0377758317B09C2B00982A5C /* optical.vert */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.glsl; path = optical.vert; sourceTree = "<group>"; };
+		0377758417B09C2B00982A5C /* strobe.frag */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.glsl; path = strobe.frag; sourceTree = "<group>"; };
+		0377758517B09C2B00982A5C /* strobe.vert */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.glsl; path = strobe.vert; sourceTree = "<group>"; };
 		03AB373A17687F0100275AEC /* kiss_fft.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = kiss_fft.h; sourceTree = "<group>"; };
 		03AB373B17687F0100275AEC /* kiss_fftr.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = kiss_fftr.h; sourceTree = "<group>"; };
 		03AB373D17687F0100275AEC /* _kiss_fft_guts.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = _kiss_fft_guts.h; sourceTree = "<group>"; };
@@ -755,6 +769,29 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		03218BC317AD06F40070E115 /* HarmonicMotion */ = {
+			isa = PBXGroup;
+			children = (
+				03218BC817ADEAED0070E115 /* HarmonicMotion.cpp */,
+				03218BC917ADEAED0070E115 /* HarmonicMotion.h */,
+				03218BC417AD06F40070E115 /* Wave.cpp */,
+				03218BC517AD06F40070E115 /* Wave.h */,
+			);
+			path = HarmonicMotion;
+			sourceTree = "<group>";
+		};
+		0377758117B09C2B00982A5C /* shaders */ = {
+			isa = PBXGroup;
+			children = (
+				0377758217B09C2B00982A5C /* optical.frag */,
+				0377758317B09C2B00982A5C /* optical.vert */,
+				0377758417B09C2B00982A5C /* strobe.frag */,
+				0377758517B09C2B00982A5C /* strobe.vert */,
+			);
+			name = shaders;
+			path = bin/data/shaders;
+			sourceTree = SOURCE_ROOT;
+		};
 		03AB373517687F0100275AEC /* ofxTimeline */ = {
 			isa = PBXGroup;
 			children = (
@@ -1724,6 +1761,8 @@
 				03C46D0917661D4C007EB818 /* gui.h */,
 				03D3453217AA5BFC006972A4 /* guiBinaural.cpp */,
 				03D3453317AA5BFC006972A4 /* guiBinaural.h */,
+				0377758117B09C2B00982A5C /* shaders */,
+				03218BC317AD06F40070E115 /* HarmonicMotion */,
 				03C46D0A17661D4C007EB818 /* Livid */,
 				03C46D0D17661D4C007EB818 /* OSC */,
 				03C46D1017661D4C007EB818 /* Timeline */,
@@ -2224,6 +2263,12 @@
 				03581BC217A6767B00E149AE /* AudioTonic.cpp in Sources */,
 				03B8A4AF17A94C78005D5638 /* tweenSynth.cpp in Sources */,
 				03D3453417AA5BFC006972A4 /* guiBinaural.cpp in Sources */,
+				03218BC617AD06F40070E115 /* Wave.cpp in Sources */,
+				03218BCA17ADEAED0070E115 /* HarmonicMotion.cpp in Sources */,
+				0377758617B09C2B00982A5C /* optical.frag in Sources */,
+				0377758717B09C2B00982A5C /* optical.vert in Sources */,
+				0377758817B09C2B00982A5C /* strobe.frag in Sources */,
+				0377758917B09C2B00982A5C /* strobe.vert in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

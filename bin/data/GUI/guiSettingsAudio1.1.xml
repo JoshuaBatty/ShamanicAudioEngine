@@ -1,10 +1,35 @@
 <Widget>
+    <Kind>2</Kind>
+    <Name>GrainWindow1(0,0)</Name>
+    <Value>1</Value>
+</Widget>
+<Widget>
+    <Kind>2</Kind>
+    <Name>GrainWindow1(1,0)</Name>
+    <Value>0</Value>
+</Widget>
+<Widget>
+    <Kind>2</Kind>
+    <Name>GrainWindow1(2,0)</Name>
+    <Value>0</Value>
+</Widget>
+<Widget>
+    <Kind>2</Kind>
+    <Name>GrainWindow1(3,0)</Name>
+    <Value>0</Value>
+</Widget>
+<Widget>
+    <Kind>2</Kind>
+    <Name>GrainWindow1(4,0)</Name>
+    <Value>0</Value>
+</Widget>
+<Widget>
     <Kind>20</Kind>
     <Name>USEPITCH1</Name>
     <Value>1</Value>
 </Widget>
 <Widget>
-    <Kind>4</Kind>
+    <Kind>34</Kind>
     <Name>pitch1</Name>
     <Value>1.000000000</Value>
 </Widget>
@@ -14,7 +39,7 @@
     <Value>1</Value>
 </Widget>
 <Widget>
-    <Kind>4</Kind>
+    <Kind>34</Kind>
     <Name>speed1</Name>
     <Value>1.000000000</Value>
 </Widget>
@@ -24,9 +49,9 @@
     <Value>1</Value>
 </Widget>
 <Widget>
-    <Kind>4</Kind>
+    <Kind>34</Kind>
     <Name>grainLength1</Name>
-    <Value>0.025000000</Value>
+    <Value>0.171456695</Value>
 </Widget>
 <Widget>
     <Kind>20</Kind>
@@ -34,7 +59,7 @@
     <Value>1</Value>
 </Widget>
 <Widget>
-    <Kind>4</Kind>
+    <Kind>34</Kind>
     <Name>overlaps1</Name>
     <Value>2.000000000</Value>
 </Widget>
@@ -44,7 +69,7 @@
     <Value>1</Value>
 </Widget>
 <Widget>
-    <Kind>4</Kind>
+    <Kind>34</Kind>
     <Name>randomGrainPitch1</Name>
     <Value>0.000000000</Value>
 </Widget>
@@ -54,7 +79,7 @@
     <Value>1</Value>
 </Widget>
 <Widget>
-    <Kind>4</Kind>
+    <Kind>34</Kind>
     <Name>randomGrainSize1</Name>
     <Value>0.000000000</Value>
 </Widget>
@@ -64,7 +89,7 @@
     <Value>1</Value>
 </Widget>
 <Widget>
-    <Kind>4</Kind>
+    <Kind>34</Kind>
     <Name>Cutoff1</Name>
     <Value>10000.000000000</Value>
 </Widget>
@@ -74,12 +99,12 @@
     <Value>1</Value>
 </Widget>
 <Widget>
-    <Kind>4</Kind>
+    <Kind>34</Kind>
     <Name>LfoSpeed1</Name>
     <Value>0.000000000</Value>
 </Widget>
 <Widget>
-    <Kind>4</Kind>
+    <Kind>34</Kind>
     <Name>LfoAmp1</Name>
     <Value>0.000000000</Value>
 </Widget>
@@ -89,7 +114,7 @@
     <Value>1</Value>
 </Widget>
 <Widget>
-    <Kind>4</Kind>
+    <Kind>34</Kind>
     <Name>DelayTime1</Name>
     <Value>10.000000000</Value>
 </Widget>
@@ -99,7 +124,7 @@
     <Value>1</Value>
 </Widget>
 <Widget>
-    <Kind>4</Kind>
+    <Kind>34</Kind>
     <Name>DelayFeedback1</Name>
     <Value>0.100000001</Value>
 </Widget>
@@ -109,7 +134,7 @@
     <Value>1</Value>
 </Widget>
 <Widget>
-    <Kind>4</Kind>
+    <Kind>34</Kind>
     <Name>Bits1</Name>
     <Value>32.000000000</Value>
 </Widget>
@@ -119,7 +144,7 @@
     <Value>1</Value>
 </Widget>
 <Widget>
-    <Kind>4</Kind>
+    <Kind>34</Kind>
     <Name>Rate1</Name>
     <Value>1.000000000</Value>
 </Widget>
@@ -129,7 +154,7 @@
     <Value>1</Value>
 </Widget>
 <Widget>
-    <Kind>4</Kind>
+    <Kind>34</Kind>
     <Name>ReverbSize1</Name>
     <Value>0.000000000</Value>
 </Widget>
@@ -139,7 +164,7 @@
     <Value>1</Value>
 </Widget>
 <Widget>
-    <Kind>4</Kind>
+    <Kind>34</Kind>
     <Name>ReverbDryWet1</Name>
     <Value>0.000000000</Value>
 </Widget>

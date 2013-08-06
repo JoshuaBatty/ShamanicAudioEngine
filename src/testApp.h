@@ -6,6 +6,7 @@
 #include "AudioTonic.h"
 #include "gui.h"
 #include "guiBinaural.h"
+#include "HarmonicMotion.h"
 
 #include "livid.h"			// Livid Controler
 #include "oscReciever.h"
@@ -29,6 +30,9 @@ class testApp : public ofBaseApp{
     livid mLivid;
 #endif
     
+    //Harmonic Mtion
+    HarmonicMotion motion;
+    
     //Timeline
     MainTimeline timeline;
     
@@ -45,6 +49,7 @@ class testApp : public ofBaseApp{
     ofSoundMixer mixer;
     
     ofShader shader;
+    ofShader shaderOptical;
     
     Gui gui;
     GuiBinaural guiBinaural;

@@ -1,85 +1,170 @@
 <Widget>
-    <Kind>4</Kind>
+    <Kind>2</Kind>
+    <Name>GrainWindow3(0,0)</Name>
+    <Value>1</Value>
+</Widget>
+<Widget>
+    <Kind>2</Kind>
+    <Name>GrainWindow3(1,0)</Name>
+    <Value>0</Value>
+</Widget>
+<Widget>
+    <Kind>2</Kind>
+    <Name>GrainWindow3(2,0)</Name>
+    <Value>0</Value>
+</Widget>
+<Widget>
+    <Kind>2</Kind>
+    <Name>GrainWindow3(3,0)</Name>
+    <Value>0</Value>
+</Widget>
+<Widget>
+    <Kind>2</Kind>
+    <Name>GrainWindow3(4,0)</Name>
+    <Value>0</Value>
+</Widget>
+<Widget>
+    <Kind>20</Kind>
+    <Name>USEPITCH3</Name>
+    <Value>1</Value>
+</Widget>
+<Widget>
+    <Kind>34</Kind>
     <Name>pitch3</Name>
     <Value>1.000000000</Value>
 </Widget>
 <Widget>
-    <Kind>4</Kind>
+    <Kind>20</Kind>
+    <Name>USESPEED3</Name>
+    <Value>1</Value>
+</Widget>
+<Widget>
+    <Kind>34</Kind>
     <Name>speed3</Name>
     <Value>0.077419281</Value>
 </Widget>
 <Widget>
-    <Kind>4</Kind>
-    <Name>grainLength3</Name>
-    <Value>0.092499994</Value>
+    <Kind>20</Kind>
+    <Name>USEGRAINSIZE3</Name>
+    <Value>1</Value>
 </Widget>
 <Widget>
-    <Kind>4</Kind>
+    <Kind>34</Kind>
+    <Name>grainLength3</Name>
+    <Value>0.171456695</Value>
+</Widget>
+<Widget>
+    <Kind>20</Kind>
+    <Name>USEOVERLAPS3</Name>
+    <Value>1</Value>
+</Widget>
+<Widget>
+    <Kind>34</Kind>
     <Name>overlaps3</Name>
     <Value>2.000000000</Value>
 </Widget>
 <Widget>
-    <Kind>4</Kind>
+    <Kind>20</Kind>
+    <Name>USERANDOMGRAINPITCH3</Name>
+    <Value>1</Value>
+</Widget>
+<Widget>
+    <Kind>34</Kind>
     <Name>randomGrainPitch3</Name>
     <Value>0.000000000</Value>
 </Widget>
 <Widget>
-    <Kind>4</Kind>
+    <Kind>20</Kind>
+    <Name>USERANDOMGRAINSIZE3</Name>
+    <Value>1</Value>
+</Widget>
+<Widget>
+    <Kind>34</Kind>
     <Name>randomGrainSize3</Name>
     <Value>0.000000000</Value>
 </Widget>
 <Widget>
-    <Kind>4</Kind>
+    <Kind>20</Kind>
+    <Name>USECUTOFF3</Name>
+    <Value>1</Value>
+</Widget>
+<Widget>
+    <Kind>34</Kind>
     <Name>Cutoff3</Name>
     <Value>10000.000000000</Value>
 </Widget>
 <Widget>
-    <Kind>4</Kind>
+    <Kind>20</Kind>
+    <Name>USECUTOFFLFO3</Name>
+    <Value>1</Value>
+</Widget>
+<Widget>
+    <Kind>34</Kind>
     <Name>LfoSpeed3</Name>
     <Value>0.000000000</Value>
 </Widget>
 <Widget>
-    <Kind>4</Kind>
+    <Kind>34</Kind>
     <Name>LfoAmp3</Name>
     <Value>0.000000000</Value>
 </Widget>
 <Widget>
-    <Kind>4</Kind>
+    <Kind>20</Kind>
+    <Name>USEDELAYTIME3</Name>
+    <Value>1</Value>
+</Widget>
+<Widget>
+    <Kind>34</Kind>
     <Name>DelayTime3</Name>
     <Value>10.000000000</Value>
 </Widget>
 <Widget>
-    <Kind>4</Kind>
+    <Kind>20</Kind>
+    <Name>USEDELAYFEEDBACK3</Name>
+    <Value>1</Value>
+</Widget>
+<Widget>
+    <Kind>34</Kind>
     <Name>DelayFeedback3</Name>
     <Value>0.100000001</Value>
 </Widget>
 <Widget>
-    <Kind>4</Kind>
+    <Kind>20</Kind>
+    <Name>USEBITS3</Name>
+    <Value>1</Value>
+</Widget>
+<Widget>
+    <Kind>34</Kind>
     <Name>Bits3</Name>
     <Value>32.000000000</Value>
 </Widget>
 <Widget>
-    <Kind>4</Kind>
+    <Kind>20</Kind>
+    <Name>USECRUSHAMOUNT3</Name>
+    <Value>1</Value>
+</Widget>
+<Widget>
+    <Kind>34</Kind>
     <Name>Rate3</Name>
     <Value>1.000000000</Value>
 </Widget>
 <Widget>
-    <Kind>4</Kind>
+    <Kind>20</Kind>
+    <Name>USEREVERBDECAY3</Name>
+    <Value>1</Value>
+</Widget>
+<Widget>
+    <Kind>34</Kind>
     <Name>ReverbSize3</Name>
     <Value>0.000000000</Value>
 </Widget>
 <Widget>
-    <Kind>4</Kind>
-    <Name>ReverbDamp3</Name>
-    <Value>0.100000001</Value>
+    <Kind>20</Kind>
+    <Name>USEREVERBDRYWET3</Name>
+    <Value>1</Value>
 </Widget>
 <Widget>
-    <Kind>4</Kind>
-    <Name>ReverbWidth3</Name>
-    <Value>0.990000010</Value>
-</Widget>
-<Widget>
-    <Kind>4</Kind>
+    <Kind>34</Kind>
     <Name>ReverbDryWet3</Name>
     <Value>0.000000000</Value>
 </Widget>
