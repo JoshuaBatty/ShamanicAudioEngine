@@ -171,6 +171,11 @@ void testApp::draw(){
     shaderOptical.setUniform1f("speed", audioBinaural.osc2Pitch * 6.0 );
     shaderOptical.setUniform2f("iResolution", ofGetWidth() , ofGetHeight() ) ;
     shaderOptical.setUniform1f("direction", ofMap(mouseY,0,ofGetHeight(),0.0,3.0) );
+    
+    shaderOptical.setUniform1f("waveSpeed", audioTonic.CarrierOffset * 5.0 );
+    shaderOptical.setUniform1f("amplitude", ((sin(ofGetElapsedTimef()*audioTonic.ModLfoSpeed*TWO_PI)+1)*.5*audioTonic.ModLfoAmt)-(audioTonic.ModIndex*0.25)*audioTonic.ModIndex*0.25);
+    shaderOptical.setUniform1f("seperation", 1.0 );
+    shaderOptical.setUniform1f("glow", 150.0 );
 
     ofPushMatrix();
     ofFill();

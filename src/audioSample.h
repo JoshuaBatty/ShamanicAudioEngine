@@ -11,6 +11,8 @@
 
 #include "ofSoundUnit.h"
 #include "ofMain.h"
+#include "ofEvents.h"
+
 #include "ofxMaxim.h"
 #include "maxiGrains.h"
 #include <sys/time.h>
@@ -48,6 +50,7 @@ class AudioSampler : public ofSoundSource{
 
 	void clear1();
 
+    ofEvent<void> setReverb(float _wetness1, float _roomSize1);
     double windowAmp1;
     double windowAmpDummy;
 

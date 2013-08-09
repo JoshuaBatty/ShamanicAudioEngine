@@ -82,6 +82,10 @@ void AudioSampler::setup(string _file)
     //Reverb
     reverbDamp = 0.1;
     reverbWidth = 0.99;
+    
+    //ofEvents listener setup
+    //ofAddListener(ofEvents().update, this, &AudioSampler::reverb(1.0,1.0);
+
 }
 
 //--------------------------------------------------------------

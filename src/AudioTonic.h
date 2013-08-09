@@ -34,4 +34,5 @@ class AudioTonic : public ofSoundSource{
     Generator osc1, osc2;
     float Volume, CarrierPitch, CarrierOffset, ModIndex, ModLfoAmt, ModLfoSpeed, AmpLfoAmt, AmpLfoSpeed;
 
+    float modLfoResult;
 };
