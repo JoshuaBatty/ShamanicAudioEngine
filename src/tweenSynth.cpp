@@ -31,7 +31,7 @@ void TweenSynth::setup(AudioBinaural *_audioBinaural, AudioTonic *_audioTonic)
 
     //tween
     delay = 0;
-	duration = 10000;
+	duration = 0;
     easingType = 1;
 
 }

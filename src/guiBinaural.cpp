@@ -73,7 +73,7 @@ void GuiBinaural::setup(TweenSynth *_tweenSynth, AudioBinaural *_audioBinaural, 
     radio->activateToggle("PRESETS");
     
     guiPresets->addWidgetDown(new ofxUILabel("DELAY", OFX_UI_FONT_MEDIUM));
-    guiPresets->addWidgetRight(new ofxUINumberDialer(0, 10000, 1000, 1, "TWEEN_DURATION", OFX_UI_FONT_MEDIUM));
+    guiPresets->addWidgetRight(new ofxUINumberDialer(0, 10000, 2, 1, "TWEEN_DURATION", OFX_UI_FONT_MEDIUM));
     
     guiPresets->addWidgetDown(new ofxUILabel("Tween Shape -", OFX_UI_FONT_MEDIUM));
     //  gui2->addWidgetRight(new ofxUILabel("circ", OFX_UI_FONT_SMALL));
@@ -83,7 +83,7 @@ void GuiBinaural::setup(TweenSynth *_tweenSynth, AudioBinaural *_audioBinaural, 
     matrixTween->setToggle(0, 0, true);
   	guiPresets->addWidgetDown(new ofxUISpacer(length, 2));
     
-    guiPresets->setVisible(false);
+    guiPresets->setVisible(true);
     
     //Listener
     ofAddListener(guiBinaural->newGUIEvent, this, &GuiBinaural::guiEvent);

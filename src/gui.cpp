@@ -130,6 +130,8 @@ void Gui::setup(Tween *_tween1, AudioSampler *_audioSample1)
     gui1->loadSettings("GUI/guiSettingsVolume.xml");
     gui2->loadSettings("GUI/guiSettingsAudio1.xml");
 
+    gui7->setVisible(false);
+    
     bUseSpeedMaster = true;
     bUseSpeed1 = true;
     bUsePitchMaster = true;
