@@ -45,6 +45,7 @@ void testApp::setup(){
     
     gui.setup(&tween1, &tween2, &tween3, &tween4, &audioSample1, &audioSample2, &audioSample3, &audioSample4);
     guiBinaural.setup(&tweenSynth, &audioBinaural, &audioTonic);
+    guiSampleLoad.setup(&audioSample1, &audioSample2, &audioSample3, &audioSample4);
     timeline.setup(&gui, &guiBinaural, &audioSample1, &audioSample2, &audioSample3, &audioSample4, &audioBinaural);
     
     soundStream.setup(2, 0, sampleRate, bufferSize, 4);
@@ -167,6 +168,11 @@ void testApp::draw(){
     
     shader.end();
     
+
+    // amp = 0-1;
+    // seperation = 0.0001-25;
+    // glow = 500-50;
+    // speed = 1-100;
     shaderOptical.begin();
     shaderOptical.setUniform1f("iGlobalTime", ofGetElapsedTimef() );
     shaderOptical.setUniform1f("speed", audioBinaural.osc2Pitch * 6.0 );
@@ -174,12 +180,21 @@ void testApp::draw(){
     shaderOptical.setUniform1f("direction", ofMap(mouseY,0,ofGetHeight(),0.0,3.0) );
     
     shaderOptical.setUniform1f("waveSpeed", audioTonic.CarrierOffset * 5.0 );
-    shaderOptical.setUniform1f("amplitude", ((sin(ofGetElapsedTimef()*audioTonic.ModLfoSpeed*TWO_PI)+1)*.5*audioTonic.ModLfoAmt)-(audioTonic.ModIndex*0.25)*audioTonic.ModIndex*0.25);
+    shaderOptical.setUniform1f("amplitude", 0.50);
     shaderOptical.setUniform1f("seperation", 1.0 );
-    shaderOptical.setUniform1f("glow", 150*((sin(ofGetElapsedTimef()*audioTonic.AmpLfoSpeed*TWO_PI)+1)*.5*audioTonic.AmpLfoAmt)-(ofMap(audioTonic.Volume,-60.0,0.0,0.0,1.0))*ofMap(audioTonic.Volume,-60.0,0.0,0.0,1.0));
-//    shaderOptical.setUniform1f("glow", 150*((sin(ofGetElapsedTimef()*audioTonic.AmpLfoSpeed*TWO_PI)+1)*.5*audioTonic.AmpLfoAmt)-(audioTonic.Volume*0.25)*audioTonic.Volume*0.25);
-//    shaderOptical.setUniform1f("glow", 350.0 );
+    shaderOptical.setUniform1f("glow", 150.0);
+    shaderOptical.setUniform1f("wave_width_count", 2.0 );
+    shaderOptical.setUniform1f("numWaves", 20.0 );
+//    shaderOptical.setUniform1f("numWaves", audioTonic.ModIndex * (1.0 + sin(ofGetElapsedTimef()*audioTonic.ModLfoSpeed*TWO_PI))*audioTonic.ModLfoAmt * 0.5 );
 
+    
+//    shaderOptical.setUniform1f("amplitude", ((sin(ofGetElapsedTimef()*audioTonic.ModLfoSpeed*TWO_PI)+1)*.5*audioTonic.ModLfoAmt)-(audioTonic.ModIndex*0.25)*audioTonic.ModIndex*0.25);
+//    shaderOptical.setUniform1f("glow", 150*((sin(ofGetElapsedTimef()*audioTonic.AmpLfoSpeed*TWO_PI)+1)*.5*audioTonic.AmpLfoAmt)-(ofMap(audioTonic.Volume,-60.0,0.0,0.0,1.0))*ofMap(audioTonic.Volume,-60.0,0.0,0.0,1.0));
+
+   // cout << ((sin(ofGetElapsedTimef()*audioTonic.ModLfoSpeed*TWO_PI)+1)*.5*audioTonic.ModLfoAmt)-(audioTonic.ModIndex*0.25)*audioTonic.ModIndex*0.25 << endl;
+  //  cout << audioTonic.ModIndex * (1.0 + sin(ofGetElapsedTimef()*audioTonic.ModLfoSpeed*TWO_PI))*audioTonic.ModLfoAmt * 0.5 << endl;
+  //  cout << ((sin(ofGetElapsedTimef()*audioTonic.AmpLfoSpeed*TWO_PI)+1)*.5*audioTonic.AmpLfoAmt)-(ofMap(audioTonic.Volume,-60.0,0.0,0.0,1.0))*ofMap(audioTonic.Volume,-60.0,0.0,0.0,1.0) << endl;
+    
     ofPushMatrix();
     ofFill();
     ofRect(0, 0, ofGetWidth(), ofGetHeight());
@@ -195,7 +210,7 @@ void testApp::draw(){
         
     gui.drawData();
     timeline.draw();
-    
+   /*
     ofNoFill();
     if(mouseY>=loadBox1Y && mouseY<=loadBox1Y+30 && mouseX>=loadBox1X && mouseX<=loadBox1X+300){
         ofSetColor(255,0,0);
@@ -234,7 +249,7 @@ void testApp::draw(){
     ofDrawBitmapString(ofToString("Drag n Drop Sample"), loadBox2X+80, loadBox2Y+20);
     ofDrawBitmapString(ofToString("Drag n Drop Sample"), loadBox3X+80, loadBox3Y+20);
     ofDrawBitmapString(ofToString("Drag n Drop Sample"), loadBox4X+80, loadBox4Y+20);
-    
+    */
 }
 
 //--------------------------------------------------------------
@@ -257,6 +272,10 @@ void testApp::keyPressed(int key)
         guiBinaural.guiBinaural->toggleVisible();
         guiBinaural.guiTonic->toggleVisible();
         guiBinaural.guiPresets->toggleVisible();
+        guiSampleLoad.guiSample1->toggleVisible();
+        guiSampleLoad.guiSample2->toggleVisible();
+        guiSampleLoad.guiSample3->toggleVisible();
+        guiSampleLoad.guiSample4->toggleVisible();
 
         timeline.hide();
         timeline.synthTimeline.hide();

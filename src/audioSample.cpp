@@ -43,10 +43,9 @@ void AudioSampler::setup(string _file)
 
 	ofxMaxiSettings::setup(sampleRate, 2, initialBufferSize);
 
-
-    bReverb = true;
+    bReverb = false;
     bFilter = false;
-    bPan = false;
+    bPan = true;
     bFx = false;
     
     bScrub = false;
@@ -92,7 +91,7 @@ void AudioSampler::setup(string _file)
 void AudioSampler::load1(string _file)
 {
     //samples
-	samp1.load(_file);
+	samp1.load(ofToDataPath(_file));
 //	samp1.load(_file + ".wav");
 }
 

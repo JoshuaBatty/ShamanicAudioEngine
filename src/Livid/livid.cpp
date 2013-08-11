@@ -262,6 +262,8 @@ void livid::newMidiMessage(ofxMidiMessage& msg) {
                 Mgui->setReverbDryWet1(ofMap(knobsB2[0],0,127,0.0,1.0));
             } else if(audioSample1->bFx==true){
                 Mgui->setDelayTime1(ofMap(knobsB2[0],0,127,10.0,10000.0));
+            } else if(audioSample1->bPan==true){
+                Mgui->setPanPosition1(ofMap(knobsB2[0],0,127,0.0,1.0));
             }
         }
         if(midiMessage.control == 49){
@@ -272,6 +274,8 @@ void livid::newMidiMessage(ofxMidiMessage& msg) {
                 Mgui->setReverbDecay1(ofMap(knobsB2[1],0,127,0.0,1.0));
             } else if(audioSample1->bFx==true){
                 Mgui->setDelayFeedback1(ofMap(knobsB2[1],0,127,0.0,1.0));
+            } else if(audioSample1->bPan==true){
+                Mgui->setPanLfoSpeed1(ofMap(knobsB2[1],0,127,0.0,1.0));
             }
         }
         if(midiMessage.control == 50){
@@ -280,6 +284,8 @@ void livid::newMidiMessage(ofxMidiMessage& msg) {
                 Mgui->setLfoAmp1(ofMap(knobsB2[2],0,127,0.0,3000.0));
             } else if(audioSample1->bFx==true){
                 Mgui->setRate1(ofMap(knobsB2[2],0,127,1.0,0.0));
+            } else if(audioSample1->bPan==true){
+                Mgui->setPanLfoAmp1(ofMap(knobsB2[2],0,127,0.0,1.0));
             }
         }
         
@@ -291,6 +297,8 @@ void livid::newMidiMessage(ofxMidiMessage& msg) {
                 Mgui->setReverbDryWet2(ofMap(knobsB2[3],0,127,0.0,1.0));
             } else if(audioSample2->bFx==true){
                 Mgui->setDelayTime2(ofMap(knobsB2[3],0,127,10.0,10000.0));
+            } else if(audioSample2->bPan==true){
+                Mgui->setPanPosition2(ofMap(knobsB2[3],0,127,0.0,1.0));
             }
         }
         if(midiMessage.control == 52){
@@ -301,6 +309,8 @@ void livid::newMidiMessage(ofxMidiMessage& msg) {
                 Mgui->setReverbDecay2(ofMap(knobsB2[4],0,127,0.0,1.0));
             } else if(audioSample2->bFx==true){
                 Mgui->setDelayFeedback2(ofMap(knobsB2[4],0,127,0.0,1.0));
+            }  else if(audioSample2->bPan==true){
+                Mgui->setPanLfoSpeed2(ofMap(knobsB2[4],0,127,0.0,1.0));
             }
         }
         if(midiMessage.control == 53){
@@ -309,6 +319,8 @@ void livid::newMidiMessage(ofxMidiMessage& msg) {
                 Mgui->setLfoAmp2(ofMap(knobsB2[5],0,127,0.0,3000.0));
             } else if(audioSample2->bFx==true){
                 Mgui->setRate2(ofMap(knobsB2[5],0,127,1.0,0.0));
+            } else if(audioSample2->bPan==true){
+                Mgui->setPanLfoAmp2(ofMap(knobsB2[5],0,127,0.0,1.0));
             }
         }
         
@@ -320,6 +332,8 @@ void livid::newMidiMessage(ofxMidiMessage& msg) {
                 Mgui->setReverbDryWet3(ofMap(knobsB2[6],0,127,0.0,1.0));
             } else if(audioSample3->bFx==true){
                 Mgui->setDelayTime3(ofMap(knobsB2[6],0,127,10.0,10000.0));
+            } else if(audioSample3->bPan==true){
+                Mgui->setPanPosition3(ofMap(knobsB2[6],0,127,0.0,1.0));
             }
         }
         if(midiMessage.control == 55){
@@ -330,6 +344,8 @@ void livid::newMidiMessage(ofxMidiMessage& msg) {
                 Mgui->setReverbDecay3(ofMap(knobsB2[7],0,127,0.0,1.0));
             } else if(audioSample3->bFx==true){
                 Mgui->setDelayFeedback3(ofMap(knobsB2[7],0,127,0.0,1.0));
+            }  else if(audioSample3->bPan==true){
+                Mgui->setPanLfoSpeed3(ofMap(knobsB2[7],0,127,0.0,1.0));
             }
         }
         if(midiMessage.control == 56){
@@ -338,6 +354,8 @@ void livid::newMidiMessage(ofxMidiMessage& msg) {
                 Mgui->setLfoAmp3(ofMap(knobsB2[8],0,127,0.0,3000.0));
             } else if(audioSample3->bFx==true){
                 Mgui->setRate3(ofMap(knobsB2[8],0,127,1.0,0.0));
+            } else if(audioSample3->bPan==true){
+                Mgui->setPanLfoAmp3(ofMap(knobsB2[8],0,127,0.0,1.0));
             }
         }
         
@@ -349,6 +367,8 @@ void livid::newMidiMessage(ofxMidiMessage& msg) {
                 Mgui->setReverbDryWet4(ofMap(knobsB2[9],0,127,0.0,1.0));
             } else if(audioSample4->bFx==true){
                 Mgui->setDelayTime4(ofMap(knobsB2[9],0,127,10.0,10000.0));
+            } else if(audioSample4->bPan==true){
+                Mgui->setPanPosition4(ofMap(knobsB2[9],0,127,0.0,1.0));
             }
         }
         if(midiMessage.control == 58){
@@ -359,6 +379,8 @@ void livid::newMidiMessage(ofxMidiMessage& msg) {
                 Mgui->setReverbDecay4(ofMap(knobsB2[10],0,127,0.0,1.0));
             } else if(audioSample4->bFx==true){
                 Mgui->setDelayFeedback4(ofMap(knobsB2[10],0,127,0.0,1.0));
+            }  else if(audioSample4->bPan==true){
+                Mgui->setPanLfoSpeed4(ofMap(knobsB2[10],0,127,0.0,1.0));
             }
         }
         if(midiMessage.control == 59){
@@ -367,6 +389,8 @@ void livid::newMidiMessage(ofxMidiMessage& msg) {
                 Mgui->setLfoAmp4(ofMap(knobsB2[11],0,127,0.0,3000.0));
             } else if(audioSample4->bFx==true){
                 Mgui->setRate4(ofMap(knobsB2[11],0,127,1.0,0.0));
+            } else if(audioSample4->bPan==true){
+                Mgui->setPanLfoAmp4(ofMap(knobsB2[11],0,127,0.0,1.0));
             }
         }
         

@@ -9,6 +9,8 @@ uniform float amplitude;
 uniform float seperation;
 uniform float glow;
 uniform float waveSpeed;
+uniform float numWaves;
+uniform float wave_width_count;
 
 vec3 COLOR1 = vec3(0.0, 0.0, 0.3);
 vec3 COLOR2 = vec3(0.5, 0.0, 0.0);
@@ -86,17 +88,19 @@ void main()
     
 	// To create the waves
 	float wave_width = 0.01;
-	uv  = -1.0 + 2.0 * uv;
-	uv.y += 0.1;
-	for(float i = 0.0; i < 10.0; i++) {
+	uv  = -1.0 + 2.0  * uv;// * (wave_width_count*0.5);
+    uv*=wave_width_count;
+    //	uv  = -1.0 + 2.0 *wave_width_count * uv - wave_width_count;
+	uv.y += 0.01;
+	//for(float i = 0.0; i < numWaves; i++) {
+        for(float i = 0.0; i < 30.0; i++) {
 		
 		uv.y += (amplitude * sin(uv.x + i/seperation + iGlobalTime * waveSpeed));
-		wave_width = abs(1.0 / (glow * uv.y));
+		wave_width = abs(1.0 / (glow * uv.y ));
 		wave_color += vec3(wave_width * 1.9, wave_width, wave_width * 1.5);
 	}
-	
-	final_color = wave_color;
-	
+    final_color = wave_color;
+
 //	gl_FragColor = vec4(final_color,1.0) );
 //	gl_FragColor = vec4( finalTex * vec4(final_color,1.0) );
 	gl_FragColor = vec4( 1.0 * vec4(final_color,1.0) );

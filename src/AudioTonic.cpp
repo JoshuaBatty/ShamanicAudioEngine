@@ -32,7 +32,7 @@ void AudioTonic::setup()
     
     Generator rCarrierFreq = ControlMidiToFreq().input(carrierPitch).smoothed();
     Generator rModFreq     = rCarrierFreq * 4.0f;
-    
+
     osc1 = SineWave()
     .freq( rCarrierFreq
           + (
@@ -53,7 +53,9 @@ void AudioTonic::setup()
     
     synth.setOutputGen(osc1 * osc2);
 
-    synth.getOutputGen();
+ //   synth.getOutputGen();
+    
+ //   synth.getParameters();
 }
 
 //--------------------------------------------------------------
@@ -74,20 +76,6 @@ void AudioTonic::triggerFMparams(){
 //--------------------------------------------------------------
 void AudioTonic::audioRequested (float * output, int numFrames, int nChannels)
 {
-    /*
-    modLfoResult = SineWave()
-    .freq( 
-             SineWave().freq( rModFreq ) *
-             rModFreq *
-          (modIndex.smoothed() * (1.0f + SineWave().freq(modLfoSpeed) * modLfoAmt * 0.5f)));
-    */
-    float speed = 0.5;
-    float amp = 9.0;
-//    modLfoResult = 60*7+(sin(t*freq.getValue()*TWO_PI)+1)*.5*yFactor.getValue();
-    modLfoResult = (sin(ofGetElapsedTimef()*speed*TWO_PI)+1)*.5*amp;
-
-   // cout << modLfoResult << endl;
-
     //Tonic
     synth.fillBufferOfFloats(output, numFrames, nChannels);
     

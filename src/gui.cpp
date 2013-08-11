@@ -26,7 +26,7 @@ void Gui::setup(Tween *_tween1, Tween *_tween2, Tween *_tween3, Tween *_tween4, 
     curPreset = 1;
     guiOffset = 50;
     int guiWidth = 15;
-    int guiCanvasLength = 710;
+    int guiCanvasLength = 840;
     
     tween1 = _tween1;
     tween2 = _tween2;
@@ -106,6 +106,12 @@ void Gui::setup(Tween *_tween1, Tween *_tween2, Tween *_tween3, Tween *_tween4, 
     gui2->addWidgetRight(new ofxUIImageSlider(270, guiWidth, 0.0, 1.0, audioSample1->reverbDryWet, "slider.png", "ReverbDryWet1"));
     gui2->addSpacer(length, dim/5);
     
+    gui2->addLabel("PANNING");
+    gui2->addWidgetDown(new ofxUIImageSlider(270, guiWidth, 0.0, 1.0, audioSample1->pan, "slider.png", "PanPos1"));
+    gui2->addWidgetDown(new ofxUIImageSlider(270, guiWidth, 0.0, 1.0, audioSample1->panLfoAmp, "slider.png", "PanLfoAmp1"));
+    gui2->addWidgetDown(new ofxUIImageSlider(270, guiWidth, 0.0, 1.0, audioSample1->panLfoSpeed, "slider.png", "PanLfoSpeed1"));
+    gui2->addSpacer(length, dim/5);
+    
     // SINGING BOWLS
     gui3 = new ofxUICanvas(10+(length+xInit)*2.0,guiOffset,length+xInit*2.0,guiCanvasLength);
     gui3->addWidgetDown(new ofxUILabel("SAMPLE 2", OFX_UI_FONT_MEDIUM));
@@ -159,6 +165,12 @@ void Gui::setup(Tween *_tween1, Tween *_tween2, Tween *_tween3, Tween *_tween4, 
     gui3->addWidgetRight(new ofxUIImageSlider(270, guiWidth, 0.0, 1.0, audioSample2->reverbSize, "slider.png", "ReverbSize2"));
     gui3->addWidgetDown(new ofxUIImageToggle(dim*2, dim*2, true, "GUI/play.png", "USEREVERBDRYWET2"));
     gui3->addWidgetRight(new ofxUIImageSlider(270, guiWidth, 0.0, 1.0, audioSample2->reverbDryWet, "slider.png", "ReverbDryWet2"));
+    gui3->addSpacer(length, dim/5);
+    
+    gui3->addLabel("PANNING");
+    gui3->addWidgetDown(new ofxUIImageSlider(270, guiWidth, 0.0, 1.0, audioSample2->pan, "slider.png", "PanPos2"));
+    gui3->addWidgetDown(new ofxUIImageSlider(270, guiWidth, 0.0, 1.0, audioSample2->panLfoAmp, "slider.png", "PanLfoAmp2"));
+    gui3->addWidgetDown(new ofxUIImageSlider(270, guiWidth, 0.0, 1.0, audioSample2->panLfoSpeed, "slider.png", "PanLfoSpeed2"));
     gui3->addSpacer(length, dim/5);
     
     // THROAT SINGING
@@ -216,6 +228,12 @@ void Gui::setup(Tween *_tween1, Tween *_tween2, Tween *_tween3, Tween *_tween4, 
     gui4->addWidgetRight(new ofxUIImageSlider(270, guiWidth, 0.0, 1.0, audioSample3->reverbDryWet, "slider.png", "ReverbDryWet3"));
     gui4->addSpacer(length, dim/5);
     
+    gui4->addLabel("PANNING");
+    gui4->addWidgetDown(new ofxUIImageSlider(270, guiWidth, 0.0, 1.0, audioSample3->pan, "slider.png", "PanPos3"));
+    gui4->addWidgetDown(new ofxUIImageSlider(270, guiWidth, 0.0, 1.0, audioSample3->panLfoAmp, "slider.png", "PanLfoAmp3"));
+    gui4->addWidgetDown(new ofxUIImageSlider(270, guiWidth, 0.0, 1.0, audioSample3->panLfoSpeed, "slider.png", "PanLfoSpeed3"));
+    gui4->addSpacer(length, dim/5);
+    
     // ICAROS
     gui5 = new ofxUICanvas(10+(length+xInit)*4.0,guiOffset,length+xInit*2.0,guiCanvasLength);
     gui5->addWidgetDown(new ofxUILabel("SAMPLE 4", OFX_UI_FONT_MEDIUM));
@@ -269,6 +287,12 @@ void Gui::setup(Tween *_tween1, Tween *_tween2, Tween *_tween3, Tween *_tween4, 
     gui5->addWidgetRight(new ofxUIImageSlider(270, guiWidth, 0.0, 1.0, audioSample4->reverbSize, "slider.png", "ReverbSize4"));
     gui5->addWidgetDown(new ofxUIImageToggle(dim*2, dim*2, true, "GUI/play.png", "USEREVERBDRYWET4"));
     gui5->addWidgetRight(new ofxUIImageSlider(270, guiWidth, 0.0, 1.0, audioSample4->reverbDryWet, "slider.png", "ReverbDryWet4"));
+    gui5->addSpacer(length, dim/5);
+    
+    gui5->addLabel("PANNING");
+    gui5->addWidgetDown(new ofxUIImageSlider(270, guiWidth, 0.0, 1.0, audioSample4->pan, "slider.png", "PanPos4"));
+    gui5->addWidgetDown(new ofxUIImageSlider(270, guiWidth, 0.0, 1.0, audioSample4->panLfoAmp, "slider.png", "PanLfoAmp4"));
+    gui5->addWidgetDown(new ofxUIImageSlider(270, guiWidth, 0.0, 1.0, audioSample4->panLfoSpeed, "slider.png", "PanLfoSpeed4"));
     gui5->addSpacer(length, dim/5);
     
     ////
@@ -1238,6 +1262,17 @@ void Gui::guiEvent(ofxUIEventArgs &e)
 		ofxUISlider *slider = (ofxUISlider *) e.widget;
 		audioSample1->delayFeedback1 = slider->getScaledValue();
 	}
+    //Panning
+    else if(name == "PanPos1"){
+        ofxUISlider *slider = (ofxUISlider *) e.widget;
+        audioSample1->pan = slider->getScaledValue();
+    } else if(name == "PanLfoAmp1"){
+        ofxUISlider *slider = (ofxUISlider *) e.widget;
+        audioSample1->panLfoAmp = slider->getScaledValue();
+    } else if(name == "PanLfoSpeed1"){
+        ofxUISlider *slider = (ofxUISlider *) e.widget;
+        audioSample1->panLfoSpeed = slider->getScaledValue();
+    }
     
     //SINGING BOWLS
     //GRANULAR
@@ -1327,6 +1362,17 @@ void Gui::guiEvent(ofxUIEventArgs &e)
 		ofxUISlider *slider = (ofxUISlider *) e.widget;
 		audioSample2->delayFeedback1 = slider->getScaledValue();
 	}
+    //Panning
+    else if(name == "PanPos2"){
+        ofxUISlider *slider = (ofxUISlider *) e.widget;
+        audioSample2->pan = slider->getScaledValue();
+    } else if(name == "PanLfoAmp2"){
+        ofxUISlider *slider = (ofxUISlider *) e.widget;
+        audioSample2->panLfoAmp = slider->getScaledValue();
+    } else if(name == "PanLfoSpeed2"){
+        ofxUISlider *slider = (ofxUISlider *) e.widget;
+        audioSample2->panLfoSpeed = slider->getScaledValue();
+    }
     
     //THROAT SINGING
     //GRANULAR
@@ -1416,6 +1462,17 @@ void Gui::guiEvent(ofxUIEventArgs &e)
 		ofxUISlider *slider = (ofxUISlider *) e.widget;
 		audioSample3->delayFeedback1 = slider->getScaledValue();
 	}
+    //Panning
+    else if(name == "PanPos3"){
+        ofxUISlider *slider = (ofxUISlider *) e.widget;
+        audioSample3->pan = slider->getScaledValue();
+    } else if(name == "PanLfoAmp3"){
+        ofxUISlider *slider = (ofxUISlider *) e.widget;
+        audioSample3->panLfoAmp = slider->getScaledValue();
+    } else if(name == "PanLfoSpeed3"){
+        ofxUISlider *slider = (ofxUISlider *) e.widget;
+        audioSample3->panLfoSpeed = slider->getScaledValue();
+    }
     
     //ICAROS
     //GRANULAR
@@ -1505,6 +1562,17 @@ void Gui::guiEvent(ofxUIEventArgs &e)
 		ofxUISlider *slider = (ofxUISlider *) e.widget;
 		audioSample4->delayFeedback1 = slider->getScaledValue();
 	}
+    //Panning
+    else if(name == "PanPos4"){
+        ofxUISlider *slider = (ofxUISlider *) e.widget;
+        audioSample4->pan = slider->getScaledValue();
+    } else if(name == "PanLfoAmp4"){
+        ofxUISlider *slider = (ofxUISlider *) e.widget;
+        audioSample4->panLfoAmp = slider->getScaledValue();
+    } else if(name == "PanLfoSpeed4"){
+        ofxUISlider *slider = (ofxUISlider *) e.widget;
+        audioSample4->panLfoSpeed = slider->getScaledValue();
+    }
     
 }
 
@@ -1679,6 +1747,72 @@ void Gui::setVolume4(float _value1){
     ofxUISlider *slider = (ofxUISlider *) gui1->getWidget("Volume4");
     slider->setValue(_value1);
     audioSample4->volume = slider->getScaledValue();
+}
+
+//--------------------------------------------------------------
+void Gui::setPanPosition1(float _value1){
+    ofxUISlider *slider = (ofxUISlider *) gui2->getWidget("PanPos1");
+    slider->setValue(_value1);
+    audioSample1->pan = slider->getScaledValue();
+}
+void Gui::setPanPosition2(float _value1){
+    ofxUISlider *slider = (ofxUISlider *) gui3->getWidget("PanPos2");
+    slider->setValue(_value1);
+    audioSample2->pan = slider->getScaledValue();
+}
+void Gui::setPanPosition3(float _value1){
+    ofxUISlider *slider = (ofxUISlider *) gui4->getWidget("PanPos3");
+    slider->setValue(_value1);
+    audioSample3->pan = slider->getScaledValue();
+}
+void Gui::setPanPosition4(float _value1){
+    ofxUISlider *slider = (ofxUISlider *) gui5->getWidget("PanPos4");
+    slider->setValue(_value1);
+    audioSample4->pan = slider->getScaledValue();
+}
+
+//--------------------------------------------------------------
+void Gui::setPanLfoSpeed1(float _value1){
+    ofxUISlider *slider = (ofxUISlider *) gui2->getWidget("PanLfoSpeed1");
+    slider->setValue(_value1);
+    audioSample1->panLfoSpeed = slider->getScaledValue();
+}
+void Gui::setPanLfoSpeed2(float _value1){
+    ofxUISlider *slider = (ofxUISlider *) gui3->getWidget("PanLfoSpeed2");
+    slider->setValue(_value1);
+    audioSample2->panLfoSpeed = slider->getScaledValue();
+}
+void Gui::setPanLfoSpeed3(float _value1){
+    ofxUISlider *slider = (ofxUISlider *) gui4->getWidget("PanLfoSpeed3");
+    slider->setValue(_value1);
+    audioSample3->panLfoSpeed = slider->getScaledValue();
+}
+void Gui::setPanLfoSpeed4(float _value1){
+    ofxUISlider *slider = (ofxUISlider *) gui5->getWidget("PanLfoSpeed4");
+    slider->setValue(_value1);
+    audioSample4->panLfoSpeed = slider->getScaledValue();
+}
+
+//--------------------------------------------------------------
+void Gui::setPanLfoAmp1(float _value1){
+    ofxUISlider *slider = (ofxUISlider *) gui2->getWidget("PanLfoAmp1");
+    slider->setValue(_value1);
+    audioSample1->panLfoAmp = slider->getScaledValue();
+}
+void Gui::setPanLfoAmp2(float _value1){
+    ofxUISlider *slider = (ofxUISlider *) gui3->getWidget("PanLfoAmp2");
+    slider->setValue(_value1);
+    audioSample2->panLfoAmp = slider->getScaledValue();
+}
+void Gui::setPanLfoAmp3(float _value1){
+    ofxUISlider *slider = (ofxUISlider *) gui4->getWidget("PanLfoAmp3");
+    slider->setValue(_value1);
+    audioSample3->panLfoAmp = slider->getScaledValue();
+}
+void Gui::setPanLfoAmp4(float _value1){
+    ofxUISlider *slider = (ofxUISlider *) gui5->getWidget("PanLfoAmp4");
+    slider->setValue(_value1);
+    audioSample4->panLfoAmp = slider->getScaledValue();
 }
 
 //--------------------------------------------------------------

@@ -6,6 +6,8 @@
 #include "AudioTonic.h"
 #include "gui.h"
 #include "guiBinaural.h"
+#include "guiSampleLoad.h"
+
 #include "HarmonicMotion.h"
 
 #include "livid.h"			// Livid Controler
@@ -53,6 +55,7 @@ class testApp : public ofBaseApp{
     
     Gui gui;
     GuiBinaural guiBinaural;
+    GuiSampleLoad guiSampleLoad;
     
     oscReciever osc;
 
