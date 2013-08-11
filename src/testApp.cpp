@@ -74,7 +74,7 @@ void testApp::update(){
     
     ofSetWindowTitle(ofToString(ofGetFrameRate()));
     
-    osc.update();
+   // osc.update();
     
     //IF USE MIDI
 
@@ -192,9 +192,7 @@ void testApp::draw(){
  //   audioSample2.draw(30,650);
  //   audioSample3.draw(30,700);
  //   audioSample4.draw(30,750);
-    
-    osc.draw();
-    
+        
     gui.drawData();
     timeline.draw();
     
