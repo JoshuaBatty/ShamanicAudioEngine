@@ -18,7 +18,7 @@
 class oscReciever {
 public:
 	
-	void setup(AudioSampler *_audioSample1, AudioSampler *_audioSample2, AudioSampler *_audioSample3, AudioSampler *_audioSample4);
+	void setup(AudioSampler *_audioSample1);
 	void update();
 	void draw();
 	
@@ -29,7 +29,7 @@ public:
 	string msg_strings[NUM_MSG_STRINGS];
 	float timers[NUM_MSG_STRINGS];
     
-    AudioSampler  *audioSample1, *audioSample2, *audioSample3, *audioSample4;
+    AudioSampler  *audioSample1;
 
 };
 

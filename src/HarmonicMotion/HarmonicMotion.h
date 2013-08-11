@@ -23,7 +23,7 @@ public:
     livid *mLivid;
     
     //Harmonic Motion
-    Wave grainSizeMotion1,grainSizeMotion2,grainSizeMotion3,grainSizeMotion4;
+    Wave grainSizeMotion1;
     Wave pitchMotion;
     Wave speedMotion;
 };

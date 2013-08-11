@@ -29,12 +29,11 @@ void AudioSampler::setup(string _file)
 	/* This is stuff you always need.*/
 	sampleRate 			= 44100; /* Sampling Rate */
 	initialBufferSize	= 512;	/* Buffer Size. you have to fill this buffer with sound*/
-	volume				= 0.009f;
+	volume				= 0.69f;
 
    // ofSetDataPathRoot(_file);
     //samples
     samp1.load(ofToDataPath(_file));
-//	samp1.load(_file);
     stretches1 = new maxiPitchStretch<grainPlayerWin1>(&samp1);
     stretches2 = new maxiPitchStretch<grainPlayerWin2>(&samp1);
     stretches3 = new maxiPitchStretch<grainPlayerWin3>(&samp1);
@@ -93,7 +92,6 @@ void AudioSampler::load1(string _file)
 {
     //samples
 	samp1.load(_file);
-//	samp1.load(_file + ".wav");
 }
 
 //--------------------------------------------------------------

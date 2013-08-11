@@ -18,7 +18,7 @@ class livid : public ofxMidiListener {
 	
 public:
 	
-	void setup(Gui *gui, GuiBinaural *_guiBinaural, AudioSampler *_audioSample1, AudioSampler *_audioSample2, AudioSampler *_audioSample3, AudioSampler *_audioSample4);
+	void setup(Gui *gui, GuiBinaural *_guiBinaural, AudioSampler *_audioSample1);
 	void draw();
 	void exit();
 	void newMidiMessage(ofxMidiMessage& eventArgs);
@@ -34,7 +34,7 @@ public:
 	
     Gui *Mgui;
     GuiBinaural *MguiBinaural;
-    AudioSampler  *audioSample1, *audioSample2, *audioSample3, *audioSample4;
+    AudioSampler  *audioSample1;
 	
 	/*Livid Variables*/
 	

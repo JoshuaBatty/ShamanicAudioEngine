@@ -40,17 +40,10 @@ class testApp : public ofBaseApp{
     ofSoundStream soundStream;
 	AudioBinaural audioBinaural;
     AudioTonic audioTonic;
-
 	AudioSampler audioSample1; //Drums
-	AudioSampler audioSample2; //Bells
-	AudioSampler audioSample3; //Throat
-	AudioSampler audioSample4; //Icaros
    
     ofSoundMixer mixer;
-    
-    ofShader shader;
-    ofShader shaderOptical;
-    
+
     Gui gui;
     GuiBinaural guiBinaural;
     
@@ -58,13 +51,10 @@ class testApp : public ofBaseApp{
 
     TweenSynth tweenSynth;
     Tween tween1;
-    Tween tween2;
-    Tween tween3;
-    Tween tween4;
-    
+
     ofPoint dragPt;
     
-    int loadBox1X,loadBox2X,loadBox3X,loadBox4X;
-    int loadBox1Y,loadBox2Y,loadBox3Y,loadBox4Y;
+    int loadBox1X;
+    int loadBox1Y;
 
 };

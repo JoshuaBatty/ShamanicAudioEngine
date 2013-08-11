@@ -10,14 +10,11 @@
 #include "livid.h"
 
 //--------------------------------------------------------------
-void livid::setup(Gui *gui, GuiBinaural *_guiBinaural, AudioSampler *_audioSample1, AudioSampler *_audioSample2, AudioSampler *_audioSample3, AudioSampler *_audioSample4) {
+void livid::setup(Gui *gui, GuiBinaural *_guiBinaural, AudioSampler *_audioSample1) {
     
     Mgui = gui;
     MguiBinaural = _guiBinaural;
     audioSample1 = _audioSample1;
-    audioSample2 = _audioSample2;
-    audioSample3 = _audioSample3;
-    audioSample4 = _audioSample4;
     
 	// print input ports to console
 	midiIn.listPorts(); // via instance
@@ -283,93 +280,7 @@ void livid::newMidiMessage(ofxMidiMessage& msg) {
             }
         }
         
-        if(midiMessage.control == 51){
-            knobsB2[3] = midiMessage.value;
-            if(audioSample2->bFilter==true){
-                Mgui->setCutoff2(ofMap(knobsB2[3],0,127,10.0,10000.0));
-            } else if(audioSample2->bReverb==true){
-                Mgui->setReverbDryWet2(ofMap(knobsB2[3],0,127,0.0,1.0));
-            } else if(audioSample2->bFx==true){
-                Mgui->setDelayTime2(ofMap(knobsB2[3],0,127,10.0,10000.0));
-            }
-        }
-        if(midiMessage.control == 52){
-            knobsB2[4] = midiMessage.value;
-            if(audioSample2->bFilter==true){
-                Mgui->setLfoSpeed2(ofMap(knobsB2[4],0,127,0.0,200.0));
-            } else if(audioSample2->bReverb==true){
-                Mgui->setReverbDecay2(ofMap(knobsB2[4],0,127,0.0,1.0));
-            } else if(audioSample2->bFx==true){
-                Mgui->setDelayFeedback2(ofMap(knobsB2[4],0,127,0.0,1.0));
-            }
-        }
-        if(midiMessage.control == 53){
-            knobsB2[5] = midiMessage.value;
-            if(audioSample2->bFilter==true){
-                Mgui->setLfoAmp2(ofMap(knobsB2[5],0,127,0.0,3000.0));
-            } else if(audioSample2->bFx==true){
-                Mgui->setRate2(ofMap(knobsB2[5],0,127,1.0,0.0));
-            }
-        }
-        
-        if(midiMessage.control == 54){
-            knobsB2[6] = midiMessage.value;
-            if(audioSample3->bFilter==true){
-                Mgui->setCutoff3(ofMap(knobsB2[6],0,127,10.0,10000.0));
-            } else if(audioSample3->bReverb==true){
-                Mgui->setReverbDryWet3(ofMap(knobsB2[6],0,127,0.0,1.0));
-            } else if(audioSample3->bFx==true){
-                Mgui->setDelayTime3(ofMap(knobsB2[6],0,127,10.0,10000.0));
-            }
-        }
-        if(midiMessage.control == 55){
-            knobsB2[7] = midiMessage.value;
-            if(audioSample3->bFilter==true){
-                Mgui->setLfoSpeed3(ofMap(knobsB2[7],0,127,0.0,200.0));
-            } else if(audioSample3->bReverb==true){
-                Mgui->setReverbDecay3(ofMap(knobsB2[7],0,127,0.0,1.0));
-            } else if(audioSample3->bFx==true){
-                Mgui->setDelayFeedback3(ofMap(knobsB2[7],0,127,0.0,1.0));
-            }
-        }
-        if(midiMessage.control == 56){
-            knobsB2[8] = midiMessage.value;
-            if(audioSample3->bFilter==true){
-                Mgui->setLfoAmp3(ofMap(knobsB2[8],0,127,0.0,3000.0));
-            } else if(audioSample3->bFx==true){
-                Mgui->setRate3(ofMap(knobsB2[8],0,127,1.0,0.0));
-            }
-        }
-        
-        if(midiMessage.control == 57){
-            knobsB2[9] = midiMessage.value;
-            if(audioSample4->bFilter==true){
-                Mgui->setCutoff4(ofMap(knobsB2[9],0,127,10.0,10000.0));
-            } else if(audioSample4->bReverb==true){
-                Mgui->setReverbDryWet4(ofMap(knobsB2[9],0,127,0.0,1.0));
-            } else if(audioSample4->bFx==true){
-                Mgui->setDelayTime4(ofMap(knobsB2[9],0,127,10.0,10000.0));
-            }
-        }
-        if(midiMessage.control == 58){
-            knobsB2[10] = midiMessage.value;
-            if(audioSample4->bFilter==true){
-                Mgui->setLfoSpeed4(ofMap(knobsB2[10],0,127,0.0,200.0));
-            } else if(audioSample4->bReverb==true){
-                Mgui->setReverbDecay4(ofMap(knobsB2[10],0,127,0.0,1.0));
-            } else if(audioSample4->bFx==true){
-                Mgui->setDelayFeedback4(ofMap(knobsB2[10],0,127,0.0,1.0));
-            }
-        }
-        if(midiMessage.control == 59){
-            knobsB2[11] = midiMessage.value;
-            if(audioSample4->bFilter==true){
-                Mgui->setLfoAmp4(ofMap(knobsB2[11],0,127,0.0,3000.0));
-            } else if(audioSample4->bFx==true){
-                Mgui->setRate4(ofMap(knobsB2[11],0,127,1.0,0.0));
-            }
-        }
-        
+           
         ////////////////////////////////////
         //			KNOBS BANK 3		  //
         ////////////////////////////////////
@@ -387,45 +298,7 @@ void livid::newMidiMessage(ofxMidiMessage& msg) {
             Mgui->setOverlaps1(ofMap(knobsB3[2],0,127,1,6));
         }
         
-        if(midiMessage.control == 21){
-            knobsB3[3] = midiMessage.value;
-            Mgui->setPitch2(ofMap(knobsB3[3],0,127,0.0,8.0));
-        }
-        if(midiMessage.control == 22){
-            knobsB3[4] = midiMessage.value;
-            Mgui->setGrainSize2(ofMap(knobsB3[4],0,127,0.025,0.49));
-        }
-        if(midiMessage.control == 23){
-            knobsB3[5] = midiMessage.value;
-            Mgui->setOverlaps2(ofMap(knobsB3[5],0,127,1,6));
-        }
-        
-        if(midiMessage.control == 25){
-            knobsB3[6] = midiMessage.value;
-            Mgui->setPitch3(ofMap(knobsB3[6],0,127,0.0,8.0));
-        }
-        if(midiMessage.control == 26){
-            knobsB3[7] = midiMessage.value;
-            Mgui->setGrainSize3(ofMap(knobsB3[7],0,127,0.025,0.49));
-        }
-        if(midiMessage.control == 27){
-            knobsB3[8] = midiMessage.value;
-            Mgui->setOverlaps3(ofMap(knobsB3[8],0,127,1,6));
-        }
-        
-        if(midiMessage.control == 29){
-            knobsB3[9] = midiMessage.value;
-            Mgui->setPitch4(ofMap(knobsB3[9],0,127,0.0,8.0));
-        }
-        if(midiMessage.control == 30){
-            knobsB3[10] = midiMessage.value;
-            Mgui->setGrainSize4(ofMap(knobsB3[10],0,127,0.025,0.49));
-        }
-        if(midiMessage.control == 31){
-            knobsB3[11] = midiMessage.value;
-            Mgui->setOverlaps4(ofMap(knobsB3[11],0,127,1,6));
-        }
-        
+               
         //Knob 1
         if(midiMessage.pitch == 48 && midiMessage.velocity == 64){
             bKnobsB2[0] = true;
@@ -518,35 +391,12 @@ void livid::newMidiMessage(ofxMidiMessage& msg) {
             sliders[0] = midiMessage.value;
             Mgui->setSpeed1(ofMap(sliders[0],0,127,-2.0,2.0));
         }
-        if(midiMessage.control == 8){
-            sliders[1] = midiMessage.value;
-            Mgui->setSpeed2(ofMap(sliders[1],0,127,-2.0,2.0));
-        }
-        if(midiMessage.control == 12){
-            sliders[2] = midiMessage.value;
-            Mgui->setSpeed3(ofMap(sliders[2],0,127,-2.0,2.0));
-        }
-        if(midiMessage.control == 16){
-            sliders[3] = midiMessage.value;
-            Mgui->setSpeed4(ofMap(sliders[3],0,127,-2.0,2.0));
-        }
-        
+
         if(midiMessage.control == 20){
             sliders[4] = midiMessage.value;
             Mgui->setVolume1(ofMap(sliders[4],0,127,0.0,0.99));
         }
-        if(midiMessage.control == 24){
-            sliders[5] = midiMessage.value;
-            Mgui->setVolume2(ofMap(sliders[5],0,127,0.0,0.99));
-        }
-        if(midiMessage.control == 28){
-            sliders[6] = midiMessage.value;
-            Mgui->setVolume3(ofMap(sliders[6],0,127,0.0,0.99));
-        }
-        if(midiMessage.control == 32){
-            sliders[7] = midiMessage.value;
-            Mgui->setVolume4(ofMap(sliders[7],0,127,0.0,0.99));
-        }
+
     }
 	
 	////////////////////////////////////

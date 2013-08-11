@@ -22,7 +22,7 @@ class MainTimeline {
 	
 	public :
 	
-	void setup(Gui *gui, GuiBinaural *_guiBinaural, AudioSampler *_audioSampler1, AudioSampler *_audioSampler2, AudioSampler *_audioSampler3, AudioSampler *_audioSampler4, AudioBinaural *_audioBinaural);
+	void setup(Gui *gui, GuiBinaural *_guiBinaural, AudioSampler *_audioSampler1, AudioBinaural *_audioBinaural);
 	void update();
     float getCurrentTimeMillis();
     void saveAutomation();
@@ -40,9 +40,7 @@ class MainTimeline {
     GuiBinaural *MguiBinaural;
     AudioBinaural *audioBinaural;
     AudioSampler *audioSampler1;
-    AudioSampler *audioSampler2;
-    AudioSampler *audioSampler3;
-    AudioSampler *audioSampler4;
+
     
 	private :
     
