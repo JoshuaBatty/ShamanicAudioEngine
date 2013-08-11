@@ -66,6 +66,7 @@ void TweenSynth::update()
     //Volume
     if(tweenSynthVolume.isRunning()){
         audioTonic->volume=tweenSynthVolume.update();
+        audioTonic->triggerFMparams(); // TRIGGER TONIC TO TWEEN .... UPDATE PARAMS
     }
     //Carrier Pitch
     if(tweenSynthCarrierPitch.isRunning()){
@@ -99,70 +100,39 @@ void TweenSynth::update()
 }
 
 //--------------------------------------------------------------
+void TweenSynth::setEasings(ofxEasing *_easingType){
+    tweenBinVolume.setParameters(1,*(_easingType),ofxTween::easeOut,tempBinVolume,audioBinaural->volume,duration,delay);
+    tweenBinOscPitch.setParameters(1,*(_easingType),ofxTween::easeOut,tempBinOscPitch,audioBinaural->osc1Pitch,duration,delay);
+    tweenBinOscOffset.setParameters(2,*(_easingType),ofxTween::easeOut,tempBinOscOffset,audioBinaural->osc2Pitch,duration,delay);
+    tweenSynthVolume.setParameters(3,*(_easingType),ofxTween::easeOut,tempSynthVolume,audioTonic->Volume,duration,delay);
+    tweenSynthCarrierPitch.setParameters(4,*(_easingType),ofxTween::easeOut,tempSynthCarrierPitch,audioTonic->CarrierPitch,duration,delay);
+    tweenSynthCarrierOffset.setParameters(5,*(_easingType),ofxTween::easeOut,tempSynthCarrierOffset,audioTonic->CarrierOffset,duration,delay);
+    tweenSynthModIndex.setParameters(6,*(_easingType),ofxTween::easeOut,tempSynthModIndex,audioTonic->ModIndex,duration,delay);
+    tweenSynthModLfoAmt.setParameters(7,*(_easingType),ofxTween::easeOut,tempSynthModLfoAmt,audioTonic->ModLfoAmt,duration,delay);
+    tweenSynthModLfoSpeed.setParameters(8,*(_easingType),ofxTween::easeOut,tempSynthModLfoSpeed,audioTonic->ModLfoSpeed,duration,delay);
+    tweenSynthAmpLfoAmt.setParameters(9,*(_easingType),ofxTween::easeOut,tempSynthAmpLfoAmt,audioTonic->AmpLfoAmt,duration,delay);
+    tweenSynthAmpLfoSpeed.setParameters(10,*(_easingType),ofxTween::easeOut,tempSynthAmpLfoSpeed,audioTonic->AmpLfoSpeed,duration,delay);
+}
+//--------------------------------------------------------------
 void TweenSynth::trigger2()
 {
-
     if(easingType==1){
-        tweenBinVolume.setParameters(1,easingLinear,ofxTween::easeOut,audioBinaural->volume,tempBinVolume,duration,delay);
-        tweenBinOscPitch.setParameters(1,easingLinear,ofxTween::easeOut,audioBinaural->osc1Pitch,tempBinOscPitch,duration,delay);
-        tweenBinOscOffset.setParameters(2,easingLinear,ofxTween::easeOut,audioBinaural->osc2Pitch,tempBinOscOffset,duration,delay);
-        tweenSynthVolume.setParameters(3,easingLinear,ofxTween::easeOut,audioTonic->Volume,tempSynthVolume,duration,delay);
-        tweenSynthCarrierPitch.setParameters(4,easingLinear,ofxTween::easeOut,audioTonic->CarrierPitch,tempSynthCarrierPitch,duration,delay);
-        tweenSynthCarrierOffset.setParameters(5,easingLinear,ofxTween::easeOut,audioTonic->CarrierOffset,tempSynthCarrierOffset,duration,delay);
-        tweenSynthModIndex.setParameters(6,easingLinear,ofxTween::easeOut,audioTonic->ModIndex,tempSynthModIndex,duration,delay);
-        tweenSynthModLfoAmt.setParameters(7,easingLinear,ofxTween::easeOut,audioTonic->ModLfoAmt,tempSynthModLfoAmt,duration,delay);
-        tweenSynthModLfoSpeed.setParameters(8,easingLinear,ofxTween::easeOut,audioTonic->ModLfoSpeed,tempSynthModLfoSpeed,duration,delay);
-        tweenSynthAmpLfoAmt.setParameters(9,easingLinear,ofxTween::easeOut,audioTonic->AmpLfoAmt,tempSynthAmpLfoAmt,duration,delay);
-        tweenSynthAmpLfoSpeed.setParameters(10,easingLinear,ofxTween::easeOut,audioTonic->AmpLfoSpeed,tempSynthAmpLfoSpeed,duration,delay);
+        setEasings(dynamic_cast<ofxEasing*>(&easingLinear));
+        cout << "easing tyoe Lin" << endl;
     } else if(easingType==2){
-        tweenBinVolume.setParameters(1,easingExpo,ofxTween::easeOut,audioBinaural->volume,tempBinVolume,duration,delay);
-        tweenBinOscPitch.setParameters(1,easingExpo,ofxTween::easeOut,audioBinaural->osc1Pitch,tempBinOscPitch,duration,delay);
-        tweenBinOscOffset.setParameters(2,easingExpo,ofxTween::easeOut,audioBinaural->osc2Pitch,tempBinOscOffset,duration,delay);
-        tweenSynthVolume.setParameters(3,easingExpo,ofxTween::easeOut,audioTonic->Volume,tempSynthVolume,duration,delay);
-        tweenSynthCarrierPitch.setParameters(4,easingExpo,ofxTween::easeOut,audioTonic->CarrierPitch,tempSynthCarrierPitch,duration,delay);
-        tweenSynthCarrierOffset.setParameters(5,easingExpo,ofxTween::easeOut,audioTonic->CarrierOffset,tempSynthCarrierOffset,duration,delay);
-        tweenSynthModIndex.setParameters(6,easingExpo,ofxTween::easeOut,audioTonic->ModIndex,tempSynthModIndex,duration,delay);
-        tweenSynthModLfoAmt.setParameters(7,easingExpo,ofxTween::easeOut,audioTonic->ModLfoAmt,tempSynthModLfoAmt,duration,delay);
-        tweenSynthModLfoSpeed.setParameters(8,easingExpo,ofxTween::easeOut,audioTonic->ModLfoSpeed,tempSynthModLfoSpeed,duration,delay);
-        tweenSynthAmpLfoAmt.setParameters(9,easingExpo,ofxTween::easeOut,audioTonic->AmpLfoAmt,tempSynthAmpLfoAmt,duration,delay);
-        tweenSynthAmpLfoSpeed.setParameters(10,easingExpo,ofxTween::easeOut,audioTonic->AmpLfoSpeed,tempSynthAmpLfoSpeed,duration,delay);
+        setEasings(dynamic_cast<ofxEasing*>(&easingExpo));
+        cout << "easing tyoe Expo" << endl;
     } else if(easingType==3){
-        tweenBinVolume.setParameters(1,easingCirc,ofxTween::easeOut,audioBinaural->volume,tempBinVolume,duration,delay);
-        tweenBinOscPitch.setParameters(1,easingCirc,ofxTween::easeOut,audioBinaural->osc1Pitch,tempBinOscPitch,duration,delay);
-        tweenBinOscOffset.setParameters(2,easingCirc,ofxTween::easeOut,audioBinaural->osc2Pitch,tempBinOscOffset,duration,delay);
-        tweenSynthVolume.setParameters(3,easingCirc,ofxTween::easeOut,audioTonic->Volume,tempSynthVolume,duration,delay);
-        tweenSynthCarrierPitch.setParameters(4,easingCirc,ofxTween::easeOut,audioTonic->CarrierPitch,tempSynthCarrierPitch,duration,delay);
-        tweenSynthCarrierOffset.setParameters(5,easingCirc,ofxTween::easeOut,audioTonic->CarrierOffset,tempSynthCarrierOffset,duration,delay);
-        tweenSynthModIndex.setParameters(6,easingCirc,ofxTween::easeOut,audioTonic->ModIndex,tempSynthModIndex,duration,delay);
-        tweenSynthModLfoAmt.setParameters(7,easingCirc,ofxTween::easeOut,audioTonic->ModLfoAmt,tempSynthModLfoAmt,duration,delay);
-        tweenSynthModLfoSpeed.setParameters(8,easingCirc,ofxTween::easeOut,audioTonic->ModLfoSpeed,tempSynthModLfoSpeed,duration,delay);
-        tweenSynthAmpLfoAmt.setParameters(9,easingCirc,ofxTween::easeOut,audioTonic->AmpLfoAmt,tempSynthAmpLfoAmt,duration,delay);
-        tweenSynthAmpLfoSpeed.setParameters(10,easingCirc,ofxTween::easeOut,audioTonic->AmpLfoSpeed,tempSynthAmpLfoSpeed,duration,delay);
+        setEasings(dynamic_cast<ofxEasing*>(&easingCirc));
+        cout << "easing tyoe Circ" << endl;
     } else if(easingType==4){
-        tweenBinVolume.setParameters(1,easingElastic,ofxTween::easeOut,audioBinaural->volume,tempBinVolume,duration,delay);
-        tweenBinOscPitch.setParameters(1,easingElastic,ofxTween::easeOut,audioBinaural->osc1Pitch,tempBinOscPitch,duration,delay);
-        tweenBinOscOffset.setParameters(2,easingElastic,ofxTween::easeOut,audioBinaural->osc2Pitch,tempBinOscOffset,duration,delay);
-        tweenSynthVolume.setParameters(3,easingElastic,ofxTween::easeOut,audioTonic->Volume,tempSynthVolume,duration,delay);
-        tweenSynthCarrierPitch.setParameters(4,easingElastic,ofxTween::easeOut,audioTonic->CarrierPitch,tempSynthCarrierPitch,duration,delay);
-        tweenSynthCarrierOffset.setParameters(5,easingElastic,ofxTween::easeOut,audioTonic->CarrierOffset,tempSynthCarrierOffset,duration,delay);
-        tweenSynthModIndex.setParameters(6,easingElastic,ofxTween::easeOut,audioTonic->ModIndex,tempSynthModIndex,duration,delay);
-        tweenSynthModLfoAmt.setParameters(7,easingElastic,ofxTween::easeOut,audioTonic->ModLfoAmt,tempSynthModLfoAmt,duration,delay);
-        tweenSynthModLfoSpeed.setParameters(8,easingElastic,ofxTween::easeOut,audioTonic->ModLfoSpeed,tempSynthModLfoSpeed,duration,delay);
-        tweenSynthAmpLfoAmt.setParameters(9,easingElastic,ofxTween::easeOut,audioTonic->AmpLfoAmt,tempSynthAmpLfoAmt,duration,delay);
-        tweenSynthAmpLfoSpeed.setParameters(10,easingElastic,ofxTween::easeOut,audioTonic->AmpLfoSpeed,tempSynthAmpLfoSpeed,duration,delay);
+        setEasings(dynamic_cast<ofxEasing*>(&easingElastic));
+        cout << "easing tyoe Elastic" << endl;
     } else if(easingType==5){
-        tweenBinVolume.setParameters(1,easingBounce,ofxTween::easeOut,audioBinaural->volume,tempBinVolume,duration,delay);
-        tweenBinOscPitch.setParameters(1,easingBounce,ofxTween::easeOut,audioBinaural->osc1Pitch,tempBinOscPitch,duration,delay);
-        tweenBinOscOffset.setParameters(2,easingBounce,ofxTween::easeOut,audioBinaural->osc2Pitch,tempBinOscOffset,duration,delay);
-        tweenSynthVolume.setParameters(3,easingBounce,ofxTween::easeOut,audioTonic->Volume,tempSynthVolume,duration,delay);
-        tweenSynthCarrierPitch.setParameters(4,easingBounce,ofxTween::easeOut,audioTonic->CarrierPitch,tempSynthCarrierPitch,duration,delay);
-        tweenSynthCarrierOffset.setParameters(5,easingBounce,ofxTween::easeOut,audioTonic->CarrierOffset,tempSynthCarrierOffset,duration,delay);
-        tweenSynthModIndex.setParameters(6,easingBounce,ofxTween::easeOut,audioTonic->ModIndex,tempSynthModIndex,duration,delay);
-        tweenSynthModLfoAmt.setParameters(7,easingBounce,ofxTween::easeOut,audioTonic->ModLfoAmt,tempSynthModLfoAmt,duration,delay);
-        tweenSynthModLfoSpeed.setParameters(8,easingBounce,ofxTween::easeOut,audioTonic->ModLfoSpeed,tempSynthModLfoSpeed,duration,delay);
-        tweenSynthAmpLfoAmt.setParameters(9,easingBounce,ofxTween::easeOut,audioTonic->AmpLfoAmt,tempSynthAmpLfoAmt,duration,delay);
-        tweenSynthAmpLfoSpeed.setParameters(10,easingBounce,ofxTween::easeOut,audioTonic->AmpLfoSpeed,tempSynthAmpLfoSpeed,duration,delay);
+        setEasings(dynamic_cast<ofxEasing*>(&easingBounce));
+        cout << "easing tyoe Bounce" << endl;
     }
+    
 }
 
 //--------------------------------------------------------------

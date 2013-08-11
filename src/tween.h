@@ -22,6 +22,8 @@ class Tween {
     void trigger3();
     void setEasingType(int _easingType);
 
+    void setEasings(ofxEasing *_easingType);
+    
     void catchTempVariables();
     
     AudioSampler  *audioSample;

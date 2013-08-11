@@ -21,7 +21,8 @@ class TweenSynth {
     void update();
     void trigger2();
     void setEasingType(int _easingType);
-    
+    void setEasings(ofxEasing *_easingType);
+
     void catchTempVariables();
     
     AudioBinaural  *audioBinaural;

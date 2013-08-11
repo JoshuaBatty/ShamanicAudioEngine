@@ -38,7 +38,7 @@ void livid::setup(Gui *gui, GuiBinaural *_guiBinaural, AudioSampler *_audioSampl
 	midiIn.addListener(this);
 	
 	// print received messages to the console
-	midiIn.setVerbose(true);
+	midiIn.setVerbose(false);
 	
 	channel = 1;
 	note = 0;

@@ -28,9 +28,7 @@ void testApp::setup(){
     audioSample2.setup("icaros2.wav");
     audioSample3.setup("singing_bells.wav");
     audioSample4.setup("psychedelics.wav");
-    soundStream.setup(2, 0, sampleRate, bufferSize, 4);
 
-	soundStream.setOutput(this);
     
     mixer.addInputFrom(&audioTonic);
     mixer.addInputFrom(&audioBinaural);
@@ -49,6 +47,9 @@ void testApp::setup(){
     guiBinaural.setup(&tweenSynth, &audioBinaural, &audioTonic);
     timeline.setup(&gui, &guiBinaural, &audioSample1, &audioSample2, &audioSample3, &audioSample4, &audioBinaural);
     
+    soundStream.setup(2, 0, sampleRate, bufferSize, 4);
+    
+	soundStream.setOutput(this);
 
     //Shaders
 	shader.load("shaders/strobe");
@@ -175,7 +176,9 @@ void testApp::draw(){
     shaderOptical.setUniform1f("waveSpeed", audioTonic.CarrierOffset * 5.0 );
     shaderOptical.setUniform1f("amplitude", ((sin(ofGetElapsedTimef()*audioTonic.ModLfoSpeed*TWO_PI)+1)*.5*audioTonic.ModLfoAmt)-(audioTonic.ModIndex*0.25)*audioTonic.ModIndex*0.25);
     shaderOptical.setUniform1f("seperation", 1.0 );
-    shaderOptical.setUniform1f("glow", 150.0 );
+    shaderOptical.setUniform1f("glow", 150*((sin(ofGetElapsedTimef()*audioTonic.AmpLfoSpeed*TWO_PI)+1)*.5*audioTonic.AmpLfoAmt)-(ofMap(audioTonic.Volume,-60.0,0.0,0.0,1.0))*ofMap(audioTonic.Volume,-60.0,0.0,0.0,1.0));
+//    shaderOptical.setUniform1f("glow", 150*((sin(ofGetElapsedTimef()*audioTonic.AmpLfoSpeed*TWO_PI)+1)*.5*audioTonic.AmpLfoAmt)-(audioTonic.Volume*0.25)*audioTonic.Volume*0.25);
+//    shaderOptical.setUniform1f("glow", 350.0 );
 
     ofPushMatrix();
     ofFill();
@@ -252,6 +255,13 @@ void testApp::keyPressed(int key)
         gui.gui4->toggleVisible();
         gui.gui5->toggleVisible();
         gui.gui6->toggleVisible();
+        gui.gui7->toggleVisible();
+        guiBinaural.guiBinaural->toggleVisible();
+        guiBinaural.guiTonic->toggleVisible();
+        guiBinaural.guiPresets->toggleVisible();
+
+        timeline.hide();
+        timeline.synthTimeline.hide();
     }if (key == 'p') {
         gui.gui7->toggleVisible();
         guiBinaural.guiPresets->toggleVisible();

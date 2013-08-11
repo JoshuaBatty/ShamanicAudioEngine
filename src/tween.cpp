@@ -13,7 +13,7 @@
 void Tween::setup(AudioSampler *_audioSample)
 {
     audioSample = _audioSample;
-        
+    
     //init temps
     tempVolume = audioSample->volume;
     tempPitch = audioSample->pitch1;
@@ -135,94 +135,44 @@ void Tween::trigger()
 }
 
 //--------------------------------------------------------------
+void Tween::setEasings(ofxEasing *_easingType){
+    tweenVolume.setParameters(1,*(_easingType),ofxTween::easeOut,tempVolume,audioSample->volume,duration,delay);
+    tweenPitch.setParameters(1,*(_easingType),ofxTween::easeOut,tempPitch,audioSample->pitch1,duration,delay);
+    tweenSpeed.setParameters(2,*(_easingType),ofxTween::easeOut,tempSpeed,audioSample->speed1,duration,delay);
+    tweenGrainLength.setParameters(3,*(_easingType),ofxTween::easeOut,tempGrainLength,audioSample->grainLength1,duration,delay);
+    tweenOverlaps.setParameters(4,*(_easingType),ofxTween::easeOut,tempOverlaps,audioSample->overlaps1,duration,delay);
+    tweenRandomGrainPitch.setParameters(5,*(_easingType),ofxTween::easeOut,tempRandomGrainPitch,audioSample->randomGrainPitch1,duration,delay);
+    tweenRandomGrainSize.setParameters(6,*(_easingType),ofxTween::easeOut,tempRandomGrainSize,audioSample->randomGrainSize1,duration,delay);
+    tweenDelayTime.setParameters(7,*(_easingType),ofxTween::easeOut,tempDelayTime,audioSample->delayTime1,duration,delay);
+    tweenDelayFeedback.setParameters(8,*(_easingType),ofxTween::easeOut,tempDelayFeedback,audioSample->delayFeedback1,duration,delay);
+    tweenCutoff.setParameters(9,*(_easingType),ofxTween::easeOut,tempCutoff,audioSample->cutoff1,duration,delay);
+    tweenLfoSpeed.setParameters(10,*(_easingType),ofxTween::easeOut,tempLfoSpeed,audioSample->lfoSpeed1,duration,delay);
+    tweenLfoAmp.setParameters(11,*(_easingType),ofxTween::easeOut,tempLfoAmp,audioSample->lfoAmp1,duration,delay);
+    tweenBits.setParameters(12,*(_easingType),ofxTween::easeOut,tempBits,audioSample->bits,duration,delay);
+    tweenRate.setParameters(13,*(_easingType),ofxTween::easeOut,tempRate,audioSample->rate,duration,delay);
+    tweenReverbSize.setParameters(14,*(_easingType),ofxTween::easeOut,tempReverbSize,audioSample->reverbSize,duration,delay);
+    tweenReverbDryWet.setParameters(15,*(_easingType),ofxTween::easeOut,tempReverbDryWet,audioSample->reverbDryWet,duration,delay);
+}
+//--------------------------------------------------------------
 void Tween::trigger2()
 {
     if(easingType==1){
-        tweenVolume.setParameters(1,easingLinear,ofxTween::easeOut,audioSample->volume,tempVolume,duration,delay);
-        tweenPitch.setParameters(1,easingLinear,ofxTween::easeOut,audioSample->pitch1,tempPitch,duration,delay);
-        tweenSpeed.setParameters(2,easingLinear,ofxTween::easeOut,audioSample->speed1,tempSpeed,duration,delay);
-        tweenGrainLength.setParameters(3,easingLinear,ofxTween::easeOut,audioSample->grainLength1,tempGrainLength,duration,delay);
-        tweenOverlaps.setParameters(4,easingLinear,ofxTween::easeOut,audioSample->overlaps1,tempOverlaps,duration,delay);
-        tweenRandomGrainPitch.setParameters(5,easingLinear,ofxTween::easeOut,audioSample->randomGrainPitch1,tempRandomGrainPitch,duration,delay);
-        tweenRandomGrainSize.setParameters(6,easingLinear,ofxTween::easeOut,audioSample->randomGrainSize1,tempRandomGrainSize,duration,delay);
-        tweenDelayTime.setParameters(7,easingLinear,ofxTween::easeOut,audioSample->delayTime1,tempDelayTime,duration,delay);
-        tweenDelayFeedback.setParameters(8,easingLinear,ofxTween::easeOut,audioSample->delayFeedback1,tempDelayFeedback,duration,delay);
-        tweenCutoff.setParameters(9,easingLinear,ofxTween::easeOut,audioSample->cutoff1,tempCutoff,duration,delay);
-        tweenLfoSpeed.setParameters(10,easingLinear,ofxTween::easeOut,audioSample->lfoSpeed1,tempLfoSpeed,duration,delay);
-        tweenLfoAmp.setParameters(11,easingLinear,ofxTween::easeOut,audioSample->lfoAmp1,tempLfoAmp,duration,delay);
-        tweenBits.setParameters(12,easingLinear,ofxTween::easeOut,audioSample->bits,tempBits,duration,delay);
-        tweenRate.setParameters(13,easingLinear,ofxTween::easeOut,audioSample->rate,tempRate,duration,delay);
-        tweenReverbSize.setParameters(14,easingLinear,ofxTween::easeOut,audioSample->reverbSize,tempReverbSize,duration,delay);
-        tweenReverbDryWet.setParameters(15,easingLinear,ofxTween::easeOut,audioSample->reverbDryWet,tempReverbDryWet,duration,delay);
+        setEasings(dynamic_cast<ofxEasing*>(&easingLinear));
+        cout << "easing tyoe Lin" << endl;
     } else if(easingType==2){
-        tweenVolume.setParameters(1,easingExpo,ofxTween::easeOut,audioSample->volume,tempVolume,duration,delay);
-        tweenPitch.setParameters(1,easingExpo,ofxTween::easeOut,audioSample->pitch1,tempPitch,duration,delay);
-        tweenSpeed.setParameters(2,easingExpo,ofxTween::easeOut,audioSample->speed1,tempSpeed,duration,delay);
-        tweenGrainLength.setParameters(3,easingExpo,ofxTween::easeOut,audioSample->grainLength1,tempGrainLength,duration,delay);
-        tweenOverlaps.setParameters(4,easingExpo,ofxTween::easeOut,audioSample->overlaps1,tempOverlaps,duration,delay);
-        tweenRandomGrainPitch.setParameters(5,easingExpo,ofxTween::easeOut,audioSample->randomGrainPitch1,tempRandomGrainPitch,duration,delay);
-        tweenRandomGrainSize.setParameters(6,easingExpo,ofxTween::easeOut,audioSample->randomGrainSize1,tempRandomGrainSize,duration,delay);
-        tweenDelayTime.setParameters(7,easingExpo,ofxTween::easeOut,audioSample->delayTime1,tempDelayTime,duration,delay);
-        tweenDelayFeedback.setParameters(8,easingExpo,ofxTween::easeOut,audioSample->delayFeedback1,tempDelayFeedback,duration,delay);
-        tweenCutoff.setParameters(9,easingExpo,ofxTween::easeOut,audioSample->cutoff1,tempCutoff,duration,delay);
-        tweenLfoSpeed.setParameters(10,easingExpo,ofxTween::easeOut,audioSample->lfoSpeed1,tempLfoSpeed,duration,delay);
-        tweenLfoAmp.setParameters(11,easingExpo,ofxTween::easeOut,audioSample->lfoAmp1,tempLfoAmp,duration,delay);
-        tweenBits.setParameters(12,easingExpo,ofxTween::easeOut,audioSample->bits,tempBits,duration,delay);
-        tweenRate.setParameters(13,easingExpo,ofxTween::easeOut,audioSample->rate,tempRate,duration,delay);
-        tweenReverbSize.setParameters(14,easingExpo,ofxTween::easeOut,audioSample->reverbSize,tempReverbSize,duration,delay);
-        tweenReverbDryWet.setParameters(15,easingExpo,ofxTween::easeOut,audioSample->reverbDryWet,tempReverbDryWet,duration,delay);
+        setEasings(dynamic_cast<ofxEasing*>(&easingExpo));
+        cout << "easing tyoe Expo" << endl;
     } else if(easingType==3){
-        tweenVolume.setParameters(1,easingCirc,ofxTween::easeOut,audioSample->volume,tempVolume,duration,delay);
-        tweenPitch.setParameters(1,easingCirc,ofxTween::easeOut,audioSample->pitch1,tempPitch,duration,delay);
-        tweenSpeed.setParameters(2,easingCirc,ofxTween::easeOut,audioSample->speed1,tempSpeed,duration,delay);
-        tweenGrainLength.setParameters(3,easingCirc,ofxTween::easeOut,audioSample->grainLength1,tempGrainLength,duration,delay);
-        tweenOverlaps.setParameters(4,easingCirc,ofxTween::easeOut,audioSample->overlaps1,tempOverlaps,duration,delay);
-        tweenRandomGrainPitch.setParameters(5,easingCirc,ofxTween::easeOut,audioSample->randomGrainPitch1,tempRandomGrainPitch,duration,delay);
-        tweenRandomGrainSize.setParameters(6,easingCirc,ofxTween::easeOut,audioSample->randomGrainSize1,tempRandomGrainSize,duration,delay);
-        tweenDelayTime.setParameters(7,easingCirc,ofxTween::easeOut,audioSample->delayTime1,tempDelayTime,duration,delay);
-        tweenDelayFeedback.setParameters(8,easingCirc,ofxTween::easeOut,audioSample->delayFeedback1,tempDelayFeedback,duration,delay);
-        tweenCutoff.setParameters(9,easingCirc,ofxTween::easeOut,audioSample->cutoff1,tempCutoff,duration,delay);
-        tweenLfoSpeed.setParameters(10,easingCirc,ofxTween::easeOut,audioSample->lfoSpeed1,tempLfoSpeed,duration,delay);
-        tweenLfoAmp.setParameters(11,easingCirc,ofxTween::easeOut,audioSample->lfoAmp1,tempLfoAmp,duration,delay);
-        tweenBits.setParameters(12,easingCirc,ofxTween::easeOut,audioSample->bits,tempBits,duration,delay);
-        tweenRate.setParameters(13,easingCirc,ofxTween::easeOut,audioSample->rate,tempRate,duration,delay);
-        tweenReverbSize.setParameters(14,easingCirc,ofxTween::easeOut,audioSample->reverbSize,tempReverbSize,duration,delay);
-        tweenReverbDryWet.setParameters(15,easingCirc,ofxTween::easeOut,audioSample->reverbDryWet,tempReverbDryWet,duration,delay);
+        setEasings(dynamic_cast<ofxEasing*>(&easingCirc));
+        cout << "easing tyoe Circ" << endl;
     } else if(easingType==4){
-        tweenVolume.setParameters(1,easingElastic,ofxTween::easeOut,audioSample->volume,tempVolume,duration,delay);
-        tweenPitch.setParameters(1,easingElastic,ofxTween::easeOut,audioSample->pitch1,tempPitch,duration,delay);
-        tweenSpeed.setParameters(2,easingElastic,ofxTween::easeOut,audioSample->speed1,tempSpeed,duration,delay);
-        tweenGrainLength.setParameters(3,easingElastic,ofxTween::easeOut,audioSample->grainLength1,tempGrainLength,duration,delay);
-        tweenOverlaps.setParameters(4,easingElastic,ofxTween::easeOut,audioSample->overlaps1,tempOverlaps,duration,delay);
-        tweenRandomGrainPitch.setParameters(5,easingElastic,ofxTween::easeOut,audioSample->randomGrainPitch1,tempRandomGrainPitch,duration,delay);
-        tweenRandomGrainSize.setParameters(6,easingElastic,ofxTween::easeOut,audioSample->randomGrainSize1,tempRandomGrainSize,duration,delay);
-        tweenDelayTime.setParameters(7,easingElastic,ofxTween::easeOut,audioSample->delayTime1,tempDelayTime,duration,delay);
-        tweenDelayFeedback.setParameters(8,easingElastic,ofxTween::easeOut,audioSample->delayFeedback1,tempDelayFeedback,duration,delay);
-        tweenCutoff.setParameters(9,easingElastic,ofxTween::easeOut,audioSample->cutoff1,tempCutoff,duration,delay);
-        tweenLfoSpeed.setParameters(10,easingElastic,ofxTween::easeOut,audioSample->lfoSpeed1,tempLfoSpeed,duration,delay);
-        tweenLfoAmp.setParameters(11,easingElastic,ofxTween::easeOut,audioSample->lfoAmp1,tempLfoAmp,duration,delay);
-        tweenBits.setParameters(12,easingElastic,ofxTween::easeOut,audioSample->bits,tempBits,duration,delay);
-        tweenRate.setParameters(13,easingElastic,ofxTween::easeOut,audioSample->rate,tempRate,duration,delay);
-        tweenReverbSize.setParameters(14,easingElastic,ofxTween::easeOut,audioSample->reverbSize,tempReverbSize,duration,delay);
-        tweenReverbDryWet.setParameters(15,easingElastic,ofxTween::easeOut,audioSample->reverbDryWet,tempReverbDryWet,duration,delay);
+        setEasings(dynamic_cast<ofxEasing*>(&easingElastic));
+        cout << "easing tyoe Elastic" << endl;
     } else if(easingType==5){
-        tweenVolume.setParameters(1,easingBounce,ofxTween::easeOut,audioSample->volume,tempVolume,duration,delay);
-        tweenPitch.setParameters(1,easingBounce,ofxTween::easeOut,audioSample->pitch1,tempPitch,duration,delay);
-        tweenSpeed.setParameters(2,easingBounce,ofxTween::easeOut,audioSample->speed1,tempSpeed,duration,delay);
-        tweenGrainLength.setParameters(3,easingBounce,ofxTween::easeOut,audioSample->grainLength1,tempGrainLength,duration,delay);
-        tweenOverlaps.setParameters(4,easingBounce,ofxTween::easeOut,audioSample->overlaps1,tempOverlaps,duration,delay);
-        tweenRandomGrainPitch.setParameters(5,easingBounce,ofxTween::easeOut,audioSample->randomGrainPitch1,tempRandomGrainPitch,duration,delay);
-        tweenRandomGrainSize.setParameters(6,easingBounce,ofxTween::easeOut,audioSample->randomGrainSize1,tempRandomGrainSize,duration,delay);
-        tweenDelayTime.setParameters(7,easingBounce,ofxTween::easeOut,audioSample->delayTime1,tempDelayTime,duration,delay);
-        tweenDelayFeedback.setParameters(8,easingBounce,ofxTween::easeOut,audioSample->delayFeedback1,tempDelayFeedback,duration,delay);
-        tweenCutoff.setParameters(9,easingBounce,ofxTween::easeOut,audioSample->cutoff1,tempCutoff,duration,delay);
-        tweenLfoSpeed.setParameters(10,easingBounce,ofxTween::easeOut,audioSample->lfoSpeed1,tempLfoSpeed,duration,delay);
-        tweenLfoAmp.setParameters(11,easingBounce,ofxTween::easeOut,audioSample->lfoAmp1,tempLfoAmp,duration,delay);
-        tweenBits.setParameters(12,easingBounce,ofxTween::easeOut,audioSample->bits,tempBits,duration,delay);
-        tweenRate.setParameters(13,easingBounce,ofxTween::easeOut,audioSample->rate,tempRate,duration,delay);
-        tweenReverbSize.setParameters(14,easingBounce,ofxTween::easeOut,audioSample->reverbSize,tempReverbSize,duration,delay);
-        tweenReverbDryWet.setParameters(15,easingBounce,ofxTween::easeOut,audioSample->reverbDryWet,tempReverbDryWet,duration,delay);
+        setEasings(dynamic_cast<ofxEasing*>(&easingBounce));
+        cout << "easing tyoe Bounce" << endl;
     }
+
 }
 
 //--------------------------------------------------------------

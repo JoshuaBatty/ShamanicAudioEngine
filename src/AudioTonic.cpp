@@ -86,7 +86,7 @@ void AudioTonic::audioRequested (float * output, int numFrames, int nChannels)
 //    modLfoResult = 60*7+(sin(t*freq.getValue()*TWO_PI)+1)*.5*yFactor.getValue();
     modLfoResult = (sin(ofGetElapsedTimef()*speed*TWO_PI)+1)*.5*amp;
 
-    cout << modLfoResult << endl;
+   // cout << modLfoResult << endl;
 
     //Tonic
     synth.fillBufferOfFloats(output, numFrames, nChannels);

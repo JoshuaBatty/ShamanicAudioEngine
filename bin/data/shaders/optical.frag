@@ -98,8 +98,8 @@ void main()
 	final_color = wave_color;
 	
 //	gl_FragColor = vec4(final_color,1.0) );
-	gl_FragColor = vec4( finalTex * vec4(final_color,1.0) );
-//	gl_FragColor = vec4( 1.0 * vec4(final_color,1.0) );
+//	gl_FragColor = vec4( finalTex * vec4(final_color,1.0) );
+	gl_FragColor = vec4( 1.0 * vec4(final_color,1.0) );
 
 }
 

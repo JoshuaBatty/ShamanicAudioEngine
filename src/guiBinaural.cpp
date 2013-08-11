@@ -108,7 +108,6 @@ void GuiBinaural::setup(TweenSynth *_tweenSynth, AudioBinaural *_audioBinaural, 
 void GuiBinaural::guiEvent(ofxUIEventArgs &e)
 {
 	string name = e.widget->getName();
-	int kind = e.widget->getKind();
 	
     /***********
 	 * AV MATRIX
@@ -121,8 +120,6 @@ void GuiBinaural::guiEvent(ofxUIEventArgs &e)
         row[0] = res[0];
         col[0] = res[1];
         val[0] = (bool) res[2];
-        
-        cout << e.widget->getName() << " <<<<<< " << row << " " << col << " " << val << endl;
     }
 
     
@@ -134,25 +131,25 @@ void GuiBinaural::guiEvent(ofxUIEventArgs &e)
         matrixTween->setToggle(2, 0, false);
         matrixTween->setToggle(3, 0, false);
         matrixTween->setToggle(4, 0, false);
-    } else if(row[0]==0 && col[0]==1 && val[0]==1){
+    } else if(row[0]==1 && col[0]==0 && val[0]==1){
         tweenSynth->setEasingType(1);
         matrixTween->setToggle(0, 0, false);
         matrixTween->setToggle(2, 0, false);
         matrixTween->setToggle(3, 0, false);
         matrixTween->setToggle(4, 0, false);
-    } else if(row[0]==0 && col[0]==2 && val[0]==1){
+    } else if(row[0]==2 && col[0]==0 && val[0]==1){
         tweenSynth->setEasingType(1);
         matrixTween->setToggle(0, 0, false);
         matrixTween->setToggle(1, 0, false);
         matrixTween->setToggle(3, 0, false);
         matrixTween->setToggle(4, 0, false);
-    } else if(row[0]==0 && col[0]==3 && val[0]==1){
+    } else if(row[0]==3 && col[0]==0 && val[0]==1){
         tweenSynth->setEasingType(1);
         matrixTween->setToggle(0, 0, false);
         matrixTween->setToggle(1, 0, false);
         matrixTween->setToggle(2, 0, false);
         matrixTween->setToggle(4, 0, false);
-    } else if(row[0]==0 && col[0]==4 && val[0]==1){
+    } else if(row[0]==4 && col[0]==0 && val[0]==1){
         tweenSynth->setEasingType(1);
         matrixTween->setToggle(0, 0, false);
         matrixTween->setToggle(1, 0, false);
@@ -198,76 +195,60 @@ void GuiBinaural::guiEvent(ofxUIEventArgs &e)
     
     
     else if(name == "1"){
-        ofxUILabelButton *button = (ofxUILabelButton *) e.widget;
         curPreset = 1;
-        tweenSynth->trigger2();
+        tweenSynth->catchTempVariables();
         guiBinaural->loadSettings("GUI/guiSettingsBinaural1.1.xml");
         guiTonic->loadSettings("GUI/guiSettingsTonic1.1.xml");
-        tweenSynth->catchTempVariables();
-        cout << " curPreset = " << curPreset << endl;
+        tweenSynth->trigger2();
 	}
     else if(name == "2"){
-        ofxUILabelButton *button = (ofxUILabelButton *) e.widget;
         curPreset = 2;
-        tweenSynth->trigger2();
+        tweenSynth->catchTempVariables();
         guiBinaural->loadSettings("GUI/guiSettingsBinaural1.2.xml");
         guiTonic->loadSettings("GUI/guiSettingsTonic1.2.xml");
-        tweenSynth->catchTempVariables();
-        cout << " curPreset = " << curPreset << endl;
+        tweenSynth->trigger2();
 	}
     else if(name == "3"){
-        ofxUILabelButton *button = (ofxUILabelButton *) e.widget;
         curPreset = 3;
-        tweenSynth->trigger2();
+        tweenSynth->catchTempVariables();
         guiBinaural->loadSettings("GUI/guiSettingsBinaural1.3.xml");
         guiTonic->loadSettings("GUI/guiSettingsTonic1.3.xml");
-        tweenSynth->catchTempVariables();
-        cout << " curPreset = " << curPreset << endl;
+        tweenSynth->trigger2();
 	}
     else if(name == "4"){
-        ofxUILabelButton *button = (ofxUILabelButton *) e.widget;
         curPreset = 4;
-        tweenSynth->trigger2();
+        tweenSynth->catchTempVariables();
         guiBinaural->loadSettings("GUI/guiSettingsBinaural1.4.xml");
         guiTonic->loadSettings("GUI/guiSettingsTonic1.4.xml");
-        tweenSynth->catchTempVariables();
-        cout << " curPreset = " << curPreset << endl;
+        tweenSynth->trigger2();
 	}
     else if(name == "5"){
-        ofxUILabelButton *button = (ofxUILabelButton *) e.widget;
         curPreset = 5;
-        tweenSynth->trigger2();
+        tweenSynth->catchTempVariables();
         guiBinaural->loadSettings("GUI/guiSettingsBinaural1.5.xml");
         guiTonic->loadSettings("GUI/guiSettingsTonic1.5.xml");
-        tweenSynth->catchTempVariables();
-        cout << " curPreset = " << curPreset << endl;
+        tweenSynth->trigger2();
 	}
     else if(name == "6"){
-        ofxUILabelButton *button = (ofxUILabelButton *) e.widget;
         curPreset = 6;
-        tweenSynth->trigger2();
+        tweenSynth->catchTempVariables();
         guiBinaural->loadSettings("GUI/guiSettingsBinaural1.6.xml");
         guiTonic->loadSettings("GUI/guiSettingsTonic1.6.xml");
-        tweenSynth->catchTempVariables();
-        cout << " curPreset = " << curPreset << endl;
+        tweenSynth->trigger2();
 	}
     else if(name == "7"){
-        ofxUILabelButton *button = (ofxUILabelButton *) e.widget;
         curPreset = 7;
-        tweenSynth->trigger2();
+        tweenSynth->catchTempVariables();
         guiBinaural->loadSettings("GUI/guiSettingsBinaural1.7.xml");
         guiTonic->loadSettings("GUI/guiSettingsTonic1.7.xml");
-        tweenSynth->catchTempVariables();
-        cout << " curPreset = " << curPreset << endl;
+        tweenSynth->trigger2();
 	}
     else if(name == "8"){
-        ofxUILabelButton *button = (ofxUILabelButton *) e.widget;
         curPreset = 8;
-        tweenSynth->trigger2();
+        tweenSynth->catchTempVariables();
         guiBinaural->loadSettings("GUI/guiSettingsBinaural1.8.xml");
         guiTonic->loadSettings("GUI/guiSettingsTonic1.8.xml");
-        tweenSynth->catchTempVariables();
-        cout << " curPreset = " << curPreset << endl;
+        tweenSynth->trigger2();
 	}
     
     else if(name == "TWEEN_DURATION"){
@@ -352,73 +333,73 @@ void GuiBinaural::triggerSynthPreset1(int _value1){
     ofxUILabelButton *button = (ofxUILabelButton *) guiPresets->getWidget("1");
     button->setValue(_value1);
     curPreset = 1;
-    tweenSynth->trigger2();
+    tweenSynth->catchTempVariables();
     guiBinaural->loadSettings("GUI/guiSettingsBinaural1.1.xml");
     guiTonic->loadSettings("GUI/guiSettingsTonic1.1.xml");
-    tweenSynth->catchTempVariables();
+    tweenSynth->trigger2();
 }
 void GuiBinaural::triggerSynthPreset2(int _value1){
     ofxUILabelButton *button = (ofxUILabelButton *) guiPresets->getWidget("2");
     button->setValue(_value1);
     curPreset = 2;
-    tweenSynth->trigger2();
+    tweenSynth->catchTempVariables();
     guiBinaural->loadSettings("GUI/guiSettingsBinaural1.2.xml");
     guiTonic->loadSettings("GUI/guiSettingsTonic1.2.xml");
-    tweenSynth->catchTempVariables();
+    tweenSynth->trigger2();
 }
 void GuiBinaural::triggerSynthPreset3(int _value1){
     ofxUILabelButton *button = (ofxUILabelButton *) guiPresets->getWidget("3");
     button->setValue(_value1);
     curPreset = 3;
-    tweenSynth->trigger2();
+    tweenSynth->catchTempVariables();
     guiBinaural->loadSettings("GUI/guiSettingsBinaural1.3.xml");
     guiTonic->loadSettings("GUI/guiSettingsTonic1.3.xml");
-    tweenSynth->catchTempVariables();
+    tweenSynth->trigger2();
 }
 void GuiBinaural::triggerSynthPreset4(int _value1){
     ofxUILabelButton *button = (ofxUILabelButton *) guiPresets->getWidget("4");
     button->setValue(_value1);
     curPreset = 4;
-    tweenSynth->trigger2();
+    tweenSynth->catchTempVariables();
     guiBinaural->loadSettings("GUI/guiSettingsBinaural1.4.xml");
     guiTonic->loadSettings("GUI/guiSettingsTonic1.4.xml");
-    tweenSynth->catchTempVariables();
+    tweenSynth->trigger2();
 }
 void GuiBinaural::triggerSynthPreset5(int _value1){
     ofxUILabelButton *button = (ofxUILabelButton *) guiPresets->getWidget("5");
     button->setValue(_value1);
     curPreset = 5;
-    tweenSynth->trigger2();
+    tweenSynth->catchTempVariables();
     guiBinaural->loadSettings("GUI/guiSettingsBinaural1.5.xml");
     guiTonic->loadSettings("GUI/guiSettingsTonic1.5.xml");
-    tweenSynth->catchTempVariables();
+    tweenSynth->trigger2();
 }
 void GuiBinaural::triggerSynthPreset6(int _value1){
     ofxUILabelButton *button = (ofxUILabelButton *) guiPresets->getWidget("6");
     button->setValue(_value1);
     curPreset = 6;
-    tweenSynth->trigger2();
+    tweenSynth->catchTempVariables();
     guiBinaural->loadSettings("GUI/guiSettingsBinaural1.6.xml");
     guiTonic->loadSettings("GUI/guiSettingsTonic1.6.xml");
-    tweenSynth->catchTempVariables();
+    tweenSynth->trigger2();
 }
 void GuiBinaural::triggerSynthPreset7(int _value1){
     ofxUILabelButton *button = (ofxUILabelButton *) guiPresets->getWidget("7");
     button->setValue(_value1);
     curPreset = 7;
-    tweenSynth->trigger2();
+    tweenSynth->catchTempVariables();
     guiBinaural->loadSettings("GUI/guiSettingsBinaural1.7.xml");
     guiTonic->loadSettings("GUI/guiSettingsTonic1.7.xml");
-    tweenSynth->catchTempVariables();
+    tweenSynth->trigger2();
 }
 void GuiBinaural::triggerSynthPreset8(int _value1){
     ofxUILabelButton *button = (ofxUILabelButton *) guiPresets->getWidget("8");
     button->setValue(_value1);
     curPreset = 8;
-    tweenSynth->trigger2();
+    tweenSynth->catchTempVariables();
     guiBinaural->loadSettings("GUI/guiSettingsBinaural1.8.xml");
     guiTonic->loadSettings("GUI/guiSettingsTonic1.8.xml");
-    tweenSynth->catchTempVariables();
+    tweenSynth->trigger2();
 }
 //--------------------------------------------------------------
 void GuiBinaural::setBinVolume(float _value1){
@@ -509,7 +490,7 @@ vector<int> GuiBinaural::getToggleMatrixValues(string received_name , ofxUIEvent
     vresult.push_back(col);
     vresult.push_back((int)val);
     
-    cout << vresult[0] << " " <<vresult[1] <<" " << vresult[2] << endl;
+ //   cout << vresult[0] << " " <<vresult[1] <<" " << vresult[2] << endl;
     
     return vresult;
     

@@ -404,7 +404,6 @@ void Gui::setup(Tween *_tween1, Tween *_tween2, Tween *_tween3, Tween *_tween4, 
 void Gui::guiEvent(ofxUIEventArgs &e)
 {
 	string name = e.widget->getName();
-	int kind = e.widget->getKind();
 	
     /***********
 	 * AV MATRIX
@@ -417,8 +416,6 @@ void Gui::guiEvent(ofxUIEventArgs &e)
      row[0] = res[0];
      col[0] = res[1];
      val[0] = (bool) res[2];
-     
-     cout << e.widget->getName() << " <<<<<< " << row << " " << col << " " << val << endl;
      }
      else if(ofIsStringInString(e.widget->getName(), "GrainWindow1"))
      {
@@ -460,7 +457,7 @@ void Gui::guiEvent(ofxUIEventArgs &e)
          matrixTween->setToggle(2, 0, false);
          matrixTween->setToggle(3, 0, false);
          matrixTween->setToggle(4, 0, false);
-     } else if(row[0]==0 && col[0]==1 && val[0]==1){
+     } else if(row[0]==1 && col[0]==0 && val[0]==1){
          tween1->setEasingType(2);
          tween2->setEasingType(2);
          tween3->setEasingType(2);
@@ -469,7 +466,7 @@ void Gui::guiEvent(ofxUIEventArgs &e)
          matrixTween->setToggle(2, 0, false);
          matrixTween->setToggle(3, 0, false);
          matrixTween->setToggle(4, 0, false);
-     } else if(row[0]==0 && col[0]==2 && val[0]==1){
+     } else if(row[0]==2 && col[0]==0 && val[0]==1){
          tween1->setEasingType(3);
          tween2->setEasingType(3);
          tween3->setEasingType(3);
@@ -478,7 +475,7 @@ void Gui::guiEvent(ofxUIEventArgs &e)
          matrixTween->setToggle(1, 0, false);
          matrixTween->setToggle(3, 0, false);
          matrixTween->setToggle(4, 0, false);
-     } else if(row[0]==0 && col[0]==3 && val[0]==1){
+     } else if(row[0]==3 && col[0]==0 && val[0]==1){
          tween1->setEasingType(4);
          tween2->setEasingType(4);
          tween3->setEasingType(4);
@@ -487,7 +484,7 @@ void Gui::guiEvent(ofxUIEventArgs &e)
          matrixTween->setToggle(1, 0, false);
          matrixTween->setToggle(2, 0, false);
          matrixTween->setToggle(4, 0, false);
-     } else if(row[0]==0 && col[0]==4 && val[0]==1){
+     } else if(row[0]==4&& col[0]==0 && val[0]==1){
          tween1->setEasingType(5);
          tween2->setEasingType(5);
          tween3->setEasingType(5);
@@ -505,25 +502,25 @@ void Gui::guiEvent(ofxUIEventArgs &e)
         matrix1->setToggle(2, 0, false);
         matrix1->setToggle(3, 0, false);
         matrix1->setToggle(4, 0, false);
-    } else if(row[1]==0 && col[1]==1 && val[1]==1){
+    } else if(row[1]==1 && col[1]==0 && val[1]==1){
         audioSample1->setGrainWindow(1);
         matrix1->setToggle(0, 0, false);
         matrix1->setToggle(2, 0, false);
         matrix1->setToggle(3, 0, false);
         matrix1->setToggle(4, 0, false);
-    } else if(row[1]==0 && col[1]==2 && val[1]==1){
+    } else if(row[1]==2 && col[1]==0 && val[1]==1){
         audioSample1->setGrainWindow(2);
         matrix1->setToggle(0, 0, false);
         matrix1->setToggle(1, 0, false);
         matrix1->setToggle(3, 0, false);
         matrix1->setToggle(4, 0, false);
-    } else if(row[1]==0 && col[1]==3 && val[1]==1){
+    } else if(row[1]==3 && col[1]==0 && val[1]==1){
         audioSample1->setGrainWindow(3);
         matrix1->setToggle(0, 0, false);
         matrix1->setToggle(1, 0, false);
         matrix1->setToggle(2, 0, false);
         matrix1->setToggle(4, 0, false);
-    } else if(row[1]==0 && col[1]==4 && val[1]==1){
+    } else if(row[1]==4 && col[1]==0 && val[1]==1){
         audioSample1->setGrainWindow(4);
         matrix1->setToggle(0, 0, false);
         matrix1->setToggle(1, 0, false);
@@ -538,25 +535,25 @@ void Gui::guiEvent(ofxUIEventArgs &e)
         matrix2->setToggle(2, 0, false);
         matrix2->setToggle(3, 0, false);
         matrix2->setToggle(4, 0, false);
-    } else if(row[2]==0 && col[2]==1 && val[2]==1){
+    } else if(row[2]==1 && col[2]==0 && val[2]==1){
         audioSample2->setGrainWindow(1);
         matrix2->setToggle(0, 0, false);
         matrix2->setToggle(2, 0, false);
         matrix2->setToggle(3, 0, false);
         matrix2->setToggle(4, 0, false);
-    } else if(row[2]==0 && col[2]==2 && val[2]==1){
+    } else if(row[2]==2 && col[2]==0 && val[2]==1){
         audioSample2->setGrainWindow(2);
         matrix2->setToggle(0, 0, false);
         matrix2->setToggle(1, 0, false);
         matrix2->setToggle(3, 0, false);
         matrix2->setToggle(4, 0, false);
-    } else if(row[2]==0 && col[2]==3 && val[2]==1){
+    } else if(row[2]==3 && col[2]==0 && val[2]==1){
         audioSample2->setGrainWindow(3);
         matrix2->setToggle(0, 0, false);
         matrix2->setToggle(1, 0, false);
         matrix2->setToggle(2, 0, false);
         matrix2->setToggle(4, 0, false);
-    } else if(row[2]==0 && col[2]==4 && val[2]==1){
+    } else if(row[2]==4 && col[2]==0 && val[2]==1){
         audioSample2->setGrainWindow(4);
         matrix2->setToggle(0, 0, false);
         matrix2->setToggle(1, 0, false);
@@ -571,25 +568,25 @@ void Gui::guiEvent(ofxUIEventArgs &e)
         matrix3->setToggle(2, 0, false);
         matrix3->setToggle(3, 0, false);
         matrix3->setToggle(4, 0, false);
-    } else if(row[3]==0 && col[3]==1 && val[3]==1){
+    } else if(row[3]==1 && col[3]==0 && val[3]==1){
         audioSample3->setGrainWindow(1);
         matrix3->setToggle(0, 0, false);
         matrix3->setToggle(2, 0, false);
         matrix3->setToggle(3, 0, false);
         matrix3->setToggle(4, 0, false);
-    } else if(row[3]==0 && col[3]==2 && val[3]==1){
+    } else if(row[3]==2 && col[3]==0 && val[3]==1){
         audioSample3->setGrainWindow(2);
         matrix3->setToggle(0, 0, false);
         matrix3->setToggle(1, 0, false);
         matrix3->setToggle(3, 0, false);
         matrix3->setToggle(4, 0, false);
-    } else if(row[3]==0 && col[3]==3 && val[3]==1){
+    } else if(row[3]==3 && col[3]==0 && val[3]==1){
         audioSample3->setGrainWindow(3);
         matrix3->setToggle(0, 0, false);
         matrix3->setToggle(1, 0, false);
         matrix3->setToggle(2, 0, false);
         matrix3->setToggle(4, 0, false);
-    } else if(row[3]==0 && col[3]==4 && val[3]==1){
+    } else if(row[3]==4 && col[3]==0 && val[3]==1){
         audioSample3->setGrainWindow(4);
         matrix3->setToggle(0, 0, false);
         matrix3->setToggle(1, 0, false);
@@ -604,25 +601,25 @@ void Gui::guiEvent(ofxUIEventArgs &e)
         matrix4->setToggle(2, 0, false);
         matrix4->setToggle(3, 0, false);
         matrix4->setToggle(4, 0, false);
-    } else if(row[4]==0 && col[4]==1 && val[4]==1){
+    } else if(row[4]==1 && col[4]==0 && val[4]==1){
         audioSample4->setGrainWindow(1);
         matrix4->setToggle(0, 0, false);
         matrix4->setToggle(2, 0, false);
         matrix4->setToggle(3, 0, false);
         matrix4->setToggle(4, 0, false);
-    } else if(row[4]==0 && col[4]==2 && val[4]==1){
+    } else if(row[4]==2 && col[4]==0 && val[4]==1){
         audioSample4->setGrainWindow(2);
         matrix4->setToggle(0, 0, false);
         matrix4->setToggle(1, 0, false);
         matrix4->setToggle(3, 0, false);
         matrix4->setToggle(4, 0, false);
-    } else if(row[4]==0 && col[4]==3 && val[4]==1){
+    } else if(row[4]==3 && col[4]==0 && val[4]==1){
         audioSample4->setGrainWindow(3);
         matrix4->setToggle(0, 0, false);
         matrix4->setToggle(1, 0, false);
         matrix4->setToggle(2, 0, false);
         matrix4->setToggle(4, 0, false);
-    } else if(row[4]==0 && col[4]==4 && val[4]==1){
+    } else if(row[4]==4 && col[4]==0 && val[4]==1){
         audioSample4->setGrainWindow(4);
         matrix4->setToggle(0, 0, false);
         matrix4->setToggle(1, 0, false);
@@ -691,148 +688,140 @@ void Gui::guiEvent(ofxUIEventArgs &e)
 
 
     else if(name == "1"){
-        ofxUILabelButton *button = (ofxUILabelButton *) e.widget;
         curPreset = 1;
-        tween1->trigger2();
-        tween2->trigger2();
-        tween3->trigger2();
-        tween4->trigger2();
+
+        tween1->catchTempVariables();
+        tween2->catchTempVariables();
+        tween3->catchTempVariables();
+        tween4->catchTempVariables();
         gui1->loadSettings("GUI/guiSettingsVolume.1.xml");
         gui2->loadSettings("GUI/guiSettingsAudio1.1.xml");
         gui3->loadSettings("GUI/guiSettingsAudio2.1.xml");
         gui4->loadSettings("GUI/guiSettingsAudio3.1.xml");
         gui5->loadSettings("GUI/guiSettingsAudio4.1.xml");
-        tween1->catchTempVariables();
-        tween2->catchTempVariables();
-        tween3->catchTempVariables();
-        tween4->catchTempVariables();
-        cout << " curPreset = " << curPreset << endl;
-	}
-    else if(name == "2"){
-        ofxUILabelButton *button = (ofxUILabelButton *) e.widget;
-        curPreset = 2;
         tween1->trigger2();
         tween2->trigger2();
         tween3->trigger2();
         tween4->trigger2();
+	}
+    else if(name == "2"){
+        curPreset = 2;
+
+        tween1->catchTempVariables();
+        tween2->catchTempVariables();
+        tween3->catchTempVariables();
+        tween4->catchTempVariables();
         gui1->loadSettings("GUI/guiSettingsVolume.2.xml");
         gui2->loadSettings("GUI/guiSettingsAudio1.2.xml");
         gui3->loadSettings("GUI/guiSettingsAudio2.2.xml");
         gui4->loadSettings("GUI/guiSettingsAudio3.2.xml");
         gui5->loadSettings("GUI/guiSettingsAudio4.2.xml");
-        tween1->catchTempVariables();
-        tween2->catchTempVariables();
-        tween3->catchTempVariables();
-        tween4->catchTempVariables();
-        cout << " curPreset = " << curPreset << endl;
-	}
-    else if(name == "3"){
-        ofxUILabelButton *button = (ofxUILabelButton *) e.widget;
-        curPreset = 3;
         tween1->trigger2();
         tween2->trigger2();
         tween3->trigger2();
         tween4->trigger2();
+	}
+    else if(name == "3"){
+        curPreset = 3;
+
+        tween1->catchTempVariables();
+        tween2->catchTempVariables();
+        tween3->catchTempVariables();
+        tween4->catchTempVariables();
         gui1->loadSettings("GUI/guiSettingsVolume.3.xml");
         gui2->loadSettings("GUI/guiSettingsAudio1.3.xml");
         gui3->loadSettings("GUI/guiSettingsAudio2.3.xml");
         gui4->loadSettings("GUI/guiSettingsAudio3.3.xml");
         gui5->loadSettings("GUI/guiSettingsAudio4.3.xml");
-        tween1->catchTempVariables();
-        tween2->catchTempVariables();
-        tween3->catchTempVariables();
-        tween4->catchTempVariables();
-        cout << " curPreset = " << curPreset << endl;
-	}
-    else if(name == "4"){
-        ofxUILabelButton *button = (ofxUILabelButton *) e.widget;
-        curPreset = 4;
         tween1->trigger2();
         tween2->trigger2();
         tween3->trigger2();
         tween4->trigger2();
+	}
+    else if(name == "4"){
+        curPreset = 4;
+
+        tween1->catchTempVariables();
+        tween2->catchTempVariables();
+        tween3->catchTempVariables();
+        tween4->catchTempVariables();
         gui1->loadSettings("GUI/guiSettingsVolume.4.xml");
         gui2->loadSettings("GUI/guiSettingsAudio1.4.xml");
         gui3->loadSettings("GUI/guiSettingsAudio2.4.xml");
         gui4->loadSettings("GUI/guiSettingsAudio3.4.xml");
         gui5->loadSettings("GUI/guiSettingsAudio4.4.xml");
-        tween1->catchTempVariables();
-        tween2->catchTempVariables();
-        tween3->catchTempVariables();
-        tween4->catchTempVariables();
-        cout << " curPreset = " << curPreset << endl;
-	}
-    else if(name == "5"){
-        ofxUILabelButton *button = (ofxUILabelButton *) e.widget;
-        curPreset = 5;
         tween1->trigger2();
         tween2->trigger2();
         tween3->trigger2();
         tween4->trigger2();
+	}
+    else if(name == "5"){
+        curPreset = 5;
+
+        tween1->catchTempVariables();
+        tween2->catchTempVariables();
+        tween3->catchTempVariables();
+        tween4->catchTempVariables();
         gui1->loadSettings("GUI/guiSettingsVolume.5.xml");
         gui2->loadSettings("GUI/guiSettingsAudio1.5.xml");
         gui3->loadSettings("GUI/guiSettingsAudio2.5.xml");
         gui4->loadSettings("GUI/guiSettingsAudio3.5.xml");
         gui5->loadSettings("GUI/guiSettingsAudio4.5.xml");
-        tween1->catchTempVariables();
-        tween2->catchTempVariables();
-        tween3->catchTempVariables();
-        tween4->catchTempVariables();
-        cout << " curPreset = " << curPreset << endl;
-	}
-    else if(name == "6"){
-        ofxUILabelButton *button = (ofxUILabelButton *) e.widget;
-        curPreset = 6;
         tween1->trigger2();
         tween2->trigger2();
         tween3->trigger2();
         tween4->trigger2();
+	}
+    else if(name == "6"){
+        curPreset = 6;
+
+        tween1->catchTempVariables();
+        tween2->catchTempVariables();
+        tween3->catchTempVariables();
+        tween4->catchTempVariables();
         gui1->loadSettings("GUI/guiSettingsVolume.6.xml");
         gui2->loadSettings("GUI/guiSettingsAudio1.6.xml");
         gui3->loadSettings("GUI/guiSettingsAudio2.6.xml");
         gui4->loadSettings("GUI/guiSettingsAudio3.6.xml");
         gui5->loadSettings("GUI/guiSettingsAudio4.6.xml");
-        tween1->catchTempVariables();
-        tween2->catchTempVariables();
-        tween3->catchTempVariables();
-        tween4->catchTempVariables();
-        cout << " curPreset = " << curPreset << endl;
-	}
-    else if(name == "7"){
-        ofxUILabelButton *button = (ofxUILabelButton *) e.widget;
-        curPreset = 7;
         tween1->trigger2();
         tween2->trigger2();
         tween3->trigger2();
         tween4->trigger2();
+	}
+    else if(name == "7"){
+        curPreset = 7;
+
+        tween1->catchTempVariables();
+        tween2->catchTempVariables();
+        tween3->catchTempVariables();
+        tween4->catchTempVariables();
         gui1->loadSettings("GUI/guiSettingsVolume.7.xml");
         gui2->loadSettings("GUI/guiSettingsAudio1.7.xml");
         gui3->loadSettings("GUI/guiSettingsAudio2.7.xml");
         gui4->loadSettings("GUI/guiSettingsAudio3.7.xml");
         gui5->loadSettings("GUI/guiSettingsAudio4.7.xml");
-        tween1->catchTempVariables();
-        tween2->catchTempVariables();
-        tween3->catchTempVariables();
-        tween4->catchTempVariables();
-        cout << " curPreset = " << curPreset << endl;
-	}
-    else if(name == "8"){
-        ofxUILabelButton *button = (ofxUILabelButton *) e.widget;
-        curPreset = 8;
         tween1->trigger2();
         tween2->trigger2();
         tween3->trigger2();
         tween4->trigger2();
+	}
+    else if(name == "8"){
+        curPreset = 8;
+
+        tween1->catchTempVariables();
+        tween2->catchTempVariables();
+        tween3->catchTempVariables();
+        tween4->catchTempVariables();
         gui1->loadSettings("GUI/guiSettingsVolume.8.xml");
         gui2->loadSettings("GUI/guiSettingsAudio1.8.xml");
         gui3->loadSettings("GUI/guiSettingsAudio2.8.xml");
         gui4->loadSettings("GUI/guiSettingsAudio3.8.xml");
         gui5->loadSettings("GUI/guiSettingsAudio4.8.xml");
-        tween1->catchTempVariables();
-        tween2->catchTempVariables();
-        tween3->catchTempVariables();
-        tween4->catchTempVariables();
-        cout << " curPreset = " << curPreset << endl;
+        tween1->trigger2();
+        tween2->trigger2();
+        tween3->trigger2();
+        tween4->trigger2();
 	}
     
     else if(name == "TWEEN_DURATION"){
@@ -1524,145 +1513,150 @@ void Gui::triggerPreset1(int _value1){
     ofxUILabelButton *button = (ofxUILabelButton *) gui7->getWidget("1");
     button->setValue(_value1);
     curPreset = 1;
-    tween1->trigger2();
-    tween2->trigger2();
-    tween3->trigger2();
-    tween4->trigger2();
+
+    tween1->catchTempVariables();
+    tween2->catchTempVariables();
+    tween3->catchTempVariables();
+    tween4->catchTempVariables();
     gui1->loadSettings("GUI/guiSettingsVolume.1.xml");
     gui2->loadSettings("GUI/guiSettingsAudio1.1.xml");
     gui3->loadSettings("GUI/guiSettingsAudio2.1.xml");
     gui4->loadSettings("GUI/guiSettingsAudio3.1.xml");
     gui5->loadSettings("GUI/guiSettingsAudio4.1.xml");
-    tween1->catchTempVariables();
-    tween2->catchTempVariables();
-    tween3->catchTempVariables();
-    tween4->catchTempVariables();
+    tween1->trigger2();
+    tween2->trigger2();
+    tween3->trigger2();
+    tween4->trigger2();
+
 }
 void Gui::triggerPreset2(int _value1){
     ofxUILabelButton *button = (ofxUILabelButton *) gui7->getWidget("2");
     button->setValue(_value1);
     curPreset = 2;
-    tween1->trigger2();
-    tween2->trigger2();
-    tween3->trigger2();
-    tween4->trigger2();
+    
+    tween1->catchTempVariables();
+    tween2->catchTempVariables();
+    tween3->catchTempVariables();
+    tween4->catchTempVariables();
     gui1->loadSettings("GUI/guiSettingsVolume.2.xml");
     gui2->loadSettings("GUI/guiSettingsAudio1.2.xml");
     gui3->loadSettings("GUI/guiSettingsAudio2.2.xml");
     gui4->loadSettings("GUI/guiSettingsAudio3.2.xml");
     gui5->loadSettings("GUI/guiSettingsAudio4.2.xml");
-    tween1->catchTempVariables();
-    tween2->catchTempVariables();
-    tween3->catchTempVariables();
-    tween4->catchTempVariables();
+    tween1->trigger2();
+    tween2->trigger2();
+    tween3->trigger2();
+    tween4->trigger2();
+
 }
 void Gui::triggerPreset3(int _value1){
     ofxUILabelButton *button = (ofxUILabelButton *) gui7->getWidget("3");
     button->setValue(_value1);
     curPreset = 3;
-    tween1->trigger2();
-    tween2->trigger2();
-    tween3->trigger2();
-    tween4->trigger2();
+    tween1->catchTempVariables();
+    tween2->catchTempVariables();
+    tween3->catchTempVariables();
+    tween4->catchTempVariables();
     gui1->loadSettings("GUI/guiSettingsVolume.3.xml");
     gui2->loadSettings("GUI/guiSettingsAudio1.3.xml");
     gui3->loadSettings("GUI/guiSettingsAudio2.3.xml");
     gui4->loadSettings("GUI/guiSettingsAudio3.3.xml");
     gui5->loadSettings("GUI/guiSettingsAudio4.3.xml");
-    tween1->catchTempVariables();
-    tween2->catchTempVariables();
-    tween3->catchTempVariables();
-    tween4->catchTempVariables();
+    tween1->trigger2();
+    tween2->trigger2();
+    tween3->trigger2();
+    tween4->trigger2();
 }
 void Gui::triggerPreset4(int _value1){
     ofxUILabelButton *button = (ofxUILabelButton *) gui7->getWidget("4");
     button->setValue(_value1);
     curPreset = 4;
-    tween1->trigger2();
-    tween2->trigger2();
-    tween3->trigger2();
-    tween4->trigger2();
+    tween1->catchTempVariables();
+    tween2->catchTempVariables();
+    tween3->catchTempVariables();
+    tween4->catchTempVariables();
     gui1->loadSettings("GUI/guiSettingsVolume.4.xml");
     gui2->loadSettings("GUI/guiSettingsAudio1.4.xml");
     gui3->loadSettings("GUI/guiSettingsAudio2.4.xml");
     gui4->loadSettings("GUI/guiSettingsAudio3.4.xml");
     gui5->loadSettings("GUI/guiSettingsAudio4.4.xml");
-    tween1->catchTempVariables();
-    tween2->catchTempVariables();
-    tween3->catchTempVariables();
-    tween4->catchTempVariables();
+    tween1->trigger2();
+    tween2->trigger2();
+    tween3->trigger2();
+    tween4->trigger2();
 }
 void Gui::triggerPreset5(int _value1){
     ofxUILabelButton *button = (ofxUILabelButton *) gui7->getWidget("5");
     button->setValue(_value1);
     curPreset = 5;
-    tween1->trigger2();
-    tween2->trigger2();
-    tween3->trigger2();
-    tween4->trigger2();
+    tween1->catchTempVariables();
+    tween2->catchTempVariables();
+    tween3->catchTempVariables();
+    tween4->catchTempVariables();
     gui1->loadSettings("GUI/guiSettingsVolume.5.xml");
     gui2->loadSettings("GUI/guiSettingsAudio1.5.xml");
     gui3->loadSettings("GUI/guiSettingsAudio2.5.xml");
     gui4->loadSettings("GUI/guiSettingsAudio3.5.xml");
     gui5->loadSettings("GUI/guiSettingsAudio4.5.xml");
-    tween1->catchTempVariables();
-    tween2->catchTempVariables();
-    tween3->catchTempVariables();
-    tween4->catchTempVariables();
+    tween1->trigger2();
+    tween2->trigger2();
+    tween3->trigger2();
+    tween4->trigger2();
 }
 void Gui::triggerPreset6(int _value1){
     ofxUILabelButton *button = (ofxUILabelButton *) gui7->getWidget("6");
     button->setValue(_value1);
     curPreset = 6;
-    tween1->trigger2();
-    tween2->trigger2();
-    tween3->trigger2();
-    tween4->trigger2();
+    tween1->catchTempVariables();
+    tween2->catchTempVariables();
+    tween3->catchTempVariables();
+    tween4->catchTempVariables();
     gui1->loadSettings("GUI/guiSettingsVolume.6.xml");
     gui2->loadSettings("GUI/guiSettingsAudio1.6.xml");
     gui3->loadSettings("GUI/guiSettingsAudio2.6.xml");
     gui4->loadSettings("GUI/guiSettingsAudio3.6.xml");
     gui5->loadSettings("GUI/guiSettingsAudio4.6.xml");
-    tween1->catchTempVariables();
-    tween2->catchTempVariables();
-    tween3->catchTempVariables();
-    tween4->catchTempVariables();
+    tween1->trigger2();
+    tween2->trigger2();
+    tween3->trigger2();
+    tween4->trigger2();
 }
 void Gui::triggerPreset7(int _value1){
     ofxUILabelButton *button = (ofxUILabelButton *) gui7->getWidget("7");
     button->setValue(_value1);
     curPreset = 7;
-    tween1->trigger2();
-    tween2->trigger2();
-    tween3->trigger2();
-    tween4->trigger2();
+    tween1->catchTempVariables();
+    tween2->catchTempVariables();
+    tween3->catchTempVariables();
+    tween4->catchTempVariables();
     gui1->loadSettings("GUI/guiSettingsVolume.7.xml");
     gui2->loadSettings("GUI/guiSettingsAudio1.7.xml");
     gui3->loadSettings("GUI/guiSettingsAudio2.7.xml");
     gui4->loadSettings("GUI/guiSettingsAudio3.7.xml");
     gui5->loadSettings("GUI/guiSettingsAudio4.7.xml");
-    tween1->catchTempVariables();
-    tween2->catchTempVariables();
-    tween3->catchTempVariables();
-    tween4->catchTempVariables();
+    tween1->trigger2();
+    tween2->trigger2();
+    tween3->trigger2();
+    tween4->trigger2();
 }
 void Gui::triggerPreset8(int _value1){
     ofxUILabelButton *button = (ofxUILabelButton *) gui7->getWidget("8");
     button->setValue(_value1);
     curPreset = 8;
-    tween1->trigger2();
-    tween2->trigger2();
-    tween3->trigger2();
-    tween4->trigger2();
+
+    tween1->catchTempVariables();
+    tween2->catchTempVariables();
+    tween3->catchTempVariables();
+    tween4->catchTempVariables();
     gui1->loadSettings("GUI/guiSettingsVolume.8.xml");
     gui2->loadSettings("GUI/guiSettingsAudio1.8.xml");
     gui3->loadSettings("GUI/guiSettingsAudio2.8.xml");
     gui4->loadSettings("GUI/guiSettingsAudio3.8.xml");
     gui5->loadSettings("GUI/guiSettingsAudio4.8.xml");
-    tween1->catchTempVariables();
-    tween2->catchTempVariables();
-    tween3->catchTempVariables();
-    tween4->catchTempVariables();
+    tween1->trigger2();
+    tween2->trigger2();
+    tween3->trigger2();
+    tween4->trigger2();
 }
 
 //--------------------------------------------------------------
@@ -2025,7 +2019,7 @@ vector<int> Gui::getToggleMatrixValues(string received_name , ofxUIEventArgs &e)
     vresult.push_back(col);
     vresult.push_back((int)val);
     
-    cout << vresult[0] << " " <<vresult[1] <<" " << vresult[2] << endl;
+    //cout << vresult[0] << " " <<vresult[1] <<" " << vresult[2] << endl;
     
     return vresult;
     
