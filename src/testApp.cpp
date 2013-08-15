@@ -23,7 +23,7 @@ void testApp::setup(){
     loadBox4Y = 10;
     
     audioTonic.setup();
-    audioBinaural.setup();
+    audioTonicBinaural.setup();
     audioSample1.setup("shamanic_drum_short.wav");
     audioSample2.setup("icaros2.wav");
     audioSample3.setup("singing_bells.wav");
@@ -31,22 +31,23 @@ void testApp::setup(){
 
     
     mixer.addInputFrom(&audioTonic);
-    mixer.addInputFrom(&audioBinaural);
+//    mixer.addInputFrom(&audioBinaural);
+    mixer.addInputFrom(&audioTonicBinaural);
     mixer.addInputFrom(&audioSample1);
     mixer.addInputFrom(&audioSample2);
     mixer.addInputFrom(&audioSample3);
     mixer.addInputFrom(&audioSample4);
     
-    tweenSynth.setup(&audioBinaural, &audioTonic);
+    tweenSynth.setup(&audioTonicBinaural, &audioTonic);
     tween1.setup(&audioSample1);
     tween2.setup(&audioSample2);
     tween3.setup(&audioSample3);
     tween4.setup(&audioSample4);
     
     gui.setup(&tween1, &tween2, &tween3, &tween4, &audioSample1, &audioSample2, &audioSample3, &audioSample4);
-    guiBinaural.setup(&tweenSynth, &audioBinaural, &audioTonic);
+    guiBinaural.setup(&tweenSynth, &audioTonicBinaural, &audioTonic);
     guiSampleLoad.setup(&audioSample1, &audioSample2, &audioSample3, &audioSample4);
-    timeline.setup(&gui, &guiBinaural, &audioSample1, &audioSample2, &audioSample3, &audioSample4, &audioBinaural);
+    timeline.setup(&gui, &guiBinaural, &audioSample1, &audioSample2, &audioSample3, &audioSample4, &audioTonicBinaural);
     
     soundStream.setup(2, 0, sampleRate, bufferSize, 4);
     
@@ -156,7 +157,7 @@ void testApp::draw(){
 	ofFill();
     
     shader.begin();
-    shader.setUniform1f("time", ofGetElapsedTimef()*(audioBinaural.osc2Pitch * 6.0) );
+    shader.setUniform1f("time", ofGetElapsedTimef()*(audioTonicBinaural.CarrierOffset * 6.0) );
     shader.setUniform2f("resolution", ofGetWidth() , ofGetHeight() ) ;
     shader.setUniform2f("mouse", 0.5, mouseY/ofGetHeight());
     shader.setUniform1f("direction", ofMap(mouseY,0,ofGetHeight(),0.0,3.0) );
@@ -175,7 +176,7 @@ void testApp::draw(){
     // speed = 1-100;
     shaderOptical.begin();
     shaderOptical.setUniform1f("iGlobalTime", ofGetElapsedTimef() );
-    shaderOptical.setUniform1f("speed", audioBinaural.osc2Pitch * 6.0 );
+    shaderOptical.setUniform1f("speed", audioTonicBinaural.CarrierOffset * 6.0 );
     shaderOptical.setUniform2f("iResolution", ofGetWidth() , ofGetHeight() ) ;
     shaderOptical.setUniform1f("direction", ofMap(mouseY,0,ofGetHeight(),0.0,3.0) );
     

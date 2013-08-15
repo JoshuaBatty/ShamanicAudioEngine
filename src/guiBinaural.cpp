@@ -17,7 +17,7 @@ GuiBinaural::~GuiBinaural() {
 }
 
 //--------------------------------------------------------------
-void GuiBinaural::setup(TweenSynth *_tweenSynth, AudioBinaural *_audioBinaural, AudioTonic *_audioTonic)
+void GuiBinaural::setup(TweenSynth *_tweenSynth, AudioTonicBinaural *_audioTonicBinaural, AudioTonic *_audioTonic)
 {
     curPreset = 1;
     guiOffset = 50;
@@ -26,7 +26,7 @@ void GuiBinaural::setup(TweenSynth *_tweenSynth, AudioBinaural *_audioBinaural, 
     
     tweenSynth = _tweenSynth;
     audioTonic = _audioTonic;
-    audioBinaural = _audioBinaural;
+    audioTonicBinaural = _audioTonicBinaural;
 
     float dim = 16;
     float xInit = OFX_UI_GLOBAL_WIDGET_SPACING;
@@ -40,9 +40,9 @@ void GuiBinaural::setup(TweenSynth *_tweenSynth, AudioBinaural *_audioBinaural, 
     guiBinaural->addSpacer(length, dim/5);
     
     guiBinaural->addLabel("BINARUAL");
-    guiBinaural->addWidgetDown(new ofxUIRotarySlider(guiWidth*3, 30.0, 300.0, audioBinaural->osc1Pitch,"CarrierPitch"));
-    guiBinaural->addWidgetRight(new ofxUIRotarySlider(guiWidth*3, 0.0, 14.0, audioBinaural->osc2Pitch,"CarrierOffset"));
-    guiBinaural->addWidgetRight(new ofxUIRotarySlider(guiWidth*3, 0.0, 1.0, audioBinaural->volume,"Binaural_B"));
+    guiBinaural->addWidgetDown(new ofxUIRotarySlider(guiWidth*3, 30.0, 300.0, audioTonicBinaural->CarrierPitch,"CarrierPitch"));
+    guiBinaural->addWidgetRight(new ofxUIRotarySlider(guiWidth*3, 0.0, 14.0, audioTonicBinaural->CarrierOffset,"CarrierOffset"));
+    guiBinaural->addWidgetRight(new ofxUIRotarySlider(guiWidth*3, -60.0, 0.0, audioTonicBinaural->Volume,"Binaural_B"));
     //guiBinaural->addSlider("Binaural_B", 0.0, 1.0, audioBinaural->volume, 270, guiWidth);
     guiBinaural->addSpacer(length, dim/5);
     
@@ -262,17 +262,20 @@ void GuiBinaural::guiEvent(ofxUIEventArgs &e)
     else if(name == "CarrierPitch")
 	{
 		ofxUISlider *slider = (ofxUISlider *) e.widget;
-		audioBinaural->osc1Pitch = slider->getScaledValue();
+		audioTonicBinaural->CarrierPitch = slider->getScaledValue();
+        audioTonicBinaural->triggerFMparams();
 	}
     else if(name == "CarrierOffset")
 	{
 		ofxUISlider *slider = (ofxUISlider *) e.widget;
-		audioBinaural->osc2Pitch = slider->getScaledValue();
+		audioTonicBinaural->CarrierOffset = slider->getScaledValue();
+        audioTonicBinaural->triggerFMparams();
 	}
     else if(name == "Binaural_B")
 	{
 		ofxUISlider *slider = (ofxUISlider *) e.widget;
-		audioBinaural->volume = slider->getScaledValue();
+		audioTonicBinaural->Volume = slider->getScaledValue();
+        audioTonicBinaural->triggerFMparams();
 	}
 
     
@@ -405,17 +408,20 @@ void GuiBinaural::triggerSynthPreset8(int _value1){
 void GuiBinaural::setBinVolume(float _value1){
     ofxUISlider *slider = (ofxUISlider *) guiBinaural->getWidget("Binaural_B");
     slider->setValue(_value1);
-    audioBinaural->volume = slider->getScaledValue();
+    audioTonicBinaural->Volume = slider->getScaledValue();
+    audioTonicBinaural->triggerFMparams();
 }
 void GuiBinaural::setBinPitch(float _value1){
     ofxUISlider *slider = (ofxUISlider *) guiBinaural->getWidget("CarrierPitch");
     slider->setValue(_value1);
-    audioBinaural->osc1Pitch = slider->getScaledValue();
+    audioTonicBinaural->CarrierPitch = slider->getScaledValue();
+    audioTonicBinaural->triggerFMparams();
 }
 void GuiBinaural::setBinOffset(float _value1){
     ofxUISlider *slider = (ofxUISlider *) guiBinaural->getWidget("CarrierOffset");
     slider->setValue(_value1);
-    audioBinaural->osc2Pitch = slider->getScaledValue();
+    audioTonicBinaural->CarrierOffset = slider->getScaledValue();
+    audioTonicBinaural->triggerFMparams();
 }
 
 //--------------------------------------------------------------

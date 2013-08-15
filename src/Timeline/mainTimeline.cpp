@@ -10,11 +10,11 @@
 
 
 //--------------------------------------------------------------
-void MainTimeline::setup(Gui *gui, GuiBinaural *_guiBinaural, AudioSampler *_audioSampler1, AudioSampler *_audioSampler2, AudioSampler *_audioSampler3, AudioSampler *_audioSampler4, AudioBinaural *_audioBinaural){
+void MainTimeline::setup(Gui *gui, GuiBinaural *_guiBinaural, AudioSampler *_audioSampler1, AudioSampler *_audioSampler2, AudioSampler *_audioSampler3, AudioSampler *_audioSampler4, AudioTonicBinaural *_audioTonicBinaural){
     
     Mgui = gui;
     MguiBinaural = _guiBinaural;
-    audioBinaural = _audioBinaural;
+    audioTonicBinaural = _audioTonicBinaural;
     audioSampler1 = _audioSampler1;
     audioSampler2 = _audioSampler2;
     audioSampler3 = _audioSampler3;

@@ -15,6 +15,7 @@
 		0377758717B09C2B00982A5C /* optical.vert in Sources */ = {isa = PBXBuildFile; fileRef = 0377758317B09C2B00982A5C /* optical.vert */; };
 		0377758817B09C2B00982A5C /* strobe.frag in Sources */ = {isa = PBXBuildFile; fileRef = 0377758417B09C2B00982A5C /* strobe.frag */; };
 		0377758917B09C2B00982A5C /* strobe.vert in Sources */ = {isa = PBXBuildFile; fileRef = 0377758517B09C2B00982A5C /* strobe.vert */; };
+		037DBD1417BC903400C2359E /* AudioTonicBinaural.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 037DBD1217BC903400C2359E /* AudioTonicBinaural.cpp */; };
 		0387541B17B12D7500A4F744 /* waves.frag in Sources */ = {isa = PBXBuildFile; fileRef = 0387541917B12D7500A4F744 /* waves.frag */; };
 		0387541C17B12D7500A4F744 /* waves.vert in Sources */ = {isa = PBXBuildFile; fileRef = 0387541A17B12D7500A4F744 /* waves.vert */; };
 		03AB379117687F0100275AEC /* kiss_fft.c in Sources */ = {isa = PBXBuildFile; fileRef = 03AB373E17687F0100275AEC /* kiss_fft.c */; };
@@ -55,7 +56,6 @@
 		03C46CFD17661CFA007EB818 /* allpass.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 03C46CE817661CFA007EB818 /* allpass.cpp */; };
 		03C46CFE17661CFA007EB818 /* comb.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 03C46CEA17661CFA007EB818 /* comb.cpp */; };
 		03C46CFF17661CFA007EB818 /* revmodel.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 03C46CED17661CFA007EB818 /* revmodel.cpp */; };
-		03C46D1517661D4C007EB818 /* audioBinaural.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 03C46D0417661D4C007EB818 /* audioBinaural.cpp */; };
 		03C46D1617661D4C007EB818 /* audioSample.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 03C46D0617661D4C007EB818 /* audioSample.cpp */; };
 		03C46D1717661D4C007EB818 /* gui.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 03C46D0817661D4C007EB818 /* gui.cpp */; };
 		03C46D1817661D4C007EB818 /* livid.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 03C46D0B17661D4C007EB818 /* livid.cpp */; };
@@ -248,6 +248,8 @@
 		0377758317B09C2B00982A5C /* optical.vert */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.glsl; path = optical.vert; sourceTree = "<group>"; };
 		0377758417B09C2B00982A5C /* strobe.frag */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.glsl; path = strobe.frag; sourceTree = "<group>"; };
 		0377758517B09C2B00982A5C /* strobe.vert */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.glsl; path = strobe.vert; sourceTree = "<group>"; };
+		037DBD1217BC903400C2359E /* AudioTonicBinaural.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = AudioTonicBinaural.cpp; sourceTree = "<group>"; };
+		037DBD1317BC903400C2359E /* AudioTonicBinaural.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AudioTonicBinaural.h; sourceTree = "<group>"; };
 		0387541917B12D7500A4F744 /* waves.frag */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.glsl; path = waves.frag; sourceTree = "<group>"; };
 		0387541A17B12D7500A4F744 /* waves.vert */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.glsl; path = waves.vert; sourceTree = "<group>"; };
 		03AB373A17687F0100275AEC /* kiss_fft.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = kiss_fft.h; sourceTree = "<group>"; };
@@ -339,8 +341,6 @@
 		03C46CEF17661CFA007EB818 /* tuning.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = tuning.h; sourceTree = "<group>"; };
 		03C46CF917661CFA007EB818 /* README.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = README.txt; sourceTree = "<group>"; };
 		03C46CFB17661CFA007EB818 /* ofxDSP.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ofxDSP.h; sourceTree = "<group>"; };
-		03C46D0417661D4C007EB818 /* audioBinaural.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = audioBinaural.cpp; sourceTree = "<group>"; };
-		03C46D0517661D4C007EB818 /* audioBinaural.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = audioBinaural.h; sourceTree = "<group>"; };
 		03C46D0617661D4C007EB818 /* audioSample.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = audioSample.cpp; sourceTree = "<group>"; };
 		03C46D0717661D4C007EB818 /* audioSample.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = audioSample.h; sourceTree = "<group>"; };
 		03C46D0817661D4C007EB818 /* gui.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = gui.cpp; sourceTree = "<group>"; };
@@ -1764,8 +1764,8 @@
 				E4B69E1F0A3A1BDC003C02F2 /* testApp.h */,
 				03581BC017A6767B00E149AE /* AudioTonic.cpp */,
 				03581BC117A6767B00E149AE /* AudioTonic.h */,
-				03C46D0417661D4C007EB818 /* audioBinaural.cpp */,
-				03C46D0517661D4C007EB818 /* audioBinaural.h */,
+				037DBD1217BC903400C2359E /* AudioTonicBinaural.cpp */,
+				037DBD1317BC903400C2359E /* AudioTonicBinaural.h */,
 				03C46D0617661D4C007EB818 /* audioSample.cpp */,
 				03C46D0717661D4C007EB818 /* audioSample.h */,
 				03416ABA17B78ACA00FCDF39 /* guiSampleLoad.cpp */,
@@ -2174,7 +2174,6 @@
 				03C46CFD17661CFA007EB818 /* allpass.cpp in Sources */,
 				03C46CFE17661CFA007EB818 /* comb.cpp in Sources */,
 				03C46CFF17661CFA007EB818 /* revmodel.cpp in Sources */,
-				03C46D1517661D4C007EB818 /* audioBinaural.cpp in Sources */,
 				03C46D1617661D4C007EB818 /* audioSample.cpp in Sources */,
 				03C46D1717661D4C007EB818 /* gui.cpp in Sources */,
 				03C46D1817661D4C007EB818 /* livid.cpp in Sources */,
@@ -2285,6 +2284,7 @@
 				0387541B17B12D7500A4F744 /* waves.frag in Sources */,
 				0387541C17B12D7500A4F744 /* waves.vert in Sources */,
 				03416ABC17B78ACA00FCDF39 /* guiSampleLoad.cpp in Sources */,
+				037DBD1417BC903400C2359E /* AudioTonicBinaural.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

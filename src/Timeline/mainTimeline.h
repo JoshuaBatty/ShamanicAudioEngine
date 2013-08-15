@@ -11,7 +11,7 @@
 #include "gui.h"
 #include "guiBinaural.h"
 #include "ofxTLAudioTrack.h"
-#include "audioBinaural.h"
+#include "audioTonicBinaural.h"
 #include "audioSample.h"
 
 #ifndef _MAINTIMELINE
@@ -22,7 +22,7 @@ class MainTimeline {
 	
 	public :
 	
-	void setup(Gui *gui, GuiBinaural *_guiBinaural, AudioSampler *_audioSampler1, AudioSampler *_audioSampler2, AudioSampler *_audioSampler3, AudioSampler *_audioSampler4, AudioBinaural *_audioBinaural);
+	void setup(Gui *gui, GuiBinaural *_guiBinaural, AudioSampler *_audioSampler1, AudioSampler *_audioSampler2, AudioSampler *_audioSampler3, AudioSampler *_audioSampler4, AudioTonicBinaural *_audioTonicBinaural);
 	void update();
     float getCurrentTimeMillis();
     void saveAutomation();
@@ -38,7 +38,7 @@ class MainTimeline {
 
     Gui *Mgui;
     GuiBinaural *MguiBinaural;
-    AudioBinaural *audioBinaural;
+    AudioTonicBinaural *audioTonicBinaural;
     AudioSampler *audioSampler1;
     AudioSampler *audioSampler2;
     AudioSampler *audioSampler3;

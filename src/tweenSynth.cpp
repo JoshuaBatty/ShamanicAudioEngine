@@ -10,15 +10,15 @@
 
 
 //--------------------------------------------------------------
-void TweenSynth::setup(AudioBinaural *_audioBinaural, AudioTonic *_audioTonic)
+void TweenSynth::setup(AudioTonicBinaural *_audioTonicBinaural, AudioTonic *_audioTonic)
 {
-    audioBinaural = _audioBinaural;
+    audioTonicBinaural = _audioTonicBinaural;
     audioTonic = _audioTonic;
 
     //init temps
-    tempBinVolume = audioBinaural->volume;
-    tempBinOscPitch = audioBinaural->osc1Pitch;
-    tempBinOscOffset = audioBinaural->osc2Pitch;
+    tempBinVolume = audioTonicBinaural->Volume;
+    tempBinOscPitch = audioTonicBinaural->CarrierPitch;
+    tempBinOscOffset = audioTonicBinaural->CarrierOffset;
     
     tempSynthVolume = audioTonic->Volume;
     tempSynthCarrierPitch = audioTonic->CarrierPitch;
@@ -50,15 +50,16 @@ void TweenSynth::update()
     /////////////////////////////////////////////////
     //Volume
     if(tweenBinVolume.isRunning()){
-        audioBinaural->volume=tweenBinVolume.update();
+        audioTonicBinaural->Volume=tweenBinVolume.update();
+        audioTonicBinaural->triggerFMparams();
     }
     //Pitch
     if(tweenBinOscPitch.isRunning()){
-        audioBinaural->osc1Pitch=tweenBinOscPitch.update();
+        audioTonicBinaural->CarrierPitch=tweenBinOscPitch.update();
     }
     //Offset
     if(tweenBinOscOffset.isRunning()){
-        audioBinaural->osc2Pitch=tweenBinOscOffset.update();
+        audioTonicBinaural->CarrierOffset=tweenBinOscOffset.update();
     }
     /////////////////////////////////////////////////
     ///////////////// FM TONIC //////////////////////
@@ -101,9 +102,9 @@ void TweenSynth::update()
 
 //--------------------------------------------------------------
 void TweenSynth::setEasings(ofxEasing *_easingType){
-    tweenBinVolume.setParameters(1,*(_easingType),ofxTween::easeOut,tempBinVolume,audioBinaural->volume,duration,delay);
-    tweenBinOscPitch.setParameters(1,*(_easingType),ofxTween::easeOut,tempBinOscPitch,audioBinaural->osc1Pitch,duration,delay);
-    tweenBinOscOffset.setParameters(2,*(_easingType),ofxTween::easeOut,tempBinOscOffset,audioBinaural->osc2Pitch,duration,delay);
+    tweenBinVolume.setParameters(1,*(_easingType),ofxTween::easeOut,tempBinVolume,audioTonicBinaural->Volume,duration,delay);
+    tweenBinOscPitch.setParameters(1,*(_easingType),ofxTween::easeOut,tempBinOscPitch,audioTonicBinaural->CarrierPitch,duration,delay);
+    tweenBinOscOffset.setParameters(2,*(_easingType),ofxTween::easeOut,tempBinOscOffset,audioTonicBinaural->CarrierOffset,duration,delay);
     tweenSynthVolume.setParameters(3,*(_easingType),ofxTween::easeOut,tempSynthVolume,audioTonic->Volume,duration,delay);
     tweenSynthCarrierPitch.setParameters(4,*(_easingType),ofxTween::easeOut,tempSynthCarrierPitch,audioTonic->CarrierPitch,duration,delay);
     tweenSynthCarrierOffset.setParameters(5,*(_easingType),ofxTween::easeOut,tempSynthCarrierOffset,audioTonic->CarrierOffset,duration,delay);
@@ -138,9 +139,9 @@ void TweenSynth::trigger2()
 //--------------------------------------------------------------
 void TweenSynth::catchTempVariables()
 {
-    tempBinVolume = audioBinaural->volume;
-    tempBinOscPitch = audioBinaural->osc1Pitch;
-    tempBinOscOffset = audioBinaural->osc2Pitch;
+    tempBinVolume = audioTonicBinaural->Volume;
+    tempBinOscPitch = audioTonicBinaural->CarrierPitch;
+    tempBinOscOffset = audioTonicBinaural->CarrierOffset;
     
     tempSynthVolume = audioTonic->Volume;
     tempSynthCarrierPitch = audioTonic->CarrierPitch;

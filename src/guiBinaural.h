@@ -11,7 +11,7 @@
 
 #include "ofMain.h"
 #include "ofxUI.h"
-#include "audioBinaural.h"
+#include "AudioTonicBinaural.h"
 #include "AudioTonic.h"
 #include "tweenSynth.h"
 
@@ -19,10 +19,10 @@ class GuiBinaural {
 	
 	public :
 	~GuiBinaural();/* deconsructor is very useful */
-	void setup(TweenSynth *_tweenSynth, AudioBinaural *_audioBinaural, AudioTonic *_audioTonic);
+	void setup(TweenSynth *_tweenSynth, AudioTonicBinaural *_audioTonicBinaural, AudioTonic *_audioTonic);
     
     AudioTonic *audioTonic;
-    AudioBinaural *audioBinaural;
+    AudioTonicBinaural *audioTonicBinaural;
     TweenSynth *tweenSynth;
     
     //Gui

@@ -12,12 +12,12 @@
 #include "ofMain.h"
 #include "ofxTween.h"
 #include "audioTonic.h"
-#include "audioBinaural.h"
+#include "audioTonicBinaural.h"
 
 class TweenSynth {
 	
 	public :
-	void setup(AudioBinaural *_audioBinaural, AudioTonic *_audioTonic);
+	void setup(AudioTonicBinaural *_audioTonicBinaural, AudioTonic *_audioTonic);
     void update();
     void trigger2();
     void setEasingType(int _easingType);
@@ -25,7 +25,7 @@ class TweenSynth {
 
     void catchTempVariables();
     
-    AudioBinaural  *audioBinaural;
+    AudioTonicBinaural  *audioTonicBinaural;
     AudioTonic     *audioTonic;
     
     ofxTween tweenBinVolume;

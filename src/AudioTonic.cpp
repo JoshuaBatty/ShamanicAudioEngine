@@ -18,10 +18,11 @@ void AudioTonic::setSampleRate( int rate )
 //--------------------------------------------------------------
 void AudioTonic::setup()
 {
-	volume	= 0.79f;
+	volume	= 0.0f;
+//	volume	= 0.79f;
     
     //TONIC AUDIO STUFF
-    ControlParameter volume = synth.addParameter("volume", -8.f).displayName("Volume (dbFS)").min(-60.f).max(0.f);
+    ControlParameter volume = synth.addParameter("volume", -58.f).displayName("Volume (dbFS)").min(-60.f).max(0.f);
     ControlParameter carrierPitch = synth.addParameter("carrierPitch", 20.f).displayName("Carrier Pitch").min(20.f).max(32.f);
     ControlParameter carrierOffset = synth.addParameter("carrierOffset", 1.f).displayName("Carrier Offset").min(0.f).max(8.f);
     ControlParameter modIndex = synth.addParameter("modIndex", 0.25f).displayName("FM Amount").min(0.f).max(10.0f);
@@ -33,23 +34,25 @@ void AudioTonic::setup()
     Generator rCarrierFreq = ControlMidiToFreq().input(carrierPitch).smoothed();
     Generator rModFreq     = rCarrierFreq * 4.0f;
 
+    float smoothTime = 0.1;
+    
     osc1 = SineWave()
     .freq( rCarrierFreq
           + (
              SineWave().freq( rModFreq ) *
              rModFreq *
-             (modIndex.smoothed() * (1.0f + SineWave().freq(modLfoSpeed) * modLfoAmt * 0.5f))
+             (modIndex.smoothed(smoothTime) * (1.0f + SineWave().freq(modLfoSpeed.smoothed(smoothTime)) * modLfoAmt.smoothed(smoothTime) * 0.5f))
              )
-          ) * (1.0f + SineWave().freq(ampLfoSpeed) * ampLfoAmt + 0.25) * ControlDbToLinear().input(volume).smoothed();
+          ) * (1.0f + SineWave().freq(ampLfoSpeed.smoothed(smoothTime)) * ampLfoAmt.smoothed(smoothTime) + 0.25) * ControlDbToLinear().input(volume).smoothed(smoothTime);
     
     osc2 = SineWave()
-    .freq( rCarrierFreq + carrierOffset
+    .freq( rCarrierFreq + carrierOffset.smoothed(smoothTime)
           + (
              SineWave().freq( rModFreq ) *
              rModFreq *
-             (modIndex.smoothed() * (1.0f + SineWave().freq(modLfoSpeed) * modLfoAmt * 0.5f))
+             (modIndex.smoothed(smoothTime) * (1.0f + SineWave().freq(modLfoSpeed.smoothed(smoothTime)) * modLfoAmt.smoothed(smoothTime) * 0.5f))
              )
-          ) * (1.0f + SineWave().freq(ampLfoSpeed) * ampLfoAmt + 0.25) * ControlDbToLinear().input(volume).smoothed();
+          ) * (1.0f + SineWave().freq(ampLfoSpeed.smoothed(smoothTime)) * ampLfoAmt.smoothed(smoothTime) + 0.25) * ControlDbToLinear().input(volume).smoothed(smoothTime);
     
     synth.setOutputGen(osc1 * osc2);
 

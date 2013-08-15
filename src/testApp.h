@@ -2,7 +2,7 @@
 
 #include "ofMain.h"
 #include "audioSample.h"
-#include "audioBinaural.h"
+#include "AudioTonicBinaural.h"
 #include "AudioTonic.h"
 #include "gui.h"
 #include "guiBinaural.h"
@@ -40,8 +40,8 @@ class testApp : public ofBaseApp{
     
     //Audio out
     ofSoundStream soundStream;
-	AudioBinaural audioBinaural;
     AudioTonic audioTonic;
+    AudioTonicBinaural audioTonicBinaural;
 
 	AudioSampler audioSample1; //Drums
 	AudioSampler audioSample2; //Bells
